@@ -1,33 +1,20 @@
 import React, { Component } from 'react';
-// import TarotMain from '../components/Tarot/TarotMain';
-// import * as tarotActions from '../store/modules/tarot';
+import CareersList from '../components/CareersList';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map, List } from 'immutable';
 
-class CareersContainer extends Component {
+class CareersListContainer extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    // const { TarotActions } = this.props;
   }
-
-  // handleClickClose = () => {
-  //   const { TarotActions } = this.props;
-
-  //   if(!window.confirm('Are you sure to stop?')) {
-  //     return;
-  //   }
-
-  //   TarotActions.reset();
-  //   this.props.history.push('/');
-  // }
 
   render() {
     return (
       <div>
-        Careers
+        <CareersList />
       </div>
     );
   }
@@ -55,4 +42,4 @@ export default connect(
   (dispatch) => ({
     // TarotActions: bindActionCreators(tarotActions, dispatch)
   })
-)(withRouter(CareersContainer));
+)(withRouter(CareersListContainer));

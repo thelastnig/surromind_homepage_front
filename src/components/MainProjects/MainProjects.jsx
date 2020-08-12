@@ -2,37 +2,83 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
-// import constants from config.js
+// import constants from constants.js
 import * as constants from '../../lib/constants'
 
 // import slider package
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
 import gandy0 from '../../images/gandy3.jpg'
 import gandy1 from '../../images/gandy4.jpg'
 import gandy2 from '../../images/gandy5.jpg'
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-class MainProjects extends Component {
-  render() {
-    const properties = {
-      duration: 5000,
-      transitionDuration: 300,
-    };
+import ArrowLeft from "@material-ui/icons/ArrowLeft";
+import ArrowRight from "@material-ui/icons/ArrowRight";
+import ButtonBase from "@material-ui/core/ButtonBase";
+
+
+class MainProjects extends Component {    
   
+  renderArrows = () => {
+    return (
+      <div className="slider-arrow">
+        <ButtonBase
+          className="arrow-btn prev"
+          onClick={() => this.slider.slickPrev()}
+        >
+          <ArrowLeft />
+        </ButtonBase>
+        <ButtonBase
+          className="arrow-btn next"
+          onClick={() => this.slider.slickNext()}
+        >
+          <ArrowRight />
+        </ButtonBase>
+      </div>
+    );
+  };
+
+  render() {
+    const settings = {
+      dots: true,
+      arrows: false,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+    };
+
+    const { handleClickArticle } = this.props;
+
     return (
       <Wrapper>
-        <Slide {...properties}>
-          <div className="eachSlide" style={{'backgroundImage': `url(${gandy0})`}}>
-            <span>Slide 1</span>
-          </div>
-          <div className="eachSlide" style={{'backgroundImage': `url(${gandy1})`}}>
-            <span>Slide 2</span>
-          </div>
-          <div className="eachSlide" style={{'backgroundImage': `url(${gandy2})`}}>
-            <span>Slide 3</span>
-          </div>
-        </Slide>
+        <div className='slideWrapper'>
+          {this.renderArrows()}
+          <Slider {...settings} ref={c => this.slider = c}>
+            <div className='eachSlide'>
+              <img src={gandy0} onClick={() => handleClickArticle('article1')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy1} onClick={() => handleClickArticle('article2')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy2} onClick={() => handleClickArticle('article3')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy0} onClick={() => handleClickArticle('article4')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy1} onClick={() => handleClickArticle('article5')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy2} onClick={() => handleClickArticle('article6')}/>
+            </div>
+            <div className='eachSlide'>
+              <img src={gandy2} onClick={() => handleClickArticle('article7')}/>
+            </div>
+          </Slider>
+        </div>
       </Wrapper>
     );
   }
@@ -42,22 +88,37 @@ export default MainProjects;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_PROJECT_HEIGHT}px;
+  height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;
 
-  .eachSlide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    height: ${constants.MAIN_PROJECT_HEIGHT}px;
+  .slideWrapper {
+    position: relative;
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
 
-    span {
-      padding: 20px;
-      font-size: 20px;
-      background: #efefef;
-      text-align: center;
+    img {
+      width: 300px;
     }
+  }
+
+  .slider-arrow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .arrow-btn {
+    top: 45%;
+    z-index: 1;
+  }
+  
+  .next {
+    float: right;
+  }
+
+  .eachSlide {
+    height: 500px;
   }
 `;
 

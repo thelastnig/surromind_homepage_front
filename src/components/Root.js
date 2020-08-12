@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { MainPage, CareersPage, ContactPage } from '../pages';
+import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
+  CareersListPage, CareersViewPage, ContactPage } from '../pages';
 import styled from 'styled-components';
 
 const Root = () => {
@@ -9,7 +10,14 @@ const Root = () => {
         <div className="innerWrapper">
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route path="/careers" component={CareersPage} />
+            <Route exact path="/surromindnews/list/:page" component={NewsListPage} />
+            <Route exact path="/surromindnews/article/:articleID" component={NewsViewPage} />
+            <Route exact path="/project/list/:page" component={ProjectListPage} />
+            <Route exact path="/project/content/:projectID" component={ProjectViewPage} />
+            <Route exact path="/rnd/list/:page" component={RNDListPage} />
+            <Route exact path="/rnd/content/:rndID" component={RNDViewPage} />
+            <Route exact path="/careers/list/:page" component={CareersListPage} />
+            <Route exact path="/careers/content/:careerID" component={CareersViewPage} />
             <Route path="/contact" component={ContactPage} />
           </Switch>
         </div>

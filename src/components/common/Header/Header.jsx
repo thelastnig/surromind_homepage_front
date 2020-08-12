@@ -22,19 +22,19 @@ class Header extends Component {
           <div className="leftItem">
             <div className="styledLink" onClick={handleClickHome}>HOME</div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Surromind News</div> 
+              <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
             </div>
             <div className="barMenu">
               <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
             </div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/')}>R&D</div> 
+              <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
             </div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Project</div> 
+              <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
             </div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/careers')}>Careers</div> 
+              <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
             </div>
             <div className="barMenu">
               <div className="styledLink" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
