@@ -117,8 +117,8 @@ const fromRightToCenter = keyframes`
     width: 200px;
     height: 200px; 
     top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    left: 100%;
+    transform: translate(-100%, -50%);
    }
   100% { 
     width: 600px;
@@ -169,13 +169,10 @@ const fadeOutToLeft = keyframes`
     left: 0;
     transform: translateY(-50%);
   }
-  50% { 
-    top: 50%;
-    left: -25%;
-    transform: translateY(-50%);
-  }
   100% { 
-    opacity: 0%;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
   }
 `;
 
@@ -185,50 +182,36 @@ const fadeOutToRight = keyframes`
     left: 100%;
     transform: translate(-100%, -50%);
   }
-  50% { 
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-  }
   100% { 
     top: 50%;
     left: 100%;
-    transform: translate(-50%, -50%);
-    opacity: 0%;
+    transform: translate(0%, -50%);
   }
 `;
 
 const fadeInFromLeft = keyframes`
   0% { 
     top: 50%;
-    left: -25%;
-    transform: translateY(-50%);
-  }
-  50% { 
-    top: 50%;
-    left: -25%;
-    transform: translateY(-50%);
-    opacity: 100%;
+    left: 0;
+    transform: translate(-100%, -50%);
   }
   100% { 
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    opacity: 100%;
   }
 `;
 
 const fadeInFromRight = keyframes`
   0% { 
     top: 50%;
-    right: -50%;
-    transform: translateY(-50%);
+    left: 100%;
+    transform: translate(0%, -50%);
   }
   100% { 
     top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-  }
+    left: 100%;
+    transform: translate(-100%, -50%);
 `;
 
 
@@ -251,6 +234,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
     border: 1px solid red;
     position: relative;
+    overflow: hidden;
 
     .aniItem {
       width: 200px;
