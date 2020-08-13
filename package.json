@@ -21,6 +21,7 @@
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.4",
     "react-slideshow-image": "^3.0.2",
+    "react-spring": "^8.0.27",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
     "redux-pender": "^2.0.12",

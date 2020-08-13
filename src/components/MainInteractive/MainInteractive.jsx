@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import { fadeOutLeft } from 'react-animations';
+import { useSpring, animated } from 'react-spring';
+import { pulse } from 'react-animations';
 
 import oc from 'open-color';
 
-// import constants from config.js
+// import constants from constants.js
 import * as constants from '../../lib/constants'
 
 // import slider package
@@ -14,7 +15,42 @@ import * as constants from '../../lib/constants'
 // import gandy1 from '../../images/gandy4.jpg'
 // import gandy2 from '../../images/gandy5.jpg'
 import background from '../../images/19742.jpg'
+import device from '../../images/device.png'
 
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const trans1 = (x, y) => `translate3d(${x / 10}px, ${y / 10}px, 0)`
+const trans1s = (x, y) => `translate3d(${x / 10}px, ${y / 10}px, 0)`
+const trans2 = (x, y) => `translate3d(${x / 8 + 35}px, ${y / 8 - 230}px, 0)`
+const trans3 = (x, y) => `translate3d(${x / 6 - 250}px, ${y / 6 - 200}px, 0)`
+const trans4 = (x, y) => `translate3d(${x / 3.5}px, ${y / 3.5}px, 0)`
+
+function Card() {
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  return (
+    <div class="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+      <animated.div class="card1" style={{ transform: props.xy.interpolate(trans1) }}/>
+      <dic className='aniText center'>
+            Image
+      </dic>
+      {/* <animated.div class="card2" style={{ transform: props.xy.interpolate(trans2) }} />
+      <animated.div class="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      <animated.div class="card4" style={{ transform: props.xy.interpolate(trans4) }} /> */}
+    </div>
+  )
+}
+function Card2() {
+  return (
+    <div class="container" >
+      <animated.div class="card1" />
+      <dic className='aniText center'>
+            Image
+      </dic>
+      {/* <animated.div class="card2" style={{ transform: props.xy.interpolate(trans2) }} />
+      <animated.div class="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      <animated.div class="card4" style={{ transform: props.xy.interpolate(trans4) }} /> */}
+    </div>
+  )
+}
 
 class MainInteractive extends Component {
   state = {
@@ -52,24 +88,40 @@ class MainInteractive extends Component {
   }
 
   render() {
-    const { isLeftClick, isCenterClick, isRightClick, isLeftOut, isRightOut } = this.state
-    console.log('isLeftClick:' + isLeftClick )
-    console.log('isCenterClick:' + isCenterClick )
-    console.log('isRightClick:' + isRightClick )
-    console.log('isLeftOut:' + isLeftOut )
-    console.log('isRightOut:' + isRightOut )
     // const properties = {
     //   duration: 5000,
     //   transitionDuration: 300,
     // };
+
+    const  { isLeftClick, isCenterClick, isRightClick, isLeftOut, isRightOut } = this.state;
   
     return (
       <Wrapper isLeftClick={isLeftClick} isCenterClick={isCenterClick} isRightClick={isRightClick} isLeftOut={isLeftOut} isRightOut={isRightOut} >
         <div className='background'>
           <div className='aniWrapper'>
-            <div className='aniItem left' onClick={() => this.onItemClick('isLeftClick')}>left</div>
-            <div className='aniItem center' onClick={() => this.onItemClick('isCenterClick')}>center</div>
-            <div className='aniItem right' onClick={() => this.onItemClick('isRightClick')}>right</div>
+            <div className='aniItem left' onClick={() => this.onItemClick('isLeftClick')}>
+              <div className='aniInnerItem left'>
+                <div classname='aniImage'>
+                </div>
+              </div>
+            </div>
+            <div className='aniItem center' onClick={() => this.onItemClick('isCenterClick')}>
+              <div className='aniInnerItem center'>
+                {isCenterClick 
+                  ? 
+                  <Card>
+                  </Card>
+                  :
+                  <Card2>
+                    </Card2>
+                  }
+              </div>
+            </div>
+            <div className='aniItem right' onClick={() => this.onItemClick('isRightClick')}>
+              <div className='aniInnerItem right'>
+                <div classname='aniImage'></div>
+              </div>
+            </div>
           </div>
         {/* <Slide {...properties}>
           <div className="eachSlide" style={{'backgroundImage': `url(${gandy0})`}}>
@@ -94,6 +146,8 @@ const animate = keyframes`
   0% { background-position: 0% 50% }
   100% { background-position: 100% 50% 0% }
 `; 
+
+const pulseAnimation = keyframes`${pulse}`;
 
 const fromLeftToCenter = keyframes`
   0% {
@@ -212,6 +266,46 @@ const fadeInFromRight = keyframes`
     top: 50%;
     left: 100%;
     transform: translate(-100%, -50%);
+  }
+`;
+
+const toTransparent = keyframes`
+  0% { 
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid gray;
+  }
+  100% { 
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+`;
+
+const ToColor = keyframes`
+  0% { 
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+  100% { 
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid gray;
+  }
+`;
+
+const ToTextBigger = keyframes`
+  0% { 
+    font-size: 20px;
+  100% { 
+    font-size: 70px;
+  }
+`;
+
+const ToTextSmaller = keyframes`
+  0% { 
+    font-size: 70px;
+  }
+  100% { 
+    font-size: 20px;
+  }
 `;
 
 
@@ -239,13 +333,18 @@ const Wrapper = styled.div`
     .aniItem {
       width: 200px;
       height: 200px;
-      border: 1px solid green;
       position: absolute;
+      border-radius: 50%;
+      behavior: url(PIE.htc); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &.left {
         top: 50%;
         left: 0;
         transform: translateY(-50%);
+        border: 1px solid green;
         ${props => {
           if (props.isLeftClick) {
               return css `animation: 1s ${fromLeftToCenter} forwards`;
@@ -268,6 +367,7 @@ const Wrapper = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        border: 1px solid orange;
         ${props => {
           if (props.isCenterClick && !props.isLeftOut && !props.isRightOut) {
               return;
@@ -291,6 +391,7 @@ const Wrapper = styled.div`
         top: 50%;
         left: 100%;
         transform: translate(-100%, -50%);
+        border: 1px solid yellow;
         ${props => {
           if (props.isRightClick) {
               return css `animation: 1s ${fromRightToCenter} forwards`;
@@ -307,12 +408,133 @@ const Wrapper = styled.div`
         }}
       }
     }
+
+    .aniInnerItem {
+      width: 95%;
+      height: 95%;
+      margin: 0 auto;
+      border-radius: 50%;
+      behavior: url(PIE.htc); 
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.left {
+        ${props => {
+          if (props.isLeftClick) {
+              return css `animation: 1s ${ToColor} forwards`;
+          }
+          else if (!props.isLeftClick && props.isCenterClick) {
+              return css `animation: 1s ${toTransparent} forwards`;
+          }
+        }}
+      }
+      
+      &.center {
+        border: 1px solid gray;
+        background-color: rgba(255, 255, 255, 1);
+        ${props => {
+          if (props.isCenterClick) {
+              return css `animation: 1s ${ToColor} forwards`;
+          }
+          else if (!props.isCenterClick) {
+              return css `animation: 1s ${toTransparent} forwards`;
+          }
+        }}
+        
+      }
+      
+      &.right {
+        ${props => {
+          if (props.isRightClick) {
+              return css `animation: 1s ${ToColor} forwards`;
+          }
+          else if (!props.isRightClick && props.isCenterClick) {
+              return css `animation: 1s ${toTransparent} forwards`;
+          }
+        }}
+      }
+    }
+
+    .aniText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: orange;
+
+      &.center {
+        font-size: 70px;
+        color: orange;
+        ${props => {
+          if (props.isCenterClick) {
+              return css `
+                -webkit-animation-duration: 1s;
+                -webkit-animation-name: ${ToTextBigger};
+                -webkit-animation-fill-mode: forwards;
+              `;
+          }
+          else if (!props.isCenterClick) {
+              return css `
+                -webkit-animation-duration: 1s;
+                -webkit-animation-name: ${ToTextSmaller};
+                -webkit-animation-fill-mode: forwards;
+              `;
+          }
+        }}
+      }
+    }
+
+    
+    .card1,
+    .card2,
+    .card3,
+    .card4 {
+      position: absolute;
+      border-radius: 5px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      will-change: transform;
+    }
+    
+    .card1 {
+      width: 90%;
+      height: 90%;
+      background-image: url(${device});
+    }
+    
+    .card2 {
+      width: 40%;
+      height: 40%;
+      background-image: url(https://image.flaticon.com/icons/svg/789/789395.svg);
+    }
+    
+    .card3 {
+      opacity: 0.9;
+      width: 30%;
+      height: 30%;
+      background-image: url(https://image.flaticon.com/icons/svg/414/414927.svg);
+    }
+    
+    .card4 {
+      width: 30%;
+      height: 30%;
+      background-image: url(https://image.flaticon.com/icons/svg/789/789392.svg);
+    }
+    
+    .container {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   }
-
-
-
-
-
 
 
 
