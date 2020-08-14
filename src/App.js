@@ -21,18 +21,20 @@ class App extends Component {
     return (
       <BrowserRouter>
         <OuterWrapper>
-          <HeaderWrapper>
-            <HeaderContainer/>
-          </HeaderWrapper> 
-          <RootWrapper>
-            <Root/>
-          </RootWrapper>
-          <ContactWrapper>
-            <ContactComponentContainer/>
-          </ContactWrapper>
-          <FooterWrapper>
-            <FooterContainer/>
-          </FooterWrapper>
+          <InnerWrapper>
+            <HeaderWrapper>
+              <HeaderContainer/>
+            </HeaderWrapper> 
+            <RootWrapper>
+              <Root/>
+            </RootWrapper>
+            <ContactWrapper>
+              <ContactComponentContainer/>
+            </ContactWrapper>
+            <FooterWrapper>
+              <FooterContainer/>
+            </FooterWrapper>
+          </InnerWrapper>
         </OuterWrapper>
       </BrowserRouter>
     );
@@ -57,23 +59,26 @@ const OuterWrapper = styled.div`
   margin: 0 auto;
 `;
 
+const InnerWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+
+`;
+
 const HeaderWrapper = styled.div`
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: ${constants.HEADER_HEIGHT}px;
   top:0;
   left: 0;
   z-index: 100;
-
-  border: 1px solid green;
   background: white;
+  box-shadow: 0 3px 5px rgba(200, 200, 200, 0.7);
 `;
 
 const RootWrapper = styled.div`
   width: 100%;
-  margin-top: 100px;
-
-  border: 1px solid red;
+  margin-top: ${constants.HEADER_HEIGHT}px;
 `;
 
 const ContactWrapper = styled.div`

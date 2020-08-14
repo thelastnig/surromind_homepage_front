@@ -13,7 +13,7 @@ const MainPage = () => {
   return (
     <div>
       <MainSliderContainer/>
-      <MainInteractiveContainer/>
+      {/* <MainInteractiveContainer/> */}
       <MainNewsContainer/>
       <MainCompanyContainer/>
       <MainRNDContainer/>

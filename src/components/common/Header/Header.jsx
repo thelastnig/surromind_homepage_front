@@ -4,6 +4,13 @@ import { Link, withRouter } from 'react-router-dom';
 import oc from 'open-color';
 import Button from '@material-ui/core/Button';
 
+// import constants from config.js
+import * as constants from '../../../lib/constants';
+
+// import images
+import surroLogo from '../../../images/surromind_logo_new.png';
+import iconGlobal from '../../../images/iconGlobal.png';
+
 class Header extends Component {
 
 
@@ -20,7 +27,11 @@ class Header extends Component {
       <div>
         <HeaderWrapper>
           <div className="leftItem">
-            <div className="styledLink" onClick={handleClickHome}>HOME</div>
+            <div className="styledLink" onClick={handleClickHome}>
+              <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
+            </div>
+          </div>
+          <div className="centerItem">
             <div className="barMenu">
               <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
             </div>
@@ -37,16 +48,15 @@ class Header extends Component {
               <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
             </div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+              <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
             </div>
-          </div>
-          <div className="centerItem">
-            
           </div>
           <div className="rightItem">
-            <div className="iconSearchWrapper">
+            <div className="rightIcon">
+              <img src={iconGlobal} alt='Icon Global for language selection' height='16px'/>
             </div>
-            <div className="iconMenuWrapper">
+            <div className="rightText">
+              KOR
             </div>
           </div>
         </HeaderWrapper>
@@ -59,46 +69,62 @@ export default withRouter(Header);
 
 
 const HeaderWrapper = styled.div`
-  width: 100%;
-  height: 100px;
+  width: ${constants.TOTAL_WIDTH}px;
+  height: ${constants.HEADER_HEIGHT}px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   .leftItem {
-    padding: 0 50px;
+    width: 20%;
+    height: 20px;
     display: flex;
     align-items: center;
-    width: 700px;
-    justify-content: space-between;
-    border: 1px solid black;
+
+    .ImgLogo {
+      height: 20px;
+    }
 
     @media (max-width: 768px) {
       display: none;
     };
-
-    .barMenu {
-      text-align: center;
-      font-size: 14px;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    .styledLink {
-      color: ${oc.violet[9]};
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-
-      }
-    }
   }
 
   .centerItem {
+    width: 60%;
+    height: ${constants.HEADER_HEIGHT / 2}px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+
+    .barMenu {
+      height: ${constants.HEADER_HEIGHT / 2}px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Roboto', Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: ${oc.gray[8]};
+      margin-left: 40px;
+    }
+
+    .styledLink {
+      font-family: 'Roboto', Helvetica, sans-serif;
+      font-size: 14px;
+      color: ${oc.gray[8]}
+      text-decoration: none;
+
+      &.contact {
+        color: #1dc1bc;
+        font-weight: 500;
+      }
+
+      &:hover {
+        color: ${constants.POINT_COLOR};
+      }
+    }
 
     @media (max-width: 768px) {
       display: none;
@@ -111,10 +137,22 @@ const HeaderWrapper = styled.div`
   }
 
   .rightItem {
-    padding: 0 50px;
+    width: 20%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+
+    .rightIcon {
+      padding-top: 2px;
+    }
+
+    .rightText {
+      margin-left: 10px;
+      font-family: 'Roboto', Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: ${oc.gray[8]};
+    }
 
     @media (max-width: 768px) {
       width: 100%;
