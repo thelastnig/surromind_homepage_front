@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import oc from 'open-color';
 import Button from '@material-ui/core/Button';
 
-// import constants from config.js
+// import constants from constants.js
 import * as constants from '../../../lib/constants';
 
 // import images
@@ -12,7 +12,6 @@ import surroLogo from '../../../images/surromind_logo_new.png';
 import iconGlobal from '../../../images/iconGlobal.png';
 
 class Header extends Component {
-
 
   handleMenuClick = (url) => {
     this.props.history.push(url);
@@ -103,15 +102,13 @@ const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 14px;
       font-weight: 500;
       color: ${oc.gray[8]};
-      margin-left: 40px;
+      margin-left: ${constants.HEADER_BAR_MENU_MARGIN}px;
     }
 
     .styledLink {
-      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 14px;
       color: ${oc.gray[8]}
       text-decoration: none;
@@ -148,7 +145,6 @@ const HeaderWrapper = styled.div`
 
     .rightText {
       margin-left: 10px;
-      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 14px;
       font-weight: 400;
       color: ${oc.gray[8]};

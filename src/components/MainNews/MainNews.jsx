@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
+import { Link, withRouter } from 'react-router-dom';
 
-// import constants from config.js
+// import constants from constants.js
 import * as constants from '../../lib/constants'
 
 // import news contents from mainNews.js
 import mainNewsContents from '../../lib/mainNews';
 
 class MainNews extends Component {
+  
+  handleMoreClick = () => {
+    this.props.history.push('/surromindnews/list/1');
+  }
+
   render() {
     const newsItems = mainNewsContents.map((item, index) => {
       const style = {
@@ -36,7 +42,7 @@ class MainNews extends Component {
               SurroMind<br/>News
             </div>
             <div className="innerLeftLowerLink">
-              More
+              <div className="styledLink" onClick={this.handleMoreClick}>MORE +</div>
             </div>
           </div>
           <div className="innerRight">
@@ -48,21 +54,19 @@ class MainNews extends Component {
   }
 }
 
-export default MainNews;
+export default withRouter(MainNews);
 
 const Wrapper = styled.div`
   width: ${constants.TOTAL_WIDTH}px;
   height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
   margin: 0 auto;
 
-  border: 1px solid black;
   display: flex;
   align-items: center;
 
   .newsInnerWrapper {
     width: 100%;
     height: ${constants.MAIN_NEWS_AREA_HEIGHT / 2}px;
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,7 +80,6 @@ const Wrapper = styled.div`
     justify-content: space-between;
 
     .innerLeftUpperText {
-      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 34px;
       font-weight: 500;
       color: ${oc.gray[8]};
@@ -84,8 +87,17 @@ const Wrapper = styled.div`
     }
 
     .innerLeftLowerLink {
-      font-family: 'Roboto', Helvetica, sans-serif;
+      cursor: pointer;
 
+      .styledLink {
+        font-size: 16px;
+        color: ${oc.gray[8]};
+        text-decoration: none;
+  
+        &:hover {
+          color: ${constants.POINT_COLOR};
+        }
+      }
     }
   }
 
@@ -136,10 +148,12 @@ const Wrapper = styled.div`
       .itemDate {
         font-size: 12px;
         font-weight: 300;
-
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
 
       .itemTitle {
+        font-family: ${constants.KOR_FONT};
         font-size: 20px;
       }
     }

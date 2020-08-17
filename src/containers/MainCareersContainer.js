@@ -10,21 +10,6 @@ import MainCareers from '../components/MainCareers';
 
 class MainCareersContainer extends Component {
 
-  componentDidMount() {
-    // const { TarotActions } = this.props;
-  }
-
-  // handleClickClose = () => {
-  //   const { TarotActions } = this.props;
-
-  //   if(!window.confirm('Are you sure to stop?')) {
-  //     return;
-  //   }
-
-  //   TarotActions.reset();
-  //   this.props.history.push('/');
-  // }
-
   render() {
     return (
       <div>
@@ -34,26 +19,9 @@ class MainCareersContainer extends Component {
   }
 }
 
-
 export default connect(
   (state) => ({
-    // isLowerHidden: state.tarot.get('isLowerHidden'),
-    // tarotType: state.tarot.get('tarotType'),
-    // tarotCardNum: state.tarot.get('tarotCardNum'),
-    // tarotCardProcess: state.tarot.get('tarotCardProcess').toJS(),
-    // tarotProcessColor: state.tarot.get('tarotProcessColor').toJS(),
-    // tarotPosition: state.tarot.get('tarotPosition').toJS(),
-    // selectedTarot: state.tarot.get('selectedTarot').toJS(),
-    // isModalVisible: state.tarot.get('isModalVisible'),
-    // currentTarot: state.tarot.get('currentTarot'),
-    // currentIndex: state.tarot.get('currentIndex'),
-    // tarotQuestion: state.tarot.get('tarotQuestion'),
-    // zodiacSign: state.tarot.get('zodiacSign'),
-    // tarotProcess: state.tarot.get('tarotProcess'),
-    // logged: state.user.get('logged'),
-    // loggedInfo: state.user.get('loggedInfo').toJS(),
   }),
   (dispatch) => ({
-    // TarotActions: bindActionCreators(tarotActions, dispatch)
   })
 )(withRouter(MainCareersContainer));

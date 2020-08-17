@@ -119,7 +119,7 @@ const Wrapper = styled.div`
       color: white;
       font-size: 50px;
       font-weight: 500;
-      font-family: 'NanumSquare', Helvetica, sans-serif;
+      font-family: ${constants.KOR_FONT};
       line-height: 1.5em;
     }
   }

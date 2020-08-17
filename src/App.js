@@ -9,7 +9,7 @@ import oc from 'open-color';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import constants from config.js
+// import constants from constants.js
 import * as constants from './lib/constants';
 
 class App extends Component {
@@ -26,13 +26,13 @@ class App extends Component {
               <HeaderContainer/>
             </HeaderWrapper> 
             <RootWrapper>
-              <Root/>
+              <div className='limitWrapper'><Root/></div>
             </RootWrapper>
             <ContactWrapper>
-              <ContactComponentContainer/>
+              <div className='limitWrapper'><ContactComponentContainer/></div>
             </ContactWrapper>
             <FooterWrapper>
-              <FooterContainer/>
+              <div className='limitWrapper'><FooterContainer/></div>
             </FooterWrapper>
           </InnerWrapper>
         </OuterWrapper>
@@ -63,6 +63,10 @@ const InnerWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
 
+  .limitWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+  }
 `;
 
 const HeaderWrapper = styled.div`
@@ -83,12 +87,9 @@ const RootWrapper = styled.div`
 
 const ContactWrapper = styled.div`
   width: 100%;
-  border: 1px blue solid;
 `;
 
 const FooterWrapper = styled.div`
   width: 100%;
   height: ${constants.FOOTER_HEIGHT}px;
-
-  border: 1px black solid;
 `;

@@ -88,8 +88,9 @@ export default MainProjects;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_SLIDER_HEIGHT}px;
+  height: ${constants.MAIN_PROJECT_HEIGHT}px;
   margin: 0 auto;
+  background-color: #EBEBEB;
 
   .slideWrapper {
     position: relative;
