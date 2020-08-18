@@ -25,6 +25,20 @@ const project = [
     subTitle: 'Project C detail',
     image: ImgProject3,
   },
+  {
+    id: 4,
+    type: 'PROJECT',
+    title: 'Project D',
+    subTitle: 'Project D detail',
+    image: ImgProject1,
+  },
+  {
+    id: 5,
+    type: 'PROJECT',
+    title: 'Project E',
+    subTitle: 'Project E detail',
+    image: ImgProject2,
+  },
 ]
 
 export default project;

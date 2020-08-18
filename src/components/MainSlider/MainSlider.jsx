@@ -15,28 +15,36 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import ArrowLeft from "@material-ui/icons/ArrowLeft";
-import ArrowRight from "@material-ui/icons/ArrowRight";
+import ArrowLeft from "@material-ui/icons/ArrowBackIos";
+import ArrowRight from "@material-ui/icons/ArrowForwardIos";
 import ButtonBase from "@material-ui/core/ButtonBase";
+
+
+
+const StyledArrowLeft = styled(ArrowLeft)`
+  font-size: 50px;
+`;
 
 
 class MainSlider extends Component {    
   
   renderArrows = () => {
     return (
-      <div className="slider-arrow">
-        <ButtonBase
-          className="arrow-btn prev"
-          onClick={() => this.slider.slickPrev()}
-        >
-          <ArrowLeft />
-        </ButtonBase>
-        <ButtonBase
-          className="arrow-btn next"
-          onClick={() => this.slider.slickNext()}
-        >
-          <ArrowRight />
-        </ButtonBase>
+      <div className="sliderArrow">
+        <div className='arrowInnerWrapper'>
+          <ButtonBase
+            className="arrowBtn prev"
+            onClick={() => this.slider.slickPrev()}
+          >
+            <StyledArrowLeft />
+          </ButtonBase>
+          <ButtonBase
+            className="arrowBtn next"
+            onClick={() => this.slider.slickNext()}
+          >
+            <ArrowRight />
+          </ButtonBase>
+        </div>
       </div>
     );
   };
@@ -128,23 +136,30 @@ const Wrapper = styled.div`
     position: relative;
   }
 
-  .slider-arrow {
+  .sliderArrow {
     position: absolute;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
-  .arrow-btn {
-    top: 45%;
-    z-index: 1;
-  }
+  .arrowInnerWrapper {
+    width: 95vw;
+    height: 100%;
+    margin: 0 auto;
   
-  .next {
-    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .arrowBtn {
+    z-index: 1;
   }
 
   .eachSlide {
     position: relative;
   }
 `;
-

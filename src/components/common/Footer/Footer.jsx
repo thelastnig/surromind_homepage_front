@@ -198,7 +198,6 @@ const Wrapper = styled.div`
       font-size: 12px;
       font-family: ${constants.NOTO_FONT};
       color: ${oc.gray[8]};
-
     }
 
     .rightItem {

@@ -1,6 +1,7 @@
 export const LIMIT_WIDTH = '1920';
 export const TOTAL_WIDTH = '1400';
 export const HEADER_HEIGHT = '46';
+export const VIEW_PAGE_MIN_HEIGHT = '500';
 
 export const MAIN_SLIDER_HEIGHT = '630';
 export const MAIN_INTERACTIVE_HEIGHT = '700';
@@ -24,3 +25,6 @@ export const MAIN_SUB_TITLE_SIZE = '18';
 
 export const MAIN_ITEM_TITLE_SIZE = '24';
 export const MAIN_ITEM_SUB_TITLE_SIZE = '16';
+
+export const UPPER_IMAGE_HEIGHT = '450';
+export const NEWS_CONTENT_WIDTH = '800';
