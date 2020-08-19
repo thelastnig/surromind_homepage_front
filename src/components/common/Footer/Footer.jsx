@@ -8,6 +8,16 @@ import * as constants from '../../../lib/constants';
 
 // import images
 import surroLogo from '../../../images/surromind_logo_new.png';
+import iconFaceBook from '../../../images/iconFacebook.png';
+import iconFaceBook_h from '../../../images/iconFacebook_hover.png';
+import iconInsta from '../../../images/iconInsta.png';
+import iconInsta_h from '../../../images/iconInsta_hover.png';
+import iconYoutube from '../../../images/iconYoutube.png';
+import iconYoutube_h from '../../../images/iconYoutube_hover.png';
+import iconNaver from '../../../images/iconNaver.png';
+import iconNaver_h from '../../../images/iconNaver_hover.png';
+
+
 
 class Footer extends Component {
   
@@ -82,7 +92,12 @@ class Footer extends Component {
               Copyright© 2020 SurroMind. All rights reserved.
             </div>
             <div className="rightItem">
-
+              <div className="socialIconWrapper">
+                <img src={iconFaceBook} alt="Facebook icon" className='iconSocial'/>
+                <img src={iconInsta} alt="Facebook icon" className='iconSocial'/>
+                <img src={iconYoutube} alt="Facebook icon" className='iconSocial'/>
+                <img src={iconNaver} alt="Facebook icon" className='iconSocial last'/>
+              </div>
             </div>
           </div>
         </div>
@@ -187,7 +202,6 @@ const Wrapper = styled.div`
   .lowerArea {
     width: 100%;
     height: ${constants.FOOTER_HEIGHT * 0.4}px;
-    border: 1px solid black;
 
     display: flex;
     justify-content: space-between;
@@ -202,6 +216,19 @@ const Wrapper = styled.div`
 
     .rightItem {
       width: 20%;
+      margin-top: 35px;
+      text-align: right;
+
+      .socialIconWrapper {
+        .iconSocial {
+          margin-right: 15px;
+          cursor: pointer;
+
+          &.last {
+            margin-right: 0;
+          }
+        }
+      }
     }
   }
     

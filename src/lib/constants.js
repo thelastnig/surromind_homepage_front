@@ -21,6 +21,7 @@ export const KOR_FONT = `'NanumSquare', Helvetica, sans-serif`;
 export const NOTO_FONT = `'Noto Sans KR', Helvetica, sans-serif`;
 
 export const MAIN_TITLE_SIZE = '40';
+export const MAIN_SUB_TITLE_SIZE_LARGE = '30';
 export const MAIN_SUB_TITLE_SIZE = '18';
 
 export const MAIN_ITEM_TITLE_SIZE = '24';
@@ -28,3 +29,9 @@ export const MAIN_ITEM_SUB_TITLE_SIZE = '16';
 
 export const UPPER_IMAGE_HEIGHT = '450';
 export const NEWS_CONTENT_WIDTH = '800';
+
+export const CARD_WRAPPER_WIDTH = '1040';
+export const CARD_WRAPPER_MIN_HEIGHT = '800';
+export const CARD_WIDTH = '320';
+export const CARD_HEIGHT = '360';
+export const CARD_IMAGE_HEIGHT = '195';

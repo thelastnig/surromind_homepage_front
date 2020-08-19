@@ -25,20 +25,24 @@ class NewsView extends Component {
     );
 
     const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
-      let classType = 'eachContent normal';
-      if (content.type === 'normal') {
-        classType = 'eachContent normal';
-      } else if (content.type === 'subTitle') {
-        classType = 'eachContent subTitle';
-      } else if (content.type === 'link') {
-        classType = 'eachContent link';
-      }
-      return (
-        <div index={index} className={classType} 
-          onClick={content.type === 'link' ? `location.href=${content.desc}` : null}>
+      let div = 
+        <div index={index} className='eachContent normal'>
             {content.desc}
         </div>
-      );
+      if (content.type === 'normal') {
+        div = 
+          <div index={index} className='eachContent normal'>
+              {content.desc}
+          </div>
+      } else if (content.type === 'subTitle') {
+        div = 
+          <div index={index} className='eachContent subTitle'>
+              {content.desc}
+          </div>
+      } else if (content.type === 'link') {
+        div = <a index={index} className='eachContent link' href={content.desc}>{content.desc}</a>
+      }
+      return (div);
     });
     
     const keywordsList = newsItem.keywords.map((keyword, index) => {
@@ -85,7 +89,6 @@ const Wrapper = styled.div`
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
-
   }
 
   .newsWrapper {

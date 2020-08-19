@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import oc from 'open-color';
 
 // import constants from constants.js
-import * as constants from '../../lib/constants'
+import * as constants from '../../lib/constants';
+
+// import UpperImage Component for upper image area
+import UpperImage from '../common/UpperImage';
+
+// import Card Component 
+import Card from '../common/Card';
+
+import careersContents from '../../lib/careers';
 
 class CareersList extends Component {
 
@@ -12,10 +20,25 @@ class CareersList extends Component {
   }
   
   render() {
+  const cardList = careersContents.map((item, index) => {
+    const url = `/careers/content/${item.id}`;
+    return (
+      <Card
+        key={index} 
+        image={item.image} 
+        title={item.title} 
+        type={item.type} 
+        url={url}
+        />
+    )
+  })
   
     return (
       <Wrapper>
-        Careers List
+        <UpperImage text='Careers'/>
+        <div className="cardWrapper">
+          {cardList}
+        </div>
       </Wrapper>
     );
   }
@@ -25,7 +48,20 @@ export default CareersList;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
   margin: 0 auto;
+
+  color: ${oc.gray[9]};
+
+  .cardWrapper {
+    width: ${constants.CARD_WRAPPER_WIDTH}px;
+    min-height: ${constants.CARD_WRAPPER_MIN_HEIGHT}px;
+    margin: 0 auto;
+    padding: 100px 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 `;
 

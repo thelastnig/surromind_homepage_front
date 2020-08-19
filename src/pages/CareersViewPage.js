@@ -7,4 +7,4 @@ const CareersViewPage = (props) => {
   )
 }
 
-export default CareersListPCareersViewPageage;
+export default CareersViewPage;

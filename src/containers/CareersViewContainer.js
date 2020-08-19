@@ -14,7 +14,7 @@ class CareersViewContainer extends Component {
   render() {
     return (
       <div>
-        <CareersView />
+        <CareersView {...this.props}/>
       </div>
     );
   }
