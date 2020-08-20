@@ -20,8 +20,9 @@ class NewsView extends Component {
   }
   
   render() {
+    const { articleID } = this.props.match.params;
     const newsItem = newsContents.find(item => 
-      item.id === 1
+      item.id === articleID
     );
 
     const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
@@ -67,7 +68,7 @@ class NewsView extends Component {
                 {newsContentsList}
               </div>
             </div>
-            <BackToList url='/'/>
+            <BackToList />
           </div>
         </div>
       </Wrapper>

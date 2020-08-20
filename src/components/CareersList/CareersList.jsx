@@ -11,6 +11,7 @@ import UpperImage from '../common/UpperImage';
 // import Card Component 
 import Card from '../common/Card';
 
+// import careers content
 import careersContents from '../../lib/careers';
 
 class CareersList extends Component {

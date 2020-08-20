@@ -161,5 +161,6 @@ const Wrapper = styled.div`
 
   .eachSlide {
     position: relative;
+    outline: none;
   }
 `;

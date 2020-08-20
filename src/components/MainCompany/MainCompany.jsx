@@ -12,7 +12,7 @@ class MainCompany extends Component {
   
     return (
       <Wrapper>
-        <div className='contentsWrapper'>
+        <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
           <div className='leftArea'></div>
           <div className='rightArea'>
             <div className='titleText'>Who We Are?</div>

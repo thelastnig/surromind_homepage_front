@@ -15,7 +15,7 @@ class ProjectViewContainer extends Component {
   render() {
     return (
       <div>
-        <ProjectView/>
+        <ProjectView {...this.props}/>
       </div>
     );
   }

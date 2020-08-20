@@ -17,7 +17,8 @@ import iconYoutube_h from '../../../images/iconYoutube_hover.png';
 import iconNaver from '../../../images/iconNaver.png';
 import iconNaver_h from '../../../images/iconNaver_hover.png';
 
-
+// import project contents
+import projectContents from '../../../lib/project';
 
 class Footer extends Component {
   
@@ -26,6 +27,11 @@ class Footer extends Component {
   }
 
   render() {
+    const projectLists = projectContents.map((item, index) => {
+      return (
+        <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
+      )
+    })
     return (
       <Wrapper>
         <div className='contentsWrapper'>
@@ -61,9 +67,7 @@ class Footer extends Component {
               <div className="barMenu">
                 <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div>
                 <div className='subBarMenu'>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/project/list/1')}>Project A</div>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/project/list/1')}>Project B</div>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/project/list/1')}>Project C</div>
+                  {projectLists}
                 </div>
               </div>
               <div className="barMenu">
@@ -93,10 +97,22 @@ class Footer extends Component {
             </div>
             <div className="rightItem">
               <div className="socialIconWrapper">
-                <img src={iconFaceBook} alt="Facebook icon" className='iconSocial'/>
-                <img src={iconInsta} alt="Facebook icon" className='iconSocial'/>
-                <img src={iconYoutube} alt="Facebook icon" className='iconSocial'/>
-                <img src={iconNaver} alt="Facebook icon" className='iconSocial last'/>
+                <img src={iconFaceBook} alt="Facebook icon" className='iconSocial'
+                  onMouseOver={(e) => {e.target.src=iconFaceBook_h}}
+                  onMouseOut={(e) => {e.target.src=iconFaceBook}}
+                />
+                <img src={iconInsta} alt="Facebook icon" className='iconSocial'
+                  onMouseOver={(e) => {e.target.src=iconInsta_h}}
+                  onMouseOut={(e) => {e.target.src=iconInsta}}
+                />
+                <img src={iconYoutube} alt="Facebook icon" className='iconSocial'
+                  onMouseOver={(e) => {e.target.src=iconYoutube_h}}
+                  onMouseOut={(e) => {e.target.src=iconYoutube}}
+                />
+                <img src={iconNaver} alt="Facebook icon" className='iconSocial last'
+                  onMouseOver={(e) => {e.target.src=iconNaver_h}}
+                  onMouseOut={(e) => {e.target.src=iconNaver}}
+                />
               </div>
             </div>
           </div>

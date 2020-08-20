@@ -10,11 +10,17 @@ import UpperImage from '../common/UpperImage';
 
 import careersContents from '../../lib/careers';
 
+import BackToList from '../common/BackToList';
+
 class CareersView extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
+  handleClick = () => {
+    alert("준비 중입니다.");
+  } 
   
   render() {
   const { careerID } = this.props.match.params;
@@ -45,9 +51,12 @@ class CareersView extends Component {
           </div>
           {careersContentsList}
           <div className='btnWrapper'>
-            <div className='btn'>
+            <div className='btn' onClick={this.handleClick}>
               지원하기
             </div>
+          </div>
+          <div className="backBtnWrapper">
+            <BackToList />
           </div>
         </div>
       </Wrapper>
@@ -128,6 +137,13 @@ const Wrapper = styled.div`
         background-color: ${constants.POINT_COLOR};
       }
     }
+  }
+
+  .backBtnWrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+
   }
 `;
 

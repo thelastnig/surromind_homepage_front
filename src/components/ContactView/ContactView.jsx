@@ -35,6 +35,10 @@ class ContactView extends Component {
     this.setState({ ...this.state, [event.target.name]: event.target.checked });
   };
 
+  handleClick = () => {
+    alert("준비 중입니다.");
+  } 
+
   
   render() {
     const styleHalf = {
@@ -155,7 +159,7 @@ class ContactView extends Component {
             </div>
           </div>
           <div className='btnWrapper'>
-            <div className='btn'>
+            <div className='btn' onClick={this.handleClick}>
               등록
             </div>
           </div>

@@ -17,6 +17,10 @@ class Header extends Component {
     this.props.history.push(url);
   }
 
+  handleCompanyClick = () => {
+    window.scrollTo({top: this.mainCompanySection - 100, behavior:'smooth'});
+  }
+
   render() {
     const { 
       BaseActions,
@@ -24,7 +28,7 @@ class Header extends Component {
     } = this.props;
     return (
       <div>
-        <HeaderWrapper>
+        <HeaderInnerWrapper>
           <div className="leftItem">
             <div className="styledLink" onClick={handleClickHome}>
               <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
@@ -35,7 +39,7 @@ class Header extends Component {
               <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
             </div>
             <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
+              <div className="styledLink" onClick={this.handleCompanyClick}>Who we are</div> 
             </div>
             <div className="barMenu">
               <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
@@ -58,7 +62,7 @@ class Header extends Component {
               KOR
             </div>
           </div>
-        </HeaderWrapper>
+        </HeaderInnerWrapper>
       </div>
     )
   }
@@ -67,7 +71,7 @@ class Header extends Component {
 export default withRouter(Header);
 
 
-const HeaderWrapper = styled.div`
+const HeaderInnerWrapper = styled.div`
   width: ${constants.TOTAL_WIDTH}px;
   height: ${constants.HEADER_HEIGHT}px;
   margin: 0 auto;

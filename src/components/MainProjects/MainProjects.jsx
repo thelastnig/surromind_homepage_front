@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -17,7 +18,11 @@ import ArrowRight from "@material-ui/icons/ArrowForwardIos";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 
-class MainProjects extends Component {    
+class MainProjects extends Component {
+
+  handleClick = (url) => {
+    this.props.history.push(url);
+  }
   
   renderArrows = () => {
     return (
@@ -45,12 +50,11 @@ class MainProjects extends Component {
         "backgroundSize": "cover",
       }
       return (
-        <div className='eachSlide' index={index}>
+        <div className='eachSlide' key={index} onClick={() => this.handleClick(item.url)}>
           <div className='itemWrapper' style={style}>
             <div className='addLayer'>
               <div className='textWrapper'>
                 <div className='itemTitle'>{item.title}</div>
-                <div className='itemSubTitle'>{item.subTitle}</div>
               </div>
             </div>
           </div>
@@ -92,7 +96,7 @@ class MainProjects extends Component {
   }
 }
 
-export default MainProjects;
+export default withRouter(MainProjects);
 
 const Wrapper = styled.div`
   width: 100%;
@@ -147,6 +151,7 @@ const Wrapper = styled.div`
     }
   
     .eachSlide {
+      outline: none;
 
       .itemWrapper {
         width: 380px;
@@ -187,7 +192,8 @@ const Wrapper = styled.div`
         }
   
         .itemTitle {
-          font-size: ${constants.MAIN_ITEM_TITLE_SIZE}px;
+          font-size: ${constants.MAIN_ITEM_TITLE_SIZE - 5}px;
+          font-family: ${constants.KOR_FONT};
           font-weight: 600;
           margin-bottom: 15px;
         }

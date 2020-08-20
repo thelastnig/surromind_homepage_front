@@ -12,16 +12,16 @@ import ArrowForward from "@material-ui/icons/ArrowForward";
 
 class BackToList extends Component {
 
-  handleClick = (url) => {
-    this.props.history.push(url);
+  handleClick = () => {
+    this.props.history.goBack();
   }
 
   render() {
   const { url } = this.props;
     return (
       <Wrapper>
-        <div className='backBtn' onClick={() => this.handleClick(url)}>
-          <div className='btnText'>Back to list</div>
+        <div className='backBtn' onClick={this.handleClick}>
+          <div className='btnText'>Back to</div>
           <ArrowForward />
         </div>
       </Wrapper>

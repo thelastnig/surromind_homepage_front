@@ -10,6 +10,10 @@ import * as constants from '../../lib/constants'
 import mainNewsContents from '../../lib/mainNews';
 
 class MainNews extends Component {
+
+  handleClick = (url) => {
+    this.props.history.push(url);
+  }
   
   handleMoreClick = () => {
     this.props.history.push('/surromindnews/list/1');
@@ -22,7 +26,7 @@ class MainNews extends Component {
         "backgroundSize": "cover",
       }
       return (
-        <div className='newsItem' index={index} style={style}>
+        <div className='newsItem' key={index} style={style} onClick={() => this.handleClick(item.url)}>
           <div className='newsAddLayer'>
             <div className='newsTextWrapper'>
               <div className='itemType'>{item.type}</div>

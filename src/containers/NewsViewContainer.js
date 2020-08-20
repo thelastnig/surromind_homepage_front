@@ -15,7 +15,7 @@ class NewsViewContainer extends Component {
   render() {
     return (
       <div>
-        <NewsView/>
+        <NewsView {...this.props}/>
       </div>
     );
   }

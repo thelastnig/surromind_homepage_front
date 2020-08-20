@@ -8,6 +8,7 @@ import * as constants from '../../../lib/constants';
 import imageNews from '../../../images/upperImageNews.png';
 import imageContact from '../../../images/upperImageContact.jpg';
 import imageCareers from '../../../images/upperImageCareers.jpg';
+import imageProject from '../../../images/upperImageProject.jpg';
 
 class UpperImage extends Component {
 
@@ -21,6 +22,8 @@ class UpperImage extends Component {
     image = imageContact;
   } else if (text === 'Careers') {
     image = imageCareers;
+  } else if (text === 'Project' || text === 'R&D') {
+    image = imageProject;
   } else {
     image = imageNews;
   } 
@@ -66,5 +69,5 @@ const Wrapper = styled.div`
     color: white;
     font-size: ${constants.MAIN_TITLE_SIZE}px;
     font-weight: 600;
-  }
+    letter-spacing: ${constants.MAIN_TITLE_LETTER_SPACING}px;
 `;
