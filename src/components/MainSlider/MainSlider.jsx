@@ -62,7 +62,7 @@ class MainSlider extends Component {
     };
 
     return (
-      <Wrapper>
+      <MainSliderWrapper>
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
@@ -100,14 +100,14 @@ class MainSlider extends Component {
             </div>
           </Slider>
         </div>
-      </Wrapper>
+      </MainSliderWrapper>
     );
   }
 }
 
 export default MainSlider;
 
-const Wrapper = styled.div`
+const MainSliderWrapper = styled.div`
   width: 100%;
   height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;

@@ -29,37 +29,39 @@ class Header extends Component {
     return (
       <div>
         <HeaderInnerWrapper>
-          <div className="leftItem">
-            <div className="styledLink" onClick={handleClickHome}>
-              <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
+          <div className="itemWrapper">
+            <div className="leftItem">
+              <div className="styledLink" onClick={handleClickHome}>
+                <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
+              </div>
             </div>
-          </div>
-          <div className="centerItem">
-            <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
+            <div className="centerItem">
+              <div className="barMenu">
+                <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
+              </div>
+              <div className="barMenu">
+                <div className="styledLink" onClick={this.handleCompanyClick}>Who we are</div> 
+              </div>
+              <div className="barMenu">
+                <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
+              </div>
+              <div className="barMenu">
+                <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
+              </div>
+              <div className="barMenu">
+                <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
+              </div>
+              <div className="barMenu">
+                <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+              </div>
             </div>
-            <div className="barMenu">
-              <div className="styledLink" onClick={this.handleCompanyClick}>Who we are</div> 
-            </div>
-            <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
-            </div>
-            <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
-            </div>
-            <div className="barMenu">
-              <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-            </div>
-            <div className="barMenu">
-              <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-            </div>
-          </div>
-          <div className="rightItem">
-            <div className="rightIcon">
-              <img src={iconGlobal} alt='Icon Global for language selection' height='16px'/>
-            </div>
-            <div className="rightText">
-              KOR
+            <div className="rightItem">
+              <div className="rightIcon">
+                <img src={iconGlobal} alt='Icon Global for language selection' height='16px'/>
+              </div>
+              <div className="rightText">
+                KOR
+              </div>
             </div>
           </div>
         </HeaderInnerWrapper>
@@ -72,12 +74,17 @@ export default withRouter(Header);
 
 
 const HeaderInnerWrapper = styled.div`
-  width: ${constants.TOTAL_WIDTH}px;
-  height: ${constants.HEADER_HEIGHT}px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+
+  .itemWrapper {
+    width: ${constants.TOTAL_WIDTH}px;
+    height: ${constants.HEADER_HEIGHT}px;
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .leftItem {
     width: 20%;
@@ -87,6 +94,7 @@ const HeaderInnerWrapper = styled.div`
 
     .ImgLogo {
       height: 20px;
+      padding-top: 2px;
     }
 
     @media (max-width: 768px) {
@@ -156,31 +164,7 @@ const HeaderInnerWrapper = styled.div`
 
     @media (max-width: 768px) {
       width: 100%;
-      padding: 0 15px;
       justify-content: space-between;
     };
-
-    .iconMenuWrapper, .iconSearchWrapper, .buttonWrapper {
-      margin-right: 16px;
-    }
-
-    .iconSearchWrapper {
-
-      @media (max-width: 768px) {
-        display: none;
-      };
-    }
-    
-    img {
-      cursor: pointer;
-    }
-
-    .button {
-      font-weight: 600;
-    }
-
-    .button + .button {
-      margin-left: 15px;
-    }
   }
 `;

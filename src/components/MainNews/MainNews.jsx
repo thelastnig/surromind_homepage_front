@@ -39,7 +39,7 @@ class MainNews extends Component {
     })
 
     return (
-      <Wrapper>
+      <MainNewsWrapper>
         <div className="newsInnerWrapper">
           <div className="innerLeft">
             <div className="innerLeftUpperText">
@@ -53,14 +53,14 @@ class MainNews extends Component {
             {newsItems}
           </div>
         </div>
-      </Wrapper>
+      </MainNewsWrapper>
     );
   }
 }
 
 export default withRouter(MainNews);
 
-const Wrapper = styled.div`
+const MainNewsWrapper = styled.div`
   width: ${constants.TOTAL_WIDTH}px;
   height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
   margin: 0 auto;

@@ -23,7 +23,7 @@ class App extends Component {
         <OuterWrapper>
           <InnerWrapper>
             <HeaderWrapper>
-              <HeaderContainer/>
+              <div className='limitWrapper'><HeaderContainer/></div>
             </HeaderWrapper> 
             <RootWrapper>
               <div className='limitWrapper'><Root/></div>
@@ -70,10 +70,11 @@ const InnerWrapper = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
-  position: fixed;
+  
   width: 100%;
   height: ${constants.HEADER_HEIGHT}px;
-  top:0;
+  position: fixed;
+  top: 0;
   left: 0;
   z-index: 100;
   background: white;
