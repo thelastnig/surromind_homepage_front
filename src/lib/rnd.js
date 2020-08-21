@@ -7,6 +7,7 @@ const mainRND = [
   {
     id: 1,
     type: 'R&D',
+    url: '/rnd/list/1',
     title: 'Auto DL',
     subTitle: 'Auto DL detail',
     image: ImgRND1,
@@ -14,6 +15,7 @@ const mainRND = [
   {
     id: 2,
     type: 'R&D',
+    url: '/rnd/list/1',
     title: 'XAI',
     subTitle: 'XAI detail',
     image: ImgRND2,
@@ -21,6 +23,7 @@ const mainRND = [
   {
     id: 3,
     type: 'R&D',
+    url: '/rnd/list/1',
     title: 'AI Platform',
     subTitle: 'AI Platform detail',
     image: ImgRND3,

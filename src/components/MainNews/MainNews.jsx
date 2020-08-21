@@ -84,9 +84,8 @@ const MainNewsWrapper = styled.div`
     justify-content: space-between;
 
     .innerLeftUpperText {
-      font-size: 34px;
-      font-weight: 500;
-      color: ${oc.gray[8]};
+      font-size: ${constants.MAIN_TITLE_SIZE - 5}px;
+      font-weight: 600;
       line-height: 1.2em;
     }
 

@@ -17,14 +17,13 @@ class MainCompany extends Component {
           <div className='rightArea'>
             <div className='titleText'>Who We Are?</div>
             <div className='mainText'>
-              We develop easy and practical <span>AI solutions</span><br/>
-              for more people to use them with to solve<br/> 
-              their own business issues.
+              더  많은 기업과 사람들이 문제를 해결하는 데 사용할 수 있도록<br/>
+              쉽고 실용적인 <span>AI 솔루션</span>을 개발합니다.
             </div>
             <div className='subText'>
-              Surromind is deveopling the practical AI solutions<br/> 
-              with deep learning according to customer's requirement.<br/>
-              It also develop automated AI platform for people to use with easy. 
+              Surromind는 고객의 요구에 따라 딥 러닝을 통해 실용적인 AI 솔루션을<br/> 
+              개발하고 있습니다. 또한 사람들이 쉽게 사용할 수 있도록<br/> 
+              자동화 된 AI 플랫폼을 개발합니다.
             </div>
           </div>
         </div>
@@ -69,15 +68,23 @@ const Wrapper = styled.div`
 
     .mainText {
       font-size: 22px;
+      font-family: ${constants.KOR_FONT};
+      line-height: 1.5em;
+      font-weight: 600;
       margin-top: 50px;
       margin-bottom: 45px;
+  
       
       span {
+        font-family: ${constants.KOR_FONT};
         color: ${constants.POINT_COLOR};
       }
     }
 
     .subText {
+      font-family: ${constants.KOR_FONT};
+      font-weight: 600;
+      line-height: 1.5em;
       font-size: 18px;
     }
   }

@@ -11,21 +11,86 @@ import * as constants from '../../../lib/constants';
 import surroLogo from '../../../images/surromind_logo_new.png';
 import iconGlobal from '../../../images/iconGlobal.png';
 
+import rndContents from '../../../lib/rnd';
+import projectContents from '../../../lib/project';
+import ProjectList from '../../ProjectList';
+
 class Header extends Component {
+
+  state = {
+    isSubSectionVisible: false,
+    menu: null,
+  }
 
   handleMenuClick = (url) => {
     this.props.history.push(url);
   }
 
   handleCompanyClick = () => {
-    window.scrollTo({top: this.mainCompanySection - 100, behavior:'smooth'});
+    // window.scrollTo({top: this.mainCompanySection - 100, behavior:'smooth'});
+  }
+
+  handleMouseOver = (menu) => {
+    this.setState({
+      menu: menu,
+      isSubSectionVisible: true,
+    })
+  }
+
+  handleMouseOut = () => {
+    this.setState({
+      isSubSectionVisible: false,
+    })
   }
 
   render() {
+    const { isSubSectionVisible, menu } = this.state;
     const { 
       BaseActions,
       handleClickHome,
     } = this.props;
+
+    let MenuName = "";
+    let SubUrl = "";
+    let subMenuName = "";
+    if (menu === 'news') {
+      MenuName = "News";
+      SubUrl = "/surromindnews/list/1";
+      subMenuName = "Surromind News"
+    } else if (menu === 'company') {
+      MenuName = "Who we are";
+      SubUrl = "";
+      subMenuName = "Who we are";
+    } else if (menu === 'rnd') {
+      MenuName = "R&D";
+      SubUrl = "/rnd/list/1";
+    } else if (menu === 'project') {
+      MenuName = "Project";
+      SubUrl = "/project/list/1";
+    } else if (menu === 'careers') {
+      MenuName = "Careers";
+      SubUrl = "/careers/list/1";
+      subMenuName = "Careers";
+    } else if (menu === 'contact') {
+      MenuName = "Contact";
+      SubUrl = "/contact";
+      subMenuName = "Contact";
+    } 
+
+    const subMeunWrapper = <div className="centerLeftText" onClick={() => this.handleMenuClick(SubUrl)}>{MenuName}</div>
+    const subMenu = <div className="centerRightText" onClick={() => this.handleMenuClick(SubUrl)}>{subMenuName}</div>
+
+    const rndLists = rndContents.map((item, index) => {
+      return (
+        <div className="centerRightText" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.title}</div>
+      )
+    })
+
+    const projectLists = projectContents.map((item, index) => {
+      return (
+        <div className="centerRightText kor" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
+      )
+    })
     return (
       <div>
         <HeaderInnerWrapper>
@@ -36,22 +101,35 @@ class Header extends Component {
               </div>
             </div>
             <div className="centerItem">
-              <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
+              <div className="barMenu" 
+                  onMouseOver={() => this.handleMouseOver("news")}
+                  onMouseOut={this.handleMouseOut}>
+                <div className="styledLink" 
+                  onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
               </div>
-              <div className="barMenu">
-                <div className="styledLink" onClick={this.handleCompanyClick}>Who we are</div> 
+              <div className="barMenu" 
+                  onMouseOver={() => this.handleMouseOver("company")}
+                  onMouseOut={this.handleMouseOut}>
+                <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
               </div>
-              <div className="barMenu">
+              <div className="barMenu" 
+                  onMouseOver={() => this.handleMouseOver("rnd")}
+                  onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
               </div>
-              <div className="barMenu">
+              <div className="barMenu" 
+                  onMouseOver={() => this.handleMouseOver("project")}
+                  onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
               </div>
-              <div className="barMenu">
+              <div className="barMenu"
+              onMouseOver={() => this.handleMouseOver("careers")}
+                  onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
               </div>
-              <div className="barMenu">
+              <div className="barMenu"
+              onMouseOver={() => this.handleMouseOver("contact")}
+                  onMouseOut={this.handleMouseOut}>
                 <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
               </div>
             </div>
@@ -65,6 +143,22 @@ class Header extends Component {
             </div>
           </div>
         </HeaderInnerWrapper>
+        <SubHeadInnerWrapper isSubSectionVisible={isSubSectionVisible}
+                              onMouseOver={() => this.handleMouseOver(menu)}
+                              onMouseOut={this.handleMouseOut}>
+          <div className="subItemWrapper">
+            <div className="leftItem"></div>
+            <div className="centerItem">
+              <div className="centerLeftItem">
+                {subMeunWrapper}
+              </div>
+              <div className="centerRightItem">
+                {menu === 'rnd' ? rndLists: (menu === 'project' ? projectLists : subMenu)}
+              </div>
+            </div>
+            <div className="rightItem"></div>
+          </div>
+        </SubHeadInnerWrapper>
       </div>
     )
   }
@@ -104,13 +198,13 @@ const HeaderInnerWrapper = styled.div`
 
   .centerItem {
     width: 60%;
-    height: ${constants.HEADER_HEIGHT / 2}px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     .barMenu {
-      height: ${constants.HEADER_HEIGHT / 2}px;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -167,4 +261,90 @@ const HeaderInnerWrapper = styled.div`
       justify-content: space-between;
     };
   }
+`;
+
+const SubHeadInnerWrapper = styled.div`
+  display: none;
+  width: 100%;
+
+  background: rgba(247, 247, 247, 1);
+
+  ${props => props.isSubSectionVisible && `
+    display: block;
+  `}
+
+  ${props => !props.isSubSectionVisible && `
+    display: none;
+  `}
+
+  .subItemWrapper {
+    width: ${constants.TOTAL_WIDTH}px;
+    height: ${constants.HEADER_HEIGHT * 2}px;
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .leftItem {
+    width: 20%;
+  }
+
+  .centerItem {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centerLeftItem {
+    width: 20%;
+
+    .centerLeftText {
+      font-size: 20px;
+      font-weight: 500;
+      color: ${constants.POINT_COLOR};
+      padding: 0px 15px;
+      text-align: right;
+      border-right: 2px solid ${constants.POINT_COLOR};
+      cursor: pointer;
+    }
+  }
+
+  .centerRightItem {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .centerRightText {
+      font-size: 14px;;
+      color: ${constants.POINT_COLOR};
+      font-weight: 500;
+      text-align: center;
+      margin-left: 30px;
+      cursor: pointer;
+      padding-bottom: 2px;
+      &.kor {
+        font-family: ${constants.NOTO_FONT};
+      }
+
+      &:hover {
+        border-bottom: 1px solid ${constants.POINT_COLOR};
+      }
+    }
+  }
+
+  .styledLink {
+    color: black;
+    cursor: pointer;
+  }
+
+  .rightItem {
+    width: 20%;
+  }
+
+  
 `;
