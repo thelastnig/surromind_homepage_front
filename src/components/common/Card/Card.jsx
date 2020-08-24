@@ -18,11 +18,12 @@ class Card extends Component {
 
   render() {
   const { image, title, type, url } = this.props;
+  const isClickDisable = url.includes('/content/') ? false : true;
     return (
       <CardWrapper>
         <div className="cardInnerWrapper">
           <div className="imageWrapper">
-            <img src={image} width={constants.CARD_WIDTH} height={constants.CARD_IMAGE_HEIGHT} alt={title}/>
+            <img src={image} width={constants.CARD_WIDTH} height={isClickDisable ? null : constants.CARD_IMAGE_HEIGHT} alt={title}/>
           </div>
           <div className='textWrapper'>
             <div className="textInnerWrapper">
@@ -32,7 +33,7 @@ class Card extends Component {
                 <div className="textSubTitle"></div>
               </div>
               <div className="textInnerLower">
-                <div className='MoreBtn' onClick={type === "R&D" ? null : () => this.handleClick(url)}>
+                <div className='MoreBtn' onClick={() => this.handleClick(url)}>
                   Read More +
                 </div>
               </div>

@@ -82,7 +82,7 @@ class Header extends Component {
 
     const rndLists = rndContents.map((item, index) => {
       return (
-        <div className="centerRightText" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.title}</div>
+        <div className="centerRightText" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
       )
     })
 
@@ -202,16 +202,17 @@ const HeaderInnerWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    text-align: left;
 
     .barMenu {
       height: 100%;
+      flex-grow: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 14px;
       font-weight: 500;
       color: ${oc.gray[8]};
-      margin-left: ${constants.HEADER_BAR_MENU_MARGIN}px;
     }
 
     .styledLink {

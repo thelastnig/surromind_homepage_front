@@ -45,6 +45,7 @@ const Wrapper = styled.div`
   
   background-image: url(${contactImage});
   background-repeat: no-repeat;
+  background-position: center center;
     
   display: flex;
   flex-direction: column;
@@ -52,7 +53,7 @@ const Wrapper = styled.div`
   justify-content: center;
 
   .contentsWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
+    max-width: ${constants.TOTAL_WIDTH}px;
     height: ${constants.CONTACT_HEIGHT - 150}px;
     margin: 0 auto;
     

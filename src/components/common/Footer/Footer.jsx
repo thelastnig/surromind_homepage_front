@@ -17,8 +17,9 @@ import iconYoutube_h from '../../../images/iconYoutube_hover.png';
 import iconNaver from '../../../images/iconNaver.png';
 import iconNaver_h from '../../../images/iconNaver_hover.png';
 
-// import project contents
+// import project & rnd contents
 import projectContents from '../../../lib/project';
+import rndContents from '../../../lib/rnd';
 
 class Footer extends Component {
   
@@ -28,6 +29,11 @@ class Footer extends Component {
 
   render() {
     const projectLists = projectContents.map((item, index) => {
+      return (
+        <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
+      )
+    })
+    const rndLists = rndContents.map((item, index) => {
       return (
         <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
       )
@@ -42,12 +48,10 @@ class Footer extends Component {
               </div>
             </div>
             <div className="centerItem">
-              <div className="barMenuWrapper">
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div>
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
-                  </div>
+              <div className="barMenu">
+                <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div>
+                <div className='subBarMenu'>
+                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
                 </div>
               </div>
               <div className="barMenu">
@@ -59,9 +63,7 @@ class Footer extends Component {
               <div className="barMenu">
                 <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
                   <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/rnd/list/1')}>Auto DL</div>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/rnd/list/1')}>XAI</div>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/rnd/list/1')}>AI Platform</div>
+                    {rndLists}
                   </div> 
               </div>
               <div className="barMenu">
@@ -138,7 +140,6 @@ const Wrapper = styled.div`
   .upperArea {
     width: 100%;
     height: ${constants.FOOTER_HEIGHT * 0.6}px;
-    border: 1px solid white;
 
     display: flex;
     justify-content: space-between;
@@ -164,17 +165,14 @@ const Wrapper = styled.div`
       align-items: flex-start;
       justify-content: flex-end;
 
-      .barMenuWrapper {
-      }
-
       .barMenu {
+        flex-grow: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 14px;
         font-weight: 500;
         color: ${oc.gray[8]};
-        margin-left: ${constants.HEADER_BAR_MENU_MARGIN}px;
         position: relative;
       }
 

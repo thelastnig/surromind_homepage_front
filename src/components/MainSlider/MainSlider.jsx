@@ -59,6 +59,15 @@ class MainSlider extends Component {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 5000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        },
+      ]
     };
 
     return (
@@ -106,15 +115,10 @@ const MainSliderWrapper = styled.div`
   height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;
 
-  .imageWrapper {
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
-  }
-
   .textWrapper {
+    border: 1px solid red;
     width: ${constants.TOTAL_WIDTH}px;
-    height: ${constants.MAIN_SLIDER_HEIGHT}px;
+    max-height: ${constants.MAIN_SLIDER_HEIGHT}px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -124,6 +128,7 @@ const MainSliderWrapper = styled.div`
     align-items: center;
 
     .textDiv {
+
       color: white;
       font-size: 27px;
       font-weight: 600;
@@ -167,5 +172,8 @@ const MainSliderWrapper = styled.div`
   .eachSlide {
     position: relative;
     outline: none;
+    img {
+      margin: 0 auto;
+    }
   }
 `;

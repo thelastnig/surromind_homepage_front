@@ -17,13 +17,13 @@ class MainCompany extends Component {
           <div className='rightArea'>
             <div className='titleText'>Who We Are?</div>
             <div className='mainText'>
-              더  많은 기업과 사람들이 문제를 해결하는 데 사용할 수 있도록<br/>
+              더  많은 기업과 사람들이 문제를 해결하는데 사용할 수 있도록<br/>
               쉽고 실용적인 <span>AI 솔루션</span>을 개발합니다.
             </div>
             <div className='subText'>
               Surromind는 고객의 요구에 따라 딥 러닝을 통해 실용적인 AI 솔루션을<br/> 
               개발하고 있습니다. 또한 사람들이 쉽게 사용할 수 있도록<br/> 
-              자동화 된 AI 플랫폼을 개발합니다.
+              자동화된 AI 플랫폼을 개발합니다.
             </div>
           </div>
         </div>

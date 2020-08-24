@@ -22,14 +22,13 @@ class RNDList extends Component {
   
   render() {
     const cardList = rndContents.map((item, index) => {
-      const url = `/project/content/${item.id}`;
       return (
         <Card
           key={index} 
           image={item.image} 
-          title={item.title} 
+          title={item.titleS} 
           type={item.type} 
-          url={url}
+          url={item.url}
           />
       )
     })

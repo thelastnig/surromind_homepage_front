@@ -91,7 +91,7 @@ const InnerWrapper = styled.div`
   margin: 0 auto;
 
   .limitWrapper {
-    width: ${constants.LIMIT_WIDTH}px;
+    width: 100%;
     margin: 0 auto;
   }
 `;
@@ -106,6 +106,10 @@ const HeaderWrapper = styled.div`
   z-index: 100;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 3px 5px rgba(200, 200, 200, 0.7);
+  
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    display: none;
+  };
   
   ${props => {
     if (props.isScrolled) {

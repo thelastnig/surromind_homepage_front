@@ -15,7 +15,7 @@ class RNDViewContainer extends Component {
   render() {
     return (
       <div>
-        <RNDView/>
+        <RNDView {...this.props}/>
       </div>
     );
   }

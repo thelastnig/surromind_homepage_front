@@ -27,28 +27,28 @@ class NewsView extends Component {
 
     const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
       let div = 
-        <div index={index} className='eachContent normal'>
+        <div key={index} className='eachContent normal'>
             {content.desc}
         </div>
       if (content.type === 'normal') {
         div = 
-          <div index={index} className='eachContent normal'>
+          <div key={index} className='eachContent normal'>
               {content.desc}
           </div>
       } else if (content.type === 'subTitle') {
         div = 
-          <div index={index} className='eachContent subTitle'>
+          <div key={index} className='eachContent subTitle'>
               {content.desc}
           </div>
       } else if (content.type === 'link') {
-        div = <a index={index} className='eachContent link' href={content.desc}>{content.desc}</a>
+        div = <a key={index} className='eachContent link' href={content.desc}>{content.desc}</a>
       }
       return (div);
     });
     
     const keywordsList = newsItem.keywords.map((keyword, index) => {
       return (
-        <div index={index} className='keyword'>#{keyword}</div>
+        <div key={index} className='keyword'>#{keyword}</div>
       );
     });
 

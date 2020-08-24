@@ -56,50 +56,45 @@ class ProjectView extends Component {
       item.id === projectID
     );
 
-    const projectOverviewContentsList = projectItem.contents_overview.map((content, index) => {
-      let div = <div className="sectionContent normal" key={index}></div>
-
-      if (content.type === 'subTitle') {
-        div = <div className="sectionContent subTitle" key={index}>{content.desc}</div>
-      } else if (content.type === 'textNormalCenter') {
-        div = <div className="sectionContent center" key={index}>{content.desc}</div>
-      } else {
-        div = <div className="sectionContent normal" key={index}>{content.desc}</div>
-      }
-      return (
-        div
-      )
-    });
-    
-    const projectDetailContentsList = projectItem.contents_detail.map((content, index) => {
-      let div = <div className="sectionContent normal" key={index}></div>
-
-      if (content.type === 'subTitle') {
-        div = <div className="sectionContent subTitle" key={index}>{content.desc}</div>
-      } else if (content.type === 'textNormalCenter') {
-        div = <div className="sectionContent center" key={index}>{content.desc}</div>
-      } else {
-        div = <div className="sectionContent normal" key={index}>{content.desc}</div>
-      }
-      return (
-        div
-      )
-    });
-    
-    const projectFeatureContentsList = projectItem.contents_feature.map((content, index) => {
+    const makeDivWithClassName = (content, index) => {
       let div = <div className="sectionContent normal" key={index}></div>
 
       if (content.type === 'image') {
         div = <div className="sectionContentImage" key={index}>
           <img src={content.src} alt='project image'/>
         </div>
+      } else if (content.type === 'imageWithCaption') {
+        div = <div className="sectionContentImage withCaption" key={index}>
+          <img src={content.src} alt='project image'/>
+        </div>
       } else if (content.type === 'subTitle') {
         div = <div className="sectionContent subTitle" key={index}>{content.desc}</div>
       } else if (content.type === 'textNormalCenter') {
         div = <div className="sectionContent center" key={index}>{content.desc}</div>
+      } else if (content.type === 'imageCaption') {
+        div = <div className="sectionContent caption" key={index}>{content.desc}</div>
       } else {
         div = <div className="sectionContent normal" key={index}>{content.desc}</div>
       }
+      return div
+    }
+
+    const projectOverviewContentsList = projectItem.contents_overview.map((content, index) => {
+      const div = makeDivWithClassName(content,index);
+      return (
+        div
+      )
+    });
+    
+    const projectDetailContentsList = projectItem.contents_detail.map((content, index) => {
+      const div = makeDivWithClassName(content,index);
+      return (
+        div
+      )
+    });
+    
+    const projectFeatureContentsList = projectItem.contents_feature.map((content, index) => {
+      const div = makeDivWithClassName(content,index);
       return (
         div
       )
@@ -299,12 +294,24 @@ const Wrapper = styled.div`
     &.subTitle {
       font-weight: 600;
     }
+
+    &.caption {
+      font-size: 14px;
+      font-color: ${oc.gray[8]};
+      text-align: center;
+      margin-bottom: 50px;
+
+    }
   }
 
   .sectionContentImage {
     width: 100%;
     text-align: center;
     margin-bottom: 50px;
+
+    &.withCaption {
+      margin-bottom: 10px;
+    }
 
     img {
       max-width: 80%;

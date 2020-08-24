@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -9,6 +10,11 @@ import * as constants from '../../lib/constants';
 import mainRNDContents from '../../lib/rnd';
 
 class MainRND extends Component {
+
+  handleClick = (url) => {
+    this.props.history.push(url);
+  }
+
   render() {
     const rndItems = mainRNDContents.map((item, index) => {
       const style = {
@@ -16,10 +22,10 @@ class MainRND extends Component {
         "backgroundSize": "cover",
       }
       return (
-        <div className='rndItem' index={index} style={style}>
+        <div className='rndItem' key={index} style={style} onClick={() => this.handleClick(item.url)}>
           <div className='addLayer'>
             <div className='textWrapper'>
-              <div className='itemTitle'>{item.title}</div>
+              <div className='itemTitle'>{item.titleS}</div>
               <div className='itemSubTitle'>{item.subTitle}</div>
             </div>
           </div>
@@ -42,7 +48,7 @@ class MainRND extends Component {
   }
 }
 
-export default MainRND;
+export default withRouter(MainRND);
 
 const Wrapper = styled.div`
   width: 100%;

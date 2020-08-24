@@ -35,7 +35,9 @@ export const CARD_WRAPPER_WIDTH = '1040';
 export const CARD_WRAPPER_MIN_HEIGHT = '800';
 export const CARD_WIDTH = '320';
 export const CARD_HEIGHT = '360';
-export const CARD_NEWS_HEIGHT = "300"
+export const CARD_NEWS_HEIGHT = "300";
 export const CARD_IMAGE_HEIGHT = '195';
 
-export const PROJECT_VIEW_WIDTH = '1100' 
+export const PROJECT_VIEW_WIDTH = '1100';
+
+export const MOBILE_WIDTH = '768';
