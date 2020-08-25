@@ -178,6 +178,14 @@ const HeaderInnerWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 95%;
+    };
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    };
   }
 
   .leftItem {
@@ -286,6 +294,14 @@ const SubHeadInnerWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 95%;
+    };
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    };
   }
 
   .leftItem {
@@ -311,6 +327,10 @@ const SubHeadInnerWrapper = styled.div`
       text-align: right;
       border-right: 2px solid ${constants.POINT_COLOR};
       cursor: pointer;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: 1.5vw;
+      };
     }
   }
 
@@ -335,6 +355,10 @@ const SubHeadInnerWrapper = styled.div`
       &:hover {
         border-bottom: 1px solid ${constants.POINT_COLOR};
       }
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: 1.0vw;
+      };
     }
   }
 

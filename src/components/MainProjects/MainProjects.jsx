@@ -68,6 +68,22 @@ class MainProjects extends Component {
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 950,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        },
+      ]
     };
 
     const { handleClickArticle } = this.props;
@@ -100,18 +116,28 @@ export default withRouter(MainProjects);
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_PROJECT_HEIGHT}px;
+  padding: 75px 0;
   margin: 0 auto;
   background-color: #EBEBEB;
+  
+  @media (max-width: ${constants.TOTAL_WIDTH}px) {
+    width: 100%;
+    height: 100%;
+  }
   
   display: flex;
   align-items: center;
   justify-content: center;
 
   .contentsWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
+    max-width: ${constants.TOTAL_WIDTH}px;
     height: ${constants.MAIN_PROJECT_HEIGHT - 150}px;
     margin: 0 auto;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+    }
   
     display: flex;
     flex-direction: column;
@@ -122,17 +148,31 @@ const Wrapper = styled.div`
       margin: 0 auto;
       font-size: ${constants.MAIN_TITLE_SIZE}px;
       font-weight: 600;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        margin-bottom: 50px;
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+      }
     }
 
     .subText {
       margin: 0 auto;
       font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
       text-align: center;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        margin-bottom: 50px;
+        font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+      }
     }
 
     .slideWrapper {
       position: relative;
-      width: 1530px;
+      max-width: 1530px;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 90%;
+      };
     }
   
     .slider-arrow {
@@ -156,6 +196,7 @@ const Wrapper = styled.div`
       .itemWrapper {
         width: 380px;
         height: 263px;
+        
         margin: 0 auto;
 
         color: white;

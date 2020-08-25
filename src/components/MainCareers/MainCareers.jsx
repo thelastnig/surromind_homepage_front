@@ -36,7 +36,7 @@ export default withRouter(MainCareers);
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_CAREERS_HEIGHT}px;
+  padding: 100px 0;
   margin: 0 auto;
     
   display: flex;
@@ -46,12 +46,17 @@ const Wrapper = styled.div`
 
   .contentsWrapper {
     width: ${constants.TOTAL_WIDTH}px;
-    height: ${constants.MAIN_CAREERS_HEIGHT - 200}px;
+    max-height: ${constants.MAIN_CAREERS_HEIGHT - 200}px;
     margin: 0 auto;
     
     display: flex;
     align-items: center;
     justify-content: space-between;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 95%;
+      height: 100%;
+    }
 
     .leftArea {
       width: 50%;
@@ -64,10 +69,19 @@ const Wrapper = styled.div`
       .titleText {
         font-size: ${constants.MAIN_TITLE_SIZE}px;
         font-weight: 600;
+        margin-bottom: 30px;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+        }
       }
   
       .subText {
         font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
       }
     }
 
@@ -87,6 +101,11 @@ const Wrapper = styled.div`
         font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
         color: ${constants.POINT_COLOR};
         cursor: pointer;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 25%;
+          font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
 
         &:hover {
           color: white;

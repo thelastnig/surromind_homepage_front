@@ -1,5 +1,7 @@
 html,
-body,
+body {
+  font-size: 14px;
+}
 #root,
 .App {
   width: 100%;

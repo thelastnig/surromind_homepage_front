@@ -135,6 +135,14 @@ const Wrapper = styled.div`
     width: ${constants.TOTAL_WIDTH}px;
     height: 100%;
     margin: 0 auto;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 95%;
+    };
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    };
   }
 
   .upperArea {
@@ -143,10 +151,23 @@ const Wrapper = styled.div`
 
     display: flex;
     justify-content: space-between;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      flex-direction: column;
+      justify-content: flex-start;
+    };
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    };
 
     .leftItem {
       width: 20%;
       margin-top: 50px;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+      };
   
       .ImgLogo {
         height: 20px;
@@ -164,6 +185,11 @@ const Wrapper = styled.div`
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+        margin-top: 10px;
+      };
 
       .barMenu {
         flex-grow: 1;
@@ -210,6 +236,11 @@ const Wrapper = styled.div`
     .rightItem {
       width: 20%;
       margin-top: 50px;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+        margin-top: 0px;
+      };
     }
   }
 
@@ -219,6 +250,10 @@ const Wrapper = styled.div`
 
     display: flex;
     justify-content: space-between;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      flex-direction: column;
+    };
 
     .leftItem {
       margin-top: 35px;
@@ -226,12 +261,23 @@ const Wrapper = styled.div`
       font-size: 12px;
       font-family: ${constants.NOTO_FONT};
       color: ${oc.gray[8]};
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+      };
     }
 
     .rightItem {
+  
       width: 20%;
       margin-top: 35px;
       text-align: right;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 35px;
+      };
 
       .socialIconWrapper {
         .iconSocial {

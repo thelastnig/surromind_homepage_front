@@ -28,16 +28,11 @@ class UpperImage extends Component {
     image = imageNews;
   } 
 
-  const style = {
-    "backgroundImage": `url(${image})`,
-    "backgroundRepeat": 'no-repeat',
-    "backgroundSize": 'contain',
-  }
-  
     return (
       <Wrapper>
-        <div className='upperImageWrapper' style={style}>
+        <div className='upperImageWrapper'>
           <div className='imgWrapper'>
+            <img src={image} alt={image}/>
             <div className='titleText'>
               {text}
             </div>
@@ -53,21 +48,34 @@ export default UpperImage;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 450px;
   margin: 0 auto;
 
   .upperImageWrapper {
-    width: 100%;
-    height: 450px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
   .titleText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     font-size: ${constants.MAIN_TITLE_SIZE}px;
     font-weight: 600;
     letter-spacing: ${constants.MAIN_TITLE_LETTER_SPACING}px;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      font-size: 2.7vw;
+    };
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: ${constants.MAIN_TITLE_SIZE}px;
+    };
 `;

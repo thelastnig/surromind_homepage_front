@@ -19,15 +19,18 @@ class Contact extends Component {
     return (
       <Wrapper>
         <div className='contentsWrapper'>
-          <div className='upperArea'>
-            <div className='titleText'>Contact</div>
-          </div>
-          <div className='centerArea'>
-            <div className='subText'>Contact us here</div>
-          </div>
-          <div className='lowerArea'>
-            <div className='btn' onClick={this.handleMoreClick}>
-              Contact
+          <img src={contactImage} alt={contactImage}/>
+          <div className="contentInnerWrapper">
+            <div className='upperArea'>
+              <div className='titleText'>Contact</div>
+            </div>
+            <div className='centerArea'>
+              <div className='subText'>Contact us here</div>
+            </div>
+            <div className='lowerArea'>
+              <div className='btn' onClick={this.handleMoreClick}>
+                Contact
+              </div>
             </div>
           </div>
         </div>
@@ -40,27 +43,52 @@ export default withRouter(Contact);
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.CONTACT_HEIGHT}px;
   margin: 0 auto;
-  
-  background-image: url(${contactImage});
-  background-repeat: no-repeat;
-  background-position: center center;
     
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  @media (max-width: ${constants.TOTAL_WIDTH}px) {
+    width: 100%;
+    height: 100%;
+  }
 
   .contentsWrapper {
-    max-width: ${constants.TOTAL_WIDTH}px;
-    height: ${constants.CONTACT_HEIGHT - 150}px;
+    max-width: ${constants.LIMIT_WIDTH}px;
+    max-height: ${constants.CONTACT_HEIGHT}px;
     margin: 0 auto;
+    position: relative;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .contentInnerWrapper {
+
+      width: 100%;
+      height: 65%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+      }
+    }
 
     .upperArea {
       .titleText {
@@ -68,6 +96,10 @@ const Wrapper = styled.div`
         font-size: ${constants.MAIN_TITLE_SIZE}px;
         font-weight: 600;
         color: white;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+        }
       }
     }
 
@@ -76,14 +108,20 @@ const Wrapper = styled.div`
         text-align: center;
         font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
         color: white;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
       }
 
     }
 
     .lowerArea {
+      width: 100%;
       .btn {
-        width: 200px;
-        text-align:center;
+        margin: 0 auto;
+        max-width: 200px;
+        text-align: center;
         border: 1px solid ${constants.POINT_COLOR};
         padding: 10px 0;
         
@@ -91,6 +129,11 @@ const Wrapper = styled.div`
         color: white;
         background-color: ${constants.POINT_COLOR};
         cursor: pointer;
+  
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 15%;
+          font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
 
         &:hover {
           background-color: ${oc.orange[5]};
