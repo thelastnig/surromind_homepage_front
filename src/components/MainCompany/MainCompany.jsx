@@ -13,17 +13,20 @@ class MainCompany extends Component {
     return (
       <Wrapper>
         <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
-          <div className='leftArea'></div>
-          <div className='rightArea'>
-            <div className='titleText'>Who We Are?</div>
-            <div className='mainText'>
-              더  많은 기업과 사람들이 문제를 해결하는데 사용할 수 있도록<br/>
-              쉽고 실용적인 <span>AI 솔루션</span>을 개발합니다.
-            </div>
-            <div className='subText'>
-              Surromind는 고객의 요구에 따라 딥 러닝을 통해 실용적인 AI 솔루션을<br/> 
-              개발하고 있습니다. 또한 사람들이 쉽게 사용할 수 있도록<br/> 
-              자동화된 AI 플랫폼을 개발합니다.
+          <img src={companyImg} alt={companyImg}/>
+          <div className='textWrapper'>
+            <div className='leftArea'></div>
+            <div className='rightArea'>
+              <div className='titleText'>Who We Are?</div>
+              <div className='mainText'>
+                더  많은 기업과 사람들이 문제를 해결하는데 사용할 수 있도록<br/>
+                쉽고 실용적인 <span>AI 솔루션</span>을 개발합니다.
+              </div>
+              <div className='subText'>
+                Surromind는 고객의 요구에 따라 딥 러닝을 통해 실용적인 AI 솔루션을<br/> 
+                개발하고 있습니다. 또한 사람들이 쉽게 사용할 수 있도록<br/> 
+                자동화된 AI 플랫폼을 개발합니다.
+              </div>
             </div>
           </div>
         </div>
@@ -36,16 +39,30 @@ export default MainCompany;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_COMPANY_HEIGHT}px;
   margin: 0 auto;
 
   .contentsWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
-    height: ${constants.MAIN_COMPANY_HEIGHT}px;
+    max-width: ${constants.TOTAL_WIDTH}px;
     margin: 0 auto;
-    background-image: url(${companyImg});
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: relative;
+
+    img {
+      max-width: ${constants.TOTAL_WIDTH}px;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .textWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     align-items: center;
@@ -64,6 +81,10 @@ const Wrapper = styled.div`
     .titleText {
       font-size: ${constants.MAIN_TITLE_SIZE}px;
       font-weight: 600;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+      }
     }
 
     .mainText {
@@ -74,7 +95,10 @@ const Wrapper = styled.div`
       margin-top: 50px;
       margin-bottom: 45px;
   
-      
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+      }
+  
       span {
         font-family: ${constants.KOR_FONT};
         color: ${constants.POINT_COLOR};
@@ -86,6 +110,10 @@ const Wrapper = styled.div`
       font-weight: 600;
       line-height: 1.5em;
       font-size: 18px;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_SUB_SAMLLER_TITLE_SIZE};
+      }
     }
   }
 

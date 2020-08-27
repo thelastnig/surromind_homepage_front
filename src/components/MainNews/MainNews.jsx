@@ -21,12 +21,9 @@ class MainNews extends Component {
 
   render() {
     const newsItems = mainNewsContents.map((item, index) => {
-      const style = {
-        "backgroundImage": `url(${item.image})`,
-        "backgroundSize": "cover",
-      }
       return (
-        <div className='newsItem' key={index} style={style} onClick={() => this.handleClick(item.url)}>
+        <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
+          <img src={item.image} alt={item.image}/>
           <div className='newsAddLayer'>
             <div className='newsTextWrapper'>
               <div className='itemType'>{item.type}</div>
@@ -61,19 +58,26 @@ class MainNews extends Component {
 export default withRouter(MainNews);
 
 const MainNewsWrapper = styled.div`
-  width: ${constants.TOTAL_WIDTH}px;
-  height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
+  width: 100%;
+  padding: ${constants.MAIN_NEWS_AREA_HEIGHT / 4}px 0;
   margin: 0 auto;
 
   display: flex;
   align-items: center;
 
   .newsInnerWrapper {
-    width: 100%;
+    width: ${constants.TOTAL_WIDTH}px;
     height: ${constants.MAIN_NEWS_AREA_HEIGHT / 2}px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
   }
 
   .innerLeft {
@@ -83,14 +87,29 @@ const MainNewsWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .innerLeftUpperText {
       font-size: ${constants.MAIN_TITLE_SIZE - 5}px;
       font-weight: 600;
       line-height: 1.2em;
+
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        margin-left: 10px;
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+      }
     }
 
     .innerLeftLowerLink {
       cursor: pointer;
+
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        margin-right: 10px;
+      }
 
       .styledLink {
         font-size: 16px;
@@ -111,13 +130,27 @@ const MainNewsWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+    }
+
     .newsItem {
-      width: 250px;
-      height: 100%;
       color: white;
       position: relative;
       border-radius: 10px;
       cursor: pointer;
+
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        margin: 0 10px;
+      }
+
+      img {
+        max-width: 250px;
+
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+        }
+      }
 
       .newsAddLayer {
         background-color: rgba(0, 0, 0, 0.3);
@@ -158,6 +191,10 @@ const MainNewsWrapper = styled.div`
       .itemTitle {
         font-family: ${constants.KOR_FONT};
         font-size: 20px;
+
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
       }
     }
     

@@ -52,7 +52,7 @@ export default withRouter(MainRND);
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${constants.MAIN_RND_HEIGHT}px;
+  padding: 75px 0;
   margin: 0 auto;
   
   display: flex;
@@ -64,6 +64,11 @@ const Wrapper = styled.div`
     height: ${constants.MAIN_RND_HEIGHT - 150}px;
     margin: 0 auto;
   
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+    }
+  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,6 +78,11 @@ const Wrapper = styled.div`
       margin: 0 auto;
       font-size: ${constants.MAIN_TITLE_SIZE}px;
       font-weight: 600;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+        margin-bottom: 50px;
+      }
     }
 
     .itemWrapper {
@@ -80,6 +90,11 @@ const Wrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+  
+      @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
+        flex-direction: column;
+        justify-content: center;
+      }
     }
 
     .rndItem {
@@ -88,6 +103,10 @@ const Wrapper = styled.div`
       color: white;
       position: relative;
       cursor: pointer;
+  
+      @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
+        margin-bottom: 25px;
+      }
 
       .addLayer {
         background-color: rgba(0, 0, 0, 0);

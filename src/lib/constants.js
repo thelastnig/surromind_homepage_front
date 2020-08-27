@@ -1,5 +1,6 @@
 export const LIMIT_WIDTH = '1920';
 export const TOTAL_WIDTH = '1400';
+export const TOTAL_SUB_WIDTH = '950';
 export const HEADER_HEIGHT = '46';
 export const VIEW_PAGE_MIN_HEIGHT = '500';
 
@@ -44,3 +45,4 @@ export const MOBILE_WIDTH = '768';
 
 export const RESPONSIVE_MAIN_TITLE_SIZE = '2.7vw';
 export const RESPONSIVE_MAIN_SUB_TITLE_SIZE = '1.4vw';
+export const RESPONSIVE_MAIN_SUB_SAMLLER_TITLE_SIZE = '1.3vw';

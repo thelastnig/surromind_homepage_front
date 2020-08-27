@@ -70,14 +70,14 @@ class MainProjects extends Component {
       slidesToScroll: 3,
       responsive: [
         {
-          breakpoint: 1400,
+          breakpoint: parseInt(constants.TOTAL_WIDTH),
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
           }
         },
         {
-          breakpoint: 950,
+          breakpoint: parseInt(constants.TOTAL_SUB_WIDTH),
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,

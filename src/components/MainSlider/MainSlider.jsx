@@ -80,8 +80,8 @@ class MainSlider extends Component {
               <div className="textWrapper">
                 <div className='textDiv'>
                   고객님, <span>인공지능</span> 사업 시대를 맞이할 준비가 되셨나요?<br/><br/>
-                  <span>인공지능</span>은 “있으면 좋은 것”에서<br/>
-                  “꼭 필요한 것”으로 변화하고 있습니다.<br/>
+                  <span>인공지능</span>은 "있으면 좋은 것"에서<br/>
+                  "꼭 필요한 것"으로 변화하고 있습니다.<br/>
                   품질, 효율, 속도의 향상에 필수적인 기술로 발전하고 있습니다.<br/><br/>
                   포스트 코로나 시대, 디지털 전환이 가속화 되고,<br/>
                   <span>인공지능</span>  적용 분야와 역할의 확대가 가속화 되고 있습니다.
