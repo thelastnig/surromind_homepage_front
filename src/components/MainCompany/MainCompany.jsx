@@ -6,6 +6,7 @@ import oc from 'open-color';
 import * as constants from '../../lib/constants';
 
 import companyImg from '../../images/company.png';
+import companyImgMobile from '../../images/mobile/companyMobile.jpg';
 
 class MainCompany extends Component {
   render() {
@@ -13,7 +14,7 @@ class MainCompany extends Component {
     return (
       <Wrapper>
         <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
-          <img src={companyImg} alt={companyImg}/>
+          <img src={companyImg} alt={companyImg} className='imgCompany'/>
           <div className='textWrapper'>
             <div className='leftArea'></div>
             <div className='rightArea'>
@@ -45,14 +46,20 @@ const Wrapper = styled.div`
     max-width: ${constants.TOTAL_WIDTH}px;
     margin: 0 auto;
     position: relative;
+  }
 
-    img {
-      max-width: ${constants.TOTAL_WIDTH}px;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-        height: 100%;
-      }
+  .imgCompany {
+    max-width: ${constants.TOTAL_WIDTH}px;
+
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+      content: url(${companyImgMobile});
     }
   }
 
@@ -67,16 +74,29 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      flex-direction: column;
+    }
   }
 
   .leftArea {
     width: 55%;
 
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+      height: 50%;
+    }
   }
 
   .rightArea {
     width: 45%;
     color: #003d4c;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+      height: 50%;
+    }
 
     .titleText {
       font-size: ${constants.MAIN_TITLE_SIZE}px;
@@ -84,6 +104,11 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+      }
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
+        margin-left: 10px;
       }
     }
 
@@ -97,6 +122,13 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+      }
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE};
+        margin-left: 10px;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
       }
   
       span {
@@ -113,6 +145,11 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         font-size: ${constants.RESPONSIVE_MAIN_SUB_SAMLLER_TITLE_SIZE};
+      }
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        font-size: 2.4vw;
+        margin-left: 10px;
       }
     }
   }

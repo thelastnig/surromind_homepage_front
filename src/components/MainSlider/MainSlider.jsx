@@ -8,8 +8,8 @@ import * as constants from '../../lib/constants'
 // import slider package
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
-import mainSlide3 from '../../images/mainSlide3.jpg';
-import mainSlide4 from '../../images/mainSlide4.jpg';
+import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
+import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -24,7 +24,6 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 const StyledArrowLeft = styled(ArrowLeft)`
   font-size: 50px;
 `;
-
 
 class MainSlider extends Component {    
   
@@ -58,7 +57,7 @@ class MainSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 8000,
       responsive: [
         {
           breakpoint: 768,
@@ -71,12 +70,12 @@ class MainSlider extends Component {
     };
 
     return (
-      <MainSliderWrapper>
+      <MainSliderWrapper >
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
             <div className='eachSlide'>
-              <img src={mainSlide1} />
+              <img src={mainSlide1} className="slideImage1"/>
               <div className="textWrapper">
                 <div className='textDiv'>
                   고객님, <span>인공지능</span> 사업 시대를 맞이할 준비가 되셨나요?<br/><br/>
@@ -89,7 +88,7 @@ class MainSlider extends Component {
               </div>
             </div>
             <div className='eachSlide'>
-              <img src={mainSlide2} />
+              <img src={mainSlide2} className="slideImage2"/>
               <div className="textWrapper">
                 <div className='textDiv'>
                   고객님, <span>인공지능</span>  개발 전문회사<br/>
@@ -114,6 +113,10 @@ const MainSliderWrapper = styled.div`
   width: 100%;
   max-height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;
+    
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    max-height: 100%;
+  }
 
   .textWrapper {
     width: ${constants.TOTAL_WIDTH}px;
@@ -129,11 +132,11 @@ const MainSliderWrapper = styled.div`
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 80%;
       height: 100%;
-    };
+    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 80%;
-    };
+    }
 
     .textDiv {
       color: white;
@@ -149,13 +152,12 @@ const MainSliderWrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         font-size: 2.0vw;
-      };
+      }
     
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        font-size: 1em;
-      };
-
-
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE};
+        line-height: 2em;
+      }
     }
   }
 
@@ -179,7 +181,6 @@ const MainSliderWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
   }
 
   .arrowBtn {
@@ -194,11 +195,18 @@ const MainSliderWrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
-      };
+      }
     
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
-      };  
+        &.slideImage1 {
+          content: url(${mainSlideMobile1});
+        }
+        &.slideImage2 {
+          content: url(${mainSlideMobile2});
+        }
+      }
     }
   }
 `;
+

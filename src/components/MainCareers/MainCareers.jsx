@@ -43,7 +43,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  
   .contentsWrapper {
     width: ${constants.TOTAL_WIDTH}px;
     max-height: ${constants.MAIN_CAREERS_HEIGHT - 200}px;
@@ -57,6 +57,10 @@ const Wrapper = styled.div`
       width: 95%;
       height: 100%;
     }
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      flex-direction: column;
+    }
 
     .leftArea {
       width: 50%;
@@ -65,6 +69,10 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 100%;
+      }
 
       .titleText {
         font-size: ${constants.MAIN_TITLE_SIZE}px;
@@ -74,6 +82,12 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
         }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          text-align: center;
+          margin-bottom: 10px;
+          font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
+        }
       }
   
       .subText {
@@ -81,6 +95,11 @@ const Wrapper = styled.div`
   
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          text-align: center;
+          font-size: 3.8vw;
         }
       }
     }
@@ -91,10 +110,16 @@ const Wrapper = styled.div`
       flex-direction: column;
       align-items: flex-end;
       justify-content: center;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 100%;
+        align-items: center;
+        margin-top: 20px;
+      }
 
       .btn {
         width: 200px;
-        text-align:center;
+        text-align: center;
         border: 1px solid ${constants.POINT_COLOR};
         padding: 10px 0;
         
@@ -105,6 +130,11 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           width: 25%;
           font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 200px;
+          font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
         }
 
         &:hover {

@@ -153,6 +153,11 @@ const Wrapper = styled.div`
         margin-bottom: 50px;
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
       }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-bottom: 50px;
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
+      }
     }
 
     .subText {
@@ -163,6 +168,13 @@ const Wrapper = styled.div`
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         margin-bottom: 50px;
         font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+      }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-bottom: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 14px;
       }
     }
 
@@ -196,6 +208,11 @@ const Wrapper = styled.div`
       .itemWrapper {
         width: 380px;
         height: 263px;
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          max-width: 270px;
+          max-height: 187px;
+        }
         
         margin: 0 auto;
 
@@ -236,7 +253,11 @@ const Wrapper = styled.div`
           font-size: ${constants.MAIN_ITEM_TITLE_SIZE - 5}px;
           font-family: ${constants.KOR_FONT};
           font-weight: 600;
-          margin-bottom: 15px;
+  
+          @media (max-width: ${constants.MOBILE_WIDTH}px) {
+            font-size: 3.7vw;
+
+          }
         }
   
         .itemSubTitle {

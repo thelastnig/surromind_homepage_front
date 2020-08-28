@@ -102,6 +102,12 @@ const MainNewsWrapper = styled.div`
         margin-left: 10px;
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
       }
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-left: 0;
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
+      }
+
     }
 
     .innerLeftLowerLink {
@@ -109,6 +115,12 @@ const MainNewsWrapper = styled.div`
 
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         margin-right: 10px;
+      }
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-right: 0;
+        display: flex;
+        align-items: flex-end;
       }
 
       .styledLink {
@@ -134,6 +146,10 @@ const MainNewsWrapper = styled.div`
       width: 100%;
     }
 
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      flex-wrap: wrap;
+    }
+
     .newsItem {
       color: white;
       position: relative;
@@ -144,10 +160,21 @@ const MainNewsWrapper = styled.div`
         margin: 0 10px;
       }
 
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 45%;
+        max-width: 250px;
+        margin: 0 0;
+        margin-top: 20px;
+      }
+
       img {
         max-width: 250px;
 
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+        }
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
         }
       }
@@ -194,6 +221,10 @@ const MainNewsWrapper = styled.div`
 
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE};
         }
       }
     }

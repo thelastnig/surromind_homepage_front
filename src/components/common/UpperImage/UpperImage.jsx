@@ -10,29 +10,39 @@ import imageContact from '../../../images/upperImageContact.jpg';
 import imageCareers from '../../../images/upperImageCareers.jpg';
 import imageProject from '../../../images/upperImageProject.jpg';
 
+import imageNewsMobile from '../../../images/mobile/upperImageNewsMobile.png';
+import imageContactMobile from '../../../images/mobile/upperImageContactMobile.png';
+import imageCareersMobile from '../../../images/mobile/upperImageCareersMobile.png';
+import imageProjectMobile from '../../../images/mobile/upperImageProjectMobile.jpg';
+
 class UpperImage extends Component {
 
   render() {
   const { text } = this.props;
 
   let image;
+  let imageMobile;
   if (text === 'News') {
     image = imageNews;
+    imageMobile = imageNewsMobile;
   } else if (text === 'Contact') {
     image = imageContact;
+    imageMobile = imageContactMobile;
   } else if (text === 'Careers') {
     image = imageCareers;
+    imageMobile = imageCareersMobile;
   } else if (text === 'Project' || text === 'R&D') {
     image = imageProject;
+    imageMobile = imageProjectMobile;
   } else {
     image = imageNews;
   } 
 
     return (
-      <Wrapper>
+      <Wrapper imageMobile={imageMobile}>
         <div className='upperImageWrapper'>
           <div className='imgWrapper'>
-            <img src={image} alt={image}/>
+            <img src={image} alt={image} className='imgUpper'/>
             <div className='titleText'>
               {text}
             </div>
@@ -55,9 +65,13 @@ const Wrapper = styled.div`
     text-align: center;
     position: relative;
 
-    img {
+    .imgUpper {
       max-width: 100%;
       max-height: 100%;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        content: url(${props => props.imageMobile});
+      }
     }
   }
 
@@ -73,9 +87,12 @@ const Wrapper = styled.div`
   
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       font-size: 2.7vw;
-    };
+    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      font-size: ${constants.MAIN_TITLE_SIZE}px;
-    };
+      font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_BIG};
+    }
+  }
+
+
 `;

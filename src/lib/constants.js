@@ -42,7 +42,12 @@ export const CARD_IMAGE_HEIGHT = '195';
 export const PROJECT_VIEW_WIDTH = '1100';
 
 export const MOBILE_WIDTH = '768';
+export const MOBILE_SMALL_WIDTH = '350';
 
 export const RESPONSIVE_MAIN_TITLE_SIZE = '2.7vw';
 export const RESPONSIVE_MAIN_SUB_TITLE_SIZE = '1.4vw';
 export const RESPONSIVE_MAIN_SUB_SAMLLER_TITLE_SIZE = '1.3vw';
+
+export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE = '3.5vw';
+export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_BIG = '7vw';
+export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE = '36';

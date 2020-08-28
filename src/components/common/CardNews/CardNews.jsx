@@ -22,7 +22,7 @@ class CardNews extends Component {
       <CardWrapper>
         <div className="cardInnerWrapper">
           <div className="imageWrapper" onClick={() => this.handleClick(url)}>
-            <img src={image} width={constants.CARD_WIDTH} height={constants.CARD_IMAGE_HEIGHT} alt={title}/>
+            <img src={image} alt={title} className='imgNews'/>
           </div>
           <div className='textWrapper'>
             <div className="textInnerWrapper">
@@ -50,6 +50,10 @@ const CardWrapper = styled.div`
   .cardInnerWrapper {
     width: ${constants.CARD_WIDTH}px;
     height: ${constants.CARD_NEWS_HEIGHT}px;
+  
+    @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+      width: 300px;
+    }
   }
 
   .imageWrapper {
@@ -58,6 +62,21 @@ const CardWrapper = styled.div`
     border: 1px solid ${oc.gray[4]};
     margin-bottom: 10px;
     cursor: pointer;
+  
+    @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+      width: 300px;
+      height: 163px;
+    }
+
+    .imgNews {
+      width: ${constants.CARD_WIDTH}px;
+      height: ${constants.CARD_IMAGE_HEIGHT}px;
+  
+      @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+        width: 300px;
+        height: 163px;
+      }
+    }
   }
 
   .textWrapper {

@@ -83,6 +83,11 @@ const Wrapper = styled.div`
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
         margin-bottom: 50px;
       }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
+        margin-bottom: 50px;
+      }
     }
 
     .itemWrapper {
@@ -106,6 +111,11 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
         margin-bottom: 25px;
+      }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        max-width: 310px;
+        max-height: 215px;
       }
 
       .addLayer {

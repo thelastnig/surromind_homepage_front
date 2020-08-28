@@ -138,11 +138,7 @@ const Wrapper = styled.div`
   
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 95%;
-    };
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;
-    };
+    }
   }
 
   .upperArea {
@@ -155,11 +151,11 @@ const Wrapper = styled.div`
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       flex-direction: column;
       justify-content: flex-start;
-    };
+    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;
-    };
+      height: 100%;
+    }
 
     .leftItem {
       width: 20%;
@@ -167,7 +163,7 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
-      };
+      }
   
       .ImgLogo {
         height: 20px;
@@ -189,7 +185,11 @@ const Wrapper = styled.div`
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
         margin-top: 10px;
-      };
+      }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        display: none;
+      }
 
       .barMenu {
         flex-grow: 1;
@@ -240,7 +240,7 @@ const Wrapper = styled.div`
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
         margin-top: 0px;
-      };
+      }
     }
   }
 
@@ -253,7 +253,7 @@ const Wrapper = styled.div`
   
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       flex-direction: column;
-    };
+    }
 
     .leftItem {
       margin-top: 35px;
@@ -264,7 +264,7 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
-      };
+      }
     }
 
     .rightItem {
@@ -277,7 +277,7 @@ const Wrapper = styled.div`
         width: 100%;
         text-align: left;
         margin-bottom: 35px;
-      };
+      }
 
       .socialIconWrapper {
         .iconSocial {

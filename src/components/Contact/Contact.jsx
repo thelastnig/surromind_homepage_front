@@ -7,6 +7,7 @@ import { Link, withRouter } from 'react-router-dom';
 import * as constants from '../../lib/constants';
 
 import contactImage from '../../images/contact.png';
+import contactImageMobile from '../../images/mobile/contactMobile.jpg';
 
 class Contact extends Component {
   
@@ -19,7 +20,7 @@ class Contact extends Component {
     return (
       <Wrapper>
         <div className='contentsWrapper'>
-          <img src={contactImage} alt={contactImage}/>
+          <img src={contactImage} alt={contactImage} className='imgContact'/>
           <div className="contentInnerWrapper">
             <div className='upperArea'>
               <div className='titleText'>Contact</div>
@@ -66,13 +67,16 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    img {
+    .imgContact {
       max-width: 100%;
       max-height: 100%;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        content: url(${contactImageMobile});
+      }
     }
 
     .contentInnerWrapper {
-
       width: 100%;
       height: 65%;
       position: absolute;
@@ -88,6 +92,10 @@ const Wrapper = styled.div`
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 100%;
       }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        justify-content: center;
+      }
     }
 
     .upperArea {
@@ -99,6 +107,10 @@ const Wrapper = styled.div`
   
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
+        }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          display: none;
         }
       }
     }
@@ -112,12 +124,21 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
         }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          display: none;
+        }
       }
-
     }
 
     .lowerArea {
       width: 100%;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        display: flex;
+        align-item: center;
+      }
+
       .btn {
         margin: 0 auto;
         max-width: 200px;
@@ -133,6 +154,11 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           width: 15%;
           font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+        }
+  
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 200px;
+          font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
         }
 
         &:hover {

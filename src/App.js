@@ -108,8 +108,9 @@ const HeaderWrapper = styled.div`
   box-shadow: 0 3px 5px rgba(200, 200, 200, 0.7);
   
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
-    display: none;
-  };
+    position: relative;
+    box-shadow: none;
+  }
   
   ${props => {
     if (props.isScrolled) {

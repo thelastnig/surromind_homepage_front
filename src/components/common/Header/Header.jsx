@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 import oc from 'open-color';
 import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/icons/Menu';
 
 // import constants from constants.js
 import * as constants from '../../../lib/constants';
@@ -140,6 +141,11 @@ class Header extends Component {
               <div className="rightText">
                 KOR
               </div>
+              <div className="rightMenuIcon">
+                <div className="rightMenuIconWrapper">
+                  <Menu fontSize="large"/>
+                </div>
+              </div>
             </div>
           </div>
         </HeaderInnerWrapper>
@@ -181,11 +187,11 @@ const HeaderInnerWrapper = styled.div`
   
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 95%;
-    };
+    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;
-    };
+      width: 100%;
+    }
   }
 
   .leftItem {
@@ -193,15 +199,15 @@ const HeaderInnerWrapper = styled.div`
     height: 20px;
     display: flex;
     align-items: center;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 50%;
+    }
 
     .ImgLogo {
       height: 20px;
       padding-top: 2px;
     }
-
-    @media (max-width: 768px) {
-      display: none;
-    };
   }
 
   .centerItem {
@@ -211,6 +217,10 @@ const HeaderInnerWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     text-align: left;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    }
 
     .barMenu {
       height: 100%;
@@ -240,7 +250,7 @@ const HeaderInnerWrapper = styled.div`
 
     @media (max-width: 768px) {
       display: none;
-    };
+    }
   }
 
   .styledLink {
@@ -253,9 +263,17 @@ const HeaderInnerWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 50%;
+    }
 
     .rightIcon {
       padding-top: 2px;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        display: none;
+      }
     }
 
     .rightText {
@@ -263,12 +281,26 @@ const HeaderInnerWrapper = styled.div`
       font-size: 14px;
       font-weight: 400;
       color: ${oc.gray[8]};
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        display: none;
+      }
     }
 
-    @media (max-width: 768px) {
-      width: 100%;
-      justify-content: space-between;
-    };
+    .rightMenuIcon {
+      display: none;
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        display: block;
+      }
+
+      .rightMenuIconWrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 `;
 
@@ -370,6 +402,4 @@ const SubHeadInnerWrapper = styled.div`
   .rightItem {
     width: 20%;
   }
-
-  
 `;
