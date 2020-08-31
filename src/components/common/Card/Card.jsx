@@ -23,7 +23,7 @@ class Card extends Component {
       <CardWrapper>
         <div className="cardInnerWrapper">
           <div className="imageWrapper">
-            <img src={image} width={constants.CARD_WIDTH} height={isClickDisable ? null : constants.CARD_IMAGE_HEIGHT} alt={title}/>
+            <img src={image} width={constants.CARD_WIDTH} height={isClickDisable ? null : constants.CARD_IMAGE_HEIGHT} alt={title} className='imgItem'/>
           </div>
           <div className='textWrapper'>
             <div className="textInnerWrapper">
@@ -55,11 +55,34 @@ const CardWrapper = styled.div`
     width: ${constants.CARD_WIDTH}px;
     height: ${constants.CARD_HEIGHT}px;
     border: 1px solid ${oc.gray[4]};
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      margin-bottom: 50px;
+    }
+  
+    @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+      width: 300px;
+    }
   }
 
   .imageWrapper {
     width: 100%;
     height: ${constants.CARD_IMAGE_HEIGHT}px;
+  
+    @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+      width: 300px;
+      height: 163px;
+    }
+
+    .imgItem {
+      width: ${constants.CARD_WIDTH}px;
+      height: ${constants.CARD_IMAGE_HEIGHT}px;
+  
+      @media (max-width: ${constants.MOBILE_SMALL_WIDTH}px) {
+        width: 300px;
+        height: 163px;
+      }
+    }
   }
 
   .textWrapper {

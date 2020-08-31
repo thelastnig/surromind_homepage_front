@@ -12,9 +12,14 @@ import { bindActionCreators } from 'redux';
 // import constants from constants.js
 import * as constants from './lib/constants';
 
+// import sidebar
+import Sidebar from './components/common/Sidebar';
+
 class App extends Component {
   state = {
     isScrolled: false,
+    isSidebarOpen: false,
+    clickNum: 0,
   }
 
   componentDidMount() {
@@ -35,25 +40,45 @@ class App extends Component {
     });
   }
 
+  toggleSidebar = () => {
+    const { isSidebarOpen, clickNum } = this.state;
+
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'unset';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
+    this.setState({
+      isSidebarOpen: !isSidebarOpen,
+      clickNum: clickNum + 1,
+    });
+  }
+
   render() {
-    const { isScrolled } = this.state;
+    const { isScrolled, isSidebarOpen, clickNum } = this.state;
     return (
       <BrowserRouter>
+        <SidebarWapper isSidebarOpen={isSidebarOpen} clickNum={clickNum}>
+          <Sidebar toggleSidebar={this.toggleSidebar}/>
+        </SidebarWapper>
         <OuterWrapper>
-          <InnerWrapper>
-            <HeaderWrapper isScrolled={isScrolled}>
-              <div className='limitWrapper'><HeaderContainer/></div>
-            </HeaderWrapper> 
-            <RootWrapper>
-              <div className='limitWrapper'><Root/></div>
-            </RootWrapper>
-            <ContactWrapper>
-              <div className='limitWrapper'><ContactComponentContainer/></div>
-            </ContactWrapper>
-            <FooterWrapper>
-              <div className='limitWrapper'><FooterContainer/></div>
-            </FooterWrapper>
-          </InnerWrapper>
+          <div className="addLayer">
+            <InnerWrapper>
+              <HeaderWrapper isScrolled={isScrolled}>
+                <div className='limitWrapper'><HeaderContainer toggleSidebar={this.toggleSidebar}/></div>
+              </HeaderWrapper> 
+              <RootWrapper>
+                <div className='limitWrapper'><Root/></div>
+              </RootWrapper>
+              <ContactWrapper>
+                <div className='limitWrapper'><ContactComponentContainer/></div>
+              </ContactWrapper>
+              <FooterWrapper>
+                <div className='limitWrapper'><FooterContainer/></div>
+              </FooterWrapper>
+            </InnerWrapper>
+          </div>
         </OuterWrapper>
       </BrowserRouter>
     );
@@ -81,9 +106,56 @@ const slideInDownAnimation = keyframes`
   }
 `;
 
+const sidebarIn = keyframes`
+  0% {
+    left: -100vw;
+  }
+  100% { 
+    left: 0;
+  }
+`;
+
+const sidebarOut = keyframes`
+  0% {
+    left: 0;
+  }
+  100% { 
+    left: -100vw;
+  }
+`;
+
 const OuterWrapper = styled.div`
   width: 100%;
+  height: 100%;
   margin: 0 auto;
+
+  .addLayer {
+  }
+`;
+
+const SidebarWapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  z-index: 150;
+  
+  ${props => {
+    if (props.isSidebarOpen) {
+        return css `
+          animation: 0.5s ${sidebarIn} forwards
+        `;
+    }
+  }}
+  
+  ${props => {
+    if (!props.isSidebarOpen && props.clickNum > 0) {
+        return css `
+          animation: 0.5s ${sidebarOut} forwards
+        `;
+    }
+  }}
 `;
 
 const InnerWrapper = styled.div`

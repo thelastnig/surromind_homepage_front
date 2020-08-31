@@ -10,12 +10,21 @@ import UpperImage from '../common/UpperImage';
 
 import BackToList from '../common/BackToList';
 
-import { InputAdornment, TextField, FormGroup, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
+import { InputAdornment, TextField, FormGroup, FormControlLabel, Checkbox, Typography, createMuiTheme } from '@material-ui/core';
 
 import BusinessCenter from "@material-ui/icons/BusinessCenter";
 import PhoneIcon from "@material-ui/icons/Phone";
 import PersonIcon from "@material-ui/icons/Person";
 import EmailIcon from "@material-ui/icons/Email";
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      mobile: parseInt(constants.MOBILE_WIDTH),
+      desktop: parseInt(constants.LIMIT_WIDTH),
+    },
+  },
+});
 
 class ContactView extends Component {
 
@@ -41,9 +50,6 @@ class ContactView extends Component {
 
   
   render() {
-    const styleHalf = {
-      "width": "50%",
-    };
 
     const styleFull = {
       "width": "100%",
@@ -93,7 +99,7 @@ class ContactView extends Component {
           <div className='contactItem'>
             <div className='contactItemLeft'>소속</div>
             <div className='contactItemRight'>
-             <TextField id="company" variant="outlined" size="small" style={styleHalf} 
+             <TextField id="company" variant="outlined" size="small" className="inputHalf"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -107,7 +113,7 @@ class ContactView extends Component {
           <div className='contactItem'>
             <div className='contactItemLeft'>성명</div>
             <div className='contactItemRight'>
-             <TextField id="name" variant="outlined" size="small" style={styleHalf} 
+             <TextField id="name" variant="outlined" size="small" className="inputHalf"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -121,7 +127,7 @@ class ContactView extends Component {
           <div className='contactItem'>
             <div className='contactItemLeft'>연락처</div>
             <div className='contactItemRight'>
-             <TextField id="phone" variant="outlined" size="small" style={styleHalf} 
+             <TextField id="phone" variant="outlined" size="small" className="inputHalf" 
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -135,7 +141,7 @@ class ContactView extends Component {
           <div className='contactItem'>
             <div className='contactItemLeft'>E-mail</div>
             <div className='contactItemRight'>
-             <TextField id="email" variant="outlined" size="small" style={styleHalf} 
+             <TextField id="email" variant="outlined" size="small" className="inputHalf"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -182,6 +188,14 @@ const Wrapper = styled.div`
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+    }
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
   }
 
   .infoText {
@@ -191,6 +205,10 @@ const Wrapper = styled.div`
     font-size: ${constants.MAIN_TITLE_SIZE}px;
     font-weight: 600;
     font-family: ${constants.NOTO_FONT};
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDEL}px;
+    }
   }
 
   .contactItem {
@@ -208,6 +226,10 @@ const Wrapper = styled.div`
     font-size: 16px;
     font-weight: 500;
     font-family: ${constants.NOTO_FONT};
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: 13px;
+    }
   }
 
   .contactItemRight {
@@ -237,6 +259,15 @@ const Wrapper = styled.div`
         background-color: ${constants.POINT_COLOR};
       }
     }
+  }
+
+  .inputHalf {
+    width: 50%;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
+
   }
 `;
 

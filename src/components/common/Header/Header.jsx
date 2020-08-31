@@ -49,6 +49,7 @@ class Header extends Component {
     const { 
       BaseActions,
       handleClickHome,
+      toggleSidebar
     } = this.props;
 
     let MenuName = "";
@@ -143,7 +144,7 @@ class Header extends Component {
               </div>
               <div className="rightMenuIcon">
                 <div className="rightMenuIconWrapper">
-                  <Menu fontSize="large"/>
+                  <Menu fontSize="large" onClick={toggleSidebar}/>
                 </div>
               </div>
             </div>
@@ -248,7 +249,7 @@ const HeaderInnerWrapper = styled.div`
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: none;
     }
   }

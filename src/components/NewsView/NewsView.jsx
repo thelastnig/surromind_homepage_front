@@ -195,6 +195,8 @@ const Wrapper = styled.div`
     }
 
     &.link {
+      overflow: hidden;
+      word-break: break-all;
       line-height: 1.3;
       cursor: pointer;
       text-decoration: underline;

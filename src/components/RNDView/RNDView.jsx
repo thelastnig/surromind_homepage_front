@@ -25,7 +25,7 @@ class RNDView extends Component {
 
   handleBarItemClick = (itemIndex) => {
     const item = itemIndex === 0 ? this.overviewSection : (itemIndex === 1 ? this.detailSection : this.featureSection) 
-    window.scrollTo({top: item.offsetTop - 100, behavior:'smooth'});
+    window.scrollTo({top: item.offsetTop, behavior:'smooth'});
   
     this.setState({
       selectedBarITem: itemIndex
@@ -122,8 +122,8 @@ class RNDView extends Component {
           </div>
         </div>  
 
-        <div className="projectContentMiddkeWrapper">
-          <div className="projectContentMiddkeInnerWrapper">
+        <div className="projectContentMiddleWrapper">
+          <div className="projectContentMiddleInnerWrapper">
             <div className="section detail" ref={(ref) => {this.detailSection=ref}}>
               <div className="sectionTitle">Detail</div>
               {rndDetailContentsList}
@@ -161,16 +161,32 @@ const Wrapper = styled.div`
     &.bottom {
       padding-top: 0;
     }
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+    }
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
   }
 
-  .projectContentMiddkeWrapper {
+  .projectContentMiddleWrapper {
     width: 100%;
     margin: 0 auto;
     background-color: #F5F5F5;
 
-    .projectContentMiddkeInnerWrapper {
+    .projectContentMiddleInnerWrapper {
       width: ${constants.PROJECT_VIEW_WIDTH}px;
       margin: 0 auto;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 100%;
+      }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 100%;
+      }
     }
   }
 
@@ -185,7 +201,11 @@ const Wrapper = styled.div`
     text-align: center;
     font-family: ${constants.KOR_FONT};
     font-weight: 600;
-    font-size: 35px
+    font-size: 35px;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDLE};
+    }
   }
 
   .upperSelectBar {

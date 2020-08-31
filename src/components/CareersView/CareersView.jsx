@@ -77,6 +77,14 @@ const Wrapper = styled.div`
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
+  
+    @media (max-width: ${constants.TOTAL_WIDTH}px) {
+      width: 100%;
+    }
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
   }
 
   .infoText {
@@ -89,12 +97,26 @@ const Wrapper = styled.div`
     font-size: ${constants.MAIN_SUB_TITLE_SIZE_LARGE}px;
     font-weight: 600;
     font-family: ${constants.NOTO_FONT};
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDEL_LOW}px;
+    }
   }
 
   .imageWrapper {
     width: 450px;
     margin: 0 auto;
     margin-bottom: 50px;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
+
+    img {
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 100%;
+      }
+    }
   }
 
   .careersContentWrapper {

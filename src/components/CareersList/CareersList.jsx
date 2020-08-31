@@ -63,6 +63,14 @@ const Wrapper = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+  
+    @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
+      width: 100%;
+    }
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      justify-content: center;
+    }
   }
 `;
 

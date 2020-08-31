@@ -65,6 +65,11 @@ const MainNewsWrapper = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    margin-left: 0;
+    padding: ${constants.MAIN_NEWS_AREA_HEIGHT / 10}px 0;
+  }
+
   .newsInnerWrapper {
     width: ${constants.TOTAL_WIDTH}px;
     height: ${constants.MAIN_NEWS_AREA_HEIGHT / 2}px;

@@ -4,6 +4,9 @@ import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage,
   CareersListPage, CareersViewPage, ContactPage } from '../pages';
 import styled from 'styled-components';
 
+// import constants from constants.js
+import * as constants from '../lib/constants';
+
 const Root = () => {
   return (
     <Wrapper>
@@ -34,7 +37,8 @@ const Wrapper = styled.div`
     min-height: 1000px;
     width: 100%;
     margin: 0 auto;
-    @media (max-width: 768px) {
+    
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
       min-height: auto;
     }

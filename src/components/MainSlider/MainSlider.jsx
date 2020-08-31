@@ -115,7 +115,7 @@ const MainSliderWrapper = styled.div`
   margin: 0 auto;
     
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
-    max-height: 100%;
+    height: 100%;
   }
 
   .textWrapper {
