@@ -86,19 +86,11 @@ class MainProjects extends Component {
       ]
     };
 
-    const { handleClickArticle } = this.props;
-
     return (
       <Wrapper>
         <div className="contentsWrapper">
           <div className="titleText">
             Projects
-          </div>
-          <div className="subText">
-          PFN leverages deep learning and robotics technology to promote innovation in various fields.<br/>
-          We develop the software framework, algorithms, hardware which is supported research and development,<br/>
-          and many projects that utilize them are in progress simultaneously.<br/>
-          Their application areas are getting expanded.<br/>
           </div>
           <div className='slideWrapper'>
             {this.renderArrows()}
@@ -160,24 +152,6 @@ const Wrapper = styled.div`
       }
     }
 
-    .subText {
-      margin: 0 auto;
-      font-size: ${constants.MAIN_SUB_TITLE_SIZE}px;
-      text-align: center;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        margin-bottom: 50px;
-        font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
-      }
-  
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        margin-bottom: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 14px;
-      }
-    }
-
     .slideWrapper {
       position: relative;
       max-width: 1530px;
@@ -204,7 +178,6 @@ const Wrapper = styled.div`
   
     .eachSlide {
       outline: none;
-
       .itemWrapper {
         width: 380px;
         height: 263px;

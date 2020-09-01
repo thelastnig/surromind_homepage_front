@@ -21,6 +21,9 @@ class MainNews extends Component {
 
   render() {
     const newsItems = mainNewsContents.map((item, index) => {
+      if (index > 3) {
+        return;
+      }
       return (
         <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
           <img src={item.image} alt={item.image}/>
@@ -112,7 +115,6 @@ const MainNewsWrapper = styled.div`
         margin-left: 0;
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
       }
-
     }
 
     .innerLeftLowerLink {
@@ -174,6 +176,7 @@ const MainNewsWrapper = styled.div`
 
       img {
         max-width: 250px;
+        border-radius: 10px;
 
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
           width: 100%;
@@ -185,7 +188,7 @@ const MainNewsWrapper = styled.div`
       }
 
       .newsAddLayer {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.2);
         width: 100%;
         height: 100%;
         position: absolute;
@@ -233,7 +236,6 @@ const MainNewsWrapper = styled.div`
         }
       }
     }
-    
   }
 `;
 

@@ -11,6 +11,7 @@ import UpperImage from '../common/UpperImage';
 // import news contents 
 import newsContents from '../../lib/mainNews';
 
+// import backto component
 import BackToList from '../common/BackToList';
 
 class NewsView extends Component {
@@ -25,25 +26,36 @@ class NewsView extends Component {
       item.id === articleID
     );
 
-    const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
-      let div = 
-        <div key={index} className='eachContent normal'>
-            {content.desc}
+    const makeDivWithClassName = (content, index) => {
+      let div = <div className="eachContent normal" key={index}></div>
+
+      if (content.type === 'image') {
+        div = <div className="eachContentImage" key={index}>
+          <img src={content.src} alt='news image'/>
         </div>
-      if (content.type === 'normal') {
-        div = 
-          <div key={index} className='eachContent normal'>
-              {content.desc}
-          </div>
+      } else if (content.type === 'imageWithCaption') {
+        div = <div className="eachContentImage withCaption" key={index}>
+          <img src={content.src} alt='news image'/>
+        </div>
       } else if (content.type === 'subTitle') {
-        div = 
-          <div key={index} className='eachContent subTitle'>
-              {content.desc}
-          </div>
+        div = <div className="eachContent subTitle" key={index}>{content.desc}</div>
+      } else if (content.type === 'textNormalCenter') {
+        div = <div className="eachContent center" key={index}>{content.desc}</div>
       } else if (content.type === 'link') {
         div = <a key={index} className='eachContent link' href={content.desc}>{content.desc}</a>
+      } else if (content.type === 'imageCaption') {
+        div = <div className="eachContent caption" key={index}>{content.desc}</div>
+      } else {
+        div = <div className="eachContent normal" key={index}>{content.desc}</div>
       }
-      return (div);
+      return div
+    }
+
+    const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
+      const div = makeDivWithClassName(content,index);
+      return (
+        div
+      )
     });
     
     const keywordsList = newsItem.keywords.map((keyword, index) => {
@@ -130,6 +142,7 @@ const Wrapper = styled.div`
   
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
+        margin-bottom: 10px;
       }
     }
 
@@ -163,7 +176,6 @@ const Wrapper = styled.div`
         }
       }
     }
-
   }
 
   .newsDate {
@@ -188,7 +200,6 @@ const Wrapper = styled.div`
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 25px;
-
     &.subTitle {
       font-weight: 600;
       margin-bottom: 5px;
@@ -202,10 +213,27 @@ const Wrapper = styled.div`
       text-decoration: underline;
       color: ${oc.blue[7]};
     }
+
+    &.caption {
+      font-size: 14px;
+      font-color: ${oc.gray[8]};
+      text-align: center;
+      margin-bottom: 50px;
+    }
   }
 
+  .eachContentImage {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
 
+    &.withCaption {
+      margin-bottom: 10px;
+    }
 
-  
+    img {
+      max-width: 80%;
+    }
+  }
 `;
 

@@ -194,6 +194,10 @@ const Wrapper = styled.div`
     width: ${constants.PROJECT_VIEW_WIDTH}px;
     margin: 0 auto;
     margin-bottom: 100px;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
   }
 
   .mainTitle {
