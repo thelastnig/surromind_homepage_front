@@ -151,6 +151,7 @@ const MainNewsWrapper = styled.div`
 
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 100%;
+      margin: 0 auto;
     }
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
@@ -162,6 +163,11 @@ const MainNewsWrapper = styled.div`
       position: relative;
       border-radius: 10px;
       cursor: pointer;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
 
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         margin: 0 10px;
@@ -175,7 +181,7 @@ const MainNewsWrapper = styled.div`
       }
 
       img {
-        max-width: 250px;
+        width: 250px;
         border-radius: 10px;
 
         @media (max-width: ${constants.TOTAL_WIDTH}px) {
@@ -184,6 +190,7 @@ const MainNewsWrapper = styled.div`
 
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
+          height: 100%;
         }
       }
 
@@ -206,10 +213,14 @@ const MainNewsWrapper = styled.div`
       }
 
       .newsTextWrapper {
-        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 20px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
       }
 
       .itemType {

@@ -9,7 +9,7 @@ import * as constants from '../lib/constants';
 
 const Root = () => {
   return (
-    <Wrapper>
+    <RootWrapper>
         <div className="innerWrapper">
           <Switch>
             <Route exact path="/" component={MainPage} />
@@ -24,13 +24,13 @@ const Root = () => {
             <Route path="/contact" component={ContactPage} />
           </Switch>
         </div>
-    </Wrapper>
+    </RootWrapper>
   );
 }
 
 export default Root;
 
-const Wrapper = styled.div`
+const RootWrapper = styled.div`
   width: 100%;
 
   .innerWrapper {

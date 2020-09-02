@@ -50,8 +50,24 @@ class MainProjects extends Component {
         "backgroundSize": "cover",
       }
       return (
+        <div className='projectItem' key={index} style={style} onClick={() => this.handleClick(item.url)}>
+          <div className='addLayer'>
+            <div className='textWrapper'>
+              <div className='itemTitle'>{item.title}</div>
+            </div>
+          </div>
+        </div>
+      )
+    })
+
+    const projectItemsMobile = mainProjectContents.map((item, index) => {
+      const style = {
+        "backgroundImage": `url(${item.image})`,
+        "backgroundSize": "cover",
+      }
+      return (
         <div className='eachSlide' key={index} onClick={() => this.handleClick(item.url)}>
-          <div className='itemWrapper' style={style}>
+          <div className='itemWrapperMobile' style={style}>
             <div className='addLayer'>
               <div className='textWrapper'>
                 <div className='itemTitle'>{item.title}</div>
@@ -92,10 +108,13 @@ class MainProjects extends Component {
           <div className="titleText">
             Projects
           </div>
+          <div className="itemWrapper">
+            {projectItems}
+          </div>
           <div className='slideWrapper'>
             {this.renderArrows()}
             <Slider {...settings} ref={c => this.slider = c}>
-              {projectItems}
+              {projectItemsMobile}
             </Slider>
           </div>
         </div>
@@ -151,13 +170,82 @@ const Wrapper = styled.div`
         font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE}px;
       }
     }
+    
+    .itemWrapper {
+      width: ${constants.TOTAL_WIDTH}px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        display: none;
+      }
+    }
+
+    .projectItem {
+      width: 380px;
+      height: 263px;
+      color: white;
+      position: relative;
+      cursor: pointer;
+  
+      @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
+        margin-bottom: 25px;
+      }
+  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        max-width: 310px;
+        max-height: 215px;
+      }
+
+      .addLayer {
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: rgba(237, 113, 0, 0.7);
+        }
+      }
+
+      .textWrapper {
+        width: 90%;
+        height: 90%;
+        border: 1px solid white;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .itemTitle {
+        font-size: ${constants.MAIN_ITEM_TITLE_SIZE - 5}px;
+        font-family: ${constants.KOR_FONT};
+        font-weight: 600;
+      }
+
+      .itemSubTitle {
+        font-size: ${constants.MAIN_ITEM_SUB_TITLE_SIZE}px;
+      }
+    }
 
     .slideWrapper {
+      display: none;
       position: relative;
       max-width: 1530px;
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 90%;
+        display: block;
       };
     }
   
@@ -178,7 +266,8 @@ const Wrapper = styled.div`
   
     .eachSlide {
       outline: none;
-      .itemWrapper {
+
+      .itemWrapperMobile {
         width: 380px;
         height: 263px;
   
@@ -229,7 +318,6 @@ const Wrapper = styled.div`
   
           @media (max-width: ${constants.MOBILE_WIDTH}px) {
             font-size: 3.7vw;
-
           }
         }
   

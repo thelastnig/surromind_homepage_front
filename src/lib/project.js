@@ -2,10 +2,6 @@ import ImgProject1 from '../images/project1.jpg';
 import ImgProject2 from '../images/project2.jpg';
 import ImgProject3 from '../images/project3.jpg';
 
-import conSupSysImage1 from '../images/conSupSysImage1.png';
-import conSupSysImage2 from '../images/conSupSysImage2.png';
-import conSupSysImage3 from '../images/conSupSysImage3.png';
-
 import carModelCla from '../images/carModelCla.png';
 
 import robotAutoDri1 from '../images/robotAutoDri1.jpg';
@@ -18,69 +14,6 @@ import humanCareRobot2 from '../images/humanCareRobot2.png';
 
 
 const project = [
-  {
-    id: 'conversation-support-system',
-    url: '/project/content/conversation-support-system',
-    type: 'PROJECT',
-    title: '지식 기반 연속 대화 지원 시스템',
-    titleS: '연속 대화 지원',
-    subTitle: 'Project A detail',
-    image: ImgProject1,
-    contents_overview: [
-      {
-        type: 'textNormal',
-        desc: `본 프로젝트에서는 지식기반의 검색과 Q&A 생성 및 판단 기술을 개발하여 미리 학습된 분야와 주제에 대하여 사전에 준비된 시나리오와 특별한 목적이 없이도 연속적인 대화가 가능한 서비스를 구현하였습니다. 인간의 자연스런 대화에 보다 근접한 기술 개발이라고 할 수 있습니다. `
-      }
-    ],
-    contents_detail: [
-      {
-        type: 'textNormal',
-        desc: `"대화"는 둘 이상의 실체 사이의 상호적인 언어 소통을 의미합니다. AI를 활용한 "대화서비스"는 AI 엔진과 사람(고객) 사이의 연속적인 대화 전개 기능을 제공합니다. 대화 유형은 두 가지로 분류할 수 있습니다.`
-      },
-      {
-        type: 'textNormal',
-        desc: `(1)시나리오 기반의 목적성 대화`
-      },
-      {
-        type: 'textNormal',
-        desc: `명확한 목적을 가지고 사전에 정의된 시나리오 기반으로 대화를 전개합니다. 예를 들면 피자 주문 시, "피자 메뉴-사이즈-도우" 등 slot-filling 방식으로 전개할 수 있습니다. 또한, 서비스 제공 회사에서 상황에 맞는 적절한 컨텐츠를 추천하고 판매하는데 활용할 수 있습니다. 현재 사용되고 있는 대부분의 챗봇 서비스는 시나리오 기반의 목적성 대화를 기반으로 운영되고 있습니다. `
-      },
-      {
-        type: 'textNormal',
-        desc: `(2)특별한 목적이 없는 연속적 대화`
-      },
-      {
-        type: 'textNormal',
-        desc: `사전에 정의된 시나리오나 특정한 목적이 없이, 질문의 주제 범위 내에서 연속적인 대화 전개가 가능합니다. AI 엔진에서 가지고 있는 지식을 바탕으로 사용자에게 interactive한 대화를 제안할 수 있습니다. 주요 기능으로는 대화 Trigger 탐색 기능, 연관 키워드 추천 기능, 대화 질문 생성 기능, 사전답변 확인 및 답변 기능 등이 있습니다.`
-      },
-    ],
-    contents_feature: [
-      {
-        type: 'textNormalCenter',
-        desc: `대화 서비스 주요 기능 – 대화 Inventory DB를 사용한 후속 대화 진행`
-      },
-      {
-        type: 'image',
-        src: conSupSysImage1
-      },
-      {
-        type: 'textNormalCenter',
-        desc: `대화 서비스 주요 기능 – 대화 Inventory 데이터 신규 생성`
-      },
-      {
-        type: 'image',
-        src: conSupSysImage2
-      },
-      {
-        type: 'textNormalCenter',
-        desc: `NLG 학습을 통한 질문 문장 생성`
-      },
-      {
-        type: 'image',
-        src: conSupSysImage3
-      },
-    ]
-  },
   {
     id: 'car-model-classification',
     url: '/project/content/car-model-classification',
@@ -210,7 +143,7 @@ const project = [
     title: '영상 분석 휴먼 케어 로봇 기술 개발',
     titleS: '휴먼 케어 로봇',
     subTitle: 'Project A detail',
-    image: ImgProject2,
+    image: ImgProject1,
     contents_overview: [
       {
         type: 'textNormal',

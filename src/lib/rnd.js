@@ -6,16 +6,119 @@ import XAIImage1 from '../images/XAIImage1.png';
 import XAIImage2 from '../images/XAIImage2.png';
 import XAIImage3 from '../images/XAIImage3.png';
 
+import AIPlatformImage1 from '../images/AI_Platform1.png';
+import AIPlatformImage2 from '../images/AI_Platform2.png';
+import AIPlatformImage3 from '../images/AI_Platform3.png';
+import AIPlatformImage4 from '../images/AI_Platform4.png';
+import AIPlatformImage5 from '../images/AI_Platform5.png';
+import AIPlatformImage6 from '../images/AI_Platform6.png';
+import AIPlatformImage7 from '../images/AI_Platform7.jpg';
+
 
 const mainRND = [
   {
-    id: 1,
+    id: 'AIPlatform-Surromind',
     type: 'R&D',
-    url: '/rnd/list/1',
-    title: 'Auto DL',
-    titleS: 'Auto DL',
-    subTitle: 'Auto DL detail',
+    url: '/rnd/content/AIPlatform-Surromind',
+    title: 'AI Platform',
+    titleS: 'AI Platform',
+    subTitle: 'AI Platform detail',
     image: ImgRND1,
+    contents_overview: [
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼은, 인공지능 기술을 기반으로 연구개발을 수행하는 데 필요한 인프라와 도구를 제공하고 인공지능 구현 과정을 지원하며, 연구개발 결과가 제품과 서비스로 이어지기까지의 과정의 생산성을 최대화하기 위한 하드웨어/소프트웨어 통합 시스템이다.`
+      },
+    ],
+    contents_detail: [
+      {
+        type: 'textNormal',
+        desc: `인공지능의 수많은 분야 중에서도 최근 머신러닝과 딥러닝 기반의 인공지능의 비중이 크게 증가함에 따라, 대규모 데이터로 학습한 인공지능 프로그램(모델)의 개발 절차를 종합적으로 지원하는 시스템의 수요가 크게 늘고 있다.`
+      },
+      {
+        type: 'imageWithCaption',
+        src: AIPlatformImage1
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 1. 인공지능 프로그램의 생애 주기(life cycle)`
+      },
+      {
+        type: 'textNormal',
+        desc: `구글의 연구개발진들에 대한 설문에 따르면(참조: https://medium.com/thelaunchpad/the-ml-surprise-f54706361a6c), 사람들의 기대와 달리 머신러닝 모델링에 필요한 자원의 대부분은 인프라 구축과 통합에 집중되어 있으며(그림 3.), 풀고자 하는 응용에 적합한 데이터 확보와 처리가 ‘키 프로세스’로 인식되고 있다. 연구개발자들이 문제의 핵심(KPI 정의, 모델링)에 집중하도록 지원하는 도구가 절실하다. `
+      },
+      {
+        type: 'imageWithCaption',
+        src: AIPlatformImage2
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 2 머신러닝 기반 인공지능 개발의 단계별 소요 자원: 비전공자의 기대 vs. 실무자의 실제 사례에 대한 설문 결과는 큰 차이가 있다Expectation vs. Real. 출처: https://medium.com/thelaunchpad/the-ml-surprise-f54706361a6c`
+      },
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼은 회사의 인공지능 인프라의 핵심이며, 데이터 과학자, 데이터 분석가, 머신러닝 연구자, 머신러닝 엔지니어 등의 다양한 직군의 연구개발자들(그림 4)의 필수 도구이다.`
+      },
+      {
+        type: 'imageWithCaption',
+        src: AIPlatformImage3
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 3. 인공지능 연구개발자 직군 구성도, 출처: Workera – AI Career Path)`
+      },
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼은 그림 4와 같이 인공지능 프로그램 주기의 각 단계별로 필수적인 기능을 지원하고, 이러한 기능이 연계되어 자연스런 작업의 흐름(workflow)으로 구성하도록 지원하여야 한다.`
+      },
+      {
+        type: 'imageWithCaption',
+        src: AIPlatformImage4
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 4. 인공지능 프로그램 주기별로 인공지능 플랫폼이 지원해야 할 기능`
+      },
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼의 그림 5와 같이 각 단계별 기능을 지원하는 S/W 모듈과, 연구개발자의 작업을 지원하는 응용 프로그램 및 서비스로 구성된다.`
+      },
+      {
+        type: 'imageWithCaption',
+        src: AIPlatformImage5
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 5. 인공지능 플랫폼의 소프트웨어 구성 예시`
+      },
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼의 S/W 환경을 실행하기 위한 H/W 환경은 다수의 계산 자원을 묶은 클러스터(cluster) 형태로 구성한다. 딥러닝 중심의 인공지능 프로그램 개발을 가속화하기 위해서는 GPU 자원을 중심으로 한 클러스터의 구성이 필수적이다. 이러한 GPU Cluster는 로컬에 구성하거나(on-prem) 클라우드 상에 구현하며, 필요시 두 형태를 결합한 하이브리드 형태를 취할 수 있다.`
+      },
+      {
+        type: 'image',
+        src: AIPlatformImage6
+      },
+    ],
+    contents_feature: [
+      {
+        type: 'textNormal',
+        desc: `인공지능 플랫폼이 갖추어야 할 주요 특성은 다음과 같다.`
+      },
+      {
+        type: 'textNormal',
+        desc: `• DevOps, MLOps: 프로그램의 개발에서 운영까지의 프로세스를 지원하는 기능 지원. 자동화의 수준을 높이고, 개발조직부터 운영조직까지의 협업이 원활하도록 설정. 머신러닝에 특화된 지속적 통합/배포(CI/CD) 연속작업 체계(pipeline)를 지원`
+      },
+      {
+        type: 'textNormal',
+        desc: `• AIaaS (AI as a Service): 개발 결과를 어느 환경에도 배포, 서비스하여 고객의 데이터를 연결하고 보호할 수 있어야 한다.`
+      },
+      {
+        type: 'textNormal',
+        desc: `• AutoML, 이를 지원하는GUI/UX, XAI`
+      },
+
+    ],
   },
   {
     id: 'explainable-artificial-intelligence',
@@ -104,9 +207,9 @@ const mainRND = [
     id: 3,
     type: 'R&D',
     url: '/rnd/list/1',
-    title: 'AI Platform',
-    titleS: 'AI Platform',
-    subTitle: 'AI Platform detail',
+    title: 'Auto DL',
+    titleS: 'Auto DL',
+    subTitle: 'Auto DL detail',
     image: ImgRND3,
   },
 ]
