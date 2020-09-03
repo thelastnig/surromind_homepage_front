@@ -87,26 +87,26 @@ class ProjectView extends Component {
       )
     });
     
-    const projectDetailContentsList = projectItem.contents_detail.map((content, index) => {
-      const div = makeDivWithClassName(content,index);
-      return (
-        div
-      )
-    });
+    // const projectDetailContentsList = projectItem.contents_detail.map((content, index) => {
+    //   const div = makeDivWithClassName(content,index);
+    //   return (
+    //     div
+    //   )
+    // });
     
-    const projectFeatureContentsList = projectItem.contents_feature.map((content, index) => {
-      const div = makeDivWithClassName(content,index);
-      return (
-        div
-      )
-    });
+    // const projectFeatureContentsList = projectItem.contents_feature.map((content, index) => {
+    //   const div = makeDivWithClassName(content,index);
+    //   return (
+    //     div
+    //   )
+    // });
 
     return (
       <Wrapper isLeftBarClicked={isLeftBarClicked} isCenterBarClicked={isCenterBarClicked} isRightBarClicked={isRightBarClicked}>
         <UpperImage text='Project'/>
         <div className="projectContentWrapper">
           <div className="mainTitle">{projectItem.title}</div>
-          <div className="upperSelectBar">
+          {/* <div className="upperSelectBar">
             <div className="upperBarItem left" onClick={() => this.handleBarItemClick(0)}>
               <div className="barText left">Overview</div>
             </div>
@@ -116,14 +116,14 @@ class ProjectView extends Component {
             <div className="upperBarItem right" onClick={() => this.handleBarItemClick(2)}>
               <div className="barText right">Features</div>
             </div>
-          </div>
+          </div> */}
           <div className="section overview" ref={(ref) => {this.overviewSection=ref}}>
-            <div className="sectionTitle">Overview</div>
+            {/* <div className="sectionTitle">Overview</div> */}
             {projectOverviewContentsList}
           </div>
         </div>  
 
-        <div className="projectContentMiddleWrapper">
+        {/* <div className="projectContentMiddleWrapper">
           <div className="projectContentMiddleInnerWrapper">
             <div className="section detail" ref={(ref) => {this.detailSection=ref}}>
               <div className="sectionTitle">Detail</div>
@@ -138,7 +138,7 @@ class ProjectView extends Component {
             <div className="sectionTitle">Feature</div>
             {projectFeatureContentsList}
           </div>
-        </div>  
+        </div>   */}
 
         <div className="backBtnWrapper">
           <BackToList />
@@ -294,7 +294,7 @@ const Wrapper = styled.div`
 
   .section {
     width: 100%;
-    padding: 100px 0;
+    padding: 50px 0;
   }
 
   .sectionTitle {
@@ -310,7 +310,7 @@ const Wrapper = styled.div`
   .sectionContent {
     width: 100%;
     font-family: ${constants.NOTO_FONT};
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 
     &.center {
       text-align: center;
