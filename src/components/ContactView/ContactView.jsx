@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
+// import env
+import dotenv from 'dotenv';
+
 // import constants from constants.js
 import * as constants from '../../lib/constants';
 
@@ -20,6 +23,7 @@ import EmailIcon from "@material-ui/icons/Email";
 // import email-library
 import emailjs from 'emailjs-com';
 import axios from 'axios';
+dotenv.config();
 
 const checkboxKorName = {
   checkedML: '머신러닝',
@@ -100,13 +104,17 @@ class ContactView extends Component {
       content: content,
       reply_to: email
     }
-    emailjs.init("user_GcU6jNa96WsYxDughyzZ7");
-    emailjs.send('service_2zgybnl', 'template_jnqrv0n', templateParams)
+    console.log(process.env.REACT_APP_EMAILJS_USER_ID)
+    console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID)
+    console.log(process.env.REACT_APP_EMAILJS_TEMPLATE_ID)
+    emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
+    emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
         alert('메일이 정상적으로 발송되었습니다.');
         window.location.reload();
       }, function(error) {
         alert('메일 발송 중 이상이 발생하였습니다. 잠시 후 다시 시도해 주세요.');
+        console.log(error)
         window.location.reload();
       });
   }
