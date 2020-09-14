@@ -5,6 +5,12 @@ import news_08_25_1 from '../images/news_08_25_1.png';
 import news_08_25_1_main from '../images/news_08_25_1_main.jpg';
 import news_08_25_1_list from '../images/news_08_25_1_list.jpg';
 
+import news_08_03_1_main from '../images/news_08_03_1_main.png';
+import news_08_03_1_list from '../images/news_08_03_1_list.png';
+
+import news_07_15_1_main from '../images/news_07_15_1_main.png';
+import news_07_15_1_list from '../images/news_07_15_1_list.png';
+
 import news_07_10_1 from '../images/news_07_10_1.jpg';
 import news_07_10_1_main from '../images/news_07_10_1_main.jpg';
 import news_07_10_1_list from '../images/news_07_10_1_list.jpg';
@@ -75,8 +81,8 @@ const mainNews = [
     type: 'NEWS',
     date: '2020.08.03',
     title: 'CVPR 대회 1위',
-    image: newsImgDefault,
-    imageS: newsImgDefaultThumb,
+    image: news_08_03_1_main,
+    imageS: news_08_03_1_list,
     contents: {
       title: `써로마인드, 'CVPR 2020 – ActivityNet Entities' 1위 달성`,
       contentsList: [
@@ -118,8 +124,8 @@ const mainNews = [
     type: 'NEWS',
     date: '2020.07.15',
     title: 'AI 공급업체 선정',
-    image: newsImgDefault,
-    imageS: newsImgDefaultThumb,
+    image: news_07_15_1_main,
+    imageS: news_07_15_1_list,
     contents: {
       title: `써로마인드, 'AI 바우처지원 사업'의 공급기업으로 선정`,
       contentsList: [

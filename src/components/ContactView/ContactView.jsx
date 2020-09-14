@@ -88,7 +88,7 @@ class ContactView extends Component {
     let typelist = '';
 
     for (let key in checkbox) {
-      if (checkbox[key] == true) {
+      if (checkbox[key] === true) {
         typelist += checkboxKorName[key] + ' ';
       } 
     }
@@ -123,7 +123,7 @@ class ContactView extends Component {
     const { checkbox } = this.state;
     let checkedNum = 0;
     for (let key in checkbox) {
-      if (checkbox[key] == true) {
+      if (checkbox[key] === true) {
         checkedNum += 1;
       } 
     }

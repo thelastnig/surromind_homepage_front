@@ -137,6 +137,7 @@ const Wrapper = styled.div`
     }
   }
   .btnWrapper {
+    display: none;
     width: 100%;
     margin: 0 auto;
     margin-top: 70px;

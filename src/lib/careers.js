@@ -67,6 +67,34 @@ const careers = [
         type: 'normal',
         desc: `신입채용의 경우에는 마지막 페이지에 설명되어 있는 인턴쉽 프로그램 이수 필수. (인턴쉽 프로그램 수행중에도 정규직으로 급여 100% 지급)`,
       },
+      {
+        type: 'subTitle',
+        desc: `접수기간`,
+      },
+      {
+        type: 'normal',
+        desc: `상시접수`,
+      },
+      {
+        type: 'subTitle',
+        desc: `접수방법`,
+      },
+      {
+        type: 'normal',
+        desc: `이메일 접수: contact@surromind.ai`,
+      },
+      {
+        type: 'normal',
+        desc: `상기 이메일로 이력서, 자기소개서, 포트폴리오(해당 시) 등 관련 자료를 제출`,
+      },
+      {
+        type: 'subTitle',
+        desc: `전형절차`,
+      },
+      {
+        type: 'normal',
+        desc: `서류검토 후 개별 연락`,
+      },
     ]
   },
   {
@@ -117,6 +145,34 @@ const careers = [
       {
         type: 'normal',
         desc: `인공지능 관련 직무 경험자`,
+      },
+      {
+        type: 'subTitle',
+        desc: `접수기간`,
+      },
+      {
+        type: 'normal',
+        desc: `상시접수`,
+      },
+      {
+        type: 'subTitle',
+        desc: `접수방법`,
+      },
+      {
+        type: 'normal',
+        desc: `이메일 접수: contact@surromind.ai`,
+      },
+      {
+        type: 'normal',
+        desc: `상기 이메일로 이력서, 자기소개서, 포트폴리오(해당 시) 등 관련 자료를 제출`,
+      },
+      {
+        type: 'subTitle',
+        desc: `전형절차`,
+      },
+      {
+        type: 'normal',
+        desc: `서류검토 후 개별 연락`,
       },
     ]
   },
@@ -175,6 +231,34 @@ const careers = [
       {
         type: 'normal',
         desc: `콘텐츠 편집이 가능하신 분`,
+      },
+      {
+        type: 'subTitle',
+        desc: `접수기간`,
+      },
+      {
+        type: 'normal',
+        desc: `상시접수`,
+      },
+      {
+        type: 'subTitle',
+        desc: `접수방법`,
+      },
+      {
+        type: 'normal',
+        desc: `이메일 접수: contact@surromind.ai`,
+      },
+      {
+        type: 'normal',
+        desc: `상기 이메일로 이력서, 자기소개서, 포트폴리오(해당 시) 등 관련 자료를 제출`,
+      },
+      {
+        type: 'subTitle',
+        desc: `전형절차`,
+      },
+      {
+        type: 'normal',
+        desc: `서류검토 후 개별 연락`,
       },
     ]
   },
