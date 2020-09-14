@@ -14,6 +14,9 @@ import AIPlatformImage5 from '../images/AI_Platform5.png';
 import AIPlatformImage6 from '../images/AI_Platform6.png';
 import AIPlatformImage7 from '../images/AI_Platform7.jpg';
 
+import AutoDLImage1 from '../images/AutoDL1.png';
+import AutoDLImage2 from '../images/AutoDL2.png';
+
 
 const mainRND = [
   {
@@ -204,13 +207,63 @@ const mainRND = [
     ]
   },
   {
-    id: 3,
+    id: `auto-DL`,
     type: 'R&D',
-    url: '/rnd/list/1',
+    url: '/rnd/content/auto-DL',
     title: 'Auto DL',
     titleS: 'Auto DL',
     subTitle: 'Auto DL detail',
     image: ImgRND3,
+    contents_overview: [
+      {
+        type: 'textNormal',
+        desc: `AutoDL은 딥러닝 모델 학습을 자동화하는 방법론을 말한다. 딥러닝 이외의 알고리즘을 사용하는 전통적인 AutoML의 경우 인공지능보다는 데이터 사이언스 관점에서 제품화되고 있다는 점에서 AutoDL과는 다른 성격을 가진다. AutoDL 방법에 의해 자동화 가능한 작업의 범위는 다양하지만, 궁극적으로는 학습 데이터부터 모델 배포까지의 엔드-투-엔드 파이프라인을 자동으로 구성하고 실행할 수 있어야 한다.`
+      },
+    ],
+    contents_detail: [
+      {
+        type: 'textNormal',
+        desc: `주요 퍼블릭 클라우드의 AI 플랫폼에서 제공하는 AutoDL 기능으로부터 자동화에 필요한 주요 기술 요소와 현재의 AutoDL 기술이 엔드-투-엔드 자동화까지 발전하기 위해 넘어야 할 여러 기술적 허들을 엿볼 수 있다.`
+      },
+      {
+        type: 'imageWithCaption',
+        src: AutoDLImage1
+      },
+      {
+        type: 'imageCaption',
+        desc: `그림 1. Azure에서 제공하는 AutoML 기능에 대한 설명. https://azure.microsoft.com/en-us/services/machine-learning/automatedml/`
+      },
+      {
+        type: 'image',
+        src: AutoDLImage2
+      },
+      {
+        type: 'textNormal',
+        desc: `현재 AutoDL 제품들은 완전한 자동화보다는 인간 연구자들의 작업을 편리하게 만드는 방향으로 개발되고 있다. Azure의 경우, 현대적인 딥러닝 워크플로우에 맞춘 개발 환경 또는 GUI 기반의 도구를 제공하고, 연구자들이 편리하게 데이터 탐색과 전처리를 수행할 수 있도록 돕는다. 모델을 정의하고 나면 이를 여러가지 하이퍼파라메터 조합을 사용하여 실험하는 것은 자동으로 이루어진다. 또한, 모델의 출력에 대해 설명하는 등의 모델 분석 기능을 지원한다. 언뜻 보면 AutoDL 제품들이 인간 연구자들을 대체하는 것은 시간 문제인 것 같다.`
+      },
+      {
+        type: 'textNormal',
+        desc: `현재 AutoDL 제품들은 완전한 자동화보다는 인간 연구자들의 작업을 편리하게 만드는 방향으로 개발되고 있다. Azure의 경우, 현대적인 딥러닝 워크플로우에 맞춘 개발 환경 또는 GUI 기반의 도구를 제공하고, 연구자들이 편리하게 데이터 탐색과 전처리를 수행할 수 있도록 돕는다. 모델을 정의하고 나면 이를 여러가지 하이퍼파라메터 조합을 사용하여 실험하는 것은 자동으로 이루어진다. 또한, 모델의 출력에 대해 설명하는 등의 모델 분석 기능을 지원한다. 언뜻 보면 AutoDL 제품들이 인간 연구자들을 대체하는 것은 시간 문제인 것 같다.`
+      },
+      {
+        type: 'textNormal',
+        desc: ``
+      },
+      {
+        type: 'textNormal',
+        desc: ``
+      },
+    ],
+    contents_feature: [
+      {
+        type: 'textNormal',
+        desc: `현재 AutoDL 제품들은 완전한 자동화보다는 인간 연구자들의 작업을 편리하게 만드는 방향으로 개발되고 있다. Azure의 경우, 현대적인 딥러닝 워크플로우에 맞춘 개발 환경 또는 GUI 기반의 도구를 제공하고, 연구자들이 편리하게 데이터 탐색과 전처리를 수행할 수 있도록 돕는다. 모델을 정의하고 나면 이를 여러가지 하이퍼파라메터 조합을 사용하여 실험하는 것은 자동으로 이루어진다. 또한, 모델의 출력에 대해 설명하는 등의 모델 분석 기능을 지원한다. 언뜻 보면 AutoDL 제품들이 인간 연구자들을 대체하는 것은 시간 문제인 것 같다.`
+      },
+      {
+        type: 'textNormal',
+        desc: `현재 AutoDL 제품들은 완전한 자동화보다는 인간 연구자들의 작업을 편리하게 만드는 방향으로 개발되고 있다. Azure의 경우, 현대적인 딥러닝 워크플로우에 맞춘 개발 환경 또는 GUI 기반의 도구를 제공하고, 연구자들이 편리하게 데이터 탐색과 전처리를 수행할 수 있도록 돕는다. 모델을 정의하고 나면 이를 여러가지 하이퍼파라메터 조합을 사용하여 실험하는 것은 자동으로 이루어진다. 또한, 모델의 출력에 대해 설명하는 등의 모델 분석 기능을 지원한다. 언뜻 보면 AutoDL 제품들이 인간 연구자들을 대체하는 것은 시간 문제인 것 같다.`
+      },
+    ]
   },
 ]
 
