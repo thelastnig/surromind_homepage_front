@@ -1,6 +1,6 @@
-import ImgProject1 from '../images/project1.jpg';
-import ImgProject2 from '../images/project2.jpg';
-import ImgProject3 from '../images/project3.jpg';
+import ImgProjectCarClassification from '../images/ImgProjectCarClassification.jpg';
+import ImgProjectRobotAutoDr from '../images/ImgProjectRobotAutoDr.jpg';
+import ImgProjectHumancare from '../images/ImgProjectHumancare.jpg';
 
 import carModelCla from '../images/carModelCla.png';
 
@@ -21,7 +21,7 @@ const project = [
     title: '고효율/고성능 자동차 모델 분류 엔진 개발',
     titleS: '자동차 모델 분류',
     subTitle: 'Project A detail',
-    image: ImgProject2,
+    image: ImgProjectCarClassification,
     contents_overview: [
       {
         type: 'textNormal',
@@ -52,7 +52,7 @@ const project = [
     title: '로봇 상황 판단 및 실내 자율 주행 인공지능',
     titleS: '로봇 실내 자율 주행',
     subTitle: 'Project A detail',
-    image: ImgProject3,
+    image: ImgProjectRobotAutoDr,
     contents_overview: [
       {
         type: 'textNormal',
@@ -135,7 +135,7 @@ const project = [
     title: '영상 분석 휴먼 케어 로봇 기술 개발',
     titleS: '휴먼 케어 로봇',
     subTitle: 'Project A detail',
-    image: ImgProject1,
+    image: ImgProjectHumancare,
     contents_overview: [
       {
         type: 'textNormal',
