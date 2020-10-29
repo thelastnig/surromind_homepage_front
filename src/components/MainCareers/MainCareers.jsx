@@ -114,7 +114,7 @@ const Wrapper = styled.div`
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 30px;
       }
 
       .btn {

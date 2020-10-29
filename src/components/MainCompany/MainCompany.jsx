@@ -8,7 +8,24 @@ import * as constants from '../../lib/constants';
 import companyImg from '../../images/company.png';
 import companyImgMobile from '../../images/mobile/companyMobile.jpg';
 
+// PDF Viewer
+import pdfFile from '../../images/surromind.pdf';
+// import { Document, Page, pdfjs } from 'react-pdf';
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+// import icon from material-ui/icon
+import ArrowForward from "@material-ui/icons/ArrowForward";
+
 class MainCompany extends Component {
+  state = {
+    numPages: null,
+    pageNumber: 1,
+  }
+ 
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
+  }
+
   render() {
   
     return (
@@ -28,6 +45,14 @@ class MainCompany extends Component {
                 Surromind는 고객의 요구에 따라 딥 러닝을 통해 실용적인 AI 솔루션을<br/> 
                 개발하고 있습니다. 또한 사람들이 쉽게 사용할 수 있도록<br/> 
                 자동화된 AI 플랫폼을 개발합니다.
+              </div>
+              <div className='pdfFileArea'>
+                <div className="pdfFileArrow">
+                  <ArrowForward />
+                </div>
+                <div className="pdfFileLink">
+                  <a href={pdfFile} className='pdfLink'>회사 소개서 보기</a>
+                </div>
               </div>
             </div>
           </div>
@@ -137,7 +162,7 @@ const Wrapper = styled.div`
       }
 
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        font-size: 4vw;
+        font-size: 3.5vw;
         margin-left: 10px;
         margin-top: 1.5vw;
         margin-bottom: 3.0vw;
@@ -160,8 +185,42 @@ const Wrapper = styled.div`
       }
 
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        font-size: 3.0vw;
+        font-size: 2.5vw;
         margin-left: 10px;
+      }
+    }
+
+    .pdfFileArea {
+      margin-top: 20px;
+      display: flex;
+      item-aligns: center;
+      justify-content: flex-start;
+    
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-top: 2vw;
+      }
+
+      .pdfFileArrow {
+        color: ${constants.POINT_COLOR};
+      }
+
+      .pdfFileLink {
+        padding-top: 2px;
+        .pdfLink {
+          font-family: ${constants.KOR_FONT};
+          font-weight: 600;
+          color: ${constants.POINT_COLOR};
+          font-size: 18px;
+    
+          @media (max-width: ${constants.TOTAL_WIDTH}px) {
+            font-size: ${constants.RESPONSIVE_MAIN_SUB_TITLE_SIZE};
+          }
+    
+          @media (max-width: ${constants.MOBILE_WIDTH}px) {
+            font-size: 2.5vw;
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
