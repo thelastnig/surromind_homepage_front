@@ -9,7 +9,7 @@ import companyImg from '../../images/company.png';
 import companyImgMobile from '../../images/mobile/companyMobile.jpg';
 
 // PDF Viewer
-import pdfFile from '../../images/surromind.pdf';
+import pdfFile from '../../images/surromind_ai.pdf';
 // import { Document, Page, pdfjs } from 'react-pdf';
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
