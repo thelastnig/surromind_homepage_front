@@ -129,7 +129,7 @@ const Wrapper = styled.div`
 
   .rightArea {
     width: 45%;
-    color: #003d4c;
+    color: white;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
