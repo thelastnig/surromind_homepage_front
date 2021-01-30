@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
-  CareersListPage, CareersViewPage, ContactPage } from '../pages';
+  CareersListPage, CareersViewPage, ContactPage, VoucherPage } from '../pages';
 import styled from 'styled-components';
 
 // import constants from constants.js
@@ -21,6 +21,7 @@ const Root = () => {
             <Route exact path="/rnd/content/:rndID" component={RNDViewPage} />
             <Route exact path="/careers/content/:careerID" component={CareersViewPage} />
             <Route exact path="/careers/list/:page" component={CareersListPage} />
+            <Route exact path="/company/voucher" component={VoucherPage} />
             <Route path="/contact" component={ContactPage} />
           </Switch>
         </div>

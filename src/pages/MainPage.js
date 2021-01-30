@@ -8,9 +8,10 @@ import MainRNDContainer from '../containers/MainRNDContainer';
 import MainProjectsContainer from '../containers/MainProjectsContainer';
 import MainCareersContainer from '../containers/MainCareersContainer';
 
-
 const MainPage = () => {
+
   return (
+    
     <div>
       <MainSliderContainer/>
       {/* <MainInteractiveContainer/> */}

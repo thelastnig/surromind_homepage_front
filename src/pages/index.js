@@ -8,3 +8,4 @@ export { default as RNDViewPage } from './RNDViewPage';
 export { default as CareersListPage } from './CareersListPage';
 export { default as CareersViewPage } from './CareersViewPage';
 export { default as ContactPage } from './ContactPage';
+export { default as VoucherPage } from './VoucherPage';

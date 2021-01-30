@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
+import { Link, withRouter } from 'react-router-dom';
 
 // import constants from constants.js
 import * as constants from '../../lib/constants'
 
-// import slider package
+// import slider images
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
 import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
 import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
+import voucherBanner from '../../images/voucherBanner.jpg'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -25,7 +27,11 @@ const StyledArrowLeft = styled(ArrowLeft)`
   font-size: 50px;
 `;
 
-class MainSlider extends Component {    
+class MainSlider extends Component {
+
+  handleClick = (url) => {
+    this.props.history.push(url);
+  }    
   
   renderArrows = () => {
     return (
@@ -74,6 +80,10 @@ class MainSlider extends Component {
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
+            <div className='eachSlide click' onClick={() => this.handleClick("/company/voucher")}>
+              <img src={voucherBanner} className="voucherBanner"/>
+            </div>
+
             <div className='eachSlide'>
               <img src={mainSlide1} className="slideImage1"/>
               <div className="textWrapper">
@@ -87,6 +97,7 @@ class MainSlider extends Component {
                 </div>
               </div>
             </div>
+
             <div className='eachSlide'>
               <img src={mainSlide2} className="slideImage2"/>
               <div className="textWrapper">
@@ -107,7 +118,7 @@ class MainSlider extends Component {
   }
 }
 
-export default MainSlider;
+export default withRouter(MainSlider);
 
 const MainSliderWrapper = styled.div`
   width: 100%;
@@ -190,6 +201,11 @@ const MainSliderWrapper = styled.div`
   .eachSlide {
     position: relative;
     outline: none;
+
+    &.click {
+      cursor: pointer;
+    }
+
     img {
       margin: 0 auto;
   
