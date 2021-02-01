@@ -20,6 +20,7 @@ export const POINT_COLOR = '#ED7100';
 export const ENG_FONT = `'Roboto', Helvetica, sans-serif`;
 export const KOR_FONT = `'NanumSquare', Helvetica, sans-serif`;
 export const NOTO_FONT = `'Noto Sans KR', Helvetica, sans-serif`;
+export const NOTO_SANS = `'Noto Sans', Helvetica, sans-serif`;
 
 export const MAIN_TITLE_SIZE = '40';
 export const MAIN_SUB_TITLE_SIZE_LARGE = '30';

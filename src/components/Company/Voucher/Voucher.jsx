@@ -80,6 +80,10 @@ const Wrapper = styled.div`
       left: 559px;
       top: 1225px;
 
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        left: 29%;
+        top: 28%;
+      }
     }
 
     .btnDetail {  
@@ -97,6 +101,20 @@ const Wrapper = styled.div`
       font-stretch: normal;
       font-style: normal;
       letter-spacing: -0.14px;
+
+      
+
+      @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        width: 17vw;
+        height: 5vw;
+      }
+
+      .btnText {
+        font-family: ${constants.NOTO_FONT};
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          font-size: 1.5vw;
+        }
+      }
 
       &:hover {  
         border: solid 1px #ED7100;
