@@ -9,7 +9,7 @@ import * as constants from '../../../lib/constants'
 // import image
 import voucherContents from '../../../images/voucherContents.jpg'
 
-const nicaUrl = "https://www.nipa.kr/main/selectBbsNttView.do?key=122&bbsNo=2&nttNo=1667&bbsTy=biz&searchCtgry=&pageUnit=10&searchCnd=SJ&searchKrwd=%EB%B0%94%EC%9A%B0%EC%B2%98&pageIndex=1"
+const nicaUrl = "https://www.nipa.kr/main/selectBsnsVsnNttWebView.do?key=103&bsnsVsnNo=2&bsnsDtlsIemNo=580&businesscode=business22&bsnsDtlsIemNttNo=1766"
 
 class Voucher extends Component {
   
@@ -62,7 +62,6 @@ const Wrapper = styled.div`
       text-decoration:none;
     }
 
-
     .voucherContents {
       width: ${constants.LIMIT_WIDTH}px;
       height: 100%;
@@ -101,8 +100,6 @@ const Wrapper = styled.div`
       font-stretch: normal;
       font-style: normal;
       letter-spacing: -0.14px;
-
-      
 
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         width: 17vw;

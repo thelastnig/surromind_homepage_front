@@ -103,7 +103,7 @@ class ProjectView extends Component {
 
     return (
       <Wrapper isLeftBarClicked={isLeftBarClicked} isCenterBarClicked={isCenterBarClicked} isRightBarClicked={isRightBarClicked}>
-        <UpperImage text='Project'/>
+        <UpperImage text='R&D'/>
         <div className="projectContentWrapper">
           <div className="mainTitle">{projectItem.title}</div>
           {/* <div className="upperSelectBar">

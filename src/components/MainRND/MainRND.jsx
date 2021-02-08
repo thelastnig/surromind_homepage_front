@@ -41,6 +41,24 @@ class MainRND extends Component {
       </div>
     );
   };
+  renderArrowsMobile = () => {
+    return (
+      <div className="slider-arrow">
+        <ButtonBase
+          className="arrow-btn prev"
+          onClick={() => this.sliderMobile.slickPrev()}
+        >
+          <ArrowLeft />
+        </ButtonBase>
+        <ButtonBase
+          className="arrow-btn next"
+          onClick={() => this.sliderMobile.slickNext()}
+        >
+          <ArrowRight />
+        </ButtonBase>
+      </div>
+    );
+  };
 
   render() {
     const rndItems = mainRNDContents.map((item, index) => {
@@ -81,9 +99,16 @@ class MainRND extends Component {
       dots: true,
       arrows: false,
       infinite: true,
-      slidesToShow: 2,
-      slidesToScroll: 2,
+      slidesToShow: 3,
+      slidesToScroll: 3,
       responsive: [
+        {
+          breakpoint: parseInt(constants.TOTAL_WIDTH),
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
         {
           breakpoint: parseInt(constants.TOTAL_SUB_WIDTH),
           settings: {
@@ -101,11 +126,14 @@ class MainRND extends Component {
             R&D
           </div>
           <div className="itemWrapper">
-            {rndItems}
-          </div>
-          <div className='slideWrapper'>
             {this.renderArrows()}
             <Slider {...settings} ref={c => this.slider = c}>
+              {rndItemsMobile}
+            </Slider>
+          </div>
+          <div className='slideWrapper'>
+            {this.renderArrowsMobile()}
+            <Slider {...settings} ref={c => this.sliderMobile = c}>
               {rndItemsMobile}
             </Slider>
           </div>
@@ -158,10 +186,8 @@ const RNDWrapper = styled.div`
     }
     
     .itemWrapper {
+      position: relative;
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
   
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         display: none;

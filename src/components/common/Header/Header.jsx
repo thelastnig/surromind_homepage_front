@@ -119,11 +119,11 @@ class Header extends Component {
                   onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
               </div>
-              <div className="barMenu" 
+              {/* <div className="barMenu" 
                   onMouseOver={() => this.handleMouseOver("project")}
                   onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
-              </div>
+              </div> */}
               <div className="barMenu"
               onMouseOver={() => this.handleMouseOver("careers")}
                   onMouseOut={this.handleMouseOut}>

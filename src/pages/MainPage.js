@@ -18,7 +18,7 @@ const MainPage = () => {
       <MainNewsContainer/>
       <MainCompanyContainer/>
       <MainRNDContainer/>
-      <MainProjectsContainer/>
+      {/* <MainProjectsContainer/> */}
       <MainCareersContainer/>
     </div>
   )

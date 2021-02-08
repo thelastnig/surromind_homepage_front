@@ -66,12 +66,12 @@ class Footer extends Component {
                     {rndLists}
                   </div> 
               </div>
-              <div className="barMenu">
+              {/* <div className="barMenu">
                 <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div>
                 <div className='subBarMenu'>
                   {projectLists}
                 </div>
-              </div>
+              </div> */}
               <div className="barMenu">
                 <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
                 <div className='subBarMenu'>
