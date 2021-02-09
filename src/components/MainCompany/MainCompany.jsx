@@ -145,7 +145,7 @@ const Wrapper = styled.div`
 
   .mainText {
     font-family: ${constants.NOTO_FONT};
-    font-size: 28px;
+    font-size: 24px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -173,7 +173,7 @@ const Wrapper = styled.div`
 
   .subText {  
     font-family: ${constants.NOTO_FONT};
-    font-size: 28px;
+    font-size: 24px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
