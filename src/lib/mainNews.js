@@ -27,7 +27,199 @@ import news_17_08_01_1_main from '../images/news_17_08_01_1_main.jpg';
 import news_17_08_01_1_list from '../images/news_17_08_01_1_list.jpg';
 
 
+import news_2020_assembling_AI_robot_challenge_runner_up from '../images/news_2020-assembling-AI-robot-challenge-runner-up.jpg';
+import news_AI_testbed_Korea_surromind_win from '../images/news_AI-testbed-Korea-surromind-win.jpg';
+import news_ICRA_2021_research_paper_published from '../images/news_ICRA-2021-research-paper-published.jpg';
+
+
 const mainNews = [
+  {
+    id: 'ICRA-2021-research-paper-published',
+    url: '/surromindnews/article/ICRA-2021-research-paper-published',
+    type: 'NEWS',
+    date: '2021.05.27',
+    title: 'ICAR 2021 논문',
+    image: newsImgDefault,
+    imageS: newsImgDefaultThumb,
+    contents: {
+      title: `ICRA 2021에 연구논문 발표 `,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드와 서울대학교의 공동연구가 로보틱스 분야 최고 권위 학회인 ICRA 2021에 게재 승인되었습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `연구진은 “Multimodal Anomaly Detection based on Deep Auto-Encoder for Object Slip Perception of Mobile Manipulation Robots"라는 제목의 논문에서 다중센서 데이터로 학습된 이상탐지를 이용한 모바일 로봇의 물체 파지 실패 판별 기술을 새롭게 제안했습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `제안된 기술은 환경 변화와 잡음이 심한 실세계 환경에서 로봇이 작업 실패를 보다 높은 확률로 탐지할 수 있도록 돕는 원천기술이며, 로봇 외에도 동적 환경에서의 안정적인 이상탐지가 필요한 산업 및 서비스 분야에서 핵심적으로 활용될 수 있습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `위 논문은 6월에 온라인으로 열릴 ICRA (International Conference on Robotics and Automation)에서 발표될 예정입니다.`,
+        },
+        {
+          type: 'image',
+          src: news_ICRA_2021_research_paper_published
+        },
+      ]
+    },
+    keywords: ['ICRA2021', '로보틱스', '논문발표'],
+  },
+  {
+    id: '2021AIvoucher-support-project-information',
+    url: '/surromindnews/article/2021AIvoucher-support-project-information',
+    type: 'NEWS',
+    date: '2021.05.01',
+    title: ' 2021년 AI 바우처 선정',
+    image: newsImgDefault,
+    imageS: newsImgDefaultThumb,
+    contents: {
+      title: `2021년 AI 바우처 지원사업 선정`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 과학기술정보통신부 산하 정보통신산업진흥원(NIPA)이 주관하는 '2021 AI 바우처 지원사업'에 2020년에 이어 올해도 최종 선정되었습니다. 10:1의 높은 경쟁률을 보인 올해 사업에서 써로마인드는 '캐필러리 제조 공정 혁신을 위한 AI Vision 검사 기술 개발'과 '인공지능 대면적 미세입자 자동분석 전자현미경'을 주제로 한 2건의 사업을 수주하였습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `AI 바우처 지원 사업은 AI 기술을 도입하려는 중소·벤처, 중견 기업을 대상으로 AI 솔루션이나 서비스 활용을 지원하기 위한 목적으로 2020년 새롭게 추진된 사업으로, 공급 기업에는 자사의 경쟁력 있는 AI 기술을 알리고 새로운 시장을 확대할 기회를 제공하며, 수요 기업은 그간 높은 가격으로 도입이 망설여졌던 AI 솔루션, 서비스를 저렴한 비용으로 쓸 수가 있는 기회입니다. 이번 바우처 지원을 통해 AI 솔루션을 공급하는 써로마인드는 자사가 구축한 AI 플랫폼을 기반으로 수요기업에 선정된 ㈜페코텍과 ㈜코셈에 인공지능 솔루션을 공급하게 되며, 선정된 수요기업은 이를 통해서 인공지능 기술의 도입을 통한 제조 공정의 혁신을 도모할 수 있게 되었습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `본 사업을 통해 수요기업과 공급기업 모두 산업 경쟁력을 높일 수 있으며, 인공지능을 사업에 활용하고자 하는 기업은 매년 상/하반기 ‘AI 바우처 지원사업’ 공고가 있으니, 공고  확인 후에 많은 지원바랍니다.`,
+        },
+      ]
+    },
+    keywords: ['2021', 'AI바우처지원사원', 'NIPA'],
+  },
+  {
+    id: '2020-assembling-AI-robot-challenge-runner-up',
+    url: '/surromindnews/article/2020-assembling-AI-robot-challenge-runner-up',
+    type: 'NEWS',
+    date: '2021.03.12',
+    title: '조립로봇 챌린지 수상',
+    image: news_08_25_1_main,
+    imageS: news_08_25_1_list,
+    contents: {
+      title: `2020 물품조립 AI-로봇 챌린지 준우승`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 정보통신기획평가원과 한국산업기술평가관리원이 공동 주관한 '2020 물품조립 AI-로봇 챌린지'에서 준우승을 수상하였습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `지난 2021년 3월 12일 코엑스 3층 컨퍼런스룸에서 열린 '2020 물품조립 AI·로봇 챌린지’는 AI를 활용해 매뉴얼을 습득한 로봇이 이케아 의자를 조립하는 것을 겨루는 행사로, AI와 로봇에 각각 일가견이 있는 두 곳이 한 팀을 이뤘고, 총 4개 팀이 경연을 펼쳤습니다. 경연에 참여한 4개 팀은 한국생산기술연구원·한양대 컨소시엄, 써로마인드·고려대 컨소시엄, 한국전자기술연구원·한국생산기술연구원 컨소시엄, 광주과학기술원·서울대 컨소시엄이었습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `경연에 앞서 10~11일 이틀간 로봇을 설치하고 시운전을 진행하였고, 행사는 코로나19로 대회 참가자, 심사위원, 관계자 등 필수 인원만 참석한 가운데 열렸습니다. 오전에는 지정과제를, 오후에는 자유과제를 놓고 대결을 펼쳤으며, 지정과제는 AI를 활용해 이케아의 스테판 의자를 조립하는 걸로 승자를 가렸습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `로봇이 이 과제를 수행하기 위해선 AI부문(기호, 그림, 지시어 등 객체인식)과 AI·로봇부문(3D시뮬레이션을 통한 조립작성 생성, 로봇 작업계획), 로봇 부문(조립기술) 등의 기술을 파악해야 합니다. 각 팀의 로봇들은 격자 모양의 펜스안에 들어가 작업을 수행하였으며, 최종적으로 써로마인드-고려대학교의 컨소시엄은 유니버설 로봇의 로봇팔을 이용해 경연에 참여, AI부문 준우승을 차지하였으며, 지능정보산업협회장상을 수상하였습니다.`,
+        },
+        {
+          type: 'image',
+          src: news_2020_assembling_AI_robot_challenge_runner_up
+        },
+        {
+          type: 'caption',
+          desc: `임선경 지능정보산업협회 국장(왼쪽)이 AI부문 준우승팀을 시상`
+        },
+        {
+          type: 'link',
+          desc: `https://zdnet.co.kr/view/?no=20210314095724`
+        },
+        {
+          type: 'normal',
+          desc: ''
+        },
+        {
+          type: 'link',
+          desc: `https://www.youtube.com/watch?v=tPClgvj45vk`
+        },
+        {
+          type: 'normal',
+          desc: ''
+        },
+        {
+          type: 'link',
+          desc: `https://www.youtube.com/watch?v=huKmLQEHb44`
+        },
+      ]
+    },
+    keywords: ['물품조립', 'AI', '로봇', '챌린지', '준우승'],
+  },
+  {
+    id: 'ybm-net-surromind-ai-mou',
+    url: '/surromindnews/article/ybm-net-surromind-ai-mou',
+    type: 'NEWS',
+    date: '2021.01.30',
+    title: 'YBMNET MOU',
+    image: newsImgDefault,
+    imageS: newsImgDefaultThumb,
+    contents: {
+      title: `와이비엠넷과 인공지능 교육사업 MOU`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 국내 교육기업 YBMNET과 향후 발전되는 인공지능(AI) 적용 교육사업 부분에 협력사로 상호 제휴키로 MOU를 맺었습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `이번 업무 협약으로 양 사는 인공지능(AI) 인재양성 교육사업 및 자격증 사업부분의 시장개척 및 확대를 위해 단계별로 협력사업을 추진하고자 하고자 합니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `교육 운영사업은 국내의 인공지능 교육을 활성화하고 전문인력을 키워 인공지능 생태계를 강화하기 위하여 추진될 예정이며, 기업체 현업 종사자 및 창업자나 예비창업자, 대학생 등 다양한 사람들이 인공지능 개발역량을 갖출 수 있도록 교육과정을 제공하려고 계획 중에 있습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `또한, 자사가 구축한 AI 플랫폼을 기반으로 기업의 AI Transformation을 위한 현장 적용 인공지능 실습 교육에 초점을 두고, 현업 담당자의 AI 업무 역량 강화 프로그램을 진행합니다. 써로마인드는 산업계 수요 맞춤형의 인공지능 교육 플랫폼 구축을 통해 국내 인공지능 연구개발의 효율성을 높이고 인공지능의 대중화를 꾀하고자 합니다.`,
+        },
+      ]
+    },
+    keywords: ['YBM', '인공지능교육사업', 'MOU'],
+  },
+  {
+    id: 'AI-testbed-Korea-surromind-win',
+    url: '/surromindnews/article/AI-testbed-Korea-surromind-win',
+    type: 'NEWS',
+    date: '2020.12.16',
+    title: 'AI테스트베드 코리아 수상',
+    image: news_08_25_1_main,
+    imageS: news_08_25_1_list,
+    contents: {
+      title: `AI 테스트베드 코리아에서 최우수상 수상`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 광주전남지방중소벤처기업청이 개최한 ‘AI 테스트베드 코리아 산업지능화 경진대회’에서 최우수상을 수상하였습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `‘AI 테스트베드 코리아 산업지능화 경진대회’는 지역 전략산업과 인공지능 기술을 접목하여 새로운 비즈니스 모델을 창출하고 사업화를 지원하기 위해 기획된 대회로, AI분야 창업기업, 연구소, 단체 등이 다수 참가하여 지난 2020년 8월 4일 시작으로, 12월 14일부터 16일까지 결선을 개최 총 5개월의 장정을 마쳤습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `전통산업에 인공지능 도입을 통해 더 큰 사회적, 경제적 가치를 생산하고자 하는 목적으로 치뤄진 금번 경진대회는 자동차, 에너지, 헬스케어, 문화, 금융 대표 5대 산업분야에 대해 인공지능 도입이 필요한 실질적인 수요과제를 발굴하여, 총 80개 팀이 수요과제 해결에 참여, 그 중 30개 팀이 본선에 진출하여 결선 IR 경연에 올랐으며, 써로마인드-쎄미시스코팀은 영상(카메라) 기반 AI 기술을 이용한 차량외관결함 인지 자동화 시스템을 이용한 비즈니스 모델을 제안하여 최종 결선에서 최우수상을 입상하였습니다.`,
+        },
+        {
+          type: 'image',
+          src: news_AI_testbed_Korea_surromind_win
+        },
+        {
+          type: 'link',
+          desc: `https://youtu.be/a-Ks1wlpbag`
+        },
+      ]
+    },
+    keywords: ['AI-Testbed-Korea', '최우수상'],
+  },
   {
     id: 'AIvoucher-support-project-selected',
     url: '/surromindnews/article/AIvoucher-support-project-selected',

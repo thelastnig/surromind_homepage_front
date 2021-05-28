@@ -39,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sitemap": "babel-node src/components/SitemapGenerator.js"  
+    "sitemap": "babel-node src/components/SitemapGenerator.js"
   },
   "eslintConfig": {
     "extends": "react-app"

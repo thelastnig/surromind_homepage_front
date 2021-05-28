@@ -40,6 +40,13 @@ class NewsList extends Component {
         <UpperImage text='News'/>
         <div className="cardWrapper">
           {cardList}
+          {
+            newsContents.length % 3 === 2 
+            ?
+            <EmptyCardNews/>
+            :
+            null
+          }
         </div>
       </Wrapper>
     );
@@ -76,3 +83,11 @@ const Wrapper = styled.div`
   }
 `;
 
+const EmptyCardNews = styled.div`
+  width: ${constants.CARD_WIDTH}px;
+  height: ${constants.CARD_NEWS_HEIGHT}px;
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    display: none;
+  }
+`; 
