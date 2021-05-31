@@ -80,9 +80,9 @@ class MainSlider extends Component {
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
-            <div className='eachSlide click' onClick={() => this.handleClick("/company/voucher")}>
+            {/* <div className='eachSlide click' onClick={() => this.handleClick("/company/voucher")}>
               <img src={voucherBanner} className="voucherBanner"/>
-            </div>
+            </div> */}
 
             <div className='eachSlide'>
               <img src={mainSlide1} className="slideImage1"/>
