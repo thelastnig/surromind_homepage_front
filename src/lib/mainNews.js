@@ -39,6 +39,12 @@ import news_ICRA_2021_research_paper_published from '../images/news_ICRA-2021-re
 import news_ICRA_2021_research_paper_published_main from '../images/news_ICRA-2021-research-paper-published_main.jpg';
 import news_ICRA_2021_research_paper_published_list from '../images/news_ICRA-2021-research-paper-published_list.jpg';
 
+import news_2021AIvoucher_support_project_information_main from '../images/news_2021AIvoucher-support-project-information_main.jpg';
+import news_2021AIvoucher_support_project_information_list from '../images/news_2021AIvoucher-support-project-information_list.jpg';
+
+import news_ybm_net_surromind_ai_mou_main from '../images/news_ybm-net-surromind-ai-mou_main.jpg';
+import news_ybm_net_surromind_ai_mou_list from '../images/news_ybm-net-surromind-ai-mou_list.jpg';
+
 
 const mainNews = [
   {
@@ -82,8 +88,8 @@ const mainNews = [
     type: 'NEWS',
     date: '2021.05.01',
     title: ' 2021년 AI 바우처 선정',
-    image: newsImgDefault,
-    imageS: newsImgDefaultThumb,
+    image: news_2021AIvoucher_support_project_information_main,
+    imageS: news_2021AIvoucher_support_project_information_list,
     contents: {
       title: `2021년 AI 바우처 지원사업 선정`,
       contentsList: [
@@ -168,8 +174,8 @@ const mainNews = [
     type: 'NEWS',
     date: '2021.01.30',
     title: 'YBMNET MOU',
-    image: newsImgDefault,
-    imageS: newsImgDefaultThumb,
+    image: news_ybm_net_surromind_ai_mou_main,
+    imageS: news_ybm_net_surromind_ai_mou_list,
     contents: {
       title: `와이비엠넷과 인공지능 교육사업 MOU`,
       contentsList: [
