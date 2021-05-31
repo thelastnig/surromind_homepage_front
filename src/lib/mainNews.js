@@ -364,10 +364,6 @@ const mainNews = [
       title: `현대오토에버, 써로마인드와 AI 개발 협력 MOU 체결`,
       contentsList: [
         {
-          type: 'subTitle',
-          desc: `인공지능 로봇 AUPAIR, 소셜 홈로봇 부문 최고점 통과 … 종합 1위`,
-        },
-        {
           type: 'normal',
           desc: `현대오토에버가 써로마인드와 인공지능(AI) 기술 고도화 및 차세대 AI 플랫폼 개발 협력을 위한 양해각서(MOU)를 체결했다고 10일 밝혔다.`,
         },
