@@ -28,7 +28,13 @@ import news_17_08_01_1_list from '../images/news_17_08_01_1_list.jpg';
 
 
 import news_2020_assembling_AI_robot_challenge_runner_up from '../images/news_2020-assembling-AI-robot-challenge-runner-up.jpg';
+import news_2020_assembling_AI_robot_challenge_runner_up_main from '../images/news_2020-assembling-AI-robot-challenge-runner-up_main.jpg';
+import news_2020_assembling_AI_robot_challenge_runner_up_list from '../images/news_2020-assembling-AI-robot-challenge-runner-up_list.jpg';
+
 import news_AI_testbed_Korea_surromind_win from '../images/news_AI-testbed-Korea-surromind-win.jpg';
+import news_AI_testbed_Korea_surromind_win_main from '../images/news_AI-testbed-Korea-surromind-win_main.jpg';
+import news_AI_testbed_Korea_surromind_win_list from '../images/news_AI-testbed-Korea-surromind-win_list.jpg';
+
 import news_ICRA_2021_research_paper_published from '../images/news_ICRA-2021-research-paper-published.jpg';
 
 
@@ -101,8 +107,8 @@ const mainNews = [
     type: 'NEWS',
     date: '2021.03.12',
     title: '조립로봇 챌린지 수상',
-    image: news_08_25_1_main,
-    imageS: news_08_25_1_list,
+    image: news_2020_assembling_AI_robot_challenge_runner_up_main,
+    imageS: news_2020_assembling_AI_robot_challenge_runner_up_list,
     contents: {
       title: `2020 물품조립 AI-로봇 챌린지 준우승`,
       contentsList: [
@@ -123,11 +129,11 @@ const mainNews = [
           desc: `로봇이 이 과제를 수행하기 위해선 AI부문(기호, 그림, 지시어 등 객체인식)과 AI·로봇부문(3D시뮬레이션을 통한 조립작성 생성, 로봇 작업계획), 로봇 부문(조립기술) 등의 기술을 파악해야 합니다. 각 팀의 로봇들은 격자 모양의 펜스안에 들어가 작업을 수행하였으며, 최종적으로 써로마인드-고려대학교의 컨소시엄은 유니버설 로봇의 로봇팔을 이용해 경연에 참여, AI부문 준우승을 차지하였으며, 지능정보산업협회장상을 수상하였습니다.`,
         },
         {
-          type: 'image',
+          type: 'imageWithCaption',
           src: news_2020_assembling_AI_robot_challenge_runner_up
         },
         {
-          type: 'caption',
+          type: 'imageCaption',
           desc: `임선경 지능정보산업협회 국장(왼쪽)이 AI부문 준우승팀을 시상`
         },
         {
@@ -191,18 +197,18 @@ const mainNews = [
     type: 'NEWS',
     date: '2020.12.16',
     title: 'AI테스트베드 코리아 수상',
-    image: news_08_25_1_main,
-    imageS: news_08_25_1_list,
+    image: news_AI_testbed_Korea_surromind_win_main,
+    imageS: news_AI_testbed_Korea_surromind_win_list,
     contents: {
       title: `AI 테스트베드 코리아에서 최우수상 수상`,
       contentsList: [
         {
           type: 'normal',
-          desc: `써로마인드가 광주전남지방중소벤처기업청이 개최한 ‘AI 테스트베드 코리아 산업지능화 경진대회’에서 최우수상을 수상하였습니다.`,
+          desc: `써로마인드가 광주전남지방중소벤처기업청이 개최한 'AI 테스트베드 코리아 산업지능화 경진대회'에서 최우수상을 수상하였습니다.`,
         },
         {
           type: 'normal',
-          desc: `‘AI 테스트베드 코리아 산업지능화 경진대회’는 지역 전략산업과 인공지능 기술을 접목하여 새로운 비즈니스 모델을 창출하고 사업화를 지원하기 위해 기획된 대회로, AI분야 창업기업, 연구소, 단체 등이 다수 참가하여 지난 2020년 8월 4일 시작으로, 12월 14일부터 16일까지 결선을 개최 총 5개월의 장정을 마쳤습니다.`,
+          desc: `'AI 테스트베드 코리아 산업지능화 경진대회'는 지역 전략산업과 인공지능 기술을 접목하여 새로운 비즈니스 모델을 창출하고 사업화를 지원하기 위해 기획된 대회로, AI분야 창업기업, 연구소, 단체 등이 다수 참가하여 지난 2020년 8월 4일 시작으로, 12월 14일부터 16일까지 결선을 개최 총 5개월의 장정을 마쳤습니다.`,
         },
         {
           type: 'normal',
