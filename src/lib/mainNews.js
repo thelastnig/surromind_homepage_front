@@ -36,6 +36,8 @@ import news_AI_testbed_Korea_surromind_win_main from '../images/news_AI-testbed-
 import news_AI_testbed_Korea_surromind_win_list from '../images/news_AI-testbed-Korea-surromind-win_list.jpg';
 
 import news_ICRA_2021_research_paper_published from '../images/news_ICRA-2021-research-paper-published.jpg';
+import news_ICRA_2021_research_paper_published_main from '../images/news_ICRA-2021-research-paper-published_main.jpg';
+import news_ICRA_2021_research_paper_published_list from '../images/news_ICRA-2021-research-paper-published_list.jpg';
 
 
 const mainNews = [
@@ -44,11 +46,11 @@ const mainNews = [
     url: '/surromindnews/article/ICRA-2021-research-paper-published',
     type: 'NEWS',
     date: '2021.05.27',
-    title: 'ICAR 2021 논문',
-    image: newsImgDefault,
-    imageS: newsImgDefaultThumb,
+    title: 'ICRA 2021 논문 게재',
+    image: news_ICRA_2021_research_paper_published_main,
+    imageS: news_ICRA_2021_research_paper_published_list,
     contents: {
-      title: `ICRA 2021에 연구논문 발표 `,
+      title: `ICRA 2021에 연구논문 발표`,
       contentsList: [
         {
           type: 'normal',
