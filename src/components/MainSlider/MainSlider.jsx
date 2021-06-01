@@ -9,6 +9,8 @@ import * as constants from '../../lib/constants'
 // import slider images
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
+import mainSlide3 from '../../images/mainSlide3.jpg';
+import mainSlide4 from '../../images/mainSlide4.jpg';
 import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
 import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
 import voucherBanner from '../../images/voucherBanner.jpg'
@@ -86,30 +88,18 @@ class MainSlider extends Component {
 
             <div className='eachSlide'>
               <img src={mainSlide1} className="slideImage1"/>
-              <div className="textWrapper">
-                <div className='textDiv'>
-                  고객님, <span>인공지능</span> 사업 시대를 맞이할 준비가 되셨나요?<br/><br/>
-                  <span>인공지능</span>은 "있으면 좋은 것"에서<br/>
-                  "꼭 필요한 것"으로 변화하고 있습니다.<br/>
-                  품질, 효율, 속도의 향상에 필수적인 기술로 발전하고 있습니다.<br/><br/>
-                  포스트 코로나 시대, 디지털 전환이 가속화 되고,<br/>
-                  <span>인공지능</span>  적용 분야와 역할의 확대가 가속화 되고 있습니다.
-                </div>
-              </div>
             </div>
 
             <div className='eachSlide'>
               <img src={mainSlide2} className="slideImage2"/>
-              <div className="textWrapper">
-                <div className='textDiv'>
-                  고객님, <span>인공지능</span>  개발 전문회사<br/>
-                  <span>써로마인드</span> 가 함께 하겠습니다.<br/><br/>
-                  고객님의 사업 고도화와 문제 해결을 위한<br/> 
-                  <span>인공지능</span> 개발을 함께 시작하겠습니다.<br/><br/>
-                  부족한 전문가, 인프라, 데이터를 고객님과 함께 해결하겠습니다.<br/>
-                  남들보다 빠르고 효율적으로 경쟁력을 확보할 수 있도록 함께 뛰겠습니다.<br/>
-                </div>
-              </div>
+            </div>
+
+            <div className='eachSlide'>
+              <img src={mainSlide3} className="slideImage3"/>
+            </div>
+
+            <div className='eachSlide'>
+              <img src={mainSlide4} className="slideImage4"/>
             </div>
           </Slider>
         </div>
@@ -215,12 +205,6 @@ const MainSliderWrapper = styled.div`
     
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
-        &.slideImage1 {
-          content: url(${mainSlideMobile1});
-        }
-        &.slideImage2 {
-          content: url(${mainSlideMobile2});
-        }
       }
     }
   }
