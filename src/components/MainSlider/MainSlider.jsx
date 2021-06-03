@@ -234,7 +234,7 @@ const MainSliderWrapper = styled.div`
   .slick-dots {
     left: 50%; 
     transform: translateX(-50%);
-    bottom: 40px;
+    bottom: -50px;
 
     li {
       margin: 0px;
