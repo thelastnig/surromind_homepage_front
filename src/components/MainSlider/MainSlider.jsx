@@ -13,6 +13,8 @@ import mainSlide3 from '../../images/mainSlide3.jpg';
 import mainSlide4 from '../../images/mainSlide4.jpg';
 import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
 import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
+import mainSlideMobile3 from '../../images/mobile/mainSlideMobile3.jpg';
+import mainSlideMobile4 from '../../images/mobile/mainSlideMobile4.jpg';
 import voucherBanner from '../../images/voucherBanner.jpg'
 
 import Slider from "react-slick";
@@ -198,15 +200,55 @@ const MainSliderWrapper = styled.div`
 
     img {
       margin: 0 auto;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
+
+      &.slideImage1 {
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+          content: url(${mainSlideMobile1});
+        }
       }
-    
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        width: 100%;
+      
+      &.slideImage2 {
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+          content: url(${mainSlideMobile2});
+        }
+      }
+      
+      &.slideImage3 {
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+          content: url(${mainSlideMobile3});
+        }
+      }
+      
+      &.slideImage4 {
+        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+          width: 100%;
+          content: url(${mainSlideMobile4});
+        }
       }
     }
   }
+
+  .slick-dots {
+    left: 50%; 
+    transform: translateX(-50%);
+    bottom: 40px;
+
+    li {
+      margin: 0px;
+
+      &.slick-active {
+
+        button:before {
+          color: #FE5F01;
+        }
+      }
+    }
+    button:before {
+      color: #D5D6D7;
+    }
+  }  
 `;
 

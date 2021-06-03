@@ -62,8 +62,8 @@ export default withRouter(MainNews);
 
 const MainNewsWrapper = styled.div`
   width: 100%;
-  padding-bottom: 80px;
-  padding-top: 100px;
+  padding-bottom: 120px;
+  padding-top: 120px;
   margin: 0 auto;
 
   display: flex;
