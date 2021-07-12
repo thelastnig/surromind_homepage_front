@@ -1,6 +1,6 @@
-import ImgRND1 from '../images/rnd1.jpg';
-import ImgRND2 from '../images/rnd2.jpg';
-import ImgRND3 from '../images/rnd3.jpg';
+import ImgProjectAIPlatform from '../images/img-rd-aiplatfotm.png';
+import ImgProjectXAL from '../images/img-rd-xal.png';
+import ImgProjectRdRobot from '../images/img-rd-robot.png';
 
 import XAIImage1 from '../images/XAIImage1.png';
 import XAIImage2 from '../images/XAIImage2.png';
@@ -18,9 +18,9 @@ import AutoDLImage1 from '../images/AutoDL1.png';
 import AutoDLImage2 from '../images/AutoDL2.png';
 
 // project를 R&D와 병합
-import ImgProjectCarClassification from '../images/ImgProjectCarClassification.jpg';
-import ImgProjectRobotAutoDr from '../images/ImgProjectRobotAutoDr.jpg';
-import ImgProjectHumancare from '../images/ImgProjectHumancare.jpg';
+import ImgProjectCarClassification from '../images/img-rd-classification.png';
+import ImgProjectRobotAutoDr from '../images/img-rd-autodl.png';
+import ImgProjectHumancare from '../images/img-rd-humancarerobot.png';
 
 import carModelCla from '../images/carModelCla.png';
 
@@ -41,7 +41,7 @@ const mainRND = [
     title: 'AI Platform',
     titleS: 'AI Platform',
     subTitle: 'AI Platform detail',
-    image: ImgRND1,
+    image: ImgProjectAIPlatform,
     contents_overview: [
       {
         type: 'textNormal',
@@ -145,7 +145,7 @@ const mainRND = [
     title: 'XAI (Explainable Artificial Intelligence, 설명가능 인공지능)',
     titleS: 'XAI',
     subTitle: 'Explainable Artificial Intelligence',
-    image: ImgRND2,
+    image: ImgProjectXAL,
     contents_overview: [
       {
         type: 'textNormal',
@@ -228,7 +228,7 @@ const mainRND = [
     title: 'Auto DL',
     titleS: 'Auto DL',
     subTitle: 'Auto DL detail',
-    image: ImgRND3,
+    image: ImgProjectRdRobot,
     contents_overview: [
       {
         type: 'textNormal',

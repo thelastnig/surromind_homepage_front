@@ -15,7 +15,6 @@ import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
 import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
 import mainSlideMobile3 from '../../images/mobile/mainSlideMobile3.jpg';
 import mainSlideMobile4 from '../../images/mobile/mainSlideMobile4.jpg';
-import voucherBanner from '../../images/voucherBanner.jpg'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 

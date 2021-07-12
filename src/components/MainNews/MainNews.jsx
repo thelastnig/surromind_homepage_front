@@ -9,6 +9,12 @@ import * as constants from '../../lib/constants'
 // import news contents from mainNews.js
 import mainNewsContents from '../../lib/mainNews';
 
+// import backgound-icon images
+import imgBg01 from '../../images/backgound-icon/img-bg-graphic-01.png';
+import imgBg02 from '../../images/backgound-icon/img-bg-graphic-02.png';
+import imgBg08 from '../../images/backgound-icon/img-bg-graphic-08.png';
+import imgBg09 from '../../images/backgound-icon/img-bg-graphic-09.png';
+
 class MainNews extends Component {
 
   handleClick = (url) => {
@@ -40,19 +46,26 @@ class MainNews extends Component {
 
     return (
       <MainNewsWrapper>
+        <div className="backgroundIcon imgBg01"><img src={imgBg01} alt="imgBg01" /></div>
+        <div className="backgroundIcon imgBg02"><img src={imgBg02} alt="imgBg02" /></div>
+        <div className="backgroundIcon imgBg08"><img src={imgBg08} alt="imgBg08" /></div>
+        <div className="backgroundIcon imgBg09"><img src={imgBg09} alt="imgBg09" /></div>
         <div className="newsInnerWrapper">
-          <div className="innerLeft">
-            <div className="innerLeftUpperText">
-              SurroMind<br/>News
-            </div>
-            <div className="innerLeftLowerLink">
-              <div className="styledLink" onClick={this.handleMoreClick}>MORE +</div>
+          <div className="innerUpper">
+            <div className="innerUpperTitle">SURROMIND News</div>
+            <div className="innerUpperSubWrapper">
+              <div className="innerUpperSubLeft"></div>
+              <div className="innerUpperSubTitle">써로마인드의 최신 소식을 확인해보세요.</div>
+              <div className="innerUpperSubRight">
+                <div className="styledLink" onClick={this.handleMoreClick}>MORE +</div>
+              </div>
             </div>
           </div>
-          <div className="innerRight">
+          <div className="innerLower">
             {newsItems}
           </div>
         </div>
+        <div className="newsLowerLine"></div>
       </MainNewsWrapper>
     );
   }
@@ -61,26 +74,19 @@ class MainNews extends Component {
 export default withRouter(MainNews);
 
 const MainNewsWrapper = styled.div`
-  width: 100%;
-  padding-bottom: 120px;
-  padding-top: 160px;
+  width: ${constants.LIMIT_WIDTH}px;
   margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-
+  position: relative;
+  height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
     margin-left: 0;
     padding: ${constants.MAIN_NEWS_AREA_HEIGHT / 10}px 0;
   }
 
   .newsInnerWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
-    height: ${constants.MAIN_NEWS_AREA_HEIGHT / 2}px;
+    width: ${constants.TOTAL_WIDTH - 8}px;
+    height: ${constants.MAIN_NEWS_AREA_HEIGHT}px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 100%;
@@ -89,12 +95,9 @@ const MainNewsWrapper = styled.div`
     }
   }
 
-  .innerLeft {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .innerUpper {
+    margin: 0 auto;
+    border: 1px solid white;
 
     @media (max-width: ${constants.TOTAL_WIDTH}px) {
       width: 100%;
@@ -102,10 +105,15 @@ const MainNewsWrapper = styled.div`
       justify-content: space-between;
     }
 
-    .innerLeftUpperText {
-      font-size: ${constants.MAIN_TITLE_SIZE - 5}px;
-      font-weight: 600;
-      line-height: 1.2em;
+    .innerUpperTitle {
+      margin-top: 162px;
+      height: 65px;
+      font-family: ${constants.INTER_FONT};
+      font-size: 54px;
+      font-weight: 800;  
+      letter-spacing: -1px;
+      text-align: center;
+      color: #000000;
 
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
         margin-left: 10px;
@@ -118,7 +126,28 @@ const MainNewsWrapper = styled.div`
       }
     }
 
-    .innerLeftLowerLink {
+    .innerUpperSubWrapper {
+      width: 100%;
+      height: 28px;
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;  
+    }
+
+    .innerUpperSubTitle {
+      font-family: ${constants.APPLE_FONT};
+      font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: -0.6px;
+      text-align: center;
+      color: #000000;
+    }
+
+    .innerUpperSubRight {
       cursor: pointer;
 
       @media (max-width: ${constants.TOTAL_WIDTH}px) {
@@ -143,9 +172,8 @@ const MainNewsWrapper = styled.div`
     }
   }
 
-  .innerRight {
-    width: 85%;
-    height: 100%;
+  .innerLower {
+    margin-top: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -247,6 +275,36 @@ const MainNewsWrapper = styled.div`
           font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE};
         }
       }
+    }
+  }
+
+  .newsLowerLine {
+    margin: 0 auto;
+    width: ${constants.TOTAL_WIDTH}px;
+    border-bottom: 1px solid #e1e2e3;
+  }
+
+  .backgroundIcon {
+    position: absolute;
+
+    &.imgBg01 {
+      bottom: 229px;
+      left: 159px;
+    }
+
+    &.imgBg02 {
+      bottom: 152px;
+      left: 94px;
+    }
+
+    &.imgBg08 {
+      bottom: 240px;
+      right: 95px;
+    }
+
+    &.imgBg09 {
+      bottom: 110px;
+      right: 223px;
     }
   }
 `;
