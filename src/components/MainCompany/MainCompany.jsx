@@ -283,7 +283,5 @@ const Wrapper = styled.div`
       right: 115px;
     }
   }
-
-
 `;
 

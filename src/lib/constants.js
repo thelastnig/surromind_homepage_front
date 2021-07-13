@@ -12,7 +12,7 @@ export const MAIN_AIPLATFORM_HEIGHT = '2243';
 export const MAIN_RND_HEIGHT = '1326';
 export const MAIN_PROJECT_HEIGHT = '600';
 export const MAIN_CAREERS_HEIGHT = '300';
-export const CONTACT_HEIGHT = '422';
+export const CONTACT_HEIGHT = '786';
 export const FOOTER_HEIGHT = '450';
 export const HEADER_BAR_MENU_MARGIN = '70';
 
