@@ -9,7 +9,7 @@ import Menu from '@material-ui/icons/Menu';
 import * as constants from '../../../lib/constants';
 
 // import images
-import surroLogo from '../../../images/surromind_logo_new.png';
+import surroLogo from '../../../images/surromind_logo_previous.png';
 
 import rndContents from '../../../lib/rnd';
 import projectContents from '../../../lib/project';
@@ -96,12 +96,12 @@ class Header extends Component {
       <div>
         <HeaderInnerWrapper>
           <div className="itemWrapper">
-            <div className="leftItem">
-              <div className="styledLink" onClick={handleClickHome}>
-                <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
-              </div>
-            </div>
             <div className="centerItem">
+              <div className="leftItem">
+                <div className="styledLink" onClick={handleClickHome}>
+                  <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
+                </div>
+              </div>
               <div className="barMenu" 
                   onMouseOver={() => this.handleMouseOver("news")}
                   onMouseOut={this.handleMouseOut}>
@@ -118,11 +118,6 @@ class Header extends Component {
                   onMouseOut={this.handleMouseOut}>
                 <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
               </div>
-              {/* <div className="barMenu" 
-                  onMouseOver={() => this.handleMouseOver("project")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
-              </div> */}
               <div className="barMenu"
               onMouseOver={() => this.handleMouseOver("careers")}
                   onMouseOut={this.handleMouseOut}>
@@ -132,18 +127,6 @@ class Header extends Component {
               onMouseOver={() => this.handleMouseOver("contact")}
                   onMouseOut={this.handleMouseOut}>
                 <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-              </div>
-            </div>
-            <div className="rightItem">
-              <div className="rightIcon">
-              </div>
-              <div className="rightText">
-                KOR
-              </div>
-              <div className="rightMenuIcon">
-                <div className="rightMenuIconWrapper">
-                  <Menu fontSize="large" onClick={toggleSidebar}/>
-                </div>
               </div>
             </div>
           </div>
@@ -174,76 +157,54 @@ export default withRouter(Header);
 
 const HeaderInnerWrapper = styled.div`
   width: 100%;
+  background-color: #1e1f22;
 
   .itemWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
+    width: ${constants.HEADER_WIDTH}px;
     height: ${constants.HEADER_HEIGHT}px;
     margin: 0 auto;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 95%;
-    }
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 100%;
-    }
   }
 
-  .leftItem {
-    width: 20%;
-    height: 20px;
+  .centerItem {
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 50%;
-    }
 
+  .leftItem {
+    width: 123px;
+    height: 22px;
     .ImgLogo {
-      height: 20px;
       padding-top: 2px;
     }
   }
 
-  .centerItem {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: left;
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;
-    }
-
     .barMenu {
-      height: 100%;
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 500;
-      color: ${oc.gray[8]};
     }
 
     .styledLink {
+      font-family: ${constants.NOTO_SANS};
       font-size: 14px;
-      color: ${oc.gray[8]}
+      font-weight: 600;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
       text-decoration: none;
+      
+      color: #ffffff;
 
       &.contact {
-        color: #1dc1bc;
-        font-weight: 500;
+        color: #ff781e;
+        font-weight: 600;
       }
 
       &:hover {
-        color: ${constants.POINT_COLOR};
+        color: #ff781e;
+
+        &.contact {
+          color: #ffffff;
+        }
       }
     }
 

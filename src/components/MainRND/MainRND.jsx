@@ -31,42 +31,49 @@ class MainRND extends Component {
     })
 
     return (
-      <RNDWrapper>
-        <div className="contentsWrapper">
-          <div className="titleText">R&D</div>
-          <div className='mainText'>
-          공공기관 및 기업과 연계한 연구개발 과제를 통해<br/>
-          인공지능과 데이터 부분에서의 사업을 주도적으로 이끌어가고 있습니다.
-          </div>
-          <div className="itemWrapper">
-            {rndItems}
-          </div>
-          <div className="videoWrapper">
-            <ReactPlayer 
-              url='https://www.youtube.com/watch?v=Ajz4B6t28EU'
-              width={854}
-              height={480}
-            />
+      <Wrapper>
+        <div className="RNDInnerWrapper">
+          <div className="contentsWrapper">
+            <div className="titleText">R&D</div>
+            <div className='mainText'>
+            공공기관 및 기업과 연계한 연구개발 과제를 통해<br/>
+            인공지능과 데이터 부분에서의 사업을 주도적으로 이끌어가고 있습니다.
+            </div>
+            <div className="itemWrapper">
+              {rndItems}
+            </div>
+            <div className="videoWrapper">
+              <ReactPlayer 
+                url='https://www.youtube.com/watch?v=Ajz4B6t28EU'
+                width={854}
+                height={480}
+              />
+            </div>
           </div>
         </div>
-      </RNDWrapper>
+      </Wrapper>
     );
   }
 }
 
 export default withRouter(MainRND);
 
-const RNDWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  .contentsWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
+  .RNDInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
     height: ${constants.MAIN_RND_HEIGHT}px;
-    margin: 0 auto;
-
     border: 1px solid white;
     background-color: white;
+    
+    margin: 0 auto;
+  }
+
+  .contentsWrapper {
+    width: ${constants.TOTAL_WIDTH}px;
+    margin: 0 auto;
     position: relative;
 
     .titleText {
@@ -122,8 +129,6 @@ const RNDWrapper = styled.div`
       margin-top: 80px;
       width: 854px;
       height: 480px;
-      background-color: gray;
-
     }
   }
 `;

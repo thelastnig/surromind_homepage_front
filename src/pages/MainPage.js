@@ -19,14 +19,14 @@ const MainPage = () => {
       <MainSliderContainer/>
       {/* <MainInteractiveContainer/> */}
       <MainNewsContainer/>
-      <IntervalLine/>
+      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
       <MainCompanyContainer/>
-      <IntervalLine/>
+      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
       <MainAIPlatformContainer/>
-      <IntervalLine/>
+      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
       <MainRNDContainer/>
       {/* <MainProjectsContainer/> */}
-      <IntervalLine/>
+      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
       {/* <MainCareersContainer/> */}
     </div>
   )
@@ -34,9 +34,13 @@ const MainPage = () => {
 
 export default MainPage;
 
-const IntervalLine = styled.div`
+const IntervalLineWrapper = styled.div`
+  width: ${constants.LIMIT_WIDTH}px;
   margin: 0 auto;
+`
+const IntervalLine = styled.div`
   width: ${constants.TOTAL_WIDTH}px;
+  margin: 0 auto;
   border-bottom: 1px solid #e1e2e3;
 `
 

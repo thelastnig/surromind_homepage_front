@@ -9,6 +9,9 @@ import * as constants from '../../lib/constants'
 // import news contents from mainNews.js
 import mainNewsContents from '../../lib/mainNews';
 
+// import images
+import btnMore from '../../images/btn-more-n.png';
+
 // import backgound-icon images
 import imgBg01 from '../../images/backgound-icon/img-bg-graphic-01.png';
 import imgBg02 from '../../images/backgound-icon/img-bg-graphic-02.png';
@@ -57,7 +60,10 @@ class MainNews extends Component {
               <div className="innerUpperSubLeft"></div>
               <div className="innerUpperSubTitle">써로마인드의 최신 소식을 확인해보세요.</div>
               <div className="innerUpperSubRight">
-                <div className="styledLink" onClick={this.handleMoreClick}>MORE +</div>
+                <div className="styledLink" onClick={this.handleMoreClick}>
+                  <div className="moreText">more</div>
+                  <div className="moreBtn"><img src={btnMore} alt="btnMore"/></div>
+                </div>
               </div>
             </div>
           </div>
@@ -161,13 +167,27 @@ const MainNewsWrapper = styled.div`
       }
 
       .styledLink {
-        font-size: 16px;
-        color: ${oc.gray[8]};
+        width: 61px;  
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.6px;
+        color: #000000;
         text-decoration: none;
-  
-        &:hover {
-          color: ${constants.POINT_COLOR};
-        }
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .moreText {
+        font-family: ${constants.APPLE_FONT};
+      }
+
+      .moreBtn {
       }
     }
   }

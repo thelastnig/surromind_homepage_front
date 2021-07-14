@@ -242,11 +242,13 @@ const MainSliderWrapper = styled.div`
 
         button:before {
           color: #FE5F01;
+          font-size: 6px;
         }
       }
     }
     button:before {
       color: #D5D6D7;
+      font-size: 6px;
     }
   }  
 `;

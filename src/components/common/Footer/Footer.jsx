@@ -68,6 +68,8 @@ class Footer extends Component {
                 </div>
             </div>
           </div>
+        </div>
+        <div className='contentsLowerWrapper'>
           <div className='lowerArea'>
             <div className="lowerTitle">써로마인드</div>
             <div className='lowerInfo'>
@@ -87,13 +89,13 @@ export default withRouter(Footer);
 
 const Wrapper = styled.div`
   width: 100%;
+  height: ${constants.FOOTER_HEIGHT}px;
   margin: 0 auto;
+  background-color: #f1f1f1;
 
   .contentsWrapper {
     width: ${constants.LIMIT_WIDTH}px;
-    height: ${constants.FOOTER_HEIGHT}px;
     margin: 0 auto;
-    background-color: #f1f1f1;
   }
 
   .upperArea {
@@ -174,13 +176,17 @@ const Wrapper = styled.div`
     }
   }
 
+  .contentsLowerWrapper {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #1e1f22;
+    border: 1px solid #1e1f22;
+  }
+
   .lowerArea {
     margin: 0 auto;
     width: ${constants.LIMIT_WIDTH}px;
     height: ${constants.FOOTER_LOWER_HEIGHT}px;
-
-    background-color: #1e1f22;
-    border: 1px solid #1e1f22;
 
     .lowerTitle {
       margin: 0 auto;

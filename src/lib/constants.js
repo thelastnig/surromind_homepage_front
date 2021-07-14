@@ -1,6 +1,7 @@
 export const LIMIT_WIDTH = '1920';
 export const TOTAL_WIDTH = '1200';
 export const TOTAL_SUB_WIDTH = '950';
+export const HEADER_WIDTH = '980';
 export const HEADER_HEIGHT = '44';
 export const VIEW_PAGE_MIN_HEIGHT = '500';
 
