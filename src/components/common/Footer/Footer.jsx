@@ -8,17 +8,8 @@ import * as constants from '../../../lib/constants';
 
 // import images
 import surroLogo from '../../../images/surromind_logo_new.png';
-import iconFaceBook from '../../../images/iconFacebook.png';
-import iconFaceBook_h from '../../../images/iconFacebook_hover.png';
-import iconInsta from '../../../images/iconInsta.png';
-import iconInsta_h from '../../../images/iconInsta_hover.png';
-import iconYoutube from '../../../images/iconYoutube.png';
-import iconYoutube_h from '../../../images/iconYoutube_hover.png';
-import iconNaver from '../../../images/iconNaver.png';
-import iconNaver_h from '../../../images/iconNaver_hover.png';
 
 // import project & rnd contents
-import projectContents from '../../../lib/project';
 import rndContents from '../../../lib/rnd';
 
 class Footer extends Component {
@@ -28,11 +19,6 @@ class Footer extends Component {
   }
 
   render() {
-    const projectLists = projectContents.map((item, index) => {
-      return (
-        <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
-      )
-    })
     const rndLists = rndContents.map((item, index) => {
       return (
         <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
@@ -42,81 +28,54 @@ class Footer extends Component {
       <Wrapper>
         <div className='contentsWrapper'>
           <div className='upperArea'>
-            <div className="leftItem">
-              <div className="styledLink">
-                <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
-              </div>
-            </div>
-            <div className="centerItem">
-              <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div>
-                <div className='subBarMenu'>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
+            <div className='upperInnerArea'>
+              <div className="leftItem">
+                <div className="styledLink">
+                  <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
                 </div>
               </div>
-              <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div>
+              <div className="rightItem">
+                <div className="barMenu">
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>SURROMIND</div>
                   <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>회사 소개</div>
-                  </div> 
-              </div>
-              <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
-                  <div className='subBarMenu'>
-                    {rndLists}
-                  </div> 
-              </div>
-              {/* <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div>
-                <div className='subBarMenu'>
-                  {projectLists}
+                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
+                  </div>
                 </div>
-              </div> */}
-              <div className="barMenu">
-                <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-                <div className='subBarMenu'>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/careers/list/1')}>구인</div>
-                </div> 
-              </div>
-              <div className="barMenu">
-                <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-                <div className='subBarMenu'>
-                  <div className="styledLink sub" onClick={() => this.handleMenuClick('/contact')}>문의사항</div>
-                </div> 
-              </div>
-            </div>
-            <div className="rightItem">
+                <div className="barMenu">
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div>
+                    <div className='subBarMenu'>
+                      <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>회사 소개</div>
+                    </div> 
+                </div>
+                <div className="barMenu">
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
+                    <div className='subBarMenu'>
+                      {rndLists}
+                    </div> 
+                </div>
+                <div className="barMenu">
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
+                  <div className='subBarMenu'>
+                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/careers/list/1')}>구인</div>
+                  </div> 
+                </div>
+                <div className="barMenu">
+                  <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+                  <div className='subBarMenu'>
+                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/contact')}>문의사항</div>
+                  </div> 
+                </div>
+                </div>
             </div>
           </div>
           <div className='lowerArea'>
-            <div className="leftItem">
-              써로마인드<br/>
-              주소: 서울특별시 관악구 관악로 116 학선빌딩 2층<br/>
-              전화: +82-2-872-5127<br/>
-              메일: contact@surromind.ai<br/>
-              <br/>
-              Copyright© 2020 SurroMind. All rights reserved.
+            <div className="lowerTitle">써로마인드</div>
+            <div className='lowerInfo'>
+            서울특별시 관악구 관악로 116 학선빌딩 2층
+            <span>Tel +82-2-872-5127</span>
+            E-mail contact@surromind.ai
             </div>
-            <div className="rightItem">
-              <div className="socialIconWrapper">
-                <img src={iconFaceBook} alt="Facebook icon" className='iconSocial'
-                  onMouseOver={(e) => {e.target.src=iconFaceBook_h}}
-                  onMouseOut={(e) => {e.target.src=iconFaceBook}}
-                />
-                <img src={iconInsta} alt="Facebook icon" className='iconSocial'
-                  onMouseOver={(e) => {e.target.src=iconInsta_h}}
-                  onMouseOut={(e) => {e.target.src=iconInsta}}
-                />
-                <img src={iconYoutube} alt="Facebook icon" className='iconSocial'
-                  onMouseOver={(e) => {e.target.src=iconYoutube_h}}
-                  onMouseOut={(e) => {e.target.src=iconYoutube}}
-                />
-                <img src={iconNaver} alt="Facebook icon" className='iconSocial last'
-                  onMouseOver={(e) => {e.target.src=iconNaver_h}}
-                  onMouseOut={(e) => {e.target.src=iconNaver}}
-                />
-              </div>
-            </div>
+            <div className='lowerRight'>Copyright© 2020 SurroMind. All rights reserved.</div>
           </div>
         </div>
       </Wrapper>
@@ -128,45 +87,35 @@ export default withRouter(Footer);
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
   margin: 0 auto;
 
   .contentsWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
-    height: 100%;
+    width: ${constants.LIMIT_WIDTH}px;
+    height: ${constants.FOOTER_HEIGHT}px;
     margin: 0 auto;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 95%;
-    }
+    background-color: #f1f1f1;
   }
 
   .upperArea {
     width: 100%;
-    height: ${constants.FOOTER_HEIGHT * 0.6}px;
+    height: ${constants.FOOTER_HEIGHT - constants.FOOTER_LOWER_HEIGHT}px;
+    border: 1px solid #f1f1f1;
 
-    display: flex;
-    justify-content: space-between;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      height: 100%;
+    .upperInnerArea {
+      width: ${constants.FOOTER_INNER_WIDTH}px;
+      margin-top: 56px;
+      margin-left: ${constants.FOOTER_INNER_LEFT_MARGIN}px;
+      display: flex;
+      justify-content: space-between;
     }
 
     .leftItem {
-      width: 20%;
-      margin-top: 50px;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-      }
+      width: 256px;
+      height: 28px;
   
       .ImgLogo {
-        height: 20px;
+        width: 256px;
+        height: 28px;
       }
     }
 
@@ -175,21 +124,11 @@ const Wrapper = styled.div`
       cursor: pointer;
     }
 
-    .centerItem {
-      width: 60%;
-      margin-top: 50px;
+    .rightItem {
+      width: 885px;
       display: flex;
       align-items: flex-start;
-      justify-content: flex-end;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-        margin-top: 10px;
-      }
-  
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        display: none;
-      }
+      justify-content: space-between;
 
       .barMenu {
         flex-grow: 1;
@@ -198,7 +137,11 @@ const Wrapper = styled.div`
         justify-content: center;
         font-size: 14px;
         font-weight: 500;
-        color: ${oc.gray[8]};
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #1e1f22;
         position: relative;
       }
 
@@ -215,16 +158,13 @@ const Wrapper = styled.div`
       }
   
       .styledLink {
-        font-size: 14px;
-        color: ${oc.gray[8]};
+        font-family: ${constants.INTER_FONT};
         text-decoration: none;
 
         &.sub {
-          font-family: ${constants.NOTO_FONT};
-          font-size: 11px;
-          color: ${oc.gray[6]};
+          font-family: ${constants.APPLE_FONT};
           text-decoration: none;
-          margin-bottom: 10px;
+          margin-bottom: 16px;
         }
   
         &:hover {
@@ -232,63 +172,58 @@ const Wrapper = styled.div`
         }
       }
     }
-  
-    .rightItem {
-      width: 20%;
-      margin-top: 50px;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-        margin-top: 0px;
-      }
-    }
   }
 
   .lowerArea {
-    width: 100%;
-    height: ${constants.FOOTER_HEIGHT * 0.4}px;
+    margin: 0 auto;
+    width: ${constants.LIMIT_WIDTH}px;
+    height: ${constants.FOOTER_LOWER_HEIGHT}px;
 
-    display: flex;
-    justify-content: space-between;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      flex-direction: column;
+    background-color: #1e1f22;
+    border: 1px solid #1e1f22;
+
+    .lowerTitle {
+      margin: 0 auto;
+      margin-top: 24px;
+      font-family: ${constants.APPLE_FONT};
+      font-size: 20px;
+      font-weight: 200;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: -0.57px;
+      text-align: center;
+      color: #ffffff;
     }
 
-    .leftItem {
-      margin-top: 35px;
-      width: 80%;
-      font-size: 12px;
-      font-family: ${constants.NOTO_FONT};
-      color: ${oc.gray[8]};
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
+    .lowerInfo {
+      margin: 0 auto;
+      margin-top: 10px; 
+      font-family: ${constants.APPLE_FONT};
+      font-size: 14px;
+      font-stretch: normal;
+      font-weight: 400;
+      line-height: 1.43;
+      letter-spacing: -0.4px;
+      text-align: center;
+      color: #ffffff;
+
+      span {
+        padding-left: 16px;
+        padding-right: 16px;
       }
     }
 
-    .rightItem {
-  
-      width: 20%;
-      margin-top: 35px;
-      text-align: right;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-        text-align: left;
-        margin-bottom: 35px;
-      }
-
-      .socialIconWrapper {
-        .iconSocial {
-          margin-right: 15px;
-          cursor: pointer;
-
-          &.last {
-            margin-right: 0;
-          }
-        }
-      }
+    .lowerRight {
+      margin: 0 auto;
+      margin-top: 4px; 
+      font-family: ${constants.APPLE_FONT};
+      font-size: 14px;
+      font-weight: 100;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: -0.4px;
+      text-align: center;
+      color: #ffffff;
     }
   }
     

@@ -7,6 +7,8 @@ import * as constants from '../../lib/constants';
 
 // import images from config.js
 import imgAiplatform from '../../images/img-surromind-aiplatform.png';
+import imgAiplatformGroup from '../../images/img-aiplatform_group.png';
+import imgAutolabeling from '../../images/img-autolabeling.png';
 
 import imgBg06 from '../../images/backgound-icon/img-bg-graphic-06.png';
 import imgBg07 from '../../images/backgound-icon/img-bg-graphic-07.png';
@@ -55,13 +57,13 @@ class MainAIPlatform extends Component {
               </div>
             </div>
             <div className='detailImageWrapper upper'>
-              
+              <img src={imgAiplatformGroup} alt='imgAiplatformGroup'/>
             </div>
           </div>
 
           <div className='detailWrapper lower'>
             <div className='detailImageWrapper lower'>
-              
+              <img src={imgAutolabeling} alt='imgAutolabeling'/>
             </div>
             <div className='detailTextWrapper lower'>
               <div className='detailTextTitle lower'>

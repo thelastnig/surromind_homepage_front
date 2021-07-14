@@ -316,7 +316,7 @@ const mainRND = [
     url: '/project/content/robot-indoor-autodrive',
     type: 'R&D',
     title: '로봇 상황 판단 및 실내 자율 주행 인공지능',
-    titleS: '로봇 실내 자율 주행',
+    titleS: '로봇실내 자율주행',
     subTitle: 'Project A detail',
     image: ImgProjectRobotAutoDr,
     contents_overview: [

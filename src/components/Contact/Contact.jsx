@@ -9,8 +9,8 @@ import dotenv from 'dotenv';
 // import constants from constants.js
 import * as constants from '../../lib/constants';
 
-import contactImage from '../../images/contact.png';
-import contactImageMobile from '../../images/mobile/contactMobile.jpg';
+import imgB1 from '../../images/backgound-icon/img-bottom-01.png';
+import imgB2 from '../../images/backgound-icon/img-bottom-02.png';
 
 // import email-library
 import emailjs from 'emailjs-com';
@@ -186,13 +186,8 @@ class Contact extends Component {
     return (      
     <Wrapper>
       <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
-        {/* <div className="backgroundIcon imgBg03"><img src={imgBg03} alt="imgBg03" /></div>
-        <div className="backgroundIcon imgBg04"><img src={imgBg04} alt="imgBg04" /></div>
-        <div className="backgroundIcon imgBg05"><img src={imgBg05} alt="imgBg05" /></div>
-        <div className="backgroundIcon imgBg05_right"><img src={imgBg05} alt="imgBg05" /></div>
-        <div className="backgroundIcon imgBg10"><img src={imgBg10} alt="imgBg10" /></div>
-        <div className="backgroundIcon imgBg11"><img src={imgBg11} alt="imgBg11" /></div>
-        <div className="backgroundIcon imgBg13"><img src={imgBg13} alt="imgBg13" /></div> */}
+        <div className="backgroundIcon imgB1" ><img src={imgB1} alt="imgB1" /></div>
+        <div className="backgroundIcon imgB2" ><img src={imgB2} alt="imgB2" /></div>
         <div className='titleText'>Contact</div>
         <div className='mainText'>
         AI 관련 업무 협의 및 궁금한 사항에 대해 문의하시면<br/>
@@ -482,39 +477,16 @@ const Wrapper = styled.div`
   .backgroundIcon {
     position: absolute;
 
-    &.imgBg03 {
-      top: 56px;
-      left: 237px;
+    &.imgB1 {
+      bottom: 0px;
+      left: 336px;
+      height: 141px;
     }
 
-    &.imgBg04 {
-      top: 179px;
-      left: 102px;
-    }
-
-    &.imgBg05 {
-      top: 394px;
-      left: 186px;
-    }
-
-    &.imgBg05_right {
-      top: 483px;
-      right: 198px;
-    }
-
-    &.imgBg10 {
-      top: 63px;
-      right: 207px;
-    }
-
-    &.imgBg11 {
-      top: 194px;
-      right: 105px;
-    }
-
-    &.imgBg13 {
-      top: 526px;
-      right: 115px;
+    &.imgB2 {
+      bottom: 0px;
+      right: 318px;
+      height: 149px;
     }
   }
 `;
