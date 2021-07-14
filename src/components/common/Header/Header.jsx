@@ -10,7 +10,6 @@ import * as constants from '../../../lib/constants';
 
 // import images
 import surroLogo from '../../../images/surromind_logo_new.png';
-import iconGlobal from '../../../images/iconGlobal.png';
 
 import rndContents from '../../../lib/rnd';
 import projectContents from '../../../lib/project';
@@ -137,7 +136,6 @@ class Header extends Component {
             </div>
             <div className="rightItem">
               <div className="rightIcon">
-                <img src={iconGlobal} alt='Icon Global for language selection' height='16px'/>
               </div>
               <div className="rightText">
                 KOR

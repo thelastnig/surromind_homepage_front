@@ -22,7 +22,7 @@ import companyPamphlet from '../../images/companyPamphlet.pdf';
 import productPamphlet from '../../images/productPamphlet.pdf';
 
 // import icon from material-ui/icon
-import ArrowForward from "@material-ui/icons/ArrowForward";
+import iconLoad from '../../images/icon-load.png';
 
 class MainCompany extends Component {
   state = {
@@ -52,18 +52,20 @@ class MainCompany extends Component {
           서울대 인공지능 박사들을 중심으로 인공지능에 대한 명확한 이해와 풍부한 연구 개발 역량을 보유하고 있습니다.
           </div>
           <div className='pdfFileArea'>
-            <a href={productPamphlet} className='pdfLink'>
+            <a href={companyPamphlet} className='pdfLink'>
               <div className='pdfItem'>
-                <div className="pdfFileArrow">
-                </div>
                 <div className="pdfFileLink">회사 소개서</div>
+                <div className="pdfFileArrow">
+                  <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
+                </div>
               </div>
             </a>
             <a href={productPamphlet} className='pdfLink'>
               <div className='pdfItem'>
-              <div className="pdfFileArrow">
-              </div>
               <div className="pdfFileLink">제품 소개서</div>
+              <div className="pdfFileArrow">
+                <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
+              </div>
               </div>
             </a>
           </div>
@@ -172,7 +174,7 @@ const Wrapper = styled.div`
     }
 
     .pdfLink {
-      text-decoration:none;
+      text-decoration: none;
     }
 
     .pdfFileLink {
@@ -185,6 +187,18 @@ const Wrapper = styled.div`
       letter-spacing: -0.53px;
       text-align: center;
       color: #ffffff;
+    }
+
+    .pdfFileArrow {
+      margin-left: 5px;
+      display: flex;
+      align-items: center;  
+      justify-content: center;  
+
+      .arrowImage {
+        width: 14px;
+        height: 14px;
+      }
     }
   }
 
