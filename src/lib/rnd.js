@@ -228,7 +228,7 @@ const mainRND = [
     title: 'Auto DL',
     titleS: 'Auto DL',
     subTitle: 'Auto DL detail',
-    image: ImgProjectRdRobot,
+    image: ImgProjectRobotAutoDr,
     contents_overview: [
       {
         type: 'textNormal',
@@ -318,7 +318,7 @@ const mainRND = [
     title: '로봇 상황 판단 및 실내 자율 주행 인공지능',
     titleS: '로봇실내 자율주행',
     subTitle: 'Project A detail',
-    image: ImgProjectRobotAutoDr,
+    image: ImgProjectRdRobot,
     contents_overview: [
       {
         type: 'textNormal',
