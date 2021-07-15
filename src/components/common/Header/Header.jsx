@@ -9,7 +9,7 @@ import Menu from '@material-ui/icons/Menu';
 import * as constants from '../../../lib/constants';
 
 // import images
-import surroLogo from '../../../images/surromind_logo_previous.png';
+import surroLogo from '../../../images/surromind_logo_new.png';
 
 import rndContents from '../../../lib/rnd';
 import projectContents from '../../../lib/project';
@@ -99,7 +99,7 @@ class Header extends Component {
             <div className="centerItem">
               <div className="leftItem">
                 <div className="styledLink" onClick={handleClickHome}>
-                  <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
+                  <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
                 </div>
               </div>
               <div className="barMenu" 
@@ -176,7 +176,7 @@ const HeaderInnerWrapper = styled.div`
     width: 123px;
     height: 22px;
     .ImgLogo {
-      padding-top: 2px;
+      padding-top: 4px;
     }
   }
 
@@ -194,17 +194,8 @@ const HeaderInnerWrapper = styled.div`
       
       color: #ffffff;
 
-      &.contact {
-        color: #ff781e;
-        font-weight: 600;
-      }
-
       &:hover {
         color: #ff781e;
-
-        &.contact {
-          color: #ffffff;
-        }
       }
     }
 
