@@ -84,7 +84,7 @@ class Contact extends Component {
     const regexpNum = /^[0-9]*$/;
     const regexpEmail = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
 
-    if (type === null || company === 'none') {
+    if (type === null || type === '') {
       alert('문의 유형을 선택해 주세요');
       this.inputType.focus();
       return false;
@@ -96,20 +96,20 @@ class Contact extends Component {
       alert('성명을 입력해 주세요.');
       this.inputName.focus();
       return false;
-    } else if (phone === null || phone === '') {
-      alert('연락처를 입력해 주세요.');
-      this.inputPhone.focus();
-      return false;
-    } else if (!regexpNum.test(phone)) {
-      alert('연락처는 숫자만 입력 가능합니다.');
-      this.inputPhone.focus();
-      return false;      
     } else if (email === null || email === '') {
       alert('이메일을 입력해 주세요.');
       this.inputEmail.focus();
       return false;
     } else if (!regexpEmail.test(email)) {
       alert('이메일 형식이 올바르지 않습니다.');
+      this.inputEmail.focus();
+      return false;      
+    } else if (phone === null || phone === '') {
+      alert('연락처를 입력해 주세요.');
+      this.inputPhone.focus();
+      return false;
+    } else if (!regexpNum.test(phone)) {
+      alert('연락처는 숫자만 입력 가능합니다.');
       this.inputPhone.focus();
       return false;      
     } else if (title === null || title === '') {
@@ -125,7 +125,7 @@ class Contact extends Component {
   }
 
   render() {
-    const { company, name, phone, email, title, content, type } = this.state;
+    const { company, name, email, phone, title, content, type } = this.state;
     
     return (      
     <Wrapper>
@@ -148,7 +148,7 @@ class Contact extends Component {
                     value={type} 
                     onChange={this.handleChange} 
                     ref={(ref) => {this.inputType=ref}}   >
-              <option value='none' selected className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
+              <option value='' selected className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
               <option value='checkedML' className='inputOption'>머신러닝/딥러닝</option>
               <option value='checkedAISolution' className='inputOption'>AI 솔루션</option>
               <option value='checkedPartnership' className='inputOption'>파트너쉽</option>
@@ -185,7 +185,7 @@ class Contact extends Component {
                     name='name' 
                     value={name} 
                     onChange={this.handleChange}  
-                    ref={(ref) => {this.inputCompany=ref}}
+                    ref={(ref) => {this.inputName=ref}}
                     placeholder='이름을 입력해 주세요.'/>
           </div>
         </div>
@@ -201,7 +201,7 @@ class Contact extends Component {
                     name='email' 
                     value={email} 
                     onChange={this.handleChange}  
-                    ref={(ref) => {this.inputName=ref}}
+                    ref={(ref) => {this.inputEmail=ref}}
                     placeholder='이메일 주소를 입력해 주세요.'/>
           </div>
         </div>
