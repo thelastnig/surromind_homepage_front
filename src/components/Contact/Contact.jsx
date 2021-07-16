@@ -15,7 +15,7 @@ import imgB2 from '../../images/backgound-icon/img-bottom-02.png';
 // import email-library
 import emailjs from 'emailjs-com';
 
-const checkboxKorName = {
+const typeKorName = {
   checkedML: '머신러닝',
   checkedAISolution: 'AI 솔루션',
   checkedPartnership: '파트너쉽',
@@ -25,13 +25,7 @@ const checkboxKorName = {
 
 class Contact extends Component {
   state = {
-    checkbox: {
-      checkedML: false,
-      checkedAISolution: false,
-      checkedPartnership: false,
-      checkedCareers: false,
-      checkedETC: false,
-    },
+    type: '',
     company: '',
     name: '',
     phone: '',
@@ -43,16 +37,6 @@ class Contact extends Component {
   componentDidMount() {
   }
 
-  handleCheckBoxChange = (event) => {
-    this.setState({ 
-      ...this.state,
-      checkbox: {
-        ...this.state.checkbox,
-        [event.target.name]: event.target.checked 
-      }
-    });
-  }
-
   handleChange = (event) => {
     this.setState({ 
       ...this.state,
@@ -61,30 +45,18 @@ class Contact extends Component {
   }
 
   handleClick = () => {
-    const { company, name, phone, email, title, content, checkbox } = this.state;
+    const { company, name, phone, email, title, content, type } = this.state;
 
-    const resultCheckbox = this.checkContantMenu();
-    if (resultCheckbox === false) {
-      return;
-    } 
     const resultItems = this.checkItem();
 
     if (resultItems === false) {
       return;
     }
     
-    let typelist = '';
-
-    for (let key in checkbox) {
-      if (checkbox[key] === true) {
-        typelist += checkboxKorName[key] + ' ';
-      } 
-    }
-
     let templateParams = {
       from_name: name,
       to_name: 'Surromind Admin',
-      type: typelist,
+      type: typeKorName[type],
       company: company,
       phone: phone,
       email: email,
@@ -107,28 +79,16 @@ class Contact extends Component {
       });
   }
 
-  checkContantMenu = () => {
-    const { checkbox } = this.state;
-    let checkedNum = 0;
-    for (let key in checkbox) {
-      if (checkbox[key] === true) {
-        checkedNum += 1;
-      } 
-    }
-    if (checkedNum < 1) {
-      alert("문의 유형을 선택해 주세요.");
-      return false;
-    }
-
-    return true;
-  }
-
   checkItem = () => {
-    const { company, name, phone, email, title, content } = this.state;
+    const { company, name, phone, email, title, content, type } = this.state;
     const regexpNum = /^[0-9]*$/;
     const regexpEmail = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
 
-    if (company === null || company === '') {
+    if (type === null || company === 'none') {
+      alert('문의 유형을 선택해 주세요');
+      this.inputType.focus();
+      return false;
+    } else if (company === null || company === '') {
       alert('소속을 입력해 주세요.');
       this.inputCompany.focus();
       return false;
@@ -165,23 +125,7 @@ class Contact extends Component {
   }
 
   render() {
-    const styleFull = {
-      "width": "100%",
-    };
-
-    const styleIcon = {
-      "fill": `${oc.gray[7]}`,
-      'fontSize': '20px',
-    };
-
-    const styleCheckLabel = {
-      "fontFamily": `${constants.NOTO_FONT}`,
-      "fontSize": "14px",
-      "marginLeft": "-5px",
-    }
-
-    const { checkedML, checkedAISolution, checkedPartnership, checkedCareers, checkedETC } = this.state.checkbox; 
-    const { company, name, phone, email, title, content } = this.state;
+    const { company, name, phone, email, title, content, type } = this.state;
     
     return (      
     <Wrapper>
@@ -198,13 +142,18 @@ class Contact extends Component {
             <div className='inputLabelText'>유형</div>
           </div>
           <div className='inputItem'>
-            <select name='type' id='type' className='input select'>
-              <option value='' className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
-              <option value='' className='inputOption'>머신러닝/딥러닝</option>
-              <option value='' className='inputOption'>AI 솔루션</option>
-              <option value='' className='inputOption'>파트너쉽</option>
-              <option value='' className='inputOption'>채용/인사</option>
-              <option value='' className='inputOption'>기타</option>
+            <select name='type' 
+                    id='type' 
+                    className='input select' 
+                    value={type} 
+                    onChange={this.handleChange} 
+                    ref={(ref) => {this.inputType=ref}}   >
+              <option value='none' selected className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
+              <option value='checkedML' className='inputOption'>머신러닝/딥러닝</option>
+              <option value='checkedAISolution' className='inputOption'>AI 솔루션</option>
+              <option value='checkedPartnership' className='inputOption'>파트너쉽</option>
+              <option value='checkedCareers' className='inputOption'>채용/인사</option>
+              <option value='checkedETC' className='inputOption'>기타</option>
             </select>
           </div>
         </div>
@@ -214,7 +163,14 @@ class Contact extends Component {
             <div className='inputLabelText'>소속</div>
           </div>
           <div className='inputItem'>
-            <input type='text' className='input' id='company' name='company' placeholder='ex) 써로마인드, 프리랜서, 학생'/>
+            <input type='text'
+                    className='input' 
+                    id='company' 
+                    name='company' 
+                    value={company} 
+                    onChange={this.handleChange}  
+                    ref={(ref) => {this.inputCompany=ref}}
+                    placeholder='ex) 써로마인드, 프리랜서, 학생'/>
           </div>
         </div>
    
@@ -223,7 +179,14 @@ class Contact extends Component {
             <div className='inputLabelText'>성명</div>
           </div>
           <div className='inputItem'>
-            <input type='text' className='input' id='name' name='name' placeholder='이름을 입력해 주세요.'/>
+            <input type='text' 
+                    className='input' 
+                    id='name' 
+                    name='name' 
+                    value={name} 
+                    onChange={this.handleChange}  
+                    ref={(ref) => {this.inputCompany=ref}}
+                    placeholder='이름을 입력해 주세요.'/>
           </div>
         </div>
 
@@ -232,7 +195,14 @@ class Contact extends Component {
             <div className='inputLabelText long'>E-mail</div>
           </div>
           <div className='inputItem long'>
-            <input type='text' className='input long' id='email' name='email' placeholder='이메일 주소를 입력해 주세요.'/>
+            <input type='text' 
+                    className='input long' 
+                    id='email' 
+                    name='email' 
+                    value={email} 
+                    onChange={this.handleChange}  
+                    ref={(ref) => {this.inputName=ref}}
+                    placeholder='이메일 주소를 입력해 주세요.'/>
           </div>
         </div>
 
@@ -241,7 +211,14 @@ class Contact extends Component {
             <div className='inputLabelText long'>연락처</div>
           </div>
           <div className='inputItem long'>
-            <input type='text' className='input long' id='phone' name='phone' placeholder='휴대폰 번호를 입력해 주세요.(숫자만 입력)'/>
+            <input type='text' 
+                    className='input long' 
+                    id='phone' 
+                    name='phone' 
+                    value={phone} 
+                    onChange={this.handleChange}  
+                    ref={(ref) => {this.inputPhone=ref}}
+                    placeholder='휴대폰 번호를 입력해 주세요.(숫자만 입력)'/>
           </div>
         </div>
 
@@ -250,7 +227,14 @@ class Contact extends Component {
             <div className='inputLabelText'>제목</div>
           </div>
           <div className='inputItem full'>
-            <input type='text' className='input full' id='title' name='title' placeholder='제목을 입력해 주세요.'/>
+            <input type='text' 
+                    className='input full' 
+                    id='title' 
+                    name='title' 
+                    value={title} 
+                    onChange={this.handleChange}
+                    ref={(ref) => {this.inputTitle=ref}}  
+                    placeholder='제목을 입력해 주세요.'/>
           </div>
         </div>
 
@@ -259,15 +243,19 @@ class Contact extends Component {
             <div className='inputLabelText content'>내용</div>
           </div>
           <div className='inputItem full content'>
-            <textarea className='input full content' id='content' name='content' placeholder='써로마인드에 문의 할 내용을 입력해 주세요.'/>
+            <textarea className='input full content' 
+                      id='content' 
+                      name='content'
+                      value={content} 
+                      onChange={this.handleChange}  
+                      ref={(ref) => {this.inputContent=ref}}  
+                      placeholder='써로마인드에 문의할 내용을 입력해 주세요.'/>
           </div>
         </div>
 
         <div className='btnWrapper' onClick={this.handleClick}>
           <div className='btn'>보내기</div>
         </div>
-
-
       </div>
     </Wrapper>
     );
@@ -409,6 +397,7 @@ const Wrapper = styled.div`
       &.content {
         padding-top: 12px;
         height: 140px;
+        resize: none;
       }
 
       &.select { 
