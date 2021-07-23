@@ -10,11 +10,21 @@ import * as constants from '../../lib/constants';
 // import contents from mainRND.js
 import mainRNDContents from '../../lib/rnd';
 
+// setting GA
+import ReactGA from 'react-ga';
 
 class MainRND extends Component {
 
   handleClick = (url) => {
     this.props.history.push(url);
+  }
+
+  clickButton = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'play video',
+      label: 'company promotion video',
+    });
   }
   
 
@@ -47,6 +57,7 @@ class MainRND extends Component {
                 url='https://www.youtube.com/watch?v=Ajz4B6t28EU'
                 width={854}
                 height={480}
+                onStart={this.clickButton}
               />
             </div>
           </div>

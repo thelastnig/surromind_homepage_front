@@ -8,13 +8,12 @@ import MainAIPlatformContainer from '../containers/MainAIPlatformContainer';
 import MainRNDContainer from '../containers/MainRNDContainer';
 import MainProjectsContainer from '../containers/MainProjectsContainer';
 import MainCareersContainer from '../containers/MainCareersContainer';
-
 import * as constants from '../lib/constants';
+
 
 const MainPage = () => {
 
   return (
-    
     <div>
       <MainSliderContainer/>
       {/* <MainInteractiveContainer/> */}

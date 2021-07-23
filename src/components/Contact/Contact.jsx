@@ -15,6 +15,9 @@ import imgB2 from '../../images/backgound-icon/img-bottom-02.png';
 // import email-library
 import emailjs from 'emailjs-com';
 
+// GA settings
+import ReactGA from 'react-ga';
+
 const typeKorName = {
   checkedML: '머신러닝',
   checkedAISolution: 'AI 솔루션',
@@ -38,9 +41,29 @@ class Contact extends Component {
   }
 
   handleChange = (event) => {
+    ReactGA.event({
+      category: 'Contact',
+      action: 'Input Activated'
+    });
     this.setState({ 
       ...this.state,
       [event.target.name]: event.target.value 
+    });
+  }
+
+  onFocus = (label) => {
+    ReactGA.event({
+      category: 'User',
+      action: 'enter contact input',
+      label: label,
+    });
+  }
+
+  ClickSubmitButton = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'enter contact input',
+      label: 'send question',
     });
   }
 
@@ -53,6 +76,12 @@ class Contact extends Component {
       return;
     }
     
+    ReactGA.event({
+      category: 'User',
+      action: 'enter contact input',
+      label: 'send question',
+    });
+    
     let templateParams = {
       from_name: name,
       to_name: 'Surromind Admin',
@@ -64,9 +93,6 @@ class Contact extends Component {
       content: content,
       reply_to: email
     }
-    console.log(process.env.REACT_APP_EMAILJS_USER_ID)
-    console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID)
-    console.log(process.env.REACT_APP_EMAILJS_TEMPLATE_ID)
     emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
     emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
@@ -146,9 +172,11 @@ class Contact extends Component {
                     id='type' 
                     className='input select' 
                     value={type} 
-                    onChange={this.handleChange} 
-                    ref={(ref) => {this.inputType=ref}}   >
-              <option value='' selected className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
+                    onChange={this.handleChange}
+                    ref={(ref) => {this.inputType=ref}}  
+                    onFocus={() => this.onFocus('type')} 
+                    >
+              <option value='' className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
               <option value='checkedML' className='inputOption'>머신러닝/딥러닝</option>
               <option value='checkedAISolution' className='inputOption'>AI 솔루션</option>
               <option value='checkedPartnership' className='inputOption'>파트너쉽</option>
@@ -169,6 +197,7 @@ class Contact extends Component {
                     name='company' 
                     value={company} 
                     onChange={this.handleChange}  
+                    onFocus={() => this.onFocus('company')} 
                     ref={(ref) => {this.inputCompany=ref}}
                     placeholder='ex) 써로마인드, 프리랜서, 학생'/>
           </div>
@@ -185,6 +214,7 @@ class Contact extends Component {
                     name='name' 
                     value={name} 
                     onChange={this.handleChange}  
+                    onFocus={() => this.onFocus('name')} 
                     ref={(ref) => {this.inputName=ref}}
                     placeholder='이름을 입력해 주세요.'/>
           </div>
@@ -201,6 +231,7 @@ class Contact extends Component {
                     name='email' 
                     value={email} 
                     onChange={this.handleChange}  
+                    onFocus={() => this.onFocus('email')} 
                     ref={(ref) => {this.inputEmail=ref}}
                     placeholder='이메일 주소를 입력해 주세요.'/>
           </div>
@@ -217,6 +248,7 @@ class Contact extends Component {
                     name='phone' 
                     value={phone} 
                     onChange={this.handleChange}  
+                    onFocus={() => this.onFocus('phone')} 
                     ref={(ref) => {this.inputPhone=ref}}
                     placeholder='휴대폰 번호를 입력해 주세요.(숫자만 입력)'/>
           </div>
@@ -233,6 +265,7 @@ class Contact extends Component {
                     name='title' 
                     value={title} 
                     onChange={this.handleChange}
+                    onFocus={() => this.onFocus('title')} 
                     ref={(ref) => {this.inputTitle=ref}}  
                     placeholder='제목을 입력해 주세요.'/>
           </div>
@@ -248,6 +281,7 @@ class Contact extends Component {
                       name='content'
                       value={content} 
                       onChange={this.handleChange}  
+                      onFocus={() => this.onFocus('content')} 
                       ref={(ref) => {this.inputContent=ref}}  
                       placeholder='써로마인드에 문의할 내용을 입력해 주세요.'/>
           </div>

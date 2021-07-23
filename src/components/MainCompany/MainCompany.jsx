@@ -24,6 +24,9 @@ import productPamphlet from '../../images/productPamphlet.pdf';
 // import icon from material-ui/icon
 import iconLoad from '../../images/icon-load.png';
 
+// setting GA
+import ReactGA from 'react-ga';
+
 class MainCompany extends Component {
   state = {
     numPages: null,
@@ -32,6 +35,14 @@ class MainCompany extends Component {
  
   onDocumentLoadSuccess = ({ numPages }) => {
     this.setState({ numPages });
+  }
+
+  clickButton = (label) => {
+    ReactGA.event({
+      category: 'User',
+      action: 'click company promotion button',
+      label: label,
+    });
   }
 
   render() {
@@ -53,7 +64,7 @@ class MainCompany extends Component {
           </div>
           <div className='pdfFileArea'>
             <a href={companyPamphlet} className='pdfLink'>
-              <div className='pdfItem'>
+              <div className='pdfItem' onClick={() => this.clickButton('company pamphlet')}>
                 <div className="pdfFileLink">회사 소개서</div>
                 <div className="pdfFileArrow">
                   <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
@@ -61,7 +72,7 @@ class MainCompany extends Component {
               </div>
             </a>
             <a href={productPamphlet} className='pdfLink'>
-              <div className='pdfItem'>
+              <div className='pdfItem' onClick={() => this.clickButton('product pamphlet')}>
               <div className="pdfFileLink">제품 소개서</div>
               <div className="pdfFileArrow">
                 <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>

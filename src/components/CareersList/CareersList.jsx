@@ -14,6 +14,7 @@ import Card from '../common/Card';
 // import careers content
 import careersContents from '../../lib/careers';
 
+
 class CareersList extends Component {
 
   componentDidMount() {
