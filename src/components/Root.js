@@ -27,19 +27,18 @@ const Root = () => {
     <RootWrapper>
         <div className="innerWrapper">
             <Switch>
-              <Route exact path="/" component={MainPage} />
-              <Route exact path="/surromindnews/list/:page" component={NewsListPage} />
-              <Route exact path="/surromindnews/article/:articleID" component={NewsViewPage} />
-              <Route exact path="/project/list/:page" component={ProjectListPage} />
-              <Route exact path="/project/content/:projectID" component={ProjectViewPage} />
-              <Route exact path="/rnd/list/:page" component={RNDListPage} />
-              <Route exact path="/rnd/content/:rndID" component={RNDViewPage} />
-              <Route exact path="/careers/content/:careerID" component={CareersViewPage} />
-              <Route exact path="/careers/list/:page" component={CareersListPage} />
-              <Route exact path="/company/voucher" component={VoucherPage} />
-              <Route path="/contact" component={ContactPage} />
+              <Route exact path="/" component={MainPage} history={browserHistory}/>
+              <Route exact path="/surromindnews/list/:page" component={NewsListPage} history={browserHistory}/>
+              <Route exact path="/surromindnews/article/:articleID" component={NewsViewPage} history={browserHistory}/>
+              <Route exact path="/project/list/:page" component={ProjectListPage} history={browserHistory}/>
+              <Route exact path="/project/content/:projectID" component={ProjectViewPage} history={browserHistory}/>
+              <Route exact path="/rnd/list/:page" component={RNDListPage} history={browserHistory}/>
+              <Route exact path="/rnd/content/:rndID" component={RNDViewPage} history={browserHistory}/>
+              <Route exact path="/careers/content/:careerID" component={CareersViewPage} history={browserHistory}/>
+              <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
+              <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
+              <Route path="/contact" component={ContactPage} history={browserHistory}/>
             </Switch>
-
         </div>
     </RootWrapper>
   );
