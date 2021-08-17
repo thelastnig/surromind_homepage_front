@@ -20,6 +20,7 @@ class App extends Component {
     isScrolled: false,
     isSidebarOpen: false,
     clickNum: 0,
+    isAdmin: false
   }
 
   componentDidMount() {
@@ -55,26 +56,32 @@ class App extends Component {
     });
   }
 
+  setIsAdmin = (value) => {
+    this.setState({
+      isAdmin: value,
+    });
+  }
+
   render() {
-    const { isScrolled, isSidebarOpen, clickNum } = this.state;
+    const { isScrolled, isSidebarOpen, clickNum, isAdmin } = this.state;
     return (
       <BrowserRouter>
-        <SidebarWapper isSidebarOpen={isSidebarOpen} clickNum={clickNum}>
+        <SidebarWapper isSidebarOpen={isSidebarOpen} clickNum={clickNum} isAdmin={isAdmin}>
           <Sidebar toggleSidebar={this.toggleSidebar}/>
         </SidebarWapper>
         <OuterWrapper>
           <div className="addLayer">
             <InnerWrapper>
-              <HeaderWrapper isScrolled={isScrolled}>
+              <HeaderWrapper isScrolled={isScrolled} isAdmin={isAdmin}>
                 <div className='limitWrapper'><HeaderContainer toggleSidebar={this.toggleSidebar}/></div>
               </HeaderWrapper> 
-              <RootWrapper>
-                <div className='limitWrapper'><Root/></div>
+              <RootWrapper isAdmin={isAdmin}>
+                <div className='limitWrapper'><Root setIsAdmin={this.setIsAdmin}/></div>
               </RootWrapper>
-              <ContactWrapper>
+              <ContactWrapper isAdmin={isAdmin}>
                 <div className='limitWrapper'><ContactComponentContainer/></div>
               </ContactWrapper>
-              <FooterWrapper>
+              <FooterWrapper isAdmin={isAdmin}>
                 <div className='limitWrapper'><FooterContainer/></div>
               </FooterWrapper>
             </InnerWrapper>
@@ -156,6 +163,15 @@ const SidebarWapper = styled.div`
         `;
     }
   }}
+
+  ${props => props.isAdmin && `
+    display: none; 
+  `}
+
+  
+  ${props => !props.isAdmin && `
+    display: block; 
+  `}
 `;
 
 const InnerWrapper = styled.div`
@@ -185,13 +201,21 @@ const HeaderWrapper = styled.div`
   }
   
   ${props => {
-    if (props.isScrolled) {
+    if (props.isScrolled && !props.isAdmin) {
         return css `
           background: rgba(255, 255, 255, 0.9);
           animation: 1s ${slideInDownAnimation} forwards
         `;
     }
   }}
+
+  ${props => props.isAdmin && `
+    display: none; 
+  `}
+
+  ${props => !props.isAdmin && `
+    display: block; 
+  `}
 `;
 
 const RootWrapper = styled.div`
@@ -203,13 +227,32 @@ const RootWrapper = styled.div`
   ${props => !props.isScrolled && `
     margin-top: ${constants.HEADER_HEIGHT}px; 
   `}
+  ${props => props.isAdmin && `
+    margin-top: 0; 
+  `}
 `;
 
 const ContactWrapper = styled.div`
   width: 100%;
+  
+  ${props => props.isAdmin && `
+    display: none; 
+  `}
+
+  ${props => !props.isAdmin && `
+    display: block; 
+  `}
 `;
 
 const FooterWrapper = styled.div`
   width: 100%;
   height: ${constants.FOOTER_HEIGHT}px;
+
+  ${props => props.isAdmin && `
+    display: none; 
+  `}
+
+  ${props => !props.isAdmin && `
+    display: block; 
+  `}
 `;

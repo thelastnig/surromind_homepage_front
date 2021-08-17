@@ -4,6 +4,7 @@ export const TOTAL_SUB_WIDTH = '950';
 export const HEADER_WIDTH = '980';
 export const HEADER_HEIGHT = '44';
 export const VIEW_PAGE_MIN_HEIGHT = '500';
+export const ROOT_PAGE_MIN_HEIGHT = '1000';
 
 export const MAIN_SLIDER_HEIGHT = '478';
 export const MAIN_INTERACTIVE_HEIGHT = '700';
@@ -62,3 +63,8 @@ export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_BIG = '7vw';
 export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_LARGE = '36';
 export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDEL = '30';
 export const RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDEL_LOW = '26';
+
+export const ADMIN_SIDEBAR_WIDTH = '250';
+export const ADMIN_SIDEBAR_ITEM_HEIGHT = '50';
+export const ADMIN_SIDEBAR_COLOR = '#353535';
+export const ADMIN_CONTENT_COLOR = '#EEEEEE';

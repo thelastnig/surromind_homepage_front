@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
-  CareersListPage, CareersViewPage, ContactPage, VoucherPage } from '../pages';
+  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AdminPage, AIStudioEventPage } from '../pages';
 import styled from 'styled-components';
 
 // import constants from constants.js
@@ -17,11 +17,19 @@ browserHistory.listen((location, action) => {
   console.log(location.pathname + location.search);
 });
 
-const Root = () => {
+const Root = (props) => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [])
-
+    if (window.location.pathname !== null && window.location.pathname !== '') {
+      if (window.location.pathname.split('/')[1] === 'admin') {
+        props.setIsAdmin(true);
+      } else {
+        props.setIsAdmin(false);
+      }
+    } else {
+      props.setIsAdmin(false);
+    }
+  }, [window.location.pathname])
 
   return (
     <RootWrapper>
@@ -37,6 +45,8 @@ const Root = () => {
               <Route exact path="/careers/content/:careerID" component={CareersViewPage} history={browserHistory}/>
               <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
               <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
+              <Route exact path="/admin/:page" component={AdminPage} />
+              <Route exact path="/aistudioevent" component={AIStudioEventPage} history={browserHistory}/>
               <Route path="/contact" component={ContactPage} history={browserHistory}/>
             </Switch>
         </div>
@@ -51,7 +61,7 @@ const RootWrapper = styled.div`
   width: 100%;
 
   .innerWrapper {
-    min-height: 1000px;
+    min-height:  ${constants.ROOT_PAGE_MIN_HEIGHT}px;
     width: 100%;
     margin: 0 auto;
     
