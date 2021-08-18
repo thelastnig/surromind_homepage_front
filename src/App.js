@@ -20,7 +20,8 @@ class App extends Component {
     isScrolled: false,
     isSidebarOpen: false,
     clickNum: 0,
-    isAdmin: false
+    isAdmin: false,
+    isContactInvisible: false,
   }
 
   componentDidMount() {
@@ -62,8 +63,14 @@ class App extends Component {
     });
   }
 
+  setIsContactInvisible = (value) => {
+    this.setState({
+      isContactInvisible: value,
+    });
+  }
+
   render() {
-    const { isScrolled, isSidebarOpen, clickNum, isAdmin } = this.state;
+    const { isScrolled, isSidebarOpen, clickNum, isAdmin, isContactInvisible } = this.state;
     return (
       <BrowserRouter>
         <SidebarWapper isSidebarOpen={isSidebarOpen} clickNum={clickNum} isAdmin={isAdmin}>
@@ -76,9 +83,9 @@ class App extends Component {
                 <div className='limitWrapper'><HeaderContainer toggleSidebar={this.toggleSidebar}/></div>
               </HeaderWrapper> 
               <RootWrapper isAdmin={isAdmin}>
-                <div className='limitWrapper'><Root setIsAdmin={this.setIsAdmin}/></div>
+                <div className='limitWrapper'><Root setIsAdmin={this.setIsAdmin} setIsContactInvisible={this.setIsContactInvisible}/></div>
               </RootWrapper>
-              <ContactWrapper isAdmin={isAdmin}>
+              <ContactWrapper isAdmin={isAdmin} isContactInvisible={isContactInvisible}>
                 <div className='limitWrapper'><ContactComponentContainer/></div>
               </ContactWrapper>
               <FooterWrapper isAdmin={isAdmin}>
@@ -239,8 +246,12 @@ const ContactWrapper = styled.div`
     display: none; 
   `}
 
-  ${props => !props.isAdmin && `
+  ${props => !props.isAdmin && !props.isContactInvisible && `
     display: block; 
+  `}
+
+  ${props => !props.isAdmin && props.isContactInvisible && `
+    display: none; 
   `}
 `;
 
