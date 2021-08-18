@@ -642,6 +642,7 @@ const AIStudioEventWrapper = styled.div`
 const SubmitWrapper = styled.div`
   width: 1920px;
   margin: 0 auto;
+  background-color: #F5F5F5;
 
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
     width: 95%;
