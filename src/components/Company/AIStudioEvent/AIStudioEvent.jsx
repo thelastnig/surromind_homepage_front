@@ -16,7 +16,6 @@ import AIStudioEventMiddle from '../../../images/AIStudioEventMiddle.jpg';
 import AIStudioEventLower from '../../../images/AIStudioEventLower.jpg';
 
 import AIStudioEventUpperMobile from '../../../images/AIStudioEventUpperMobile.jpg';
-import AIStudioEventMiddleMobile from '../../../images/AIStudioEventMiddleMobile.jpg';
 import AIStudioEventLowerMobile from '../../../images/AIStudioEventLowerMobile.jpg';
 
 // import icon
@@ -200,9 +199,9 @@ class AIStudioEvent extends Component {
         <div className="imageUpper">
           <div className="upperLeft">
             <div className="upperLeftContent">
-              <div className="logo upper">SURROMIND<sup>TM</sup></div>
+              <div className="logo upper">SURROMIND<div className="upperCharacter">TM</div></div>
               <div className="logo lower">AI Studio</div>
-              <div className="description upper">사업 경쟁략을 위한 인공지능 개발&#183;운영 시스템</div>
+              <div className="description upper">사업 경쟁력을 위한 인공지능 개발&#183;운영 시스템</div>
               <div className="description lower">코딩이 필요없는 개발환경 제공으로<br/>누구나 쉽고 편리하게 인공지능 개발</div>
               <div className="moveBtn" onClick={this.handleMoveBtnClick}>
                 <div className="btnTitle">
@@ -234,7 +233,7 @@ class AIStudioEvent extends Component {
                                         name="checkedAIStudio" 
                                         color="primary"
                                         />}
-                    label={<Typography style={styleCheckLabel}>AI studio 33% 할인 + POC 지원</Typography>} />
+                    label={<Typography style={styleCheckLabel}>AI Studio 33% 할인 + POC 지원</Typography>} />
                   <FormControlLabel
                     control={<Checkbox checked={checkedAIOnboarding} 
                                         value={checkedAIOnboarding} 
@@ -350,10 +349,6 @@ class AIStudioEvent extends Component {
           <img src={AIStudioEventMiddle} alt={AIStudioEventMiddle} width="1920px" />
         </div>
 
-        <div className="imageMiddleMobile">
-          <img src={AIStudioEventMiddleMobile} alt={AIStudioEventMiddleMobile} />
-        </div>
-
         <div className="videoArea">
           <div className="videoWrapper">
             <ReactPlayer 
@@ -388,40 +383,6 @@ class AIStudioEvent extends Component {
           </div>
         </div>
 
-        <div className="videoAreaMobile">
-          <div className="videoWrapper">
-            <ReactPlayer 
-              url='https://www.youtube.com/watch?v=SylxMgocAtA'
-              width="100%"
-              onStart={this.clickButton}
-              playing={true}
-            />
-            <div className="videoText">
-              SURROMIND AI Studio 장점
-            </div>
-          </div>
-          <div className="videoWrapper">
-            <ReactPlayer 
-              url='https://www.youtube.com/watch?v=2ojdE6azYzM'
-              width="100%"
-              onStart={this.clickButton}
-            />
-            <div className="videoText">
-              SURROMIND AI Studio
-            </div>
-          </div>
-          <div className="videoWrapper">
-            <ReactPlayer 
-              url='https://www.youtube.com/watch?v=jjTdMlCSRg8'
-              width="100%"
-              onStart={this.clickButton}
-            />
-            <div className="videoText">
-              인공지능 도입을 위한 AI Studio
-            </div>
-          </div>
-        </div>
-
         <div className="imageLower" ref={(ref) => {this.imageLower=ref}}>
           <img src={AIStudioEventLower} alt={AIStudioEventLower} width="1920px" useMap="#eventClickArea" />
           <map name="eventClickArea" id="eventClickArea" className="mapEvent">
@@ -435,10 +396,10 @@ class AIStudioEvent extends Component {
         <div className="imageLowerMobile">
           <img src={AIStudioEventLowerMobile} alt={AIStudioEventLowerMobile} useMap="#eventClickAreaMobile" />
           <map name="eventClickAreaMobile" id="eventClickAreaMobile" className="mapEvent">
-            <area shape="rect" coords="40, 1418, 200, 1660" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2275" target="_blank"/>
-            <area shape="rect" coords="210, 1418, 370, 1660" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2276" target="_blank"/>
-            <area shape="rect" coords="380, 1418, 540, 1660" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2277" target="_blank"/>
-            <area shape="rect" coords="550, 1418, 710, 1660" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2278" target="_blank"/>
+            <area shape="rect" coords="97, 2370, 374, 2685" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2275" target="_blank"/>
+            <area shape="rect" coords="383, 2370, 662, 2685" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2276" target="_blank"/>
+            <area shape="rect" coords="97, 2757, 374, 3150" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2277" target="_blank"/>
+            <area shape="rect" coords="383, 2757, 662, 3150" href="https://www.ybmcc.com/V2/course/online_view.asp?no=2278" target="_blank"/>
           </map>
         </div>
       </AIStudioEventWrapper>
@@ -497,8 +458,17 @@ const AIStudioEventWrapper = styled.div`
       font-weight: 700;
       color: #fe5f01;
 
-      sup { 
+      &.upper {
+        position: relative;
+      }
+
+      .upperCharacter { 
+        font-family: ${constants.INTER_FONT};
         font-size: 20px;
+        font-weight: 700;
+        position: absolute;
+        top: 0;
+        left: 330px;
       }
     }
 
@@ -577,51 +547,12 @@ const AIStudioEventWrapper = styled.div`
     }
   }
 
-  .videoAreaMobile {
-    width: 95%;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    display: none;
-
-    .videoWrapper {
-      margin-bottom: 70px;
-    }
-
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: block;
-    }
-
-    .videoText {
-      width: 100%;
-      padding-top: 20px;
-      text-align: center;
-      font-family: ${constants.APPLE_FONT};
-      font-size: 18px;
-      line-height: 1.4;
-      letter-spacing: -0.6px;
-      font-weight: 700;
-    }
-  }
-
   .imageMiddle, .imageLower {
     width: 1920px;
     margin: 0 auto;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: none;
-    }
-  }
-
-  .imageMiddleMobile {
-    width: 100%;
-    img {
-      width: 100%;
-    }
-
-    display: none;
-
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: block;
     }
   }
 
@@ -656,6 +587,8 @@ const SubmitWrapper = styled.div`
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
+      padding-top: 50px;
+      padding-bottom: 70px;
     }
   }
 
@@ -714,7 +647,6 @@ const SubmitWrapper = styled.div`
     font-family: ${constants.APPLE_FONT};
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      
       width: 100%;
       margin-bottom: 20px;
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -48,66 +48,140 @@ class MainCompany extends Component {
   render() {
   
     return (
-      <Wrapper>
-        <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
-          <div className="backgroundIcon imgBg03"><img src={imgBg03} alt="imgBg03" /></div>
-          <div className="backgroundIcon imgBg04"><img src={imgBg04} alt="imgBg04" /></div>
-          <div className="backgroundIcon imgBg05"><img src={imgBg05} alt="imgBg05" /></div>
-          <div className="backgroundIcon imgBg05_right"><img src={imgBg05} alt="imgBg05" /></div>
-          <div className="backgroundIcon imgBg10"><img src={imgBg10} alt="imgBg10" /></div>
-          <div className="backgroundIcon imgBg11"><img src={imgBg11} alt="imgBg11" /></div>
-          <div className="backgroundIcon imgBg13"><img src={imgBg13} alt="imgBg13" /></div>
-          <div className='titleText'>Who We Are?</div>
-          <div className='mainText'>
-          국내 최고의 인공지능 핵심기술 보유 AI 전문기업 써로마인드 입니다.<br/>
-          서울대 인공지능 박사들을 중심으로 인공지능에 대한 명확한 이해와 풍부한 연구 개발 역량을 보유하고 있습니다.
-          </div>
-          <div className='pdfFileArea'>
-            <a href={companyPamphlet} className='pdfLink'>
-              <div className='pdfItem' onClick={() => this.clickButton('company pamphlet')}>
-                <div className="pdfFileLink">회사 소개서</div>
+      <Fragment>
+        <Wrapper>
+          <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
+            <div className="backgroundIcon imgBg03"><img src={imgBg03} alt="imgBg03" /></div>
+            <div className="backgroundIcon imgBg04"><img src={imgBg04} alt="imgBg04" /></div>
+            <div className="backgroundIcon imgBg05"><img src={imgBg05} alt="imgBg05" /></div>
+            <div className="backgroundIcon imgBg05_right"><img src={imgBg05} alt="imgBg05" /></div>
+            <div className="backgroundIcon imgBg10"><img src={imgBg10} alt="imgBg10" /></div>
+            <div className="backgroundIcon imgBg11"><img src={imgBg11} alt="imgBg11" /></div>
+            <div className="backgroundIcon imgBg13"><img src={imgBg13} alt="imgBg13" /></div>
+            <div className='titleText'>Who We Are?</div>
+            <div className='mainText'>
+            국내 최고의 인공지능 핵심기술 보유 AI 전문기업 써로마인드 입니다.<br/>
+            서울대 인공지능 박사들을 중심으로 인공지능에 대한 명확한 이해와 풍부한 연구 개발 역량을 보유하고 있습니다.
+            </div>
+            <div className='pdfFileArea'>
+              <a href={companyPamphlet} className='pdfLink'>
+                <div className='pdfItem' onClick={() => this.clickButton('company pamphlet')}>
+                  <div className="pdfFileLink">회사 소개서</div>
+                  <div className="pdfFileArrow">
+                    <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
+                  </div>
+                </div>
+              </a>
+              <a href={productPamphlet} className='pdfLink'>
+                <div className='pdfItem' onClick={() => this.clickButton('product pamphlet')}>
+                <div className="pdfFileLink">제품 소개서</div>
                 <div className="pdfFileArrow">
                   <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
                 </div>
-              </div>
-            </a>
-            <a href={productPamphlet} className='pdfLink'>
-              <div className='pdfItem' onClick={() => this.clickButton('product pamphlet')}>
-              <div className="pdfFileLink">제품 소개서</div>
-              <div className="pdfFileArrow">
-                <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
-              </div>
-              </div>
-            </a>
-          </div>
-          <div className="imgWrapper">
-            <div className="imgItem"><img src={imgAiacademy} alt='imgAiacademy'/></div>
-            <div className="imgItem"><img src={imgAiplatform} alt='imgAiplatform'/></div>
-            <div className="imgItem"><img src={imgVisionaisolution} alt='imgVisionaisolution'/></div>
-          </div>
-          <div className="titleWrapper">
-            <div className="titleItem">AI Platform</div>
-            <div className="titleItem">Vision AI Solution</div>
-            <div className="titleItem">AI Academy</div>
-          </div>
-          <div className="textWrapper">
-            <div className="textItem">
-              써로마인드의 <span>All-in-one 인공지능 플랫폼으로</span><br/>
-              인공지능 모델을 개발할 수 있습니다.<br/>
-              또한 <span>Auto Labeling 툴</span>을 사용하여 빠른<br/>
-              학습데이터를 구축할 수 있습니다.<br/>
+                </div>
+              </a>
             </div>
-            <div className="textItem">
-              제조 분야에서의 <span>스마트펙토리로 전환을 위한 솔루션</span>을 제공하며,<br/>
-              자동차 자율주행 분야의 다양한 인식 엔진을 제공합니다. 
+            <div className="imgWrapper">
+              <div className="imgItem"><img src={imgAiplatform} alt='imgAiplatform'/></div>
+              <div className="imgItem"><img src={imgVisionaisolution} alt='imgVisionaisolution'/></div>
+              <div className="imgItem"><img src={imgAiacademy} alt='imgAiacademy'/></div>
             </div>
-            <div className="textItem">
-              기업의 AI Transformation을 위한<br/>
-              <span>현장 적용 인공지능 실습 교육을 제공</span>합니다.
+            <div className="titleWrapper">
+              <div className="titleItem">AI Studio</div>
+              <div className="titleItem">Vision AI Solution</div>
+              <div className="titleItem">AI Academy</div>
+            </div>
+            <div className="textWrapper">
+              <div className="textItem">
+                써로마인드의 <span>All-in-one 인공지능 플랫폼으로</span><br/>
+                인공지능 모델을 개발할 수 있습니다.<br/>
+                또한 <span>Auto Labeling 툴</span>을 사용하여 빠른<br/>
+                학습데이터를 구축할 수 있습니다.<br/>
+              </div>
+              <div className="textItem">
+                제조 분야에서의 <span>스마트펙토리로 전환을 위한 솔루션</span>을 제공하며,<br/>
+                자동차 자율주행 분야의 다양한 인식 엔진을 제공합니다. 
+              </div>
+              <div className="textItem">
+                기업의 AI Transformation을 위한<br/>
+                <span>현장 적용 인공지능 실습 교육을 제공</span>합니다.
+              </div>
             </div>
           </div>
-        </div>
-      </Wrapper>
+        </Wrapper>
+        
+        <WrapperMobile>
+          <div className='contentsWrapper' ref={(ref) => {this.mainCompanySection=ref}}>
+            <div className='titleText'>Who We Are?</div>
+            <div className='mainText'>
+            국내 최고의 인공지능 핵심기술 보유<br/> AI 전문기업 써로마인드 입니다.<br/>
+            서울대 인공지능 박사들을 중심으로<br/> 인공지능에 대한 명확한 이해와<br/> 풍부한 연구 개발 역량을 보유하고 있습니다.
+            </div>
+            <div className='pdfFileArea'>
+              <a href={companyPamphlet} className='pdfLink'>
+                <div className='pdfItem' onClick={() => this.clickButton('company pamphlet')}>
+                  <div className="pdfFileLink">회사 소개서</div>
+                  <div className="pdfFileArrow">
+                    <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
+                  </div>
+                </div>
+              </a>
+              <a href={productPamphlet} className='pdfLink'>
+                <div className='pdfItem' onClick={() => this.clickButton('product pamphlet')}>
+                <div className="pdfFileLink">제품 소개서</div>
+                <div className="pdfFileArrow">
+                  <div className='arrowImage'><img src={iconLoad} alt='iconLoad'/></div>
+                </div>
+                </div>
+              </a>
+            </div>
+            <div className="itemWrapper">
+              <div className="imgWrapper">
+                <div className="imgItem"><img src={imgAiplatform} alt='imgAiplatform'/></div>
+              </div>
+              <div className="titleWrapper">
+                <div className="titleItem">Vision AI Solution</div>
+              </div>
+              <div className="textWrapper">
+                <div className="textItem">
+                  써로마인드의 <span>All-in-one 인공지능 플랫폼으로</span><br/>
+                  인공지능 모델을 개발할 수 있습니다.<br/>
+                  또한 <span>Auto Labeling 툴</span>을 사용하여 빠른<br/>
+                  학습데이터를 구축할 수 있습니다.<br/>
+                </div>
+              </div>
+            </div>
+            <div className="itemWrapper">
+              <div className="imgWrapper">
+                <div className="imgItem"><img src={imgVisionaisolution} alt='imgVisionaisolution'/></div>
+              </div>
+              <div className="titleWrapper">
+                <div className="titleItem">AI Studio</div>
+              </div>
+              <div className="textWrapper">
+                <div className="textItem">
+                  제조 분야에서의 <span>스마트펙토리로 전환을 위한 솔루션</span>을 제공하며,<br/>
+                  자동차 자율주행 분야의 다양한 인식 엔진을 제공합니다. 
+                </div>
+              </div>
+            </div>
+            <div className="itemWrapper">
+              <div className="imgWrapper">
+                <div className="imgItem"><img src={imgAiacademy} alt='imgAiacademy'/></div>
+              </div>
+              <div className="titleWrapper">
+                <div className="titleItem">AI Academy</div>
+              </div>
+              <div className="textWrapper">
+                <div className="textItem">
+                  기업의 AI Transformation을 위한<br/>
+                  <span>현장 적용 인공지능 실습 교육을 제공</span>합니다.
+                </div>
+              </div>
+            </div>
+          </div>
+        </WrapperMobile>
+      </Fragment>
     );
   }
 }
@@ -117,6 +191,10 @@ export default MainCompany;
 const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    display: none;
+  }
 
   .contentsWrapper {
     width: ${constants.LIMIT_WIDTH}px;
@@ -309,4 +387,171 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+const WrapperMobile = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: none
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    display: block;
+  }
+
+  @media (min-width: ${constants.MOBILE_WIDTH}px) {
+    display: none;
+  }
+
+  .contentsWrapper {
+    width: 95%;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .titleText {
+    margin: 0 auto;
+    margin-top: 36px;
+    text-align: center;
+    font-family: ${constants.INTER_FONT};  
+    font-size: 22px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;  
+    letter-spacing: -0.82px;
+    color: #000000;
+  }
+
+  .mainText {
+    margin: 0 auto;
+    margin-top: 5px;
+    text-align: center;    
+    font-family: ${constants.APPLE_FONT};
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;  
+    line-height: 1.43;
+    letter-spacing: -0.42px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .pdfFileArea {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 252px;
+    height: 36px;
+    display: flex;
+    align-items: center;  
+    justify-content: space-between;
+
+    .pdfItem {
+      display: flex;
+      align-items: center;  
+      justify-content: center;  
+      width: 120px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: #5371e5;
+
+      &:hover {
+        background-color: #4863c9;
+      }
+
+      &:active {
+        background-color: #3e56af;
+      }
+    }
+
+    .pdfLink {
+      text-decoration: none;
+    }
+
+    .pdfFileLink {
+      font-family: ${constants.APPLE_FONT};
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.53px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .pdfFileArrow {
+      margin-left: 5px;
+      display: flex;
+      align-items: center;  
+      justify-content: center;  
+
+      .arrowImage {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  .itemWrapper {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .imgWrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+  }
+
+  .titleWrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+  }
+
+  .titleItem {  
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: -0.57px;
+    text-align: center;
+    color: #3c3f4b;
+  }
+
+  .textWrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;  
+  }
+
+  .textItem {
+    font-family: ${constants.APPLE_FONT};    
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: -0.53px;
+    text-align: center;
+    color: #3c3f4b;
+    
+    span {
+      font-family: ${constants.APPLE_FONT};  
+      font-weight: bold;
+    }
+  }
+`;
+
 

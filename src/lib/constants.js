@@ -16,6 +16,7 @@ export const MAIN_PROJECT_HEIGHT = '600';
 export const MAIN_CAREERS_HEIGHT = '300';
 export const CONTACT_HEIGHT = '786';
 export const FOOTER_HEIGHT = '565';
+export const FOOTER_UPPER_HEIGHT = '440';
 export const FOOTER_LOWER_HEIGHT = '125';
 export const FOOTER_INNER_WIDTH = '1265';
 export const FOOTER_INNER_LEFT_MARGIN = '240';
@@ -51,6 +52,7 @@ export const CARD_IMAGE_HEIGHT = '195';
 export const PROJECT_VIEW_WIDTH = '1100';
 
 export const MOBILE_WIDTH = '768';
+export const MOBILE_MIDDLE_WIDTH = '370';
 export const MOBILE_SMALL_WIDTH = '350';
 
 export const RESPONSIVE_MAIN_TITLE_SIZE = '2.7vw';

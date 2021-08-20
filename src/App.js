@@ -170,15 +170,6 @@ const SidebarWapper = styled.div`
         `;
     }
   }}
-
-  ${props => props.isAdmin && `
-    display: none; 
-  `}
-
-  
-  ${props => !props.isAdmin && `
-    display: block; 
-  `}
 `;
 
 const InnerWrapper = styled.div`
@@ -228,6 +219,10 @@ const HeaderWrapper = styled.div`
 const RootWrapper = styled.div`
   width: 100%;
   margin-top: ${constants.HEADER_HEIGHT}px;
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    margin-top: 0px;
+  }
   ${props => props.isScrolled && `
     margin-top: 0;
   `}
@@ -258,6 +253,10 @@ const ContactWrapper = styled.div`
 const FooterWrapper = styled.div`
   width: 100%;
   height: ${constants.FOOTER_HEIGHT}px;
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    height: 100%;
+  }
 
   ${props => props.isAdmin && `
     display: none; 

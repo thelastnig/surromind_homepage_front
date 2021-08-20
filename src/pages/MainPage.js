@@ -36,11 +36,20 @@ export default MainPage;
 const IntervalLineWrapper = styled.div`
   width: ${constants.LIMIT_WIDTH}px;
   margin: 0 auto;
+  
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    width: 100%;
+  }
 `
 const IntervalLine = styled.div`
   width: ${constants.TOTAL_WIDTH}px;
   margin: 0 auto;
   border-bottom: 1px solid #e1e2e3;
+  
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    width: 95%;
+    margin: 0 auto;
+  }
 `
 
 

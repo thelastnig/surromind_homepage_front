@@ -7,14 +7,16 @@ import { Link, withRouter } from 'react-router-dom';
 import * as constants from '../../lib/constants'
 
 // import slider images
+import mainSlide0 from '../../images/mainSlide0.jpg';
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
 import mainSlide3 from '../../images/mainSlide3.jpg';
 import mainSlide4 from '../../images/mainSlide4.jpg';
-import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.jpg';
-import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.jpg';
-import mainSlideMobile3 from '../../images/mobile/mainSlideMobile3.jpg';
-import mainSlideMobile4 from '../../images/mobile/mainSlideMobile4.jpg';
+import mainSlideMobile0 from '../../images/mobile/mainSlideMobile0.jpg';
+import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.png';
+import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.png';
+import mainSlideMobile3 from '../../images/mobile/mainSlideMobile3.png';
+import mainSlideMobile4 from '../../images/mobile/mainSlideMobile4.png';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -71,6 +73,7 @@ class MainSlider extends Component {
         {
           breakpoint: 768,
           settings: {
+            dots: false,
             slidesToShow: 1,
             slidesToScroll: 1,
           }
@@ -85,6 +88,10 @@ class MainSlider extends Component {
           <Slider {...settings} ref={c => this.slider = c}>
             {/* <div className='eachSlide click' onClick={() => this.handleClick("/company/voucher")}>
               <img src={voucherBanner} className="voucherBanner"/>
+            </div> */}
+
+            {/* <div className='eachSlide'>
+              <img src={mainSlide0} className="slideImage0"/>
             </div> */}
 
             <div className='eachSlide'>
@@ -112,55 +119,13 @@ class MainSlider extends Component {
 export default withRouter(MainSlider);
 
 const MainSliderWrapper = styled.div`
-  width: 100%;
-  max-height: ${constants.MAIN_SLIDER_HEIGHT}px;
+  width: ${constants.LIMIT_WIDTH}px;
+  height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;
     
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    width: 100%;
     height: 100%;
-  }
-
-  .textWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
-    max-height: ${constants.MAIN_SLIDER_HEIGHT}px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    display: flex;
-    align-items: center;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 80%;
-      height: 100%;
-    }
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 80%;
-    }
-
-    .textDiv {
-      color: white;
-      font-size: 27px;
-      font-weight: 600;
-      font-family: ${constants.KOR_FONT};
-      line-height: 1.5em;
-
-      span {
-        font-family: ${constants.KOR_FONT};
-        color: ${constants.POINT_COLOR};
-      }
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        font-size: 2.0vw;
-      }
-    
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE};
-        line-height: 2em;
-      }
-    }
   }
 
   .slideWrapper {
@@ -200,29 +165,36 @@ const MainSliderWrapper = styled.div`
     img {
       margin: 0 auto;
 
+      &.slideImage0 {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 100%;
+          content: url(${mainSlideMobile0});
+        }
+      }
+
       &.slideImage1 {
-        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
           content: url(${mainSlideMobile1});
         }
       }
       
       &.slideImage2 {
-        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
           content: url(${mainSlideMobile2});
         }
       }
       
       &.slideImage3 {
-        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
           content: url(${mainSlideMobile3});
         }
       }
       
       &.slideImage4 {
-        @media (max-width: ${constants.TOTAL_WIDTH}px) {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
           content: url(${mainSlideMobile4});
         }

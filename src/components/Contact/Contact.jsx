@@ -163,7 +163,7 @@ class Contact extends Component {
         AI 관련 업무 협의 및 궁금한 사항에 대해 문의하시면<br/>
         성심껏 알려드립니다.
         </div>
-        <div className='inputWrapper select'>
+        <div className='inputWrapperSelect'>
           <div className='inputLabel'>
             <div className='inputLabelText'>유형</div>
           </div>
@@ -220,8 +220,8 @@ class Contact extends Component {
           </div>
         </div>
 
-        <div className='inputWrapper'>
-          <div className='inputLabel long'>
+        <div className='inputWrapperLong'>
+          <div className='inputLabel'>
             <div className='inputLabelText long'>E-mail</div>
           </div>
           <div className='inputItem long'>
@@ -237,7 +237,7 @@ class Contact extends Component {
           </div>
         </div>
 
-        <div className='inputWrapper'>
+        <div className='inputWrapperLong'>
           <div className='inputLabel long'>
             <div className='inputLabelText long'>연락처</div>
           </div>
@@ -254,7 +254,7 @@ class Contact extends Component {
           </div>
         </div>
 
-        <div className='inputWrapper full'>
+        <div className='inputWrapperFull'>
           <div className='inputLabel'>
             <div className='inputLabelText'>제목</div>
           </div>
@@ -271,7 +271,7 @@ class Contact extends Component {
           </div>
         </div>
 
-        <div className='inputWrapper full content'>
+        <div className='inputWrapperFullContent'>
           <div className='inputLabel content'>
             <div className='inputLabelText content'>내용</div>
           </div>
@@ -308,6 +308,12 @@ const Wrapper = styled.div`
     margin: 0 auto;
     background-color: white;
     position: relative;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+      height: 100%;
+      margin: 0 auto;
+    }
   }
 
   .titleText {
@@ -323,6 +329,18 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: -2.02px;
     color: #000000;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {    
+      margin-top: 36px;
+      height: 100%;
+      font-size: 22px;
+      font-weight: 800;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.82px;
+      color: #000;
+    }
   }
 
   .mainText {
@@ -339,6 +357,18 @@ const Wrapper = styled.div`
     letter-spacing: -0.6px;
     text-align: center;
     color: #000000;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {    
+      height: 100%;  
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: -0.42px;
+      text-align: center;
+      color: #000;
+    }
   }
 
   .inputWrapper {
@@ -352,103 +382,388 @@ const Wrapper = styled.div`
     align-items: center;  
     justify-content: center;
 
-    &.full {
-      width: 680px;
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
     }
 
-    &.content {
-      height: 156px;
+    .inputLabel {
+      width: 48px;
+      height: 100%;
+      background-color: #e1e2e3;
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 64px;
+      }
+  
+      .inputLabelText {
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #000000;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 13px;
+        }
+      }
     }
 
-    &.select { 
-     margin-top: 21px;
+    .inputItem {
+      width: 352px;
+      height: 36px;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        flex: 1;
+      }
+  
+      .input {
+        border: none;
+        outline: none;
+        width: 335px;
+        height: 34px;
+        padding-left: 12px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 90%;
+          font-size: 13px;
+        }
+  
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.57px;
+        color: #000000;
+  
+        &::placeholder {
+          color: #b8babd;
+        }
+      }
     }
   }
 
-  .inputLabel {
-    width: 48px;
-    height: 100%;
-    background-color: #e1e2e3;
+  .inputWrapperSelect {
+    margin: 0 auto;
+    margin-top: 21px;
+    width: 400px;
+    height: 36px;
+    border-radius: 4px;
+    border: solid 1px #e1e2e3;
     display: flex;
     align-items: center;  
     justify-content: center;
 
-    &.long {
-      width: 64px;
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
     }
 
-    &.content {
-      align-items: flex-start;  
+    .inputLabel {
+      width: 48px;
+      height: 100%;
+      background-color: #e1e2e3;
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 64px;
+      }
+  
+      .inputLabelText {
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #000000;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 13px;
+        }  
+      }
     }
 
-    .inputLabelText {
-      font-family: ${constants.APPLE_FONT};
-      font-size: 14px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: -0.4px;
-      color: #000000;
+    .inputItem {
+      width: 352px;
+      height: 36px;
+      
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        flex: 1;
+      }
+  
+      .input {
+        border: none;
+        outline: none;
+        width: 335px;
+        height: 34px;
+        padding-left: 10px;
 
-      &.content {
-        margin-top: 12px;
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 95%;
+          font-size: 13px;
+        }
+  
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.57px;
+        color: #000000;
+  
+        &::placeholder {
+          color: #b8babd;
+        }
       }
     }
   }
 
-  .inputItem {
-    width: 352px;
+  .inputWrapperLong {
+    margin: 0 auto;
+    margin-top: 14px;
+    width: 400px;
     height: 36px;
+    border-radius: 4px;
+    border: solid 1px #e1e2e3;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
 
-    &.long {  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
+
+    .inputLabel {
+      width: 64px;
+      height: 100%;
+      background-color: #e1e2e3;
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+  
+      .inputLabelText {
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #000000;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 13px;
+        }  
+      }
+    }
+
+    .inputItem {
       width: 336px;
-    }
+      height: 36px;
 
-    &.full {
-      width: 632px;
-    }
-
-    &.content {
-      height: 156px;
-    }
-
-    .input {
-      border: none;
-      outline: none;
-      width: 335px;
-      height: 34px;
-      padding-left: 12px;
-
-      &.long {  
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        flex: 1;
+      }
+  
+      .input {
+        border: none;
+        outline: none;
         width: 319px;
+        height: 34px;
+        padding-left: 12px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 90%;
+          font-size: 13px;
+        }
+  
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.57px;
+        color: #000000;
+  
+        &::placeholder {
+          color: #b8babd;
+        }
+      }
+    }
+  }
+
+  .inputWrapperFull {
+    margin: 0 auto;
+    margin-top: 14px;
+    width: 680px;
+    height: 36px;
+    border-radius: 4px;
+    border: solid 1px #e1e2e3;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+ 
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
+
+    .inputLabel {
+      width: 64px;
+      height: 100%;
+      background-color: #e1e2e3;
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+ 
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 64px;
       }
 
-      &.full {
+      .inputLabelText {
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #000000;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 13px;
+        }  
+      }
+    }
+
+    .inputItem {
+      width: 632px;
+      height: 36px;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        flex: 1;
+      }  
+  
+      .input {
+        border: none;
+        outline: none;
         width: 615px;
-      }
+        height: 34px;
+        padding-left: 12px;
 
-      &.content {
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 90%;
+          font-size: 13px;
+        }  
+  
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.57px;
+        color: #000000;
+  
+        &::placeholder {
+          color: #b8babd;
+        }
+      }
+    }
+  }
+
+  .inputWrapperFullContent {
+    margin: 0 auto;
+    margin-top: 14px;
+    width: 680px;
+    height: 156px;
+    border-radius: 4px;
+    border: solid 1px #e1e2e3;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+      height: 112px;
+    }  
+
+    .inputLabel {
+      width: 48px;
+      height: 100%;
+      background-color: #e1e2e3;
+      display: flex;
+      align-items: flex-start;  
+      justify-content: center;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 64px;
+      }  
+
+      .inputLabelText {
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        color: #000000;
+        margin-top: 12px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 13px;
+        }  
+      }
+    }
+
+    .inputItem {
+      width: 632px;
+      height: 156px;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        flex: 1;
+        height: 112px;
+      }  
+  
+      .input {
+        border: none;
+        outline: none;
+        width: 615px;
+        padding-left: 12px;
         padding-top: 12px;
         height: 140px;
         resize: none;
-      }
-
-      &.select { 
-        padding-left: 10px;
-      }
-
-      font-family: ${constants.APPLE_FONT};
-      font-size: 14px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: -0.57px;
-      color: #000000;
-
-      &::placeholder {
-        color: #b8babd;
+        
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 90%;
+          height: 96px;
+          font-size: 13px;
+        }  
+  
+        font-family: ${constants.APPLE_FONT};
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.57px;
+        color: #000000;
+  
+        &::placeholder {
+          color: #b8babd;
+        }
       }
     }
   }
@@ -462,6 +777,10 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: -0.57px;
     color: #000000;
+        
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      font-size: 13px;
+    }  
   }
 
   .btnWrapper {  
@@ -482,6 +801,11 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: -0.57px;
     color: #fe5f01;
+        
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      margin-bottom: 52px;
+      width: 124px;    
+    }  
 
     &:hover {
       background-color: #ffbf99;
@@ -499,6 +823,10 @@ const Wrapper = styled.div`
 
   .backgroundIcon {
     position: absolute;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;
+    }
 
     &.imgB1 {
       bottom: 0px;

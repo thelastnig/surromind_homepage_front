@@ -15,6 +15,8 @@ import rndContents from '../../../lib/rnd';
 import projectContents from '../../../lib/project';
 import ProjectList from '../../ProjectList';
 
+import MenuIcon from '@material-ui/icons/Menu';
+
 class Header extends Component {
 
   state = {
@@ -129,6 +131,18 @@ class Header extends Component {
                 <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
               </div>
             </div>
+            <div className="centerItemMobile">
+              <div className="centerItemMobileWrapper">
+                <div className="leftItem">
+                  <div className="styledLink" onClick={handleClickHome}>
+                    <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
+                  </div>
+                </div>              
+                <div className="rightItem" onClick={toggleSidebar}>
+                  <MenuIcon className="menuIcon"/>
+                </div>
+              </div>
+            </div>
           </div>
         </HeaderInnerWrapper>
         <SubHeadInnerWrapper isSubSectionVisible={isSubSectionVisible}
@@ -162,7 +176,11 @@ const HeaderInnerWrapper = styled.div`
   .itemWrapper {
     width: ${constants.HEADER_WIDTH}px;
     height: ${constants.HEADER_HEIGHT}px;
-    margin: 0 auto;
+    margin: 0 auto;      
+    
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    }
   }
 
   .centerItem {
@@ -171,14 +189,14 @@ const HeaderInnerWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-  .leftItem {
-    width: 123px;
-    height: 22px;
-    .ImgLogo {
-      padding-top: 4px;
+  
+    .leftItem {
+      width: 123px;
+      height: 22px;
+      .ImgLogo {
+        padding-top: 4px;
+      }
     }
-  }
 
     .barMenu {
     }
@@ -203,6 +221,50 @@ const HeaderInnerWrapper = styled.div`
       display: none;
     }
   }
+
+  .centerItemMobile {
+    width: 100%;
+    height: 100%;
+    display: none;
+    
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      display: block;
+    }
+    
+    @media (min-width: ${constants.MOBILE_WIDTH}px) {
+      display: none;;
+    }
+
+    .centerItemMobileWrapper {
+      width: 95%;
+      height: ${constants.HEADER_HEIGHT}px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .leftItem {
+      width: 123px;
+      height: 22px;
+      .ImgLogo {
+        padding-top: 4px;
+      }
+    }
+  
+    .rightItem {
+      cursor: pointer;
+      .menuIcon {
+        color: white;
+        font-size: 24px;
+      }
+    }
+  }
+
+
+
+
 
   .styledLink {
     color: black;
