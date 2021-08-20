@@ -352,7 +352,7 @@ class AIStudioEvent extends Component {
         <div className="videoArea">
           <div className="videoWrapper">
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=SylxMgocAtA'
+              url='https://www.youtube.com/watch?v=i6njmI-Ada8'
               width={595}
               onStart={this.clickButton}
               playing={true}
@@ -363,7 +363,7 @@ class AIStudioEvent extends Component {
           </div>
           <div className="videoWrapper">
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=2ojdE6azYzM'
+              url='https://www.youtube.com/watch?v=m28RwZBhyWc'
               width={595}
               onStart={this.clickButton}
             />
@@ -373,7 +373,7 @@ class AIStudioEvent extends Component {
           </div>
           <div className="videoWrapper">
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=jjTdMlCSRg8'
+              url='https://www.youtube.com/watch?v=rMjb9MvfX3I'
               width={595}
               onStart={this.clickButton}
             />
