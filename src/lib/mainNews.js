@@ -166,7 +166,7 @@ const mainNews = [
         },
       ]
     },
-    keywords: ['물품조립', 'AI', '로봇', '챌린지', '준우승'],
+    keywords: ['물품조립', '챌린지', '준우승'],
   },
   {
     id: 'ybm-net-surromind-ai-mou',
