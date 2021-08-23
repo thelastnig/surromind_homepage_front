@@ -432,6 +432,7 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 90%;
           font-size: 13px;
+          height: 29px;
         }
   
         font-family: ${constants.APPLE_FONT};
@@ -587,7 +588,7 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 90%;
           font-size: 13px;
-          height: 30px;
+          height: 29px;
         }
   
         font-family: ${constants.APPLE_FONT};
@@ -667,7 +668,7 @@ const Wrapper = styled.div`
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 90%;
           font-size: 13px;
-          height: 30px;
+          height: 29px;
         }  
   
         font-family: ${constants.APPLE_FONT};
