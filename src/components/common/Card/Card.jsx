@@ -105,12 +105,13 @@ const CardWrapper = styled.div`
   .textType {
     padding: 4px;
     font-size: 10px;
+    font-family: ${constants.APPLE_FONT};
     background: ${constants.POINT_COLOR};
     color: white;
   }
 
   .textTitle {
-    font-family: ${constants.NOTO_FONT};
+    font-family: ${constants.APPLE_FONT};
     font-size: 16px;
     font-weight: 500;
     color: ${oc.gray[8]};
@@ -123,6 +124,7 @@ const CardWrapper = styled.div`
     border: 1px solid black;
     padding: 7px 0;
     text-align: center;
+    font-family: ${constants.INTER_FONT};
 
 
     &:hover {

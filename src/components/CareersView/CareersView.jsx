@@ -45,19 +45,21 @@ class CareersView extends Component {
     return (
       <Wrapper>
         <UpperImage text='Careers'/>
-        <div className='careerContentWrapper'>
-          <div className='infoText'>{careersItem.title}</div>
-          <div className="imageWrapper">
-            <img src={careersItem.image} alt={careersItem.title} width="450px" />
-          </div>
-          {careersContentsList}
-          <div className='btnWrapper'>
-            <div className='btn' onClick={this.handleClick}>
-              지원하기
+        <div className="careerViewInnerWrapper">
+          <div className='careerContentWrapper'>
+            <div className='infoText'>{careersItem.title}</div>
+            <div className="imageWrapper">
+              <img src={careersItem.image} alt={careersItem.title} width="450px" />
             </div>
-          </div>
-          <div className="backBtnWrapper">
-            <BackToList />
+            {careersContentsList}
+            <div className='btnWrapper'>
+              <div className='btn' onClick={this.handleClick}>
+                지원하기
+              </div>
+            </div>
+            <div className="backBtnWrapper">
+              <BackToList />
+            </div>
           </div>
         </div>
       </Wrapper>
@@ -73,15 +75,19 @@ const Wrapper = styled.div`
 
   color: ${oc.gray[9]};
 
+  .careerViewInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+  }
+
   .careerContentWrapper {
     width: ${constants.NEWS_CONTENT_WIDTH}px;
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 100%;
-    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
@@ -97,7 +103,7 @@ const Wrapper = styled.div`
     text-align: center;
     font-size: ${constants.MAIN_SUB_TITLE_SIZE_LARGE}px;
     font-weight: 600;
-    font-family: ${constants.NOTO_FONT};
+    font-family: ${constants.APPLE_FONT};
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_MIDDEL_LOW}px;
@@ -122,7 +128,7 @@ const Wrapper = styled.div`
 
   .careersContentWrapper {
     .careersContentEach {
-      font-family: ${constants.NOTO_FONT};
+      font-family: ${constants.APPLE_FONT};
       font-size: 14px;
       line-height: 1.5;
       margin-bottom: 10px;
@@ -152,7 +158,7 @@ const Wrapper = styled.div`
       padding: 10px 0;
       
       font-size: 14px;
-      font-family: ${constants.NOTO_FONT};
+      font-family: ${constants.APPLE_FONT};
       color: ${constants.POINT_COLOR};
       cursor: pointer;
 

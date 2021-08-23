@@ -67,20 +67,22 @@ class NewsView extends Component {
     return (
       <Wrapper>
         <UpperImage text='News'/>
-        <div className='newsContentWrapper'>
-          <div className='newsWrapper'>
-            <div className='newsUpperArea'>
-              <div className='newsInfo'>NEWS</div>
-              <div className='newsKewordsWrapper'>{keywordsList}</div>
-            </div>
-            <div className='newsDate'>{newsItem.date}</div>
-            <div className='newsText'>
-              <div className='newsTextTitle'>{newsItem.contents.title}</div>
-              <div className='newsTextContents'>
-                {newsContentsList}
+        <div className='newsViewInnerWrapper'>
+          <div className='newsContentWrapper'>
+            <div className='newsWrapper'>
+              <div className='newsUpperArea'>
+                <div className='newsInfo'>NEWS</div>
+                <div className='newsKewordsWrapper'>{keywordsList}</div>
               </div>
+              <div className='newsDate'>{newsItem.date}</div>
+              <div className='newsText'>
+                <div className='newsTextTitle'>{newsItem.contents.title}</div>
+                <div className='newsTextContents'>
+                  {newsContentsList}
+                </div>
+              </div>
+              <BackToList />
             </div>
-            <BackToList />
           </div>
         </div>
       </Wrapper>
@@ -96,16 +98,21 @@ const Wrapper = styled.div`
 
   color: ${oc.gray[9]};
 
+  .newsViewInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+    }
+  }
+
   .newsContentWrapper {
     width: ${constants.TOTAL_WIDTH}px;
     min-height: ${constants.VIEW_PAGE_MIN_HEIGHT}px;
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 100%;
-    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
@@ -115,10 +122,6 @@ const Wrapper = styled.div`
   .newsWrapper {
     width: ${constants.NEWS_CONTENT_WIDTH}px;
     margin: 0 auto;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 100%;
-    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 100%;
@@ -136,6 +139,7 @@ const Wrapper = styled.div`
 
     .newsInfo {
       width: 15%;
+      font-family: ${constants.INTER_FONT};
       color: ${constants.POINT_COLOR};
       font-size: 30px;
       font-weight: 300;
@@ -160,10 +164,12 @@ const Wrapper = styled.div`
         color: ${oc.gray[6]};
         font-size: 12px;
         margin-right: 20px;
-        padding-top: 5px;
+        padding-top: 7px;
         padding-bottom: 5px;
         padding-left: 15px;
         padding-right: 15px;
+        
+        font-family: ${constants.APPLE_FONT};
         
         -moz-border-radius: 50px;
         -webkit-border-radius: 50px;
@@ -171,7 +177,6 @@ const Wrapper = styled.div`
         border: 1px solid ${oc.gray[6]};
   
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE};
           margin-right: 10px;
         }
       }
@@ -179,6 +184,7 @@ const Wrapper = styled.div`
   }
 
   .newsDate {
+    font-family: ${constants.APPLE_FONT};
     font-size: 13px;
     margin: 15px 0;
   }
@@ -188,7 +194,7 @@ const Wrapper = styled.div`
   }
 
   .newsTextTitle {
-    font-family: ${constants.NOTO_FONT};
+    font-family: ${constants.APPLE_FONT};
     font-size: 20px;
     font-weight: 600;
     color: black;
@@ -196,7 +202,7 @@ const Wrapper = styled.div`
   }
 
   .eachContent {
-    font-family: ${constants.NOTO_FONT};
+    font-family: ${constants.APPLE_FONT};
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 25px;

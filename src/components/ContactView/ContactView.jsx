@@ -196,7 +196,7 @@ class ContactView extends Component {
     const { company, name, phone, email, title, content } = this.state;
     return (
       <Wrapper>
-        <UpperImage text='Contact'/>
+        {/* <UpperImage text='Contact'/>
         <div className='contactContentWrapper'>
           <div className='infoText'>
             문의하기
@@ -362,7 +362,7 @@ class ContactView extends Component {
               등록
             </div>
           </div>
-        </div>
+        </div> */}
       </Wrapper>
     );
   }
@@ -372,7 +372,13 @@ export default ContactView;
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   margin: 0 auto;
+  margin-top: 150px;
+  
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    margin-top: 0px;
+  }
 
   color: ${oc.gray[9]};
 

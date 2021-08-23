@@ -103,45 +103,47 @@ class ProjectView extends Component {
 
     return (
       <Wrapper isLeftBarClicked={isLeftBarClicked} isCenterBarClicked={isCenterBarClicked} isRightBarClicked={isRightBarClicked}>
-        <UpperImage text='R&D'/>
-        <div className="projectContentWrapper">
-          <div className="mainTitle">{projectItem.title}</div>
-          {/* <div className="upperSelectBar">
-            <div className="upperBarItem left" onClick={() => this.handleBarItemClick(0)}>
-              <div className="barText left">Overview</div>
+        <UpperImage text='R&#38;D'/>
+        <div className="projectViewInnerWrapper">
+          <div className="projectContentWrapper">
+            <div className="mainTitle">{projectItem.title}</div>
+            {/* <div className="upperSelectBar">
+              <div className="upperBarItem left" onClick={() => this.handleBarItemClick(0)}>
+                <div className="barText left">Overview</div>
+              </div>
+              <div className="upperBarItem center" onClick={() => this.handleBarItemClick(1)}>
+                <div className="barText center">Detail</div>
+              </div>
+              <div className="upperBarItem right" onClick={() => this.handleBarItemClick(2)}>
+                <div className="barText right">Features</div>
+              </div>
+            </div> */}
+            <div className="section overview" ref={(ref) => {this.overviewSection=ref}}>
+              {/* <div className="sectionTitle">Overview</div> */}
+              {projectOverviewContentsList}
             </div>
-            <div className="upperBarItem center" onClick={() => this.handleBarItemClick(1)}>
-              <div className="barText center">Detail</div>
-            </div>
-            <div className="upperBarItem right" onClick={() => this.handleBarItemClick(2)}>
-              <div className="barText right">Features</div>
-            </div>
-          </div> */}
-          <div className="section overview" ref={(ref) => {this.overviewSection=ref}}>
-            {/* <div className="sectionTitle">Overview</div> */}
-            {projectOverviewContentsList}
-          </div>
-        </div>  
+          </div>  
 
-        {/* <div className="projectContentMiddleWrapper">
-          <div className="projectContentMiddleInnerWrapper">
-            <div className="section detail" ref={(ref) => {this.detailSection=ref}}>
-              <div className="sectionTitle">Detail</div>
-              {projectDetailContentsList}
+          {/* <div className="projectContentMiddleWrapper">
+            <div className="projectContentMiddleInnerWrapper">
+              <div className="section detail" ref={(ref) => {this.detailSection=ref}}>
+                <div className="sectionTitle">Detail</div>
+                {projectDetailContentsList}
+              </div>
             </div>
           </div>
-        </div>
 
-        
-        <div className="projectContentWrapper bottom">
-          <div className="section feature" ref={(ref) => {this.featureSection=ref}}>
-            <div className="sectionTitle">Feature</div>
-            {projectFeatureContentsList}
+          
+          <div className="projectContentWrapper bottom">
+            <div className="section feature" ref={(ref) => {this.featureSection=ref}}>
+              <div className="sectionTitle">Feature</div>
+              {projectFeatureContentsList}
+            </div>
+          </div>   */}
+
+          <div className="backBtnWrapper">
+            <BackToList />
           </div>
-        </div>   */}
-
-        <div className="backBtnWrapper">
-          <BackToList />
         </div>
       </Wrapper>
     );
@@ -154,6 +156,15 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
 
+  .projectViewInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+    }
+  }
+
   .projectContentWrapper {
     width: ${constants.PROJECT_VIEW_WIDTH}px;
     margin: 0 auto;
@@ -161,10 +172,6 @@ const Wrapper = styled.div`
 
     &.bottom {
       padding-top: 0;
-    }
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 100%;
     }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
@@ -180,11 +187,7 @@ const Wrapper = styled.div`
     .projectContentMiddleInnerWrapper {
       width: ${constants.PROJECT_VIEW_WIDTH}px;
       margin: 0 auto;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        width: 100%;
-      }
-  
+
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
       }
@@ -204,7 +207,7 @@ const Wrapper = styled.div`
   .mainTitle {
     margin-bottom: 100px;
     text-align: center;
-    font-family: ${constants.KOR_FONT};
+    font-family: ${constants.APPLE_FONT};
     font-weight: 600;
     font-size: 35px;
   

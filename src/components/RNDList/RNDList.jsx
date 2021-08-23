@@ -35,9 +35,11 @@ class RNDList extends Component {
   
     return (
       <Wrapper>
-        <UpperImage text='R&D'/>
-        <div className="cardWrapper">
-          {cardList}
+        <div className="rndInnerWrapper">
+          <UpperImage text='R&#38;D'/>
+          <div className="cardWrapper">
+            {cardList}
+          </div>
         </div>
       </Wrapper>
     );
@@ -53,6 +55,15 @@ const Wrapper = styled.div`
 
   color: ${oc.gray[9]};
 
+  .rndInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+    }
+  }
+
   .cardWrapper {
     width: ${constants.CARD_WRAPPER_WIDTH}px;
     min-height: ${constants.CARD_WRAPPER_MIN_HEIGHT}px;
@@ -64,11 +75,8 @@ const Wrapper = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
   
-    @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
-      width: 100%;
-    }
-  
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
       justify-content: center;
     }
   }

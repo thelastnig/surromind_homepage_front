@@ -66,7 +66,7 @@ const RootWrapper = styled.div`
   width: 100%;
 
   .innerWrapper {
-    min-height:  ${constants.ROOT_PAGE_MIN_HEIGHT}px;
+    min-height: auto;
     width: 100%;
     margin: 0 auto;
     

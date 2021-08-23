@@ -38,15 +38,17 @@ class NewsList extends Component {
     return (
       <Wrapper>
         <UpperImage text='News'/>
-        <div className="cardWrapper">
-          {cardList}
-          {
-            newsContents.length % 3 === 2 
-            ?
-            <EmptyCardNews/>
-            :
-            null
-          }
+        <div className='newsInnerWrapper'>
+          <div className="cardWrapper">
+            {cardList}
+            {
+              newsContents.length % 3 === 2 
+              ?
+              <EmptyCardNews/>
+              :
+              null
+            }
+          </div>
         </div>
       </Wrapper>
     );
@@ -61,6 +63,15 @@ const Wrapper = styled.div`
 
   color: ${oc.gray[9]};
 
+  .newsInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 95%;
+    }
+  }
+
   .cardWrapper {
     width: ${constants.CARD_WRAPPER_WIDTH}px;
     min-height: ${constants.CARD_WRAPPER_MIN_HEIGHT}px;
@@ -73,11 +84,9 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
     align-content: flex-start;
   
-    @media (max-width: ${constants.TOTAL_SUB_WIDTH}px) {
-      width: 100%;
-    }
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
       justify-content: center;
     }
   }

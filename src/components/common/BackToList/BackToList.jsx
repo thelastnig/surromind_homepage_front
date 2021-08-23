@@ -57,6 +57,7 @@ const Wrapper = styled.div`
     .btnText {
       font-size: 20px;
       font-weight: 300;
+      font-family: ${constants.INTER_FONT};
     }
   }
 `;

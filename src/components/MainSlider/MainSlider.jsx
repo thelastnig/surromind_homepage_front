@@ -86,13 +86,9 @@ class MainSlider extends Component {
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
-            {/* <div className='eachSlide click' onClick={() => this.handleClick("/company/voucher")}>
-              <img src={voucherBanner} className="voucherBanner"/>
-            </div> */}
-
-            {/* <div className='eachSlide'>
-              <img src={mainSlide0} className="slideImage0"/>
-            </div> */}
+            <div className='eachSlide' onClick={() => this.handleClick('/aistudioevent')}>
+                <img src={mainSlide0} className="slideImage0" width="1920px"/>
+            </div>
 
             <div className='eachSlide'>
               <img src={mainSlide1} className="slideImage1"/>
@@ -166,6 +162,7 @@ const MainSliderWrapper = styled.div`
       margin: 0 auto;
 
       &.slideImage0 {
+        cursor: pointer;
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           width: 100%;
           content: url(${mainSlideMobile0});

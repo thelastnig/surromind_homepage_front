@@ -64,6 +64,13 @@ const Wrapper = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
+    width: 1920px;
+    height: 450px;
+  
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+      height: 100%;
+    }
 
     .imgUpper {
       max-width: 100%;
@@ -79,18 +86,24 @@ const Wrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
+    font-family: ${constants.INTER_FONT};
     color: white;
-    font-size: ${constants.MAIN_TITLE_SIZE}px;
-    font-weight: 600;
-    letter-spacing: ${constants.MAIN_TITLE_LETTER_SPACING}px;
+    font-size: 44px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.02px;
   
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      font-size: 2.7vw;
-    }
   
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      font-size: ${constants.RESPONSIVE_MAIN_TITLE_SIZE_MOBILE_BIG};
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {  
+      font-size: 32px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.82px;
     }
   }
 

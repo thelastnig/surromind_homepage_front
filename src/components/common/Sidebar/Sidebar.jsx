@@ -41,13 +41,10 @@ class Sidebar extends Component {
             <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
           </div>
           <div className="barMenu">
-            <div className="styledLink" onClick={() => this.handleMenuClick('/project/list/1')}>Project</div> 
-          </div>
-          <div className="barMenu">
             <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
           </div>
           <div className="barMenu">
-            <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+            <div className="styledLink" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
           </div>
         </div>
       </div>
@@ -102,6 +99,7 @@ const SidebarInnerWrapper = styled.div`
     }
 
     .styledLink {
+      font-family: ${constants.INTER_FONT};
       font-size: 22px;
       font-weight: 600;
       color: ${constants.POINT_COLOR};

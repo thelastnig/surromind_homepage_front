@@ -112,7 +112,7 @@ const CardWrapper = styled.div`
   }
 
   .textTitle {
-    font-family: ${constants.NOTO_FONT};
+    font-family: ${constants.APPLE_FONT};
     font-size: 16px;
     font-weight: 500;
     color: ${oc.gray[8]};
@@ -120,6 +120,7 @@ const CardWrapper = styled.div`
   
   .textDate {
     font-size: 14px;
+    font-family: ${constants.APPLE_FONT};
     color: ${oc.gray[6]};
   }
 `;

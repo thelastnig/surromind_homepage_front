@@ -95,51 +95,53 @@ class Header extends Component {
       )
     })
     return (
-      <div>
+      <HeaderWrapper>
         <HeaderInnerWrapper>
-          <div className="itemWrapper">
-            <div className="centerItem">
-              <div className="leftItem">
-                <div className="styledLink" onClick={handleClickHome}>
-                  <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
-                </div>
-              </div>
-              <div className="barMenu" 
-                  onMouseOver={() => this.handleMouseOver("news")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink" 
-                  onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
-              </div>
-              <div className="barMenu" 
-                  onMouseOver={() => this.handleMouseOver("company")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
-              </div>
-              <div className="barMenu" 
-                  onMouseOver={() => this.handleMouseOver("rnd")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
-              </div>
-              <div className="barMenu"
-              onMouseOver={() => this.handleMouseOver("careers")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-              </div>
-              <div className="barMenu"
-              onMouseOver={() => this.handleMouseOver("contact")}
-                  onMouseOut={this.handleMouseOut}>
-                <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-              </div>
-            </div>
-            <div className="centerItemMobile">
-              <div className="centerItemMobileWrapper">
+          <div className="upperHeaderInnerWrapper">
+            <div className="itemWrapper">
+              <div className="centerItem">
                 <div className="leftItem">
                   <div className="styledLink" onClick={handleClickHome}>
                     <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
                   </div>
-                </div>              
-                <div className="rightItem" onClick={toggleSidebar}>
-                  <MenuIcon className="menuIcon"/>
+                </div>
+                <div className="barMenu" 
+                    onMouseOver={() => this.handleMouseOver("news")}
+                    onMouseOut={this.handleMouseOut}>
+                  <div className="styledLink" 
+                    onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
+                </div>
+                <div className="barMenu" 
+                    onMouseOver={() => this.handleMouseOver("company")}
+                    onMouseOut={this.handleMouseOut}>
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
+                </div>
+                <div className="barMenu" 
+                    onMouseOver={() => this.handleMouseOver("rnd")}
+                    onMouseOut={this.handleMouseOut}>
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
+                </div>
+                <div className="barMenu"
+                onMouseOver={() => this.handleMouseOver("careers")}
+                    onMouseOut={this.handleMouseOut}>
+                  <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
+                </div>
+                <div className="barMenu"
+                onMouseOver={() => this.handleMouseOver("contact")}
+                    onMouseOut={this.handleMouseOut}>
+                  <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+                </div>
+              </div>
+              <div className="centerItemMobile">
+                <div className="centerItemMobileWrapper">
+                  <div className="leftItem">
+                    <div className="styledLink" onClick={handleClickHome}>
+                      <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
+                    </div>
+                  </div>              
+                  <div className="rightItem" onClick={toggleSidebar}>
+                    <MenuIcon className="menuIcon"/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -148,30 +150,45 @@ class Header extends Component {
         <SubHeadInnerWrapper isSubSectionVisible={isSubSectionVisible}
                               onMouseOver={() => this.handleMouseOver(menu)}
                               onMouseOut={this.handleMouseOut}>
-          <div className="subItemWrapper">
-            <div className="leftItem"></div>
-            <div className="centerItem">
-              <div className="centerLeftItem">
-                {subMeunWrapper}
+          <div className="lowerHeaderInnerWrapper">
+            <div className="subItemWrapper">
+              <div className="leftItem"></div>
+              <div className="centerItem">
+                <div className="centerLeftItem">
+                  {subMeunWrapper}
+                </div>
+                <div className="centerRightItem">
+                  {menu === 'rnd' ? rndLists: (menu === 'project' ? projectLists : subMenu)}
+                </div>
               </div>
-              <div className="centerRightItem">
-                {menu === 'rnd' ? rndLists: (menu === 'project' ? projectLists : subMenu)}
-              </div>
+              <div className="rightItem"></div>
             </div>
-            <div className="rightItem"></div>
           </div>
         </SubHeadInnerWrapper>
-      </div>
+      </HeaderWrapper>
     )
   }
 }
 
 export default withRouter(Header);
 
+const HeaderWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+`
 
 const HeaderInnerWrapper = styled.div`
   width: 100%;
   background-color: #1e1f22;
+
+  .upperHeaderInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    } 
+  }
 
   .itemWrapper {
     width: ${constants.HEADER_WIDTH}px;
@@ -199,10 +216,14 @@ const HeaderInnerWrapper = styled.div`
     }
 
     .barMenu {
+      height: ${constants.HEADER_HEIGHT}px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .styledLink {
-      font-family: ${constants.NOTO_SANS};
+      font-family: ${constants.INTER_FONT};
       font-size: 14px;
       font-weight: 600;
       font-stretch: normal;
@@ -263,9 +284,6 @@ const HeaderInnerWrapper = styled.div`
   }
 
 
-
-
-
   .styledLink {
     color: black;
     cursor: pointer;
@@ -323,6 +341,15 @@ const SubHeadInnerWrapper = styled.div`
 
   background: rgba(247, 247, 247, 1);
 
+  .lowerHeaderInnerWrapper {
+    width: ${constants.LIMIT_WIDTH}px;
+    margin: 0 auto;
+
+    @media (max-width: ${constants.MOBILE_WIDTH}px) {
+      width: 100%;
+    } 
+  }
+
   ${props => props.isSubSectionVisible && `
     display: block;
   `}
@@ -339,10 +366,6 @@ const SubHeadInnerWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    @media (max-width: ${constants.TOTAL_WIDTH}px) {
-      width: 95%;
-    };
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: none;
@@ -372,10 +395,6 @@ const SubHeadInnerWrapper = styled.div`
       text-align: right;
       border-right: 2px solid ${constants.POINT_COLOR};
       cursor: pointer;
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        font-size: 1.5vw;
-      };
     }
   }
 
@@ -386,24 +405,18 @@ const SubHeadInnerWrapper = styled.div`
     justify-content: flex-start;
 
     .centerRightText {
-      font-size: 14px;;
+      font-size: 13px;;
       color: ${constants.POINT_COLOR};
       font-weight: 500;
       text-align: center;
       margin-left: 30px;
       cursor: pointer;
       padding-bottom: 2px;
-      &.kor {
-        font-family: ${constants.NOTO_FONT};
-      }
+      font-family: ${constants.APPLE_FONT};
 
       &:hover {
         border-bottom: 1px solid ${constants.POINT_COLOR};
       }
-  
-      @media (max-width: ${constants.TOTAL_WIDTH}px) {
-        font-size: 1.0vw;
-      };
     }
   }
 
