@@ -140,7 +140,7 @@ class MainCompany extends Component {
                 <div className="imgItem"><img src={imgAiplatform} alt='imgAiplatform'/></div>
               </div>
               <div className="titleWrapper">
-                <div className="titleItem">Vision AI Solution</div>
+                <div className="titleItem">AI Studio</div>
               </div>
               <div className="textWrapper">
                 <div className="textItem">
@@ -156,7 +156,7 @@ class MainCompany extends Component {
                 <div className="imgItem"><img src={imgVisionaisolution} alt='imgVisionaisolution'/></div>
               </div>
               <div className="titleWrapper">
-                <div className="titleItem">AI Studio</div>
+                <div className="titleItem">Vision AI Solution</div>
               </div>
               <div className="textWrapper">
                 <div className="textItem">
