@@ -35,8 +35,8 @@ class RNDList extends Component {
   
     return (
       <Wrapper>
+        <UpperImage text='R&#38;D'/>
         <div className="rndInnerWrapper">
-          <UpperImage text='R&#38;D'/>
           <div className="cardWrapper">
             {cardList}
           </div>
