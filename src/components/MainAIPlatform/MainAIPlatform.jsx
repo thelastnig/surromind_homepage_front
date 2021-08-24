@@ -36,9 +36,9 @@ class MainAIPlatform extends Component {
             <div className="backgroundIcon imgBg07"><img src={imgBg07} alt="imgBg07" /></div>
             <div className="backgroundIcon imgBg14"><img src={imgBg14} alt="imgBg14" /></div>
             <div className="backgroundIcon rec"/>
-            <div className='titleText'>SURROMIND AI Platform</div>
+            <div className='titleText'>SURROMIND<div className='upperCharacter'>TM</div>&nbsp;&nbsp;&nbsp;AI Studio</div>
             <div className='mainText'>
-              코딩없는 개발환경을 제공하는 All-in-One AI Platform으로 인공지능 개발과<br/>
+              코딩없는 개발환경을 제공하는 All-in-One 인공지능 플랫폼으로 인공지능 개발과<br/>
               사업모델에 적용할 수 있습니다. 
             </div>
             <div className='subText'>코딩없는 개발환경 제공</div>
@@ -70,7 +70,7 @@ class MainAIPlatform extends Component {
               <div className='detailTextWrapper lower'>
                 <div className='detailTextTitle lower'>
                 Auto Labeling 기능을<br/>
-                AI Platform에 탑재하여,<br/>
+                AI Studio에 탑재하여,<br/>
                 데이터 구축의 생산성을 극대화
                 </div>
                 <div className='detailTextTitle sub'>
@@ -110,9 +110,9 @@ class MainAIPlatform extends Component {
 
         <WrapperMobile>
           <div className='contentsWrapper'>
-            <div className='titleText'>SURROMIND AI Platform</div>
+            <div className='titleText'>SURROMIND<div className='upperCharacter'>TM</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI Studio</div>
             <div className='mainText'>
-              코딩없는 개발환경을 제공하는 All-in-One AI Platform으로 인공지능 개발과<br/>
+              코딩없는 개발환경을 제공하는 All-in-One 인공지능 플랫폼으로 인공지능 개발과<br/>
               사업모델에 적용할 수 있습니다. 
             </div>
             <div className='subText'>코딩없는 개발환경 제공</div>
@@ -141,7 +141,7 @@ class MainAIPlatform extends Component {
               <div className='detailTextWrapper lower'>
                 <div className='detailTextTitle lower'>
                 Auto Labeling 기능을
-                AI Platform에 탑재하여,<br/>
+                AI Studio에 탑재하여,<br/>
                 데이터 구축의 생산성을 극대화
                 </div>
                 <div className='detailTextSub lower'>
@@ -205,6 +205,7 @@ const Wrapper = styled.div`
   }
 
   .titleText {
+    width: 650px;
     height: 65px;
     margin: 0 auto;
     margin-top: 56px;
@@ -217,6 +218,17 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: -2.02px;
     color: #000000;
+
+    position: relative;
+    
+    .upperCharacter { 
+      font-family: ${constants.INTER_FONT};
+      font-size: 20px;
+      font-weight: 700;
+      position: absolute;
+      top: 0;
+      left: 350px;
+    }
   }
 
   .mainText {
@@ -419,6 +431,7 @@ const WrapperMobile = styled.div`
 
   .titleText {
     margin: 0 auto;
+    width: 250px;
     margin-top: 32px;
     text-align: center;
     font-family: ${constants.INTER_FONT};        
@@ -429,6 +442,16 @@ const WrapperMobile = styled.div`
     line-height: normal;
     letter-spacing: -0.82px;
     color: #000;
+    position: relative;
+    
+    .upperCharacter { 
+      font-family: ${constants.INTER_FONT};
+      font-size: 10px;
+      font-weight: 700;
+      position: absolute;
+      top: 0;
+      left: 135px;
+    }
   }
 
   .mainText {

@@ -45,8 +45,83 @@ import news_2021AIvoucher_support_project_information_list from '../images/news_
 import news_ybm_net_surromind_ai_mou_main from '../images/news_ybm-net-surromind-ai-mou_main.jpg';
 import news_ybm_net_surromind_ai_mou_list from '../images/news_ybm-net-surromind-ai-mou_list.jpg';
 
+import news_ai_studio_launching_main from '../images/news_210818_1_main.jpg';
+import news_ai_studio_launching_list from '../images/news_210818_1_list.jpg';
+import news_ai_studio_launching from '../images/news_210818_1.jpg';
+
 
 const mainNews = [
+  {
+    id: 'ai-stuido-launching',
+    url: '/surromindnews/article/ai-stuido-launching',
+    type: 'NEWS',
+    date: '2021.08.18',
+    title: 'SURROMIND AI Studio 런칭',
+    image: news_ai_studio_launching_main,
+    imageS: news_ai_studio_launching_list,
+    contents: {
+      title: `써로마인드, 인공지능 개발·운영 플랫폼 ‘SURROMIND AI Studio’ 런칭`,
+      contentsList: [
+        {
+          type: 'image',
+          src: news_ai_studio_launching
+        },
+        {
+          type: 'normal',
+          desc: `주식회사 써로마인드(대표 장하영)가 인공지능 개발·운영 플랫폼 ‘SURROMIND AI Studio’를 출시했다고 17일 밝혔다.`,
+        },
+        {
+          type: 'normal',
+          desc: `기업용 MLOps 소프트웨어로 개발된 ‘SURROMIND AI Studio’는 데이터 구축부터 머신러닝 모델의 학습 및 배포까지 원스탑으로 처리가 가능한 올인원(All-in-one) 플랫폼이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `기존의 복잡했던 AI 개발 환경을 개선하고자 코딩 없는 개발환경을 제공하여, 누구나 쉽게 몇 번의 마우스 클릭 만으로 인공지능을 개발할 수 있게 해준다. 비전문가라도 개발자의 도움 없이 간단한 교육 만으로 인공지능 데이터 구축과 모델링을 할 수 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `Auto Labeling 기능과 AutoML 등의 자동화 시스템을 통해 인공지능이 제안하는 최적화 학습 모델을 사업 모델에 적용하는 것이 가능하다.`,
+        },
+        {
+          type: 'normal',
+          desc: `이번에 공개된 정식 버전 ‘SURROMIND AI Studio’는 AI 개발에 필수적인 학습데이터 구축의 경우, 데이터 Labeling 전용도구인 Annotator를 통해, Active Learning 기반의 Auto Labeling 기능을 ‘SURROMIND AI Studio’에 탑재하여 데이터 구축의 생산성을 높였다. 사람이 일일이 수작업으로 해야 했던 Labeling을 AI가 데이터를 학습해 자동으로 수행하며 이 과정에서 발생하는 오류만을 사람이 수정하여 Labeling의 정확도를 계속 향상시켜 나갈 수 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `또한, AutoML와 HPO 기능의 탑재로 인공지능이 자동으로 학습 모델을 최적화할 뿐만 아니라, 지속적인 최신 알고리즘의 적용을 통해 최고의 성능을 내도록 핵심엔진의 성능 개선 시스템을 지원하고 있어, 기업은 최적화된 최신 알고리즘을 적용한 인공지능 학습모델을 기업 상황에 맞춤하여 개발할 수 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `특히, AI Workflow 자동화가 특징인 ‘SURROMIND AI Studio’는 자동모드의 Template 제공으로 사용자의 편의성을 높였다. 고객 사업에 최적화된 맞춤 인공지능 솔루션을 구현하는 데 핵심 도구로 작용하는 Workflow Template은 데이터 전처리부터 모델 학습과 적용까지, 머신러닝 솔루션을 구성하는 일련의 ML Workflow 절차를 템플릿으로 저장하여, 유사한 문제해결 시 재사용 가능하도록 해주는 편리한 기능이다. 정제된 템플릿을 개선하고 수정하여 응용 시스템에 배포 가능한 형태로 저장할 수 있고 주요 응용 사례별 표준 템플릿을 제공하고 있으며, 교육과 솔루션 구성에 활용이 가능하다.`,
+        },
+        {
+          type: 'normal',
+          desc: `‘SURROMIND AI Studio’는 기업 내 부서별 협업 프로젝트를 지원하여, 그룹 내 사용자끼리 데이터 공유와 동시 모니터링과 공동 작업이 가능하다. 또한, 개발 과정에서 필수적인 데이터와 모델의 버전 관리 기능을 통해, 원본 및 파생 파일을 모두 관리할 수 있어 비즈니스 친화적인 인공지능 운영의 환경을 지원한다.`,
+        },
+        {
+          type: 'normal',
+          desc: `‘SURROMIND AI Studio’의 런칭까지 소요된 총 개발 기간은 1년 7개월로, 지난 해 2월 개발 착수에 들어가 올해 상반기 베타 런칭 후, 모집단의 사용성 테스트와 설문 및 피드백을 반영한 UI/UX 개선으로 보다 완성도 높은 소프트웨어 제품으로 개발되었다. Surro MLTemplate이라는 이름의 Workflow Template 외에도 총 5건의 SW 저작권을 획득하였으며, 통합 시나리오 테스트를 1,700건 이상 진행, 수차례 제품 품질 검수를 거쳐 안정적 운영을 확인 후 정식 런칭하였다. 쿠버네티스(Kubernetes) 기반의 인프라 시스템으로, 사내 설치형(On-premise) 서비스뿐만 아니라 클라우드(Cloud) 서비스 형태로도 제공이 가능하며, 최소 2대 서버 정도의 소규모부터 수십 여대의 서버가 필요한 대규모까지 다양한 스케일로 플랫폼 구축이 가능하다. 인공지능 교육이 필요한 기업에게는 AI 초보자를 위한 교육과 실습을 위한 환경부터, 전문 모델 개발자를 위한 고급 옵션까지 지원하고 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드 장하영 대표는 “‘SURROMIND AI Studio’의 강점은 개발의 편리성으로, 앞으로 기업들이 AI 서비스를 손쉽게 개발할 수 있습니다. 머신러닝 개발자나 소프트웨어 엔지니어 등 많은 인공지능 전문인력이 기업 내부에 있어도 오랜 시간을 들여 개발이 가능했던 예전과는 달리, 기업들은 이제 ‘SURROMIND AI Studio’ 로 기존에 축적한 데이터를 가지고 복잡한 과정 없이 몇 번의 클릭만으로 AI 서비스 개발이 가능합니다” 라고 말했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드는 SURROMIND AI Studio 출시 기념 이벤트로, 오는 8월 23일부터 9월 30일까지 SURROMIND AI Studio를 33% 할인 판매하며, 고객의 상황에 최적화된 인공지능(AI) POC 과제 수행을 지원한다. 또한, 이벤트 신청 기업 중 컨설팅을 통해 최종 선정된 총 3개 기업에는 4,500만원 상당의 POC 서비스와 AI 개발 시스템을 6개월 무료 사용할 수 있는 혜택을 제공한다. 자세한 이벤트 내용은 홈페이지에서 확인 가능하다.`,
+        },
+        {
+          type: 'normal',
+          desc: `서울경제 김동호 기자`,
+        },
+        {
+          type: 'link',
+          desc: `https://www.sedaily.com/NewsView/22Q8JJUQC4`
+        },
+      ]
+    },
+    keywords: ['AI Studio', '인공지능 플랫폼'],
+  },
   {
     id: 'ICRA-2021-research-paper-published',
     url: '/surromindnews/article/ICRA-2021-research-paper-published',

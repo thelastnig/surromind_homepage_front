@@ -355,7 +355,6 @@ class AIStudioEvent extends Component {
               url='https://www.youtube.com/watch?v=i6njmI-Ada8'
               width={595}
               onStart={this.clickButton}
-              playing={true}
             />
             <div className="videoText">
               SURROMIND AI Studio 장점
