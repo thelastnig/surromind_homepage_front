@@ -75,8 +75,9 @@ const mainNews = [
           desc: `기업 환경에 적합한 ‘SURROMIND AI Studio’는 전문 개발자를 많이 보유할 수 없는 일반 기업이, 직접 머신러닝 플랫폼을 개발하고 운영 관리까지 할 수 없는 부분을 전략적이고 실용적으로 해결해주어, 기업의 인공지능 도입율을 높이고, 개발시간과 인력비용을 감축시켜 비용절감의 효과를 제공한다. 몇 개 고객사의 베타 테스트를 통해 AI 모델을 산업에 적용시 원가절감, 불량감소, 설비가동률 증가 등의 효과를 확인하였으며, 앞으로 각 기업이 처한 환경과 역량 정도, 그리고 도입 목적에 따라 부합하는 인공지능 도입 검토 전략을 제시하여, 고객사의 업무에 최적화된 AI 시스템을 구축할 수 있게 맞춤 솔루션을 제공할 예정이다.`,
         },
         {
-          type: 'image',
-          src: news_ai_studio_launching_event
+          type: 'imageWithLink',
+          src: news_ai_studio_launching_event,
+          link: '/aistudioevent',
         },
         {
           type: 'normal',
