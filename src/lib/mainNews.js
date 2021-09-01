@@ -49,8 +49,51 @@ import news_ai_studio_launching_main from '../images/news_210818_1_main.jpg';
 import news_ai_studio_launching_list from '../images/news_210818_1_list.jpg';
 import news_ai_studio_launching from '../images/news_210818_1.jpg';
 
+import news_ai_studio_launching_event_main from '../images/news_ai_studio_launching_event_main.jpg';
+import news_ai_studio_launching_event_list from '../images/news_ai_studio_launching_event_list.jpg';
+import news_ai_studio_launching_event from '../images/news_ai_studio_launching_event.jpg';
+
 
 const mainNews = [
+  {
+    id: 'ai-stuido-launching-event',
+    url: '/surromindnews/article/ai-stuido-launching-event',
+    type: 'NEWS',
+    date: '2021.08.23',
+    title: 'SURROMIND AI Studio 출시 이벤트',
+    image: news_ai_studio_launching_event_main,
+    imageS: news_ai_studio_launching_event_list,
+    contents: {
+      title: `써로마인드, SURROMIND AI Studio 출시기념 이벤트 진행`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 인공지능 개발·운영 플랫폼 ‘SURROMIND AI Studio’ 출시 기념 고객 대상 이벤트로 8월 23일부터 9월 30일까지 ‘SURROMIND AI Studio’ 를 33% 할인 판매하며, ‘고객의 상황에 최적화된 인공지능(AI) POC 과제 수행’을 함께 지원한다.`,
+        },
+        {
+          type: 'normal',
+          desc: `기업 환경에 적합한 ‘SURROMIND AI Studio’는 전문 개발자를 많이 보유할 수 없는 일반 기업이, 직접 머신러닝 플랫폼을 개발하고 운영 관리까지 할 수 없는 부분을 전략적이고 실용적으로 해결해주어, 기업의 인공지능 도입율을 높이고, 개발시간과 인력비용을 감축시켜 비용절감의 효과를 제공한다. 몇 개 고객사의 베타 테스트를 통해 AI 모델을 산업에 적용시 원가절감, 불량감소, 설비가동률 증가 등의 효과를 확인하였으며, 앞으로 각 기업이 처한 환경과 역량 정도, 그리고 도입 목적에 따라 부합하는 인공지능 도입 검토 전략을 제시하여, 고객사의 업무에 최적화된 AI 시스템을 구축할 수 있게 맞춤 솔루션을 제공할 예정이다.`,
+        },
+        {
+          type: 'image',
+          src: news_ai_studio_launching_event
+        },
+        {
+          type: 'normal',
+          desc: `‘SURROMIND AI Studio’ 출시 기념 ‘AI 온보딩 패키지’를 마련하였다. 인공지능을 어떻게 사업에 도입해야할지 몰라 고민인 기업을 대상으로, 이벤트 신청 기업 중 컨설팅을 통해 최종 선정된 총 3개 기업에는 4,500만원 상당의 POC 서비스와 AI 개발 시스템을 6개월 무료 사용할 수 있는 혜택을 제공한다.`,
+        },
+        {
+          type: 'normal',
+          desc: `‘AI 온보딩 패키지’는 기업 내 인공지능 시스템을 잘 안착시키기 위해, 시행착오를 줄이는 인공지능 도입 전략이 담긴 상품 패키지로, 회사의 AI 도입의 니즈를 파악한 후 기업이 자체 데이터 소스를 보유하고 있는 경우, 도입 절차 및 방법을 안내하고 인공지능 도입 검증을 위한 POC를 최종 도출하는 서비스를 제공한다. 또한, 기업이 내부 전문가없이도 인공지능을 개발할 수 있도록 써로마인드의 No Coding AI 개발 시스템 ‘SURROMIND AI Studio’(6개월 무료 지원)와 인공지능 개발의 필수인 GPU 등의 컴퓨팅 인프라(6개월 무료 지원)를 최대 6개월 사용 가능하도록 무상 지원할 예정이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `기업이 인공지능 프로젝트를 성공적으로 수행하기 위한 AI 기초 및 실무 교육 프로그램도 마련되어 있다. ‘현업 전문가가 알려주는 인공지능 입문하기’ 강의(온라인 인공지능 교육 프로그램, 총 4개 코스)를 할인 수강할 수 있는 30% 할인 쿠폰을 총 100명에 한정하여 제공한다.`,
+        },
+      ]
+    },
+    keywords: ['AI Studio', '출시', '이벤트'],
+  },
   {
     id: 'ai-stuido-launching',
     url: '/surromindnews/article/ai-stuido-launching',
