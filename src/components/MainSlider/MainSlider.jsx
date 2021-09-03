@@ -26,6 +26,8 @@ import ArrowLeft from "@material-ui/icons/ArrowBackIos";
 import ArrowRight from "@material-ui/icons/ArrowForwardIos";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
+// GA settings
+import ReactGA from 'react-ga';
 
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -35,6 +37,11 @@ const StyledArrowLeft = styled(ArrowLeft)`
 class MainSlider extends Component {
 
   handleClick = (url) => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Click Event1 Button',
+      label: 'Go to Event1 Page',
+    });
     this.props.history.push(url);
   }    
   

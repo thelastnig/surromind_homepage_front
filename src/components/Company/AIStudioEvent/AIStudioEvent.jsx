@@ -171,7 +171,29 @@ class AIStudioEvent extends Component {
   }
 
   handleMoveBtnClick = () => {
+    ReactGA.event({
+      category: 'Event1',
+      action: 'Ev1_Go Event button',
+      label: 'Go to Event Section',
+    });
     window.scrollTo({top:(this.imageLower.offsetTop - 100), behavior: 'smooth'});
+  }
+
+  // GA 관련 함수
+  onFocus = (label) => {
+    ReactGA.event({
+      category: 'Event1',
+      action: 'Ev1_Enter Submission Input',
+      label: label,
+    });
+  }
+
+  clickButton = (action, label) => {
+    ReactGA.event({
+      category: 'Event1',
+      action: action,
+      label: label,
+    });
   }
 
   render() {
@@ -262,6 +284,7 @@ class AIStudioEvent extends Component {
                               className="inputHalf"
                               placeholder="회사명"
                               ref={(ref) => {this.inputCompany=ref}}
+                              onFocus={() => this.onFocus('Ev1_Company')}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -281,6 +304,7 @@ class AIStudioEvent extends Component {
                               className="inputHalf"
                               placeholder="성함"
                               ref={(ref) => {this.inputName=ref}}
+                              onFocus={() => this.onFocus('Ev1_Name')}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -302,6 +326,7 @@ class AIStudioEvent extends Component {
                               className="inputHalf" 
                               placeholder="전화(휴대폰)"
                               ref={(ref) => {this.inputPhone=ref}}
+                              onFocus={() => this.onFocus('Ev1_Phone')}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -321,6 +346,7 @@ class AIStudioEvent extends Component {
                               className="inputHalf"
                               placeholder="E-mail"
                               ref={(ref) => {this.inputEmail=ref}}
+                              onFocus={() => this.onFocus('Ev1_Email')}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -354,7 +380,7 @@ class AIStudioEvent extends Component {
             <ReactPlayer 
               url='https://www.youtube.com/watch?v=i6njmI-Ada8'
               width={595}
-              onStart={this.clickButton}
+              onStart={() => this.clickButton("Ev1_Play Video1", "Ev1_Video1")}
             />
             <div className="videoText">
               SURROMIND AI Studio 장점
@@ -364,7 +390,7 @@ class AIStudioEvent extends Component {
             <ReactPlayer 
               url='https://www.youtube.com/watch?v=m28RwZBhyWc'
               width={595}
-              onStart={this.clickButton}
+              onStart={() => this.clickButton("Ev1_Play Video2", "Ev1_Video2")}
             />
             <div className="videoText">
               SURROMIND AI Studio
@@ -374,7 +400,7 @@ class AIStudioEvent extends Component {
             <ReactPlayer 
               url='https://www.youtube.com/watch?v=rMjb9MvfX3I'
               width={595}
-              onStart={this.clickButton}
+              onStart={() => this.clickButton("Ev1_Play Video3", "Ev1_Video3")}
             />
             <div className="videoText">
               인공지능 도입을 위한 AI Studio
