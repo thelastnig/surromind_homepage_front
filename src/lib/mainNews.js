@@ -53,8 +53,136 @@ import news_ai_studio_launching_event_main from '../images/news_ai_studio_launch
 import news_ai_studio_launching_event_list from '../images/news_ai_studio_launching_event_list.jpg';
 import news_ai_studio_launching_event from '../images/news_ai_studio_launching_event.jpg';
 
+import news_2021_ai_oline_challenge_win1 from '../images/news_2021_ai_oline_challenge_win1.jpg';
+import news_2021_ai_oline_challenge_win2 from '../images/news_2021_ai_oline_challenge_win2.jpg';
+import news_2021_ai_oline_challenge_win3 from '../images/news_2021_ai_oline_challenge_win3.jpg';
+import news_2021_ai_oline_challenge_win_main from '../images/news_2021_ai_oline_challenge_win_main.jpg';
+import news_2021_ai_oline_challenge_win_list from '../images/news_2021_ai_oline_challenge_win_list.jpg';
+
+import news_dinnolab_2_5_startup_selected from '../images/news_dinnolab_2_5_startup_selected.jpg';
+import news_dinnolab_2_5_startup_selected_main from '../images/news_dinnolab_2_5_startup_selected_main.jpg';
+import news_dinnolab_2_5_startup_selected_list from '../images/news_dinnolab_2_5_startup_selected_list.jpg';
+
 
 const mainNews = [
+  {
+    id: '2021-ai-oline-challenge-win',
+    url: '/surromindnews/article/2021-ai-oline-challenge-win',
+    type: 'NEWS',
+    date: '2021.09.29',
+    title: '인공지능 온라인 경진대회 장관상 수상',
+    image: news_2021_ai_oline_challenge_win_main,
+    imageS: news_2021_ai_oline_challenge_win_list,
+    contents: {
+      title: `써로마인드, 2021년 ‘인공지능 온라인 경진대회’ 과기정통부 장관상 수상, AI Studio 인공지능 개발 기술력 입증`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드(대표 장하영)가 「2021년 인공지능 온라인 경진대회」에서 기술과 사업의 우수성을 인정받아 과학기술정보통신부 장관 표창을 수상했다고 29일 밝혔다.`,
+        },
+        {
+          type: 'normal',
+          desc: `본 대회는 과학기술정보통신부와 정보통신산업진흥원(NIPA)가 주최하였으며, 인공지능 기술의 저변을 확대하고 알고리즘 개발 능력이 우수한 예비창업자, 중소·개척기업(벤처기업) 등을 선발하여 인공지능 기술 기반 사업화 기회를 제공하는 대회이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `이미지 분야, 자연어 분야, 수치해석 분야 총 3개 분야에서 총 20팀을 최종 선발한 후 사업화를 지원하는 대회로 이번 대회에는 402팀(878명)이 참가하였다. `,
+        },
+        {
+          type: 'image',
+          src: news_2021_ai_oline_challenge_win1,
+        },
+        {
+          type: 'imageWithCaption',
+          src: news_2021_ai_oline_challenge_win2,
+        },
+        {
+          type: 'imageCaption',
+          desc: `써로마인드, 과학기술정보통신부 장관상 수상`
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드의 개발팀(팀장 이충연 연구원)은 수치해석 분야에서 “기계시설물 센서 데이터 기반 이상징후 탐지 모델”로 장관상을 수상하고 사업화 지원금 최대 3억을 지원받게 되었다. 써로마인드는 오랜 개발경험을 집약시켜 자체 개발한 인공지능 개발∙운영 플랫폼인 ‘SURROMIND AI Studio’를 사용하여 시각, 청각, 신호처리 분석을 위한 인공지능 모델을 빨리 만들 수 있도록 도움을 준다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드 관계자는 “SURROMIND AI Studio는 순수 국내기술로 개발한 것으로 소프트웨어 전문가나 인공지능 개발 전문가 없이도 개발하고 운영할 수 있도록 ‘No Coding 플랫폼’으로 개발된 것이다. SURROMIND AI Studio를 활용하여 보다 다양한 인공지능 개발 사례를 만들어 정부가 적극적으로 추진하는 디지털 뉴딜 정책 중 인공지능 인재양성, 대중화와 산업화에 크게 기여할 것으로 기대한다.” 고 전헀다.`,
+        },
+        {
+          type: 'imageWithCaption',
+          src: news_2021_ai_oline_challenge_win3,
+        },
+        {
+          type: 'imageCaption',
+          desc: `「2021년 인공지능 온라인 경진대회」- 기계시설물 센서 데이터 기반 이상징후 탐지 모델`
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드 장하영 대표는 “과학기술정보통신부 장관상 수상은 SURROMIND AI Studio의 지속적인 연구개발이 이룩해 낸 성과”라며 “이것을 시작으로 인공지능을 누구라도 쉽게 자신의 업무에 사용할 수 있도록 인공지능의 대중화와 산업화에 이바지할 수 있도록 최선을 다하겠다”고 밝혔다.`,
+        },
+      ]
+    },
+    keywords: ['인공지능', '경진대회', '장관상'],
+  },
+  {
+    id: 'dinnolab-2.5-startup-selected',
+    url: '/surromindnews/article/dinnolab-2.5-startup-selected',
+    type: 'NEWS',
+    date: '2021.09.17',
+    title: '‘디노랩 2.5기’ 스타트업 선정',
+    image: news_dinnolab_2_5_startup_selected_main,
+    imageS: news_dinnolab_2_5_startup_selected_list,
+    contents: {
+      title: `우리금융지주 ‘디노랩 2.5기’ 스타트업 선정`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 우리금융지주 ‘디노랩 2.5기’에 선발되었습니다. 총 208개 스타트업이 지원한 가운데 14개 선정기업에 선발되었으며 우리금융지주 계열사와의 협력방안 및 다른 스타트업들과의 다양한 협력을 기대하고 있습니다.`,
+        },
+        {
+          type: 'normal',
+          desc: `[기사 출처]`,
+        },
+        {
+          type: 'normal',
+          desc: `우리금융지주는 스타트업 협력 프로그램 ‘디노랩’에 참여할 통합 2.5기 14개 업체를 선발했다고 17일 밝혔다.`,
+        },
+        {
+          type: 'normal',
+          desc: `디노랩 통합 2.5기 모집에는 총 208개 스타트업이 지원했다. 우리금융그룹 현업 실무자, 벤처캐피탈 및 글로벌 IT기업 담당자 등 11명의 내·외부 전문가로 구성된 심사위원의 평가를 거쳐 14개 업체를 선발했다. 분야는 ▲AI(인공지능) ▲ESG(환경·사회·지배구조) ▲모빌리티 ▲디지털·플랫폼 ▲헬스케어 등 총 5개다.`,
+        },
+        {
+          type: 'imageWithCaption',
+          src: news_dinnolab_2_5_startup_selected,
+        },
+        {
+          type: 'imageCaption',
+          desc: `우리금융그룹 디노랩. /우리금융 제공`
+        },
+        {
+          type: 'normal',
+          desc: `최종 선발된 기업은 ▲다테크니끄 ▲담아 ▲더대시 ▲도도한콜라보 ▲딥센트 ▲루이테크놀로지 ▲반프 ▲별따러가자 ▲써로마인드 ▲앨리스헬스케어 ▲에이치알엠 ▲올댓비젼 ▲웨인힐스벤처스 ▲컨슈머인텔리전스 등이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `이들은 다음달부터 1년간 디노랩 제2센터 입주 기회는 물론 우리금융그룹 IT 실무자의 금융·IT 교육, 벤처캐피탈·세무사·전문마케터 등 외부전문가의 역량강화 프로그램, 투자유치 및 사업화, 디노랩베트남을 통한 신남방 진출, 우리금융 자회사와의 사업 협력 등을 지원 받는다.`,
+        },
+        {
+          type: 'normal',
+          desc: `서울 관악구 신림동에 오픈 예정인 디노랩 제2센터는 890㎡(약 270평) 규모의 5층 건물로 디노랩 기업이 건물 전체를 단독 사용하게 된다.`,
+        },
+        {
+          type: 'normal',
+          desc: `기사 출처:`,
+        },
+        {
+          type: 'link',
+          desc: `https://biz.chosun.com/stock/finance/2021/09/17/MFREYJYQ35DIDAXPFIUZJCC7SE/?utm_source=naver&utm_medium=original&utm_campaign=biz`
+        },
+      ]
+    },
+    keywords: ['우리금융지주', '디노랩2.5기'],
+  },
   {
     id: 'ai-stuido-launching-event',
     url: '/surromindnews/article/ai-stuido-launching-event',
@@ -75,9 +203,8 @@ const mainNews = [
           desc: `기업 환경에 적합한 ‘SURROMIND AI Studio’는 전문 개발자를 많이 보유할 수 없는 일반 기업이, 직접 머신러닝 플랫폼을 개발하고 운영 관리까지 할 수 없는 부분을 전략적이고 실용적으로 해결해주어, 기업의 인공지능 도입율을 높이고, 개발시간과 인력비용을 감축시켜 비용절감의 효과를 제공한다. 몇 개 고객사의 베타 테스트를 통해 AI 모델을 산업에 적용시 원가절감, 불량감소, 설비가동률 증가 등의 효과를 확인하였으며, 앞으로 각 기업이 처한 환경과 역량 정도, 그리고 도입 목적에 따라 부합하는 인공지능 도입 검토 전략을 제시하여, 고객사의 업무에 최적화된 AI 시스템을 구축할 수 있게 맞춤 솔루션을 제공할 예정이다.`,
         },
         {
-          type: 'imageWithLink',
+          type: 'image',
           src: news_ai_studio_launching_event,
-          link: '/aistudioevent',
         },
         {
           type: 'normal',
