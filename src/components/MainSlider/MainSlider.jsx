@@ -7,7 +7,6 @@ import { Link, withRouter } from 'react-router-dom';
 import * as constants from '../../lib/constants'
 
 // import slider images
-import mainSlide0 from '../../images/mainSlide0.jpg';
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
 import mainSlide3 from '../../images/mainSlide3.jpg';
@@ -93,10 +92,6 @@ class MainSlider extends Component {
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
-            <div className='eachSlide' onClick={() => this.handleClick('/aistudioevent')}>
-                <img src={mainSlide0} className="slideImage0" width="1920px"/>
-            </div>
-
             <div className='eachSlide'>
               <img src={mainSlide1} className="slideImage1"/>
             </div>

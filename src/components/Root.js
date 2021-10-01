@@ -51,7 +51,7 @@ const Root = (props) => {
               <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
               <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
               <Route exact path="/admin/:page" component={AdminPage} />
-              <Route exact path="/aistudioevent" component={AIStudioEventPage} history={browserHistory}/>
+              <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
               <Route path="/contact" component={ContactPage} history={browserHistory}/>
             </Switch>
         </div>
