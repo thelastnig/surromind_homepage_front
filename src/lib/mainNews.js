@@ -82,7 +82,7 @@ const mainNews = [
     url: '/surromindnews/article/4th-industrial-revolution-festival-coex',
     type: 'NEWS',
     date: '2021.10.06',
-    title: '4차산업혁명페스티벌 참가',
+    title: '4차산업혁명페스티벌 전시회 참가',
     image: news_4th_industrial_revolution_festival_coex_main,
     imageS: news_4th_industrial_revolution_festival_coex_list,
     contents: {
