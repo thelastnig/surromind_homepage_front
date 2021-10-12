@@ -63,8 +63,186 @@ import news_dinnolab_2_5_startup_selected from '../images/news_dinnolab_2_5_star
 import news_dinnolab_2_5_startup_selected_main from '../images/news_dinnolab_2_5_startup_selected_main.jpg';
 import news_dinnolab_2_5_startup_selected_list from '../images/news_dinnolab_2_5_startup_selected_list.jpg';
 
+import news_4th_industrial_revolution_festival_coex1 from '../images/news_4th_industrial_revolution_festival_coex1.jpg';
+import news_4th_industrial_revolution_festival_coex2 from '../images/news_4th_industrial_revolution_festival_coex2.jpg';
+import news_4th_industrial_revolution_festival_coex3 from '../images/news_4th_industrial_revolution_festival_coex3.jpg';
+import news_4th_industrial_revolution_festival_coex4 from '../images/news_4th_industrial_revolution_festival_coex4.jpg';
+import news_4th_industrial_revolution_festival_coex5 from '../images/news_4th_industrial_revolution_festival_coex5.jpg';
+import news_4th_industrial_revolution_festival_coex_main from '../images/news_4th_industrial_revolution_festival_coex_main.jpg';
+import news_4th_industrial_revolution_festival_coex_list from '../images/news_4th_industrial_revolution_festival_coex_list.jpg';
+
+import news_4th_industrial_revolution_festival_award1 from '../images/news_4th_industrial_revolution_festival_award1.jpg';
+import news_4th_industrial_revolution_festival_award_main from '../images/news_4th_industrial_revolution_festival_award_main.jpg';
+import news_4th_industrial_revolution_festival_award_list from '../images/news_4th_industrial_revolution_festival_award_list.jpg';
+
 
 const mainNews = [
+  {
+    id: '4th-industrial-revolution-festival-coex',
+    url: '/surromindnews/article/4th-industrial-revolution-festival-coex',
+    type: 'NEWS',
+    date: '2021.10.06',
+    title: '4차산업혁명페스티벌 참가',
+    image: news_4th_industrial_revolution_festival_coex_main,
+    imageS: news_4th_industrial_revolution_festival_coex_list,
+    contents: {
+      title: `4차산업혁명페스티벌 코엑스 전시회 참가`,
+      contentsList: [
+        {
+          type: 'normal',
+          desc: `써로마인드가 제 5회 ‘4차산업혁명 대상’ 어워드에서 ‘SURROMIND AI Studio’ 제품의 기술 우수성을 인정받아 지디넷코리아상을 수상하였습니다. 또한, 수상기업으로 지난 6일부터 8일까지 코엑스 D홀에서 열린 ‘4차산업혁명페스티벌 & 블록체인 서울’ 전시회에 참가하여 자사의 핵심 기술을 소개하는 자리를 가졌습니다. 시상과 더불어 전시회 참가를 통해 써로마인드를 외부에 알릴 수 있는 좋은 계기가 되었으며, 앞으로도 더욱 고객에게 다가가는 국내 대표 인공지능 기업이 되겠습니다.`,
+        },
+        {
+          type: 'image',
+          src: news_4th_industrial_revolution_festival_coex1,
+        },
+        {
+          type: 'image',
+          src: news_4th_industrial_revolution_festival_coex2,
+        },
+        {
+          type: 'image',
+          src: news_4th_industrial_revolution_festival_coex3,
+        },
+        {
+          type: 'image',
+          src: news_4th_industrial_revolution_festival_coex4,
+        },
+        {
+          type: 'image',
+          src: news_4th_industrial_revolution_festival_coex5,
+        },
+        {
+          type: 'normalLink',
+          desc: `기사 참고:`,
+        },
+        {
+          type: 'link',
+          desc: `https://zdnet.co.kr/view/?no=20211006211334`
+        },
+        {
+          type: 'normal',
+          desc: ``,
+        },
+        {
+          type: 'normal',
+          desc: `대한민국 4차산업혁명 페스티벌 & 블록체인 서울이 10월 6일부터 8일까지 사흘간의 일정으로 서울 코엑스 D홀에서 개막됐다. 이번 행사에는 인공지능, 메타버스, 블록체인, 모빌리티 등 4차산업혁명을 이끄는 100여 개의 혁신 기업 및 공공기관이 철저한 방역수칙 하에 참여했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `개막식에는 임혜숙 과기정통부 장관이 기조연설자로 참여해 4차산업혁명으로 촉발된 디지털 전환과 의료·교육·금융 등 다양한 분야에 적용되는 인공지능과 메타버스의 혁신 기술에 대해 강조했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `머니투데이그룹과 지디넷코리아가 주관하고 4차산업혁명위원회, 과기정통부, 산업부, 국토부, 공정위, 환경부 등이 후원한 이 행사는 메타버스, 블록체인, 인공지능 등을 주제로 콘퍼런스와 전시회가 진행된다.`,
+        },
+        {
+          type: 'normalLink',
+          desc: `지디넷코리아 유튜브:`,
+        },
+        {
+          type: 'link',
+          desc: `https://youtu.be/NVwCwXas-Fw`
+        },
+      ]
+    },
+    keywords: ['4차산업혁명페스티벌', '코엑스'],
+  },
+  {
+    id: '4th-industrial-revolution-festival-award',
+    url: '/surromindnews/article/4th-industrial-revolution-festival-award',
+    type: 'NEWS',
+    date: '2021.10.06',
+    title: '4차산업혁명 대상 수상',
+    image: news_4th_industrial_revolution_festival_award_main,
+    imageS: news_4th_industrial_revolution_festival_award_list,
+    contents: {
+      title: `제 5회 4차산업혁명 대상, 지디넷코리아상 수상`,
+      contentsList: [
+        {
+          type: 'subTitle',
+          desc: `써로마인드 "전문가 없이 인공지능 개발 운영 가능"`,
+        },
+        {
+          type: 'subTitle',
+          desc: `[4차산업혁명 어워드/지디넷코리아상] 플랫폼으로 자동화, 워크플로우, 다양한 인공지능 모델 구현 장점`,
+        },
+        {
+          type: 'normal',
+          desc: `지디넷코리아가 주최하고 과학기술정보통신부와 대통령직속 4차산업혁명위원회가 후원한 '제 5회 4차산업혁명 대상' 어워즈에서 기술 기반의 인공지능 스타트업  써로마인드(대표 장하영)가 6일 지디넷코리아 대표이사상을 수상했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드는 지난 2015년 설립됐다. 데이터 가공부터 AI 개발 및 운영, 재직자에 대한 AI 융합교육 등 산업 전반에 걸쳐 기업이 AI 서비스를 도입하는데 필요한 전 과정을 지원하는게 주요 사업이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드는 인공지능 개발운영 자동화 플랫폼 ’SURROMIND AI Studio’로 기업과 비즈니스의 AI 서비스 개발을 쉽고 편리하게 해주는 소프트웨어툴이다. 사내에 인공지능 전문가가 없어도 인공지능 모델을 개발하고 운영할 수 있는 ‘노코딩 플랫폼’으로 개발됐다.`,
+        },
+        {
+          type: 'imageWithCaption',
+          src: news_4th_industrial_revolution_festival_award1,
+        },
+        {
+          type: 'imageCaption',
+          desc: `김병희 써로마인드 이사(왼쪽 첫번째)가 김경묵 지디넷코리아 대표(왼쪽 세번째)에게서 상을 받고 있다.`
+        },
+        {
+          type: 'normal',
+          desc: `인공지능 연구개발과 응용서비스에 이르는 전 단계에 대한 자동화 지원 솔루션인 ’SURROMIND AI Studio’의 특징은 자동화, 워크플로우, 다양한 인공지능 모델 구현이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `이 솔루션은 기존의 복잡했던 AI 개발 환경을 간소화하여 최신 인공지능 모델을 노코딩 환경에서 구현할 수 있는 UI/UX를 제공한다. 몇 번의 클릭만으로 다양한 머신러닝 / 딥러닝 모델을 이용하여 최고 성능의 모델을 스스로 만들어내는 AutoML, AutoDL 기능 구현이 강점이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `또한 액티브 러닝 기반의 자동 라벨링 기능을 탑재해 보다 빠르고 쉽게 데이터를 구축할 수 있다. 모델 학습 및 최적화 과정에서는 AutoML과 Hyper Parameter Optimization 기능을 제공해 인공지능이 자동으로 모델의 최적화를 수행하여 개발 효율성을 향상시켰다. 인프라 관리 측면에서는 Kubeflow 기반의 자원관리를 지원해 학습에 필요한 GPU 자원의 자동 할당 및 유연한 확장이 가능한 장점이 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `SURROMIND AI Studio는 머신러닝 워크플로우의 8단계를 지원하는 올 인원 통합 플랫폼으로 개발되어, 모델 학습 및 최적화를 포함한 전체 개발과정을 워크플로우로 정의해 지원하고 있다.`,
+        },
+        {
+          type: 'normal',
+          desc: `또한 자동모드의 인공지능 파이프라인 템플릿 제공으로 사용자의 편의성을 높였다. 고객 사업에 최적화된 맞춤형 인공지능 솔루션의 운영에 있어 핵심 도구로 작용하는 워크플로우 템플릿은 데이터 전 처리부터 모델 학습과 적용까지 머신러닝 솔루션을 구성하는 일련의 ML 워크플로우 절차를 템플릿으로 저장하여 유사한 문제해결 시 재사용 가능하도록 해주는 편리한 기능이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `정제된 템플릿을 개선하고 수정하여 응용 시스템에서 사용이 가능한 형상으로 자동 배포할 수 있고 주요 응용 사례별 표준 템플릿을 제공해 교육과 솔루션 구성에도 활용이 가능하다.`,
+        },
+        {
+          type: 'normal',
+          desc: `더불어 단일 플랫폼에서 다양한 인공지능 모델의 구현이 가능해 정형 데이터, 이미지 및 음향 데이터에 대한 인식 모델링을 통해 시각 지능, 청각 지능 외에 다중 융합 지능을 위한 모델링 기능도 고객의 상황에 맞게 추가 개발이 가능하다.`,
+        },
+        {
+          type: 'normal',
+          desc: `SURROMIND AI Studio는 정형 데이터 뿐만 아니라, 이미지/음향 데이터 인식을 위한 딥러닝 모델을 자동으로 구축하는 앙상블 기반의 AutoDL 기능이 있다. 정형 데이터에 대해 자동으로 모델을 최적화하는 HPO 기능, 다양한 알고리즘을 적용하여 최고 성능의 모델을 얻을 수 있는 AutoML 기능이 장점이다.`,
+        },
+        {
+          type: 'normal',
+          desc: `SURROMIND AI Studio 는 머신러닝 학습 수행 및 학습과정 재사용 템플릿 생성 도구인 SurroMLTemplate외에도 이미지 자동 어노테이션 도구 SurroAnnotator와 머신러닝 모델 배포를 위한 관리도구 SurroModel 등 총 5건의 SW 저작권을 보유하고 있다. 이를 기반으로 개발한 비전검사 솔루션과 미세입자 자동분류 솔루션에 대한 공인성능 인증을 공인인증기관으로부터 획득했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `써로마인드는 최근 자율주행 분야에서 활용될 수 있는 영상 기반 상황인식 기술인 ‘자동차의 주변 상황이 위험상황인지를 판단하고 주행가이드를 생성하여 경고해 주는 방법 및 이를 이용한 장치 (2019.12.30 출원, 2021.08.17 등록)’에 관한 특허를 등록 완료했다.`,
+        },
+        {
+          type: 'normal',
+          desc: `장하영 대표는 "인공지능이 누군가 대단한 사람만이 할 수 있는 것이라고 생각하지 않는다. 한때는 뭔가 대단한 것처럼 보였던 웹과 이메일을 지금은 누구나 당연히 사용하는 것처럼 인공지능도 머지않아 누구나 각자가 필요한 수준에서 필요한 만큼 사용하는 기술이 될 것이라고 생각한다"라면서 "이를 위해서 노코딩과 MLOps라는 두가지 큰 축을 지향점으로 잡고 제품을 개발하고 있으며 그 결과물인 AI Studio가 금년도 4차산업혁명대상에서 수상한 사실이 저희 제품의 중요성과 차별성을 보여주고 있다고 생각한다"고 밝혔다.`,
+        },
+        {
+          type: 'normalLink',
+          desc: `기사 출처:`,
+        },
+        {
+          type: 'link',
+          desc: `https://zdnet.co.kr/view/?no=20211006103107`
+        },
+      ]
+    },
+    keywords: ['4차산업혁명대상', '지디넷코리아상'],
+  },
   {
     id: '2021-ai-oline-challenge-win',
     url: '/surromindnews/article/2021-ai-oline-challenge-win',

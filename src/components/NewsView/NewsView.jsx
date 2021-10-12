@@ -49,6 +49,8 @@ class NewsView extends Component {
         div = <a key={index} className='eachContent link' href={content.desc}>{content.desc}</a>
       } else if (content.type === 'imageCaption') {
         div = <div className="eachContent caption" key={index}>{content.desc}</div>
+      } else if (content.type === 'normalLink') {
+        div = <div className="eachContent normalLink" key={index}>{content.desc}</div>
       } else {
         div = <div className="eachContent normal" key={index}>{content.desc}</div>
       }
@@ -222,6 +224,10 @@ const Wrapper = styled.div`
       cursor: pointer;
       text-decoration: underline;
       color: ${oc.blue[7]};
+    }
+
+    &.normalLink {
+      margin-bottom: 0px;
     }
 
     &.caption {

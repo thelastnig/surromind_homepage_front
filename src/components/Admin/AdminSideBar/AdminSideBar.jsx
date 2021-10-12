@@ -48,6 +48,7 @@ export default withRouter(AdminSideBar);
 
 const SiderBarWrapper = styled.div`
   width: ${constants.ADMIN_SIDEBAR_WIDTH}px;
+  height: 100%;
 
   .sidebarItem {
     width: ${constants.ADMIN_SIDEBAR_WIDTH - 50}px;
