@@ -15,7 +15,7 @@ class AdminNewsListContainer extends Component {
   render() {
     return (
       <div>
-        <AdminNewsList/>
+        <AdminNewsList {...this.props} />
       </div>
     );
   }

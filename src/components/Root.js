@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
-  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AdminPage, AIStudioEventPage } from '../pages';
+  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage,
+  AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage } from '../pages';
 import styled from 'styled-components';
 
 // import constants from constants.js
@@ -50,8 +51,12 @@ const Root = (props) => {
               <Route exact path="/careers/content/:careerID" component={CareersViewPage} history={browserHistory}/>
               <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
               <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
-              <Route exact path="/admin/:page" component={AdminPage} />
+              <Route exact path="/admin/main" component={AdminPage} />
+              <Route exact path="/admin/news/list/:page" component={AdminNewsListPage} />
+              <Route exact path="/admin/news/add" component={AdminNewsPage} />
+              <Route exact path="/admin/news/article/:articleID" component={AdminNewsViewPage} />
               <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
+              <Route exact path="/event01" component={AIStudioEventPage} />
               <Route path="/contact" component={ContactPage} history={browserHistory}/>
             </Switch>
         </div>

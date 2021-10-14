@@ -8,11 +8,12 @@ import moment from 'moment';
 // import constants from constants.js
 import * as constants from '../../../lib/constants';
 
-// import careers content
-import newsContents from '../../../lib/mainNews';
-
 // import Card Component 
 import CardNews from '../../common/CardNews';
+
+// import utils
+import { stringToDate, dateToString, dateToStringId } from '../../../lib/utils';
+import { ContactSupportOutlined } from '@material-ui/icons';
 
 
 class AdminNewsList extends Component {
@@ -22,20 +23,24 @@ class AdminNewsList extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.loadNewsContent();
   }
 
   loadNewsContent = () => {
-    const { newsContents } = this.state;
     const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'list/';
+    const params = {
+      index: 0
+    }
 
-    // axios.post(url, params)
-    // .then(function (response) {
-    //   console.log(response);
-    //   alert("정상 처리 완료");
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        newsContents: response.data.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   handleClick = (url) => {
@@ -43,15 +48,22 @@ class AdminNewsList extends Component {
   }
 
   render() {
+    const { newsContents } = this.state;
     const cardList = newsContents.map((item, index) => {
-      const url = `/surromindnews/article/${item.id}`;
+      const tempDate = stringToDate(item.publish_date);
+      const itemDate = dateToString(tempDate);
+      const itemID = dateToStringId(tempDate) + String(item.id);
+      const url = `/admin/news/article/${itemID}`;
+      const imageList = item.newsimages;
+      const listImage = imageList.filter(image => image.type === 'list');
+      const imagePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + listImage[0].image;
       return (
         <CardNews
           key={index} 
-          image={item.imageS} 
-          title={item.title} 
-          date={item.date}
-          type={item.type} 
+          image={imagePath} 
+          title={item.short_title} 
+          date={itemDate}
+          type='NEWS' 
           url={url}
           />
       )
@@ -60,7 +72,7 @@ class AdminNewsList extends Component {
     return (
       <AdminNewsWrapper>
         <div className='btnAddWrapper'>
-          <div className='btnAdd' onClick={()=>this.handleClick('newsAdd')}>
+          <div className='btnAdd' onClick={()=>this.handleClick('/admin/news/add')}>
             <div className='btnAddText'>추 가</div>
           </div>
         </div>

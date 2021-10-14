@@ -27,7 +27,7 @@ class AdminSideBar extends Component {
         <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/main')}>
           <img className='imgLogo' src={surroLogo} width='130' alt='SurroMind Logo'/>
         </div>
-        <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/news')}>
+        <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/news/list/1')}>
           <div className='iconWrapper'>
             <DescriptionIcon className='materialIcon'/>
           </div>

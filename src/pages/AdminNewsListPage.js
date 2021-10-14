@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import AdminSideBarContainer from '../containers/AdminSideBarContainer';
-import AdminMainContainer from '../containers/AdminMainContainer';
+import AdminNewsListContainer from '../containers/AdminNewsListContainer';
 
 import * as constants from '../lib/constants';
 
-const AdminPage = (props) => {
+const AdminNewsListPage = (props) => {
 
   return (
     <AdminWrapper>
@@ -13,13 +13,13 @@ const AdminPage = (props) => {
         <AdminSideBarContainer {...props} />
       </AdminSideBartWrapper>
       <AdminContentWrapper>
-        <AdminMainContainer {...props} />
+        <AdminNewsListContainer {...props} />
       </AdminContentWrapper>
     </AdminWrapper>
   )
 }
 
-export default AdminPage;
+export default AdminNewsListPage;
 
 const AdminWrapper = styled.div`
   width: 100%;

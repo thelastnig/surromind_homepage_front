@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map, List } from 'immutable';
-import AdminNews from '../components/Admin/AdminNews';
+import AdminNewsView from '../components/Admin/AdminNewsView';
 
 
-class AdminNewsContainer extends Component {
+class AdminNewsViewContainer extends Component {
 
   componentDidMount() {
 
@@ -15,7 +15,7 @@ class AdminNewsContainer extends Component {
   render() {
     return (
       <div>
-        <AdminNews {...this.props} />
+        <AdminNewsView {...this.props} />
       </div>
     );
   }
@@ -27,4 +27,4 @@ export default connect(
   }),
   (dispatch) => ({
   })
-)(withRouter(AdminNewsContainer));
+)(withRouter(AdminNewsViewContainer));

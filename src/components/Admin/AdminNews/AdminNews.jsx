@@ -271,7 +271,7 @@ class AdminNews extends Component {
   }
 
   handleCancel = () => {
-	  this.props.history.push('news');
+	  this.props.history.push('/admin/news/list/1');
   }
  
   render () {

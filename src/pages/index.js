@@ -10,4 +10,7 @@ export { default as CareersViewPage } from './CareersViewPage';
 export { default as ContactPage } from './ContactPage';
 export { default as VoucherPage } from './VoucherPage';
 export { default as AdminPage } from './AdminPage';
+export { default as AdminNewsPage } from './AdminNewsPage';
+export { default as AdminNewsListPage } from './AdminNewsListPage';
+export { default as AdminNewsViewPage } from './AdminNewsViewPage';
 export { default as AIStudioEventPage } from './AIStudioEventPage';
