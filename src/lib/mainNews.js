@@ -26,8 +26,8 @@ import news_4th_industrial_revolution_festival_award_list from '../images/news_4
 
 const mainNews = [
   {
-    id: '4th-industrial-revolution-festival-coex',
-    url: '/surromindnews/article/4th-industrial-revolution-festival-coex',
+    id: '2021100617',
+    url: '/surromindnews/article/2021100617',
     type: 'NEWS',
     date: '2021.10.06',
     title: '4차산업혁명페스티벌 전시회 참가',
@@ -97,8 +97,8 @@ const mainNews = [
     keywords: ['4차산업혁명페스티벌', '코엑스'],
   },
   {
-    id: '4th-industrial-revolution-festival-award',
-    url: '/surromindnews/article/4th-industrial-revolution-festival-award',
+    id: '2021100616',
+    url: '/surromindnews/article/2021100616',
     type: 'NEWS',
     date: '2021.10.06',
     title: '4차산업혁명 대상 수상',
@@ -192,8 +192,8 @@ const mainNews = [
     keywords: ['4차산업혁명대상', '지디넷코리아상'],
   },
   {
-    id: '2021-ai-oline-challenge-win',
-    url: '/surromindnews/article/2021-ai-oline-challenge-win',
+    id: '2021092915',
+    url: '/surromindnews/article/2021092915',
     type: 'NEWS',
     date: '2021.09.29',
     title: '인공지능 온라인 경진대회 장관상 수상',
@@ -251,8 +251,8 @@ const mainNews = [
     keywords: ['인공지능', '경진대회', '장관상'],
   },
   {
-    id: 'dinnolab-2.5-startup-selected',
-    url: '/surromindnews/article/dinnolab-2.5-startup-selected',
+    id: '2021091714',
+    url: '/surromindnews/article/2021091714',
     type: 'NEWS',
     date: '2021.09.17',
     title: '‘디노랩 2.5기’ 스타트업 선정',
