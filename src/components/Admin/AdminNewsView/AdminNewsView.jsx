@@ -12,7 +12,6 @@ import BackToList from '../../common/BackToList';
 
 // import utils
 import { stringToDate, dateToString, dateToStringId } from '../../../lib/utils';
-import { ContactSupportOutlined } from '@material-ui/icons';
 
 
 class AdminNewsView extends Component {
@@ -26,6 +25,10 @@ class AdminNewsView extends Component {
     window.scrollTo(0, 0);
     this.loadArticle();
   }
+
+  goListPage = () => {
+    this.props.history.push('/admin/news/list/1');
+  } 
 
   loadArticle = () => {
     const { articleID } = this.props.match.params;
@@ -41,7 +44,37 @@ class AdminNewsView extends Component {
     .catch(error => {
       console.log(error);
     });
+  }
 
+  deleteArticle = () => {
+    if (!window.confirm("게시물을 삭제하시겠습니까?")) {
+      return;
+    } 
+    
+    const { articleID } = this.props.match.params;
+    const newsID = articleID.substr(8, articleID.length);
+    const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'delete/';
+    
+    const params = {
+      "news_id": newsID
+    }
+
+    axios.post(url, params)
+    .then(response => {
+	    this.goListPage();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  editArticle = () => {
+    const { newsItem } = this.state;
+    if ('id' in newsItem === false) {
+      return
+    }
+    const url = `/admin/news/edit/${newsItem.id}`;
+	  this.props.history.push(url);
   }
   
   render() {
@@ -137,6 +170,14 @@ class AdminNewsView extends Component {
                   {newsContentsList}
                 </div>
               </div>
+              <div className='btnWrapper'>
+              <div className='editBtn' onClick={this.editArticle}>
+                <div className='editBtnText'>수정</div>
+              </div>
+              <div className='deleteBtn' onClick={this.deleteArticle}>
+                <div className='deleteBtnText'>삭제</div>
+              </div>
+            </div>
               <BackToList />
             </div>
           </div>
@@ -273,6 +314,45 @@ const AdminNewsViewWrapper = styled.div`
     img {
       max-width: 80%;
     }
+  }
+
+  .btnWrapper {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .editBtn {
+      width: 100px;
+      height: 40px;
+      border-radius: 4px;
+      background-color: ${constants.POINT_COLOR};
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+      cursor: pointer;      
+      font-size: 18px;
+      color: white;
+    }
+
+    .deleteBtn {
+      width: 100px;
+      height: 40px;
+      margin-left: 30px;
+      border-radius: 4px;
+      border: 2px solid ${constants.POINT_COLOR};
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+      cursor: pointer;      
+      font-size: 18px;
+      font-weight: 600;
+      color: ${constants.POINT_COLOR};
+    }
+
   }
 `;
 

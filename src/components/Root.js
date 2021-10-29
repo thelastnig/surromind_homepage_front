@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Switch, Route, Router } from 'react-router-dom';
+import { Switch, Route, Router, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
   CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage,
-  AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage } from '../pages';
+  AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage, AdminBannerPage, AdminLoginPage, NotFoundPage } from '../pages';
 import styled from 'styled-components';
 
 // import constants from constants.js
@@ -12,13 +12,17 @@ import * as constants from '../lib/constants';
 // GA setting
 import ReactGA from 'react-ga';
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-const browserHistory = createBrowserHistory()
+const browserHistory = createBrowserHistory({
+  forceRefresh: true
+});
 browserHistory.listen((location, action) => {
   ReactGA.pageview(location.pathname + location.search);
   console.log(location.pathname + location.search);
 });
 
 const Root = (props) => {
+  const isLogin = (localStorage.getItem("isSMRAdminLogin") === null || localStorage.getItem("isSMRAdminLogin") === false) ? false : true;
+
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
     if (window.location.pathname !== null && window.location.pathname !== '') {
@@ -51,13 +55,26 @@ const Root = (props) => {
               <Route exact path="/careers/content/:careerID" component={CareersViewPage} history={browserHistory}/>
               <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
               <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
-              <Route exact path="/admin/main" component={AdminPage} />
-              <Route exact path="/admin/news/list/:page" component={AdminNewsListPage} />
-              <Route exact path="/admin/news/add" component={AdminNewsPage} />
-              <Route exact path="/admin/news/article/:articleID" component={AdminNewsViewPage} />
+              <Route exact path="/admin" component={AdminLoginPage} history={browserHistory}/>
               <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
               <Route exact path="/event01" component={AIStudioEventPage} />
               <Route path="/contact" component={ContactPage} history={browserHistory}/>
+              {
+              isLogin
+              ?
+              <>
+                <Route exact path="/admin/main" component={AdminPage} history={browserHistory}/>
+                <Route exact path="/admin/news/list/:page" component={AdminNewsListPage} history={browserHistory}/>
+                <Route exact path="/admin/news/add" component={AdminNewsPage} history={browserHistory}/>
+                <Route exact path="/admin/news/edit/:articleID" component={AdminNewsPage} history={browserHistory}/>
+                <Route exact path="/admin/news/article/:articleID" component={AdminNewsViewPage} history={browserHistory}/>
+                <Route exact path="/admin/banner" component={AdminBannerPage} history={browserHistory}/>
+              </>
+              :
+              null
+              }
+              <Route component={NotFoundPage}/>
+              
             </Switch>
         </div>
     </RootWrapper>

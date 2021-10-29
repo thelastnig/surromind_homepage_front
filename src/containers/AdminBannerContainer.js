@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map, List } from 'immutable';
-import NewsList from '../components/NewsList';
+import AdminBanner from '../components/Admin/AdminBanner';
 
 
-class NewsListContainer extends Component {
+class AdminBannerContainer extends Component {
 
   componentDidMount() {
 
@@ -15,7 +15,7 @@ class NewsListContainer extends Component {
   render() {
     return (
       <div>
-        <NewsList {...this.props}/>
+        <AdminBanner {...this.props} />
       </div>
     );
   }
@@ -27,4 +27,4 @@ export default connect(
   }),
   (dispatch) => ({
   })
-)(withRouter(NewsListContainer));
+)(withRouter(AdminBannerContainer));

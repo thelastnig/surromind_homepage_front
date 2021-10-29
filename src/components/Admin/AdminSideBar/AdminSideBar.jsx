@@ -11,6 +11,7 @@ import surroLogo from '../../../images/surromind_logo_new.png';
 
 // import icon
 import DescriptionIcon from '@material-ui/icons/Description'; // news
+import WebAsset from '@material-ui/icons/WebAsset'; // news
 import MemoryIcon from '@material-ui/icons/Memory'; // R&D
 
 
@@ -18,6 +19,10 @@ class AdminSideBar extends Component {
   
   handleMenuClick = (url) => {
     this.props.history.push(url);
+  }
+
+  handleReplaceClick = (url) => {
+    window.location.replace(url);
   }
   
 
@@ -27,18 +32,26 @@ class AdminSideBar extends Component {
         <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/main')}>
           <img className='imgLogo' src={surroLogo} width='130' alt='SurroMind Logo'/>
         </div>
-        <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/news/list/1')}>
+        <div className='sidebarItem' onClick={() => this.handleReplaceClick('/admin/news/list/1')}>
           <div className='iconWrapper'>
             <DescriptionIcon className='materialIcon'/>
           </div>
           <div className='itemText'>News</div>
         </div>
-        <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/rnd')}>
+        
+        <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/banner')}>
+          <div className='iconWrapper'>
+            <WebAsset className='materialIcon'/>
+          </div>
+          <div className='itemText'>Banner</div>
+        </div>
+
+        {/* <div className='sidebarItem' onClick={() => this.handleMenuClick('/admin/rnd')}>
           <div className='iconWrapper'>
             <MemoryIcon className='materialIcon'/>
           </div>
           <div className='itemText'>R&#38;D</div>
-        </div>
+        </div> */}
       </SiderBarWrapper>
     );
   }

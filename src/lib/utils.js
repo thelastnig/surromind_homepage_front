@@ -15,3 +15,13 @@ export const dateToStringId = (raw_date) => {
     const stringFormat = moment(raw_date).format('YYYYMMDD');
     return String(stringFormat);
 }
+
+export const checkAdminLogin = (isForlogin) => {
+    if (localStorage.getItem("isSMRAdminLogin") === null || localStorage.getItem("isSMRAdminLogin") === false) {
+        if (!isForlogin) {
+            alert("잘못된 접근입니다.");
+        }
+        return false;
+    }
+    return true;
+}

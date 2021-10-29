@@ -8,6 +8,8 @@ import * as constants from '../../../lib/constants';
 
 
 class AdminMain extends Component {
+
+  componentDidMount 
   
   handleMenuClick = (url) => {
     this.props.history.push(url);

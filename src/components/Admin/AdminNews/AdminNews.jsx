@@ -13,7 +13,7 @@ import { Checkbox } from '@material-ui/core';
 
 // import spinner
 import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
+import MoonLoader from "react-spinners/MoonLoader";
 
 // import constants from constants.js
 import * as constants from '../../../lib/constants';
@@ -27,12 +27,16 @@ registerLocale("ko", ko);
 
 const override = css`
   display: block;
-  margin: 0 auto;
-  border-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;  
 `;
 
 class AdminNews extends Component {
   state = {
+    isEdit: false,
+    isContentsChange: false,
+    newsId: null,
     contentsDiv: [],
     contents: [],
     contentNum: 0,
@@ -45,6 +49,99 @@ class AdminNews extends Component {
     mainImageBase64: null,
     listImageBase64: null,
     loading: false,
+    mainImageEdit: null,
+    listImageEdit: null,
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    const type = this.isTypeEdit();
+    if (type) {
+      this.loadArticle();
+    }
+  }
+
+  isTypeEdit = () => {
+    const { match } = this.props;
+    if (match.url !== '/admin/news/add' && Object.keys(match.params).length > 0) {
+      this.setState({
+        isEdit: true
+      });
+      return true; 
+    } else {
+      this.setState({
+        isEdit: false
+      });
+      return false;
+    } 
+  }
+  
+  loadArticle = () => {
+    const { articleID } = this.props.match.params;
+    const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'detail/' + articleID + '/'
+
+    axios.get(url)
+    .then(response => {
+      const newsItem = response.data.data;
+
+      const contents = newsItem.newscontents.map((content, index) => {
+        let contentJson = {};
+        if (content.type === 'image') {
+          const contentImage = newsItem.newsimages.find((image) => (image.news_content === content.id));
+          const imagePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + contentImage.image;
+          contentJson['id'] = index;
+          contentJson['type'] = content.type;
+          contentJson['src'] = contentImage.base64;
+          contentJson['path'] = imagePath;
+        } else if (content.type === 'imageWithCaption') {
+          const contentImage = newsItem.newsimages.find((image) => (image.news_content === content.id));
+          const imagePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + contentImage.image;
+          contentJson['id'] = index;
+          contentJson['type'] = content.type;
+          contentJson['src'] = contentImage.base64;
+          contentJson['path'] = imagePath;
+          contentJson['caption'] = contentImage.caption;
+        } else {
+          contentJson['id'] = index;
+          contentJson['type'] = content.type;
+          contentJson['desc'] = content.desc;
+        }
+        return contentJson;
+      })
+
+      const contentsDiv = newsItem.newscontents.map((content, index) => {
+        let contentDivJson = {};
+        contentDivJson['id'] = index;
+        contentDivJson['type'] = content.type;
+        return contentDivJson;
+      })
+
+      const mainImage = newsItem.newsimages.find((image) => (image.type === 'main'));
+      const listImage = newsItem.newsimages.find((image) => (image.type === 'list'));
+      const mainImagePath = mainImage.length === 0 ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + mainImage.image;
+      const listImagePath = listImage.length === 0 ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + listImage.image;
+      const mainBase64 = mainImage.length === 0 ? null : mainImage.base64;
+      const listBase64 = listImage.length === 0 ? null : listImage.base64;
+
+      this.setState({
+        newsId: articleID,
+        title: newsItem.title,
+        shortTitle: newsItem.short_title,
+        tags: newsItem.tags,
+        is_hidden: newsItem.is_hidden,
+        publishedDate: new Date(newsItem.publish_date),
+        contentNum: newsItem.newscontents.length,
+        contents: contents,
+        contentsDiv: contentsDiv,
+        mainImageEdit: mainImagePath,
+        listImageEdit: listImagePath,
+        mainImageBase64: mainBase64,
+        listImageBase64: listBase64,
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   handleSetLoading = (value) => {
@@ -71,13 +168,13 @@ class AdminNews extends Component {
   }
 
   handleDelete = (id) => {
-    console.log(id)
     const { contentsDiv, contents } = this.state;
     const newContentDiv = contentsDiv.filter((item) => (item.id !== id))
     const newContents = contents.filter((item) => (item.id !== id))
     this.setState({
       contents: newContents,
-      contentsDiv: newContentDiv
+      contentsDiv: newContentDiv,
+      isContentsChange: true,
     })
   }
 
@@ -132,18 +229,20 @@ class AdminNews extends Component {
       desc: event.target.value,
     });
     this.setState({
-      contents: newContents
+      contents: newContents,
+      isContentsChange: true,
     });
   }
 
   handleCaptionChange = (event, contentNum) => {
     const { contents } = this.state;
     const newContents = contents.filter(content => content.id !== contentNum);
-    const selectedContent = contents.filter(content => content.id === contentNum)[0];
+    const selectedContent = contents.find(content => content.id === contentNum);
     selectedContent.caption = event.target.value;
     newContents.push(selectedContent);
     this.setState({
-      contents: newContents
+      contents: newContents,
+      isContentsChange: true,
     });
   }
 
@@ -160,6 +259,7 @@ class AdminNews extends Component {
       return false;
     }
     const type64Name = type + 'Base64';
+    const pathName = type + 'Edit';
     if (event.target.files[0]) {
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); 
@@ -174,7 +274,9 @@ class AdminNews extends Component {
             [type64Name]: {
               'data': base64Sub,
               'extension': extension
-            }
+            },
+            [pathName]: base64,
+            isContentsChange: true,
           })
         }
       }
@@ -200,14 +302,16 @@ class AdminNews extends Component {
           var base64Sub = base64.toString()
 			    base64Sub = base64Sub.split(',')[1];
           if (type === 'imageWithCaption') {
-            const selectedContent = contents.filter(content => content.id === contentNum)[0];
+            const selectedContent = contents.find(content => content.id === contentNum);
             selectedContent.src = {
               data: base64Sub, 
               extension: extension
             }
+            selectedContent.path = base64;
             newContents.push(selectedContent);
             this.setState({
-              contents: newContents
+              contents: newContents,
+              isContentsChange: true,
             });
           } else {
             newContents.push({
@@ -216,10 +320,12 @@ class AdminNews extends Component {
               src: {
                 data: base64Sub, 
                 extension: extension
-              }
+              },
+              path: base64
             });
             this.setState({
-              contents: newContents
+              contents: newContents,
+              isContentsChange: true,
             });
           }
         }
@@ -228,7 +334,7 @@ class AdminNews extends Component {
   }
 
   handleSubmit = () => {
-    const { title, shortTitle, tags, publishedDate, contents, checkedHidden, mainImageBase64, listImageBase64 } = this.state;
+    const { isEdit, isContentsChange, newsId, title, shortTitle, tags, publishedDate, contents, checkedHidden, mainImageBase64, listImageBase64 } = this.state;
     if (title === '') {
       alert("제목을 입력하세요.");
       return;
@@ -246,41 +352,62 @@ class AdminNews extends Component {
       return;
     }
     this.handleSetLoading(true);
-    const params = {
-      "title": title,
-      "short_title": shortTitle,
-      "publish_date": moment(publishedDate).format('YYYY-MM-DD HH:mm:ss'),
-      "tags": tags,
-      "writer": "admin",
-      "is_hidden": checkedHidden,
-      "contents": contents,
-      "main_image": mainImageBase64,
-      "list_image": listImageBase64
+    let params = {};
+    let url = "";
+    const sortedContents = contents.sort((a, b) => a.id - b.id);
+    if (isEdit) {
+      params["news_id"] = newsId;
+      params["is_simple"] = isContentsChange ? false : true;
+      params["title"] = title;
+      params["short_title"] = shortTitle;
+      params["publish_date"] = moment(publishedDate).format('YYYY-MM-DD HH:mm:ss');
+      params["writer"] = "admin";
+      params["tags"] = tags;
+      params["is_hidden"] = checkedHidden;
+      params["contents"] = sortedContents;
+      params["main_image"] = mainImageBase64;
+      params["list_image"] = listImageBase64;
+      url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'update/';
+    } else {
+      params["title"] = title;
+      params["is_simple"] = false;
+      params["short_title"] = shortTitle;
+      params["publish_date"] = moment(publishedDate).format('YYYY-MM-DD HH:mm:ss');
+      params["writer"] = "admin";
+      params["tags"] = tags;
+      params["is_hidden"] = checkedHidden;
+      params["contents"] = sortedContents;
+      params["main_image"] = mainImageBase64;
+      params["list_image"] = listImageBase64;
+      url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'add/';
     }
-
-    const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'add/';
-
     axios.post(url, params)
-    .then(function (response) {
-      console.log(response);
-      alert("정상 처리 완료");
+    .then((response) => {
+      this.handleSetLoading(false);
+      this.props.history.push('/admin/news/list/1');
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch((error) => {
+      alert("게시물 처리 시 오류 발생. 다시 시도해 주세요.");
+    this.handleSetLoading(false);
     });
   }
 
   handleCancel = () => {
 	  this.props.history.push('/admin/news/list/1');
   }
+
+  handleFileListChange = () => {
+    
+  }
  
   render () {
-    const { title, shortTitle, tags, publishedDate, checkedHidden, type, contentsDiv, contents, loading } = this.state;
+    const { isEdit, title, shortTitle, tags, publishedDate, checkedHidden, 
+            type, contentsDiv, contents, loading, mainImageEdit, listImageEdit } = this.state;
 
     const contentsRenderedDiv = contentsDiv.map((item, index) => {
       const type = item.type;
       const contentNum = item.id;
-      const content = contents.filter(content => content.id === contentNum);      
+      const content = contents.filter(content => content.id === contentNum)[0];      
 
       if (type == 'image') {
         return ( 
@@ -295,6 +422,15 @@ class AdminNews extends Component {
             <div className='contentRight'>
               <DeleteIcon fontSize='large' className='btnDelete' onClick={() => this.handleDelete(contentNum)}/>
             </div>
+          </div>
+          <div className='imageWrapper'>
+          {
+          content.path !== null
+          ?
+          <img src={content.path} className='imagePre' style={{ maxHeight: 200 }}/>
+          :
+          null
+          }
           </div>
         </div>
         )
@@ -311,6 +447,15 @@ class AdminNews extends Component {
             <div className='contentRight'>
               <DeleteIcon fontSize='large' className='btnDelete' onClick={() => this.handleDelete(contentNum)}/>
             </div>
+          </div>
+          <div className='imageWrapper'>
+          {
+          content.path !== null
+          ?
+          <img src={content.path} className='imagePre' style={{ maxHeight: 200 }}/>
+          :
+          null
+          }
           </div>
           <div className='contentItem text'>
             <input type='text' className='titleInput' placeholder='caption' value={content.caption} onChange={(e) => this.handleCaptionChange(e, contentNum)}></input>
@@ -363,7 +508,7 @@ class AdminNews extends Component {
 
     return (
       <AdminNewsWrapper>
-        <ClipLoader color="red" loading={loading} css={override} size={150} />
+        <MoonLoader color='blue' loading={loading} css={override} size={60} />
         <div className='headerWrapper'>
           <div className='headerText'>News</div>
         </div>
@@ -427,10 +572,29 @@ class AdminNews extends Component {
           <div className='contentItem file'>
             <input type='file' id='mainImage' className='fileInput' onChange={(e) => this.handleChangeFile(e, 'mainImage')} />
           </div>
+          
+          <div className='imageWrapper'>
+          {
+          mainImageEdit !== null
+          ?
+          <img src={mainImageEdit} className='imagePre'/>
+          :
+          null
+          }
+          </div>
 
           <div className='contentLabel'>■ 리스트페이지 사진</div>
           <div className='contentItem file'>
             <input type='file' id='listImage' className='fileInput' onChange={(e) => this.handleChangeFile(e, 'listImage')} />
+          </div>
+          <div className='imageWrapper caption'>
+          {
+          listImageEdit !== null
+          ?
+          <img src={listImageEdit} className='imagePre'/>
+          :
+          null
+          }
           </div>
 
           <div className='contentLabel contentArea'>■ 본문</div>
@@ -502,7 +666,6 @@ const AdminNewsWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-
     .submitBtn {
       width: 100px;
       height: 40px;
@@ -530,7 +693,6 @@ const AdminNewsWrapper = styled.div`
       font-weight: 600;
       color: #6200EE;
     }
-
   }
 
   .contentWrapper {
@@ -566,6 +728,10 @@ const AdminNewsWrapper = styled.div`
       display: flex;
       justify-content: flex-start;
       align-items: center;
+    }
+
+    &.file {
+      margin-bottom: 0px;
     }
 
     &.addContent {
@@ -637,6 +803,10 @@ const AdminNewsWrapper = styled.div`
       justify-content: space-between;
       align-items: center;
 
+      &.image, &.imageCaption {
+        margin-bottom: 0px;
+      }
+
       .contentLeft {
         width: 95%;
 
@@ -681,6 +851,14 @@ const AdminNewsWrapper = styled.div`
           resize: none;
         }
       }
+    }
+  }
+
+  .imageWrapper {
+    margin-bottom: 30px;
+
+    &.caption {
+      margin-bottom: 10px;
     }
   }
     

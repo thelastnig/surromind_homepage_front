@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
+import NotFound from '../../components/common/NotFound';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map, List } from 'immutable';
-import NewsList from '../components/NewsList';
 
-
-class NewsListContainer extends Component {
+class NotFoundContainer extends Component {
 
   componentDidMount() {
-
   }
 
   render() {
     return (
       <div>
-        <NewsList {...this.props}/>
+        <NotFound {...this.props}/>
       </div>
     );
   }
@@ -27,4 +25,4 @@ export default connect(
   }),
   (dispatch) => ({
   })
-)(withRouter(NewsListContainer));
+)(withRouter(NotFoundContainer));

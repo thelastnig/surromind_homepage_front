@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
+import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
+import MediaQuery from 'react-responsive'
 
 // import constants from constants.js
 import * as constants from '../../lib/constants'
@@ -9,13 +11,8 @@ import * as constants from '../../lib/constants'
 // import slider images
 import mainSlide1 from '../../images/mainSlide1.jpg';
 import mainSlide2 from '../../images/mainSlide2.jpg';
-import mainSlide3 from '../../images/mainSlide3.jpg';
-import mainSlide4 from '../../images/mainSlide4.jpg';
-import mainSlideMobile0 from '../../images/mobile/mainSlideMobile0.jpg';
 import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.png';
 import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.png';
-import mainSlideMobile3 from '../../images/mobile/mainSlideMobile3.png';
-import mainSlideMobile4 from '../../images/mobile/mainSlideMobile4.png';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -34,6 +31,36 @@ const StyledArrowLeft = styled(ArrowLeft)`
 `;
 
 class MainSlider extends Component {
+  state = {
+    banners: []
+  }
+
+  componentDidMount() {
+    this.loadBanners();
+  }
+
+  loadBanners = () => {
+    const url = process.env.REACT_APP_BACKEND_API_BANNER_ENDPOINT + 'list/';
+
+    axios.get(url)
+    .then(response => {
+      const itemsList = response.data.data;
+      const items = itemsList.map((item, index) => {
+        const imageDesktopPath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_desktop;
+        const imageMobilePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_mobile;
+        return {
+          desktop: imageDesktopPath,
+          mobile: imageMobilePath
+        };
+      });
+      this.setState({
+        banners: items
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
 
   handleClick = (url) => {
     ReactGA.event({
@@ -66,6 +93,7 @@ class MainSlider extends Component {
   };
 
   render() {
+    const { banners } = this.state;
     const settings = {
       dots: true,
       arrows: false,
@@ -87,26 +115,50 @@ class MainSlider extends Component {
       ]
     };
 
+    let slides = [];
+
+    if (banners.length === 0) {
+      slides = 
+        <>
+        <div className='eachSlide'>
+          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+            <img src={mainSlideMobile1} className="mobile"/>
+          </MediaQuery>
+          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+            <img src={mainSlide1} className="desktop"/> 
+          </MediaQuery>
+        </div>
+
+        <div className='eachSlide'>
+          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+            <img src={mainSlideMobile2} className="mobile"/>
+          </MediaQuery>
+          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+            <img src={mainSlide2} className="desktop"/>
+          </MediaQuery>
+        </div>
+      </>
+    } else {
+      slides = banners.map((banner, index) => {
+        return (
+          <div className='eachSlide' key={index}>
+          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+            <img src={banner.mobile} className='mobile'/>
+          </MediaQuery>
+          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+            <img src={banner.desktop} className="desktop"/>
+          </MediaQuery>
+          </div>
+        )
+      });
+    }
+
     return (
       <MainSliderWrapper >
         <div className='slideWrapper'>
           {this.renderArrows()}
           <Slider {...settings} ref={c => this.slider = c}>
-            <div className='eachSlide'>
-              <img src={mainSlide1} className="slideImage1"/>
-            </div>
-
-            <div className='eachSlide'>
-              <img src={mainSlide2} className="slideImage2"/>
-            </div>
-
-            <div className='eachSlide'>
-              <img src={mainSlide3} className="slideImage3"/>
-            </div>
-
-            <div className='eachSlide'>
-              <img src={mainSlide4} className="slideImage4"/>
-            </div>
+            {slides}
           </Slider>
         </div>
       </MainSliderWrapper>
@@ -162,42 +214,10 @@ const MainSliderWrapper = styled.div`
 
     img {
       margin: 0 auto;
-
-      &.slideImage0 {
-        cursor: pointer;
-        @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          width: 100%;
-          content: url(${mainSlideMobile0});
-        }
-      }
-
-      &.slideImage1 {
-        @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          width: 100%;
-          content: url(${mainSlideMobile1});
-        }
-      }
-      
-      &.slideImage2 {
-        @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          width: 100%;
-          content: url(${mainSlideMobile2});
-        }
-      }
-      
-      &.slideImage3 {
-        @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          width: 100%;
-          content: url(${mainSlideMobile3});
-        }
-      }
-      
-      &.slideImage4 {
-        @media (max-width: ${constants.MOBILE_WIDTH}px) {
-          width: 100%;
-          content: url(${mainSlideMobile4});
-        }
-      }
+    }
+    
+    .mobile {
+      width: 100%;
     }
   }
 

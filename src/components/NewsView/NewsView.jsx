@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
+import axios from 'axios';
 
 // import constants from constants.js
 import * as constants from '../../lib/constants';
@@ -14,28 +15,51 @@ import newsContents from '../../lib/mainNews';
 // import backto component
 import BackToList from '../common/BackToList';
 
+// import utils
+import { stringToDate, dateToString, dateToStringId } from '../../lib/utils';
+
 class NewsView extends Component {
+  state = {
+    newsItem: {
+      newscontents: []
+    }
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.loadArticle();
+  }
+
+  loadArticle = () => {
+    const { articleID } = this.props.match.params;
+    const newsID = articleID.substr(8, articleID.length);
+    const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'detail/' + newsID + '/'
+
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        newsItem: response.data.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
   
   render() {
-    const { articleID } = this.props.match.params;
-    const newsItem = newsContents.find(item => 
-      item.id === articleID
-    );
+    const { newsItem } = this.state;
 
     const makeDivWithClassName = (content, index) => {
+      const imageRoot = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT;
       let div = <div className="eachContent normal" key={index}></div>
 
       if (content.type === 'image') {
         div = <div className="eachContentImage" key={index}>
-          <img src={content.src} alt='news image'/>
+          <img src={imageRoot + content.image} alt='news image'/>
         </div>
       } else if (content.type === 'imageWithCaption') {
         div = <div className="eachContentImage withCaption" key={index}>
-          <img src={content.src} alt='news image'/>
+          <img src={imageRoot + content.image} alt='news image'/>
         </div>
       } else if (content.type === 'imageWithLink') {
         div = <div className="eachContentImage withLink" key={index}>
@@ -57,18 +81,47 @@ class NewsView extends Component {
       return div
     }
 
-    const newsContentsList = newsItem.contents.contentsList.map((content, index) => {
-      const div = makeDivWithClassName(content,index);
-      return (
-        div
-      )
+    const newsContentsList = newsItem.newscontents.map((content, index) => {
+      if (content.type === "image") {
+        const newsImageItem = newsItem.newsimages.filter(image => image.news_content == content.id)[0];
+        const div = makeDivWithClassName(newsImageItem, index)
+        return (div);
+      } else if (content.type === "imageWithCaption") {
+        const newsImageItem = newsItem.newsimages.filter(image => image.news_content == content.id)[0];
+        const divImage = makeDivWithClassName(newsImageItem, index);
+        const divCaption = makeDivWithClassName({
+          type: "imageCaption",
+          desc: newsImageItem.caption
+        }, String(index) + '-');
+        return (
+          <Fragment>
+            {divImage}
+            {divCaption}
+          </Fragment>
+        )
+      } else {
+        const div = makeDivWithClassName(content, index);
+        return (div);
+      }
     });
-    
-    const keywordsList = newsItem.keywords.map((keyword, index) => {
-      return (
-        <div key={index} className='keyword'>#{keyword}</div>
-      );
-    });
+
+    let keywordsList = [];
+
+    if (newsItem.tags) {
+      const keywords = newsItem.tags.split(',');
+      keywordsList = keywords.map((keyword, index) => {
+          return (
+            <div key={index} className='keyword'>#{keyword}</div>
+          );
+        });
+    }
+
+    let newsDate = '';
+
+    if (newsItem.publish_date) {
+      const tempDate = stringToDate(newsItem.publish_date);
+      newsDate = dateToString(tempDate);
+    }
 
     return (
       <Wrapper>
@@ -80,9 +133,9 @@ class NewsView extends Component {
                 <div className='newsInfo'>NEWS</div>
                 <div className='newsKewordsWrapper'>{keywordsList}</div>
               </div>
-              <div className='newsDate'>{newsItem.date}</div>
+              <div className='newsDate'>{newsDate}</div>
               <div className='newsText'>
-                <div className='newsTextTitle'>{newsItem.contents.title}</div>
+                <div className='newsTextTitle'>{newsItem.title}</div>
                 <div className='newsTextContents'>
                   {newsContentsList}
                 </div>
