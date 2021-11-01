@@ -118,10 +118,10 @@ class AdminNews extends Component {
 
       const mainImage = newsItem.newsimages.find((image) => (image.type === 'main'));
       const listImage = newsItem.newsimages.find((image) => (image.type === 'list'));
-      const mainImagePath = mainImage.length === 0 ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + mainImage.image;
-      const listImagePath = listImage.length === 0 ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + listImage.image;
-      const mainBase64 = mainImage.length === 0 ? null : mainImage.base64;
-      const listBase64 = listImage.length === 0 ? null : listImage.base64;
+      const mainImagePath = (typeof mainImage == 'undefined' || mainImage == null) ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + mainImage.image;
+      const listImagePath = (typeof listImage == 'undefined' || listImage == null) ? null : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + listImage.image;
+      const mainBase64 = (typeof mainImage == 'undefined' || mainImage == null) ? null : mainImage.base64;
+      const listBase64 = (typeof listImage == 'undefined' || listImage == null) ? null : listImage.base64;
 
       this.setState({
         newsId: articleID,
