@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link, withRouter } from 'react-router-dom';
+import axios from 'axios';
+
 
 // import constants from constants.js
 import * as constants from '../../lib/constants'
@@ -18,7 +20,37 @@ import imgBg02 from '../../images/backgound-icon/img-bg-graphic-02.png';
 import imgBg08 from '../../images/backgound-icon/img-bg-graphic-08.png';
 import imgBg09 from '../../images/backgound-icon/img-bg-graphic-09.png';
 
+// import default main image
+import defaultListImage from '../../images/default.jpg';
+
+// import utils
+import { stringToDate, dateToString, dateToStringId } from '../../lib/utils';
+
+
+
 class MainNews extends Component {
+
+  state = {
+    newsContents: []
+  }
+
+  componentDidMount() {
+    this.loadNewsContent(1);
+  }
+  
+  loadNewsContent = (page) => {
+    const url = process.env.REACT_APP_BACKEND_API_ENDPOINT + 'list/' + page + '/';
+
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        newsContents: response.data.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
 
   handleClick = (url) => {
     this.props.history.push(url);
@@ -29,23 +61,53 @@ class MainNews extends Component {
   }
 
   render() {
-    const newsItems = mainNewsContents.map((item, index) => {
-      if (index > 3) {
-        return;
-      }
-      return (
-        <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
-          <img src={item.image} alt={item.image}/>
-          <div className='newsAddLayer'>
-            <div className='newsTextWrapper'>
-              <div className='itemType'>{item.type}</div>
-              <div className='itemDate'>{item.date}</div>
-              <div className='itemTitle'>{item.title}</div>
+    const { newsContents } = this.state;
+    let newsItems = null;
+
+    if (newsContents.length === 0) {
+      newsItems = mainNewsContents.map((item, index) => {
+        if (index > 3) {
+          return;
+        }
+        return (
+          <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
+            <img src={item.image} alt={item.image}/>
+            <div className='newsAddLayer'>
+              <div className='newsTextWrapper'>
+                <div className='itemType'>{item.type}</div>
+                <div className='itemDate'>{item.date}</div>
+                <div className='itemTitle'>{item.title}</div>
+              </div>
             </div>
           </div>
-        </div>
-      )
-    })
+        )
+      })
+    } else {
+      newsItems = newsContents.map((item, index) => {
+        if (index > 3) {
+          return;
+        }
+      const tempDate = stringToDate(item.publish_date);
+      const itemDate = dateToString(tempDate);
+      const itemID = dateToStringId(tempDate) + String(item.id);
+      const url = `/surromindnews/article/${itemID}`;
+      const imageList = item.newsimages;
+      const listImage = imageList.find(image => image.type === 'main');
+      const imagePath = (typeof listImage == 'undefined' || listImage == null)  ? defaultListImage : process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + listImage.image;
+        return (
+          <div className='newsItem' key={index} onClick={() => this.handleClick(url)}>
+            <img src={imagePath} alt={imagePath}/>
+            <div className='newsAddLayer'>
+              <div className='newsTextWrapper'>
+                <div className='itemType'>NEWS</div>
+                <div className='itemDate'>{itemDate}</div>
+                <div className='itemTitle'>{item.short_title}</div>
+              </div>
+            </div>
+          </div>
+        )
+      })
+    }
 
     return (
       <Fragment>
