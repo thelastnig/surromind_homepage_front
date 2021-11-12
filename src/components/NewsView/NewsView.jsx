@@ -214,6 +214,7 @@ const Wrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      flex-wrap: wrap;
   
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;
@@ -227,6 +228,7 @@ const Wrapper = styled.div`
         padding-bottom: 5px;
         padding-left: 15px;
         padding-right: 15px;
+        margin-bottom: 5px;
         
         font-family: ${constants.APPLE_FONT};
         
