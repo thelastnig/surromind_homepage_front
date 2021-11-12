@@ -65,23 +65,24 @@ class MainNews extends Component {
     let newsItems = null;
 
     if (newsContents.length === 0) {
-      newsItems = mainNewsContents.map((item, index) => {
-        if (index > 3) {
-          return;
-        }
-        return (
-          <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
-            <img src={item.image} alt={item.image}/>
-            <div className='newsAddLayer'>
-              <div className='newsTextWrapper'>
-                <div className='itemType'>{item.type}</div>
-                <div className='itemDate'>{item.date}</div>
-                <div className='itemTitle'>{item.title}</div>
-              </div>
-            </div>
-          </div>
-        )
-      })
+      newsItems = null;
+      // newsItems = mainNewsContents.map((item, index) => {
+      //   if (index > 3) {
+      //     return;
+      //   }
+      //   return (
+      //     <div className='newsItem' key={index} onClick={() => this.handleClick(item.url)}>
+      //       <img src={item.image} alt={item.image}/>
+      //       <div className='newsAddLayer'>
+      //         <div className='newsTextWrapper'>
+      //           <div className='itemType'>{item.type}</div>
+      //           <div className='itemDate'>{item.date}</div>
+      //           <div className='itemTitle'>{item.title}</div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   )
+      // })
     } else {
       newsItems = newsContents.map((item, index) => {
         if (index > 3) {
