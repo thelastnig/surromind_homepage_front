@@ -45,7 +45,8 @@ const Root = (props) => {
     <RootWrapper>
         <div className="innerWrapper">
             <Switch>
-              <Route exact path="/" component={MainPage} history={browserHistory}/>
+              {/* <Route exact path="/" component={MainPage} history={browserHistory} {...props}/> */}
+              <Route exact path="/" render={() => <MainPage {...props} history={browserHistory}/>}/>
               <Route exact path="/surromindnews/list/:page" component={NewsListPage} history={browserHistory}/>
               <Route exact path="/surromindnews/article/:articleID" component={NewsViewPage} history={browserHistory}/>
               <Route exact path="/project/list/:page" component={ProjectListPage} history={browserHistory}/>

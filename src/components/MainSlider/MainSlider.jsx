@@ -141,6 +141,17 @@ class MainSlider extends Component {
     } else {
       slides = banners.map((banner, index) => {
         return (
+          index == 0
+          ?          
+          <div className='eachSlide click' key={index} onClick={this.props.handleMoveBtnClick}>
+            <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+              <img src={banner.mobile} className='mobile'/>
+            </MediaQuery>
+            <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+              <img src={banner.desktop} className="desktop"/>
+            </MediaQuery>
+          </div>
+          :
           <div className='eachSlide' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>

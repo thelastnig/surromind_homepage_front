@@ -30,7 +30,7 @@ class MainSliderContainer extends Component {
   render() {
     return (
       <div>
-        <MainSlider/>
+        <MainSlider {...this.props}/>
       </div>
     );
   }

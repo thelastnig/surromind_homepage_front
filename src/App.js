@@ -69,6 +69,10 @@ class App extends Component {
     });
   }
 
+  handleMoveBtnClick = () => {
+    window.scrollTo({top:(this.ContactWrapper.offsetTop - 100), behavior: 'smooth'});
+  }
+
   render() {
     const { isScrolled, isSidebarOpen, clickNum, isAdmin, isContactInvisible } = this.state;
     return (
@@ -83,9 +87,13 @@ class App extends Component {
                 <div className='limitWrapper'><HeaderContainer toggleSidebar={this.toggleSidebar}/></div>
               </HeaderWrapper> 
               <RootWrapper isAdmin={isAdmin}>
-                <div className='limitWrapper'><Root setIsAdmin={this.setIsAdmin} setIsContactInvisible={this.setIsContactInvisible}/></div>
+                <div className='limitWrapper'>
+                  <Root setIsAdmin={this.setIsAdmin} 
+                  setIsContactInvisible={this.setIsContactInvisible}
+                  handleMoveBtnClick={this.handleMoveBtnClick}/>
+                </div>
               </RootWrapper>
-              <ContactWrapper isAdmin={isAdmin} isContactInvisible={isContactInvisible}>
+              <ContactWrapper isAdmin={isAdmin} isContactInvisible={isContactInvisible} ref={(ref) => {this.ContactWrapper=ref}}>
                 <div className='limitWrapper'><ContactComponentContainer/></div>
               </ContactWrapper>
               <FooterWrapper isAdmin={isAdmin}>

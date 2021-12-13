@@ -11,11 +11,11 @@ import MainCareersContainer from '../containers/MainCareersContainer';
 import * as constants from '../lib/constants';
 
 
-const MainPage = () => {
+const MainPage = (props) => {
 
   return (
     <div>
-      <MainSliderContainer/>
+      <MainSliderContainer {...props}/>
       {/* <MainInteractiveContainer/> */}
       <MainNewsContainer/>
       <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>

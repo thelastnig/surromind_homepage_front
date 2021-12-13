@@ -19,7 +19,8 @@ import emailjs from 'emailjs-com';
 import ReactGA from 'react-ga';
 
 const typeKorName = {
-  checkedML: '머신러닝',
+  checkedVoucher: '바우처 지원사업',
+  checkedML: '머신러닝/딥러닝',
   checkedAISolution: 'AI 솔루션',
   checkedPartnership: '파트너쉽',
   checkedCareers: '채용/인사',
@@ -177,6 +178,7 @@ class Contact extends Component {
                     onFocus={() => this.onFocus('type')} 
                     >
               <option value='' className='inputOption'>써로마인드에 문의할 내용을 선택해주세요.</option>
+              <option value='checkedVoucher' className='inputOption'>바우처 지원사업</option>
               <option value='checkedML' className='inputOption'>머신러닝/딥러닝</option>
               <option value='checkedAISolution' className='inputOption'>AI 솔루션</option>
               <option value='checkedPartnership' className='inputOption'>파트너쉽</option>
