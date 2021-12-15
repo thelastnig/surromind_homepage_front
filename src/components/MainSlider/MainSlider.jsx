@@ -117,52 +117,52 @@ class MainSlider extends Component {
 
     let slides = [];
 
-    if (banners.length === 0) {
-      slides = 
-        <>
-        <div className='eachSlide'>
-          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={mainSlideMobile1} className="mobile"/>
-          </MediaQuery>
-          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-            <img src={mainSlide1} className="desktop"/> 
-          </MediaQuery>
-        </div>
+    // if (banners.length === 0) {
+    //   slides = 
+    //     <>
+    //     <div className='eachSlide'>
+    //       <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+    //         <img src={mainSlideMobile1} className="mobile"/>
+    //       </MediaQuery>
+    //       <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+    //         <img src={mainSlide1} className="desktop"/> 
+    //       </MediaQuery>
+    //     </div>
 
-        <div className='eachSlide'>
-          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={mainSlideMobile2} className="mobile"/>
-          </MediaQuery>
-          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-            <img src={mainSlide2} className="desktop"/>
-          </MediaQuery>
-        </div>
-      </>
-    } else {
-      slides = banners.map((banner, index) => {
-        return (
-          index == 0
-          ?          
-          <div className='eachSlide click' key={index} onClick={this.props.handleMoveBtnClick}>
-            <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-              <img src={banner.mobile} className='mobile'/>
-            </MediaQuery>
-            <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-              <img src={banner.desktop} className="desktop"/>
-            </MediaQuery>
-          </div>
-          :
-          <div className='eachSlide' key={index}>
+    //     <div className='eachSlide'>
+    //       <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+    //         <img src={mainSlideMobile2} className="mobile"/>
+    //       </MediaQuery>
+    //       <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+    //         <img src={mainSlide2} className="desktop"/>
+    //       </MediaQuery>
+    //     </div>
+    //   </>
+    // } else {
+    slides = banners.map((banner, index) => {
+      return (
+        index == 0
+        ?          
+        <div className='eachSlide click' key={index} onClick={this.props.handleMoveBtnClick}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
             <img src={banner.desktop} className="desktop"/>
           </MediaQuery>
-          </div>
-        )
-      });
-    }
+        </div>
+        :
+        <div className='eachSlide' key={index}>
+        <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+          <img src={banner.mobile} className='mobile'/>
+        </MediaQuery>
+        <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+          <img src={banner.desktop} className="desktop"/>
+        </MediaQuery>
+        </div>
+      )
+    });
+    // }
 
     return (
       <MainSliderWrapper >
