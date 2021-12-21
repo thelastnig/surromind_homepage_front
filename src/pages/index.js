@@ -9,6 +9,7 @@ export { default as CareersListPage } from './CareersListPage';
 export { default as CareersViewPage } from './CareersViewPage';
 export { default as ContactPage } from './ContactPage';
 export { default as VoucherPage } from './VoucherPage';
+export { default as Voucher2022Page } from './Voucher2022Page';
 export { default as AdminLoginPage } from './AdminLoginPage';
 export { default as AdminPage } from './AdminPage';
 export { default as AdminNewsPage } from './AdminNewsPage';

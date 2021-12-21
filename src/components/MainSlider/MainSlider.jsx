@@ -63,13 +63,13 @@ class MainSlider extends Component {
   }
 
   handleClick = (url) => {
-    ReactGA.event({
-      category: 'User',
-      action: 'Click Event1 Button',
-      label: 'Go to Event1 Page',
-    });
+    // ReactGA.event({
+    //   category: 'User',
+    //   action: 'Click Event1 Button',
+    //   label: 'Go to Event1 Page',
+    // });
     this.props.history.push(url);
-  }    
+  }     
   
   renderArrows = () => {
     return (
@@ -143,7 +143,7 @@ class MainSlider extends Component {
       return (
         index == 0
         ?          
-        <div className='eachSlide click' key={index} onClick={this.props.handleMoveBtnClick}>
+        <div className='eachSlide click' key={index} onClick={() => this.handleClick('/aivoucher2022')}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>
           </MediaQuery>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Router, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
-  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage,
+  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage, Voucher2022Page,
   AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage, AdminBannerPage, AdminLoginPage, NotFoundPage } from '../pages';
 import styled from 'styled-components';
 
@@ -56,6 +56,7 @@ const Root = (props) => {
               <Route exact path="/careers/content/:careerID" component={CareersViewPage} history={browserHistory}/>
               <Route exact path="/careers/list/:page" component={CareersListPage} history={browserHistory}/>
               <Route exact path="/company/voucher" component={VoucherPage} history={browserHistory}/>
+              <Route exact path="/aivoucher2022" component={Voucher2022Page} history={browserHistory}/>
               <Route exact path="/admin" component={AdminLoginPage} history={browserHistory}/>
               <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
               <Route exact path="/event01" component={AIStudioEventPage} />
