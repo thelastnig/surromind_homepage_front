@@ -121,7 +121,7 @@ class MainSlider extends Component {
       return (
         index == 0
         ?          
-        <div className='eachSlide click' key={index} onClick={() => this.handleClick('/aivoucher2022')}>
+        <div className='eachSlide click' key={index} onClick={() => this.handleClick('/datavoucher2022')}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>
           </MediaQuery>
