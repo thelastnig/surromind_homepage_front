@@ -81,7 +81,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
 
   .RNDInnerWrapper {
-    width: ${constants.LIMIT_WIDTH}px;
+    width: ${constants.LIMIT_WIDTH - 2}px;
     height: ${constants.MAIN_RND_HEIGHT}px;
     border: 1px solid white;
     background-color: white;

@@ -195,7 +195,7 @@ const Wrapper = styled.div`
   }
 
   .contentsWrapper {
-    width: ${constants.LIMIT_WIDTH}px;
+    width: ${constants.LIMIT_WIDTH - 2}px;
     height: ${constants.MAIN_AIPLATFORM_HEIGHT}px; 
     margin: 0 auto;
     

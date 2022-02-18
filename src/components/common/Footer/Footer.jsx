@@ -135,12 +135,13 @@ class Footer extends Component {
 export default withRouter(Footer);
 
 const FooterInnerWrapper = styled.div`
+  width: ${constants.LIMIT_WIDTH}px;
   width: 100%;
   margin: 0 auto;
   background-color: #f1f1f1;
 
   .contentsWrapper {
-    width: ${constants.LIMIT_WIDTH}px;
+    width: ${constants.LIMIT_WIDTH - 2}px;
     margin: 0 auto;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
@@ -153,6 +154,7 @@ const FooterInnerWrapper = styled.div`
     width: 100%;
     height: ${constants.FOOTER_UPPER_HEIGHT}px;
     border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       height: 306px;
@@ -321,13 +323,14 @@ const FooterInnerWrapper = styled.div`
     width: 100%;
     margin: 0 auto;
     background-color: #1e1f22;
-    border: 1px solid #1e1f22;
   }
 
   .lowerArea {
     margin: 0 auto;
-    width: ${constants.LIMIT_WIDTH}px;
+    width: ${constants.LIMIT_WIDTH - 2}px;
     height: ${constants.FOOTER_LOWER_HEIGHT}px;
+    background-color: #1e1f22;
+    border: 1px solid #1e1f22;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 95%;
@@ -431,6 +434,5 @@ const FooterInnerWrapper = styled.div`
   }
     
 `;
-
 
 

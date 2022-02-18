@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import oc from 'open-color';
 import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 
 // import constants from constants.js
 import * as constants from '../../lib/constants'
@@ -45,6 +45,7 @@ class MainSlider extends Component {
     axios.get(url)
     .then(response => {
       const itemsList = response.data.data;
+      console.log(itemsList);
       const items = itemsList.map((item, index) => {
         const imageDesktopPath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_desktop;
         const imageMobilePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_mobile;
@@ -103,6 +104,7 @@ class MainSlider extends Component {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 8000,
+      initialSlide: 0,
       responsive: [
         {
           breakpoint: 768,
@@ -117,7 +119,10 @@ class MainSlider extends Component {
 
     let slides = [];
 
+    console.log(banners)
+
     slides = banners.map((banner, index) => {
+      console.log(index)
       return (
         index == 0
         ?          
@@ -141,14 +146,22 @@ class MainSlider extends Component {
       )
     });
 
+    console.log(slides)
+
 
     return (
       <MainSliderWrapper >
         <div className='slideWrapper'>
           {this.renderArrows()}
+          {
+          (banners != null && banners.length > 0)
+          ?
           <Slider {...settings} ref={c => this.slider = c}>
-            {slides}
+              {slides}
           </Slider>
+          :
+          null 
+          }
         </div>
       </MainSliderWrapper>
     );

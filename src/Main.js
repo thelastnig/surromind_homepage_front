@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import configure from './store/configure';
 import App from './App';
 import transit from 'transit-immutable-js';
+import GlobalStyle from "./GlobalStyle";
+
 
 const preloadedState = window.__PRELOADED_STATE__ && transit.fromJSON(window.__PRELOADED_STATE__);
 
@@ -12,6 +14,7 @@ class Main extends Component {
   render() {
     return (
       <Provider store={store}>
+        <GlobalStyle />
         <App/>
       </Provider>
     );
