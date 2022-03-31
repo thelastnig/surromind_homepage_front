@@ -22,6 +22,7 @@ import recruit_4 from '../../images/recruit_4.jpg';
 import recruit_5 from '../../images/recruit_5.jpg';
 import recruit_6 from '../../images/recruit_6.jpg';
 import recruit_7 from '../../images/recruit_7.jpg';
+import recruit_8 from '../../images/recruit_8.jpg';
 
 
 class CareersList extends Component {
@@ -52,12 +53,13 @@ class CareersList extends Component {
             {cardList}
           </div> */}
           <div className="hiddenRecruitItem"><img src={recruit_1} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_2} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_3} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_4} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_5} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_6} alt='recruit_1' /></div>        
-          <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_1' /></div>            
+          <div className="hiddenRecruitItem"><img src={recruit_2} alt='recruit_2' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_3} alt='recruit_3' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_4} alt='recruit_4' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_5} alt='recruit_5' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_6} alt='recruit_6' /></div>        
+          <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_7' /></div>        
+          <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>           
         </div>
         {/* <div className="hiddenRecruitArea">
 
