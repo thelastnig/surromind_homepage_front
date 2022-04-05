@@ -54,7 +54,7 @@ class MainRND extends Component {
             </div>
             <div className="videoWrapper">
               <ReactPlayer 
-                url='https://www.youtube.com/watch?v=W-qJCFx358c'
+                url='https://www.youtube.com/watch?v=YTlQ2ZzLR04'
                 width={854}
                 height={480}
                 onStart={this.clickButton}
@@ -62,7 +62,7 @@ class MainRND extends Component {
             </div>
             <div className="videoWrapperMobile">
               <ReactPlayer 
-                url='https://www.youtube.com/watch?v=W-qJCFx358c'
+                url='https://www.youtube.com/watch?v=YTlQ2ZzLR04'
                 width="100%"
                 onStart={this.clickButton}
               />

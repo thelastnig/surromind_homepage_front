@@ -25,6 +25,8 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 // GA settings
 import ReactGA from 'react-ga';
 
+// Temp = Smart Fair
+import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
 
 const StyledArrowLeft = styled(ArrowLeft)`
   font-size: 50px;
@@ -45,7 +47,6 @@ class MainSlider extends Component {
     axios.get(url)
     .then(response => {
       const itemsList = response.data.data;
-      console.log(itemsList);
       const items = itemsList.map((item, index) => {
         const imageDesktopPath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_desktop;
         const imageMobilePath = process.env.REACT_APP_BACKEND_IMAGE_ENDPOINT + item.image_mobile;
@@ -69,8 +70,13 @@ class MainSlider extends Component {
     //   action: 'Click Event1 Button',
     //   label: 'Go to Event1 Page',
     // });
-    this.props.history.push(url);
-  }     
+    // this.props.history.push(url);
+    window.open('https://www.automationworld.co.kr/fairDash.do?hl=KOR', '_blank')
+  }
+  
+  handleButtonClick = () => {
+    console.log('click button');
+  }
   
   renderArrows = () => {
     return (
@@ -118,20 +124,19 @@ class MainSlider extends Component {
     };
 
     let slides = [];
-
-    console.log(banners)
-
     slides = banners.map((banner, index) => {
-      console.log(index)
       return (
         index == 0
         ?          
-        <div className='eachSlide click' key={index} onClick={() => this.handleClick('/datavoucher2022')}>
+        <div className='eachSlide click' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={banner.mobile} className='mobile'/>
+            <img src={banner.mobile} className='mobile' onClick={() => this.handleClick('/datavoucher2022')}/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-            <img src={banner.desktop} className="desktop"/>
+            <img src={banner.desktop} className="desktop" usemap="#button" onClick={() => this.handleClick('/datavoucher2022')}/>
+            <map name="button">
+              <area className="areaMap" shape='rect' coords='1098,368,1343,417' alt='pamphletButton' href={smartFairPamphlet}></area>
+            </map>
           </MediaQuery>
         </div>
         :
@@ -145,10 +150,6 @@ class MainSlider extends Component {
         </div>
       )
     });
-
-    console.log(slides)
-
-
     return (
       <MainSliderWrapper >
         <div className='slideWrapper'>
@@ -220,6 +221,10 @@ const MainSliderWrapper = styled.div`
     
     .mobile {
       width: 100%;
+    }
+
+    .areaMap {
+      border: 1px solid red;
     }
   }
 
