@@ -71,12 +71,12 @@ class MainSlider extends Component {
     //   label: 'Go to Event1 Page',
     // });
     // this.props.history.push(url);
-    window.open('https://www.automationworld.co.kr/fairDash.do?hl=KOR', '_blank')
+    // window.open('https://www.automationworld.co.kr/fairDash.do?hl=KOR', '_blank')
   }
   
-  handleButtonClick = () => {
-    console.log('click button');
-  }
+  // handleButtonClick = () => {
+  //   console.log('click button');
+  // }
   
   renderArrows = () => {
     return (
@@ -128,15 +128,15 @@ class MainSlider extends Component {
       return (
         index == 0
         ?          
-        <div className='eachSlide click' key={index}>
+        <div className='eachSlide' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={banner.mobile} className='mobile' onClick={() => this.handleClick('/datavoucher2022')}/>
+            <img src={banner.mobile} className='mobile'/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-            <img src={banner.desktop} className="desktop" usemap="#button" onClick={() => this.handleClick('/datavoucher2022')}/>
-            <map name="button">
+            <img src={banner.desktop} className="desktop" usemap="#button"/>
+            {/* <map name="button">
               <area className="areaMap" shape='rect' coords='1098,368,1343,417' alt='pamphletButton' href={smartFairPamphlet}></area>
-            </map>
+            </map> */}
           </MediaQuery>
         </div>
         :
