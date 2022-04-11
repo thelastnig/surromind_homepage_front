@@ -25,9 +25,6 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 // GA settings
 import ReactGA from 'react-ga';
 
-// Temp = Smart Fair
-import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
-
 const StyledArrowLeft = styled(ArrowLeft)`
   font-size: 50px;
 `;
@@ -137,7 +134,7 @@ class MainSlider extends Component {
             {/* <map name="button">
               <area className="areaMap" shape='rect' coords='1098,368,1343,417' alt='pamphletButton' href={smartFairPamphlet}></area>
             </map> */}
-          </MediaQuery>
+          </MediaQuery>click
         </div>
         :
         <div className='eachSlide' key={index}>
