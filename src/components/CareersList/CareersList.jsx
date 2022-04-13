@@ -23,6 +23,7 @@ import recruit_5 from '../../images/recruit_5.jpg';
 import recruit_6 from '../../images/recruit_6.jpg';
 import recruit_7 from '../../images/recruit_7.jpg';
 import recruit_8 from '../../images/recruit_8.jpg';
+import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
 
 
 class CareersList extends Component {
@@ -59,7 +60,8 @@ class CareersList extends Component {
           <div className="hiddenRecruitItem"><img src={recruit_5} alt='recruit_5' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_6} alt='recruit_6' /></div>        
           <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_7' /></div>        
-          <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>           
+          <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>       
+          <div className="pamphlet hidden"><a href={smartFairPamphlet}></a></div>         
         </div>
         {/* <div className="hiddenRecruitArea">
 
@@ -119,7 +121,10 @@ const Wrapper = styled.div`
       max-width: 100%;
       object-fit: cover;
     }
+  }
 
+  .pamphlet {
+    display: none;
   }
 `;
 
