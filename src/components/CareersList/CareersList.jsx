@@ -124,7 +124,7 @@ const Wrapper = styled.div`
   }
 
   .pamphlet {
-    display: none;
+    display: none
   }
 `;
 

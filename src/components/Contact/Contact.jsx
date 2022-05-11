@@ -82,6 +82,9 @@ class Contact extends Component {
       action: 'enter contact input',
       label: 'send question',
     });
+
+    var _nasa={};
+    if(window.wcs) _nasa["cnv"] = window.wcs.cnv("4","1");
     
     let templateParams = {
       from_name: name,
