@@ -84,7 +84,10 @@ class Contact extends Component {
     });
 
     var _nasa={};
-    if(window.wcs) _nasa["cnv"] = window.wcs.cnv("4","1");
+    if(window.wcs) {
+      _nasa["cnv"] = window.wcs.cnv("4","1");
+      window.wcs_do(_nasa);
+    }
     
     let templateParams = {
       from_name: name,

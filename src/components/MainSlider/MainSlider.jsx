@@ -130,11 +130,11 @@ class MainSlider extends Component {
             <img src={banner.mobile} className='mobile'/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-            <img src={banner.desktop} className="desktop" usemap="#button"/>
+            <img src={banner.desktop} className="desktop" useMap="#button"/>
             {/* <map name="button">
               <area className="areaMap" shape='rect' coords='1098,368,1343,417' alt='pamphletButton' href={smartFairPamphlet}></area>
             </map> */}
-          </MediaQuery>click
+          </MediaQuery>
         </div>
         :
         <div className='eachSlide' key={index}>
