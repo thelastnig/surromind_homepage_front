@@ -71,9 +71,9 @@ class MainSlider extends Component {
     // window.open('https://www.automationworld.co.kr/fairDash.do?hl=KOR', '_blank')
   }
   
-  // handleButtonClick = () => {
-  //   console.log('click button');
-  // }
+  handleButtonClick = (url) => {
+    this.props.history.push(url);
+  }
   
   renderArrows = () => {
     return (
@@ -127,13 +127,13 @@ class MainSlider extends Component {
         ?          
         <div className='eachSlide' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={banner.mobile} className='mobile'/>
+            <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_02')}/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
             <img src={banner.desktop} className="desktop" useMap="#button"/>
-            {/* <map name="button">
-              <area className="areaMap" shape='rect' coords='1098,368,1343,417' alt='pamphletButton' href={smartFairPamphlet}></area>
-            </map> */}
+            <map name="button">
+              <area className="areaMap" shape='rect' coords='1510,372,1755,422' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_02')}></area>
+            </map>
           </MediaQuery>
         </div>
         :
@@ -221,7 +221,7 @@ const MainSliderWrapper = styled.div`
     }
 
     .areaMap {
-      border: 1px solid red;
+      cursor: pointer;
     }
   }
 
