@@ -17,6 +17,7 @@ import smartTechKorea2022_PHM from '../../../images/smartTechKorea2022_PHM.png';
 import smartTechKorea_AIS from '../../../images/smartTechKorea_AIS.pdf';
 import smartTechKorea_vision from '../../../images/smartTechKorea_vision.pdf';
 import smartTechKorea_phm from '../../../images/smartTechKorea_phm.pdf';
+import smartTechKorea_mobile from '../../../images/smartTechKorea_mobile.pdf';
 
 
 class SmartTechKorea2022 extends Component {
@@ -105,6 +106,11 @@ class SmartTechKorea2022 extends Component {
           <div className='backgroundImageWrapperMobile'>
             <img src={smartTechKorea2022Mobile} alt="smartTechKorea2022Mobile" className="voucherContents"/>
           </div>
+          <div className='pamphletButtonArea'>
+            <a href={smartTechKorea_mobile} className='pdfLink'>
+            <div className='pamphletButton'>제품 소개서 보기</div>
+            </a>
+          </div>
           <div className='bottomWrapperMobile'>
             <div className='bottomTitle'>고객님의 소중한 데이터,<br/> 써로마인드의 AI 솔루션으로 최대한 활용하세요.</div>
             <div className='bottomSub'>전시회 방문 일정을 사전 신청하시면 기다리시지 않고 제품과 기술 상담을 하실 수 있습니다.</div>
@@ -153,8 +159,6 @@ const Wrapper = styled.div`
       left: 50%;
       bottom: -20px;
       transform: translate(-50%, 0);
-
-
     }
 
   }
@@ -299,6 +303,24 @@ const Wrapper = styled.div`
     }
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: block;
+    }
+  }
+
+  .pamphletButtonArea {
+    width: 100%;
+    height: 80px;
+    .pamphletButton {
+      width: 40%;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 20px;
+      background: #FC5000;
+      color: white;
+      font-size: 0.8em;
+      border-radius: 17.5px;
+      cursor: pointer;
     }
   }
 
