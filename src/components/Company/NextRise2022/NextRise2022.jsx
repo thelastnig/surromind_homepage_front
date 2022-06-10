@@ -13,8 +13,7 @@ import nextRise20222Mobile from '../../../images/mobile/nextRise2022_mobile.jpg'
 import smartTechKorea2022_AIStudio from '../../../images/smartTechKorea2022_AIStudio.png';
 
 // PDF Viewer
-import smartTechKorea_AIS from '../../../images/smartTechKorea_AIS.pdf';
-import smartTechKorea_mobile from '../../../images/smartTechKorea_mobile.pdf';
+import nextRise2020Pamphlet from '../../../images/nextRise2020Pamphlet.pdf';
 
 
 class NextRise2022 extends Component {
@@ -48,7 +47,7 @@ class NextRise2022 extends Component {
                 </div>
                 <div className='middleSubTitle'>손쉬운 인공지능 개발/운영 플랫폼</div>
                 <div className='middleDesc'>인공지능 개발 전문가가 없어도, 고객 데이터로<br/>최적의 모델을 만들어 사업에 적용할 수 있습니다.</div>
-                <a href={smartTechKorea_AIS} className='pdfLink'>
+                <a href={nextRise2020Pamphlet} className='pdfLink'>
                 <div className='middleButton'>SURROMIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI Studio 바로가기 &gt;
                   <div className='supTM'>TM</div>
                 </div>
@@ -75,7 +74,7 @@ class NextRise2022 extends Component {
             <img src={nextRise20222Mobile} alt="nextRise20222Mobile" className="voucherContents"/>
           </div>
           <div className='pamphletButtonArea'>
-            <a href={smartTechKorea_AIS} className='pdfLink'>
+            <a href={nextRise2020Pamphlet} className='pdfLink'>
             <div className='pamphletButton'>제품 소개서 보기</div>
             </a>
           </div>
