@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Router, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { MainPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, 
-  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage, Voucher2022Page, DataVoucher2022Page, SmartTechKorea2022Page,
+  CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage, Voucher2022Page, DataVoucher2022Page, SmartTechKorea2022Page, NextRise2022Page,
   AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage, AdminBannerPage, AdminLoginPage, NotFoundPage } from '../pages';
 import styled from 'styled-components';
 
@@ -59,6 +59,7 @@ const Root = (props) => {
               <Route exact path="/aivoucher2022" component={Voucher2022Page} history={browserHistory}/>
               <Route exact path="/datavoucher2022" component={DataVoucher2022Page} history={browserHistory}/>
               <Route exact path="/exhibition/2022_02" component={SmartTechKorea2022Page} history={browserHistory}/>
+              <Route exact path="/exhibition/2022_03" component={NextRise2022Page} history={browserHistory}/>
               <Route exact path="/admin" component={AdminLoginPage} history={browserHistory}/>
               <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
               <Route exact path="/event01" component={AIStudioEventPage} />

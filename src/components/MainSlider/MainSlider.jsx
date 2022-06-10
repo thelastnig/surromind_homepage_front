@@ -127,12 +127,12 @@ class MainSlider extends Component {
         ?          
         <div className='eachSlide' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-            <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_02')}/>
+            <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_03')}/>
           </MediaQuery>
           <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
             <img src={banner.desktop} className="desktop" useMap="#button"/>
             <map name="button">
-              <area className="areaMap" shape='rect' coords='1510,372,1755,422' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_02')}></area>
+              <area className="areaMap" shape='rect' coords='1634,351,1843,400' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_03')}></area>
             </map>
           </MediaQuery>
         </div>
