@@ -30,7 +30,7 @@ const Root = (props) => {
         props.setIsAdmin(true);
       } else {
         props.setIsAdmin(false);
-        if (window.location.pathname.split('/')[1] === 'aistudioevent') {
+        if (window.location.pathname.split('/')[1] === 'exhibition') {
           props.setIsContactInvisible(true);
         } else {
           props.setIsContactInvisible(false);
