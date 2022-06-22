@@ -21,6 +21,8 @@ import recruit_3 from '../../images/recruit_3.jpg';
 import recruit_4 from '../../images/recruit_4.jpg';
 import recruit_5 from '../../images/recruit_5.jpg';
 import recruit_6 from '../../images/recruit_6.jpg';
+import recruit_admin from '../../images/recruit_admin.jpg';
+import recruit_meta from '../../images/recruit_meta.jpg';
 import recruit_7 from '../../images/recruit_7.jpg';
 import recruit_8 from '../../images/recruit_8.jpg';
 import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
@@ -59,8 +61,10 @@ class CareersList extends Component {
           <div className="hiddenRecruitItem"><img src={recruit_4} alt='recruit_4' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_5} alt='recruit_5' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_6} alt='recruit_6' /></div>        
-          <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_7' /></div>        
-          <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>       
+          {/* <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_7' /></div>         */}
+          {/* <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>        */}
+          <div className="hiddenRecruitItem"><img src={recruit_admin} alt='recruit_admin' /></div>         
+          <div className="hiddenRecruitItem"><img src={recruit_meta} alt='recruit_meta' /></div>        
           <div className="pamphlet hidden"><a href={smartFairPamphlet}></a></div>         
         </div>
         {/* <div className="hiddenRecruitArea">
