@@ -13,18 +13,14 @@ import Card from '../common/Card';
 
 // import careers content
 import careersContents from '../../lib/careers';
-
-// recruit image(hidden)
-import recruit_1 from '../../images/recruit_1.jpg';
-import recruit_2 from '../../images/recruit_2.jpg';
-import recruit_3 from '../../images/recruit_3.jpg';
-import recruit_4 from '../../images/recruit_4.jpg';
-import recruit_5 from '../../images/recruit_5.jpg';
-import recruit_6 from '../../images/recruit_6.jpg';
+import recruit_upper from '../../images/recruit_upper.jpg';
+import recruit_ops from '../../images/recruit_ops.jpg';
+import recruit_ml from '../../images/recruit_ml.jpg';
+import recruit_platform from '../../images/recruit_platform.jpg';
+import recruit_uiux from '../../images/recruit_uiux.jpg';
+import recruit_web from '../../images/recruit_web.jpg';
 import recruit_admin from '../../images/recruit_admin.jpg';
 import recruit_meta from '../../images/recruit_meta.jpg';
-import recruit_7 from '../../images/recruit_7.jpg';
-import recruit_8 from '../../images/recruit_8.jpg';
 import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
 
 
@@ -55,14 +51,12 @@ class CareersList extends Component {
           {/* <div className="cardWrapper">
             {cardList}
           </div> */}
-          <div className="hiddenRecruitItem"><img src={recruit_1} alt='recruit_1' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_2} alt='recruit_2' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_3} alt='recruit_3' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_4} alt='recruit_4' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_5} alt='recruit_5' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_6} alt='recruit_6' /></div>        
-          {/* <div className="hiddenRecruitItem"><img src={recruit_7} alt='recruit_7' /></div>         */}
-          {/* <div className="hiddenRecruitItem"><img src={recruit_8} alt='recruit_8' /></div>        */}
+          <div className="hiddenRecruitItem"><img src={recruit_upper} alt='recruit_upper' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_ops} alt='recruit_ops' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_ml} alt='recruit_ml' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_platform} alt='recruit_platform' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_uiux} alt='recruit_uiux' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_web} alt='recruit_web' /></div>        
           <div className="hiddenRecruitItem"><img src={recruit_admin} alt='recruit_admin' /></div>         
           <div className="hiddenRecruitItem"><img src={recruit_meta} alt='recruit_meta' /></div>        
           <div className="pamphlet hidden"><a href={smartFairPamphlet}></a></div>         
