@@ -114,12 +114,12 @@ class Footer extends Component {
           <div className='lowerArea'>
             <div className="lowerTitle">써로마인드</div>
             <div className='lowerInfo'>
-            서울특별시 관악구 관악로 116 학선빌딩 2층
+            서울특별시 관악구 남부순환로 1802 2층
             <span>Tel +82-2-872-5127</span>
             E-mail contact@surromind.ai
             </div>
             <div className='lowerInfoMobile'>
-              <div>서울특별시 관악구 관악로 116 학선빌딩 2층</div>
+              <div>서울특별시 관악구 남부순환로 1802 2층</div>
               <div>Tel +82-2-872-5127</div>
               <div>E-mail contact@surromind.ai</div>
             </div>
