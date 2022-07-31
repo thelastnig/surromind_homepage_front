@@ -314,6 +314,7 @@ const Wrapper = styled.div`
     width: ${constants.LIMIT_WIDTH}px;
     height: ${constants.CONTACT_HEIGHT}px; 
     margin: 0 auto;
+    margin-top: 150px;
     background-color: white;
     position: relative;
 

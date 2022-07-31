@@ -25,20 +25,20 @@ const Root = (props) => {
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    if (window.location.pathname !== null && window.location.pathname !== '') {
-      if (window.location.pathname.split('/')[1] === 'admin') {
-        props.setIsAdmin(true);
-      } else {
-        props.setIsAdmin(false);
-        if (window.location.pathname.split('/')[1] === 'contact') {
-          props.setIsContactInvisible(false);
-        } else {
-          props.setIsContactInvisible(true);
-        }
-      } 
-    } else {
-      props.setIsAdmin(false);
-    }
+    // if (window.location.pathname !== null && window.location.pathname !== '') {
+    //   if (window.location.pathname.split('/')[1] === 'admin') {
+    //     props.setIsAdmin(true);
+    //   } else {
+    //     props.setIsAdmin(false);
+    //     if (window.location.pathname.split('/')[1] === 'contact') {
+    //       props.setIsContactInvisible(false);
+    //     } else {
+    //       props.setIsContactInvisible(true);
+    //     }
+    //   } 
+    // } else {
+    //   props.setIsAdmin(false);
+    // }
   }, [window.location.pathname])
 
   return (

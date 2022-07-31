@@ -93,9 +93,9 @@ class App extends Component {
                   handleMoveBtnClick={this.handleMoveBtnClick}/>
                 </div>
               </RootWrapper>
-              <ContactWrapper isAdmin={isAdmin} isContactInvisible={isContactInvisible} ref={(ref) => {this.ContactWrapper=ref}}>
+              {/* <ContactWrapper isAdmin={isAdmin} isContactInvisible={isContactInvisible} ref={(ref) => {this.ContactWrapper=ref}}>
                 <div className='limitWrapper'><ContactComponentContainer/></div>
-              </ContactWrapper>
+              </ContactWrapper> */}
               <FooterWrapper isAdmin={isAdmin}>
                 <div className='limitWrapper'><FooterContainer/></div>
               </FooterWrapper>
