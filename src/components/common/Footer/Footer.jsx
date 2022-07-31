@@ -31,7 +31,7 @@ class Footer extends Component {
 
             <div className='upperInnerArea'>
               <div className="leftItem">
-                <div className="styledLink">
+                <div className="styledLink logo">
                   <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
                 </div>
               </div>
@@ -184,6 +184,10 @@ const FooterInnerWrapper = styled.div`
       .styledLink {
         color: black;
         cursor: pointer;
+
+        &.logo {
+          cursor: default;
+        }
       }
   
       .rightItem {

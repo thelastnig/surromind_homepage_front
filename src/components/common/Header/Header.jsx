@@ -152,8 +152,8 @@ class Header extends Component {
                               onMouseOut={this.handleMouseOut}>
           <div className="lowerHeaderInnerWrapper">
             <div className="subItemWrapper">
-              <div className="leftItem"></div>
-              <div className="centerItem">
+              {/* <div className="leftItem"></div> */}
+              <div className={"centerItem " + menu}>
                 <div className="centerLeftItem">
                   {subMeunWrapper}
                 </div>
@@ -359,7 +359,7 @@ const SubHeadInnerWrapper = styled.div`
   `}
 
   .subItemWrapper {
-    width: ${constants.TOTAL_WIDTH}px;
+    width: 2000px;
     height: ${constants.HEADER_HEIGHT * 2}px;
     margin: 0 auto;
     
@@ -372,16 +372,32 @@ const SubHeadInnerWrapper = styled.div`
     };
   }
 
-  .leftItem {
-    width: 20%;
-  }
-
   .centerItem {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &.news {
+      margin-left: 452px;
+    }
+
+    &.company {
+      margin-left: 788px;
+    }
+
+    &.rnd {
+      margin-left: 942px;
+    }
+
+    &.careers {
+      margin-left: 1144px;
+    }
+
+    &.contact {
+      margin-left: 1346px;
+    }
   }
 
   .centerLeftItem {
@@ -425,7 +441,4 @@ const SubHeadInnerWrapper = styled.div`
     cursor: pointer;
   }
 
-  .rightItem {
-    width: 20%;
-  }
 `;

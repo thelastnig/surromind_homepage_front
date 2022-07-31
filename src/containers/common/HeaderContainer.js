@@ -9,6 +9,7 @@ class HeaderContainer extends Component {
 
   handleClickHome = () => {
     this.props.history.push('/');
+    window.scrollTo(0, 0);
   }
 
   render() {
