@@ -21,6 +21,7 @@ import recruit_uiux from '../../images/recruit_uiux.jpg';
 import recruit_web from '../../images/recruit_web.jpg';
 import recruit_account from '../../images/recruit_account.jpg';
 import recruit_admin from '../../images/recruit_admin.jpg';
+import recruit_finance from '../../images/recruit_finance.jpg';
 import recruit_meta from '../../images/recruit_meta.jpg';
 import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
 import logo_saramin from '../../images/logo_saramin.jpg';
@@ -69,11 +70,12 @@ class CareersList extends Component {
           <div className="hiddenRecruitItem"><img src={recruit_upper} alt='recruit_upper' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_ops} alt='recruit_ops' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_ml} alt='recruit_ml' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_platform} alt='recruit_platform' /></div>  
+          {/* <div className="hiddenRecruitItem"><img src={recruit_platform} alt='recruit_platform' /></div>   */}
           <div className="hiddenRecruitItem"><img src={recruit_uiux} alt='recruit_uiux' /></div>  
-          <div className="hiddenRecruitItem"><img src={recruit_web} alt='recruit_web' /></div>    
-          <div className="hiddenRecruitItem"><img src={recruit_account} alt='recruit_account' /></div>           
-          <div className="hiddenRecruitItem"><img src={recruit_admin} alt='recruit_admin' /></div>         
+          {/* <div className="hiddenRecruitItem"><img src={recruit_web} alt='recruit_web' /></div>     */}
+          {/* <div className="hiddenRecruitItem"><img src={recruit_account} alt='recruit_account' /></div>            */}
+          {/* <div className="hiddenRecruitItem"><img src={recruit_admin} alt='recruit_admin' /></div>           */}
+          <div className="hiddenRecruitItem"><img src={recruit_finance} alt='recruit_finance' /></div>       
           <div className="hiddenRecruitItem"><img src={recruit_meta} alt='recruit_meta' /></div>        
           <div className="pamphlet hidden"><a href={smartFairPamphlet}></a></div>
           <div className="siteArea">
