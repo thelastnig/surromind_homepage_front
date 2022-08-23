@@ -22,6 +22,8 @@ import recruit_web from '../../images/recruit_web.jpg';
 import recruit_account from '../../images/recruit_account.jpg';
 import recruit_admin from '../../images/recruit_admin.jpg';
 import recruit_finance from '../../images/recruit_finance.jpg';
+import recruit_frontend from '../../images/recruit_frontend.jpg';
+import recruit_backend from '../../images/recruit_backend.jpg';
 import recruit_meta from '../../images/recruit_meta.jpg';
 import smartFairPamphlet from '../../images/smartFairPamphlet.pdf';
 import logo_saramin from '../../images/logo_saramin.jpg';
@@ -68,6 +70,8 @@ class CareersList extends Component {
             {cardList}
           </div> */}
           <div className="hiddenRecruitItem"><img src={recruit_upper} alt='recruit_upper' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_frontend} alt='recruit_frontend' /></div>  
+          <div className="hiddenRecruitItem"><img src={recruit_backend} alt='recruit_backend' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_ops} alt='recruit_ops' /></div>  
           <div className="hiddenRecruitItem"><img src={recruit_ml} alt='recruit_ml' /></div>  
           {/* <div className="hiddenRecruitItem"><img src={recruit_platform} alt='recruit_platform' /></div>   */}
