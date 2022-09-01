@@ -117,20 +117,21 @@ class MainSlider extends Component {
     let slides = [];
     slides = banners.map((banner, index) => {
       return (
-        // index == 0
-        // ?          
-        // <div className='eachSlide' key={index}>
-        //   <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-        //     <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_03')}/>
-        //   </MediaQuery>
-        //   <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-        //     <img src={banner.desktop} className="desktop" useMap="#button"/>
-        //     <map name="button">
-        //       <area className="areaMap" shape='rect' coords='1634,351,1843,400' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_03')}></area>
-        //     </map>
-        //   </MediaQuery>
-        // </div>
-        // :
+        index == 0
+        ?          
+        <div className='eachSlide' key={index}>
+          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+            <img src={banner.mobile} className='mobile'/>
+            {/* <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_03')}/> */}
+          </MediaQuery>
+          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+            <img src={banner.desktop} className="desktop" useMap="#button"/>
+            {/* <map name="button">
+              <area className="areaMap" shape='rect' coords='1634,351,1843,400' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_03')}></area>
+            </map> */}
+          </MediaQuery>
+        </div>
+        :
         <div className='eachSlide' key={index}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>
