@@ -1,8 +1,9 @@
 export const LIMIT_WIDTH = '1920';
 export const TOTAL_WIDTH = '1200';
+export const INNER_WIDTH = '1300';
 export const TOTAL_SUB_WIDTH = '950';
 export const HEADER_WIDTH = '980';
-export const HEADER_HEIGHT = '44';
+export const HEADER_HEIGHT = '79';
 export const VIEW_PAGE_MIN_HEIGHT = '500';
 export const ROOT_PAGE_MIN_HEIGHT = '1000';
 
@@ -15,7 +16,7 @@ export const MAIN_RND_HEIGHT = '1326';
 export const MAIN_PROJECT_HEIGHT = '600';
 export const MAIN_CAREERS_HEIGHT = '300';
 export const CONTACT_HEIGHT = '786';
-export const FOOTER_HEIGHT = '565';
+export const FOOTER_HEIGHT = '377';
 export const FOOTER_UPPER_HEIGHT = '440';
 export const FOOTER_LOWER_HEIGHT = '125';
 export const FOOTER_INNER_WIDTH = '1265';

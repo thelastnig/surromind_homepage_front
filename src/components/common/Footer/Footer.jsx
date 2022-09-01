@@ -1,131 +1,130 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import oc from 'open-color';
 import { Link, withRouter } from 'react-router-dom';
-
 // import constants from constants.js
 import * as constants from '../../../lib/constants';
 
 // import images
 import surroLogo from '../../../images/surromind_logo_new.png';
-
-// import project & rnd contents
-import rndContents from '../../../lib/rnd';
+import iconBlog from '../../../images/new/iconBlog.png';
+import iconFacebook from '../../../images/new/iconFacebook.png';
+import iconMedium from '../../../images/new/iconMedium.png';
+import iconYoutube from '../../../images/new/iconYoutube.png';
+import iconInsta from '../../../images/new/iconInsta.png';
 
 class Footer extends Component {
   
+  state = {
+    email: ''
+  }
+
+  handleChange = (event) => {
+    this.setState({ 
+      ...this.state,
+      [event.target.name]: event.target.value 
+    });
+  }
+
+  checkItem = () => {
+    const { email } = this.state;
+    const regexpEmail = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+
+    if (email === null || email === '') {
+      alert('이메일 주소를 입력해 주세요.');
+      return false;
+    } else if (!regexpEmail.test(email)) {
+      alert('이메일 형식이 올바르지 않습니다.');
+      return false;      
+    } 
+    return true;
+  }
+  handleClick = () => {
+    const { email } = this.state;
+
+    const resultItems = this.checkItem();
+
+    if (resultItems === false) {
+      return;
+    }
+
+    alert('등록이 완료되었습니다. 감사합니다.');
+    
+    this.setState({ 
+      email: '' 
+    });
+  }
+  
   handleMenuClick = (url) => {
-    this.props.history.push(url);
+    const snsUrls = {
+      'blog': 'https://blog.naver.com/surromind', 
+      'facebook': 'https://www.facebook.com/%EC%8D%A8%EB%A1%9C%EB%A7%88%EC%9D%B8%EB%93%9C-108529144792278', 
+      'medium': 'https://medium.com/surromind', 
+      'youtube': 'https://www.youtube.com/channel/UC07FQVhFIyVMmWt3-fMBsuA', 
+      'insta': 'https://www.instagram.com/surromind', 
+    };
+    window.open(snsUrls[url], '_blank');
   }
 
   render() {
-    const rndLists = rndContents.map((item, index) => {
-      return (
-        <div className="styledLink sub" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
-      )
-    })
     return (
       <FooterInnerWrapper>
         <div className='contentsWrapper'>
-          <div className='upperArea'>
-
-            <div className='upperInnerArea'>
-              <div className="leftItem">
-                <div className="styledLink logo">
-                  <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
-                </div>
+          <div className='leftArea'>
+            <div className='leftUpper'>
+              <div className='logoWrapper'>
+                <img className='ImgLogo' src={surroLogo} height='24' alt='SurroMind Logo'/>
               </div>
-              <div className="rightItem">
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>SURROMIND</div>
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
-                  </div>
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div>
-                    <div className='subBarMenu'>
-                      <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>회사 소개</div>
-                    </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
-                    <div className='subBarMenu'>
-                      {rndLists}
-                    </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/careers/list/1')}>구인</div>
-                  </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/contact')}>문의사항</div>
-                  </div> 
-                </div>
-                </div>
+              <div className='companyInfo'>
+              Ⓒ 2020 SurroMind. All rights reserved​
+              </div>
+            </div>
+            <div className='leftLower'>
+              T : +82 2-872-5127<br/>
+              ​E : contact@surromind.ai
             </div>
 
-            <div className='upperInnerAreaMobile'>
-              <div className="leftItem">
-                <div className="styledLink">
-                  <img className='ImgLogo' src={surroLogo} alt='SurroMind Logo'/>
-                </div>
+          </div>
+          <div className='rightArea'>
+            <div className='rightUpper'>
+              <div className='iconWrapper' onClick={() => this.handleMenuClick('blog')}>
+                <img src={iconBlog} width='65' alt='iconBlog'/>
               </div>
-              <div className="rightItem">
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>SURROMIND</div>
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>당사 소식</div>
-                  </div>
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div>
-                    <div className='subBarMenu'>
-                      <div className="styledLink sub" onClick={() => this.handleMenuClick('/surromindnews/list/1')}>회사 소개</div>
-                    </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
-                    <div className='subBarMenu'>
-                      {rndLists}
-                    </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/careers/list/1')}>구인</div>
-                  </div> 
-                </div>
-                <div className="barMenu">
-                  <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
-                  <div className='subBarMenu'>
-                    <div className="styledLink sub" onClick={() => this.handleMenuClick('/contact')}>문의사항</div>
-                  </div> 
-                </div>
-                </div>
+              <div className='iconWrapper' onClick={() => this.handleMenuClick('facebook')}>
+                <img src={iconFacebook} width='65' alt='iconFacebook'/>
+              </div>
+              <div className='iconWrapper' onClick={() => this.handleMenuClick('medium')}>
+                <img src={iconMedium} width='65' alt='iconMedium'/>
+              </div>
+              <div className='iconWrapper' onClick={() => this.handleMenuClick('youtube')}>
+                <img src={iconYoutube} width='65' alt='iconYoutube'/>
+              </div>
+              <div className='iconWrapper' onClick={() => this.handleMenuClick('insta')}>
+                <img src={iconInsta} width='65' alt='iconInsta'/>
+              </div>
+            </div>
+            <div className='rightMiddle'>
+              <div className='newletter'>
+                SURROMIND 뉴스레터 구독하기
+              </div>
+              <div className='newletterInfo'>
+                최신 소식과 인공지능 정보를 담은 이메일 뉴스레터를 받아보세요.
+              </div>
+              <div className='newletterInfoMobile'>
+                최신 소식과 인공지능 정보를 담은<br/>이메일 뉴스레터를 받아보세요.
+              </div>
+            </div>
+            <div className='rightLower'>
+              <div className='inputText'>
+                <input type='text' 
+                  className='input' 
+                  name='email' 
+                  value={this.state.email}
+                  onChange={this.handleChange}    
+                  placeholder='이메일 주소' />
+              </div>
+              <div className='inputButton' onClick={this.handleClick}>구독하기</div>
             </div>
           </div>
-        </div>
-        <div className='contentsLowerWrapper'>
-          <div className='lowerArea'>
-            <div className="lowerTitle">써로마인드</div>
-            <div className='lowerInfo'>
-            서울특별시 관악구 남부순환로 1802 관악캠퍼스타워 2층
-            <span>Tel +82-2-872-5127</span>
-            E-mail contact@surromind.ai
-            </div>
-            <div className='lowerInfoMobile'>
-              <div>서울특별시 관악구 남부순환로 1802 관악캠퍼스타워 2층</div>
-              <div>Tel +82-2-872-5127</div>
-              <div>E-mail contact@surromind.ai</div>
-            </div>
-            <div className='lowerRight'>Copyright© 2020 SurroMind. All rights reserved.</div>
-          </div>
-
         </div>
       </FooterInnerWrapper>
     );
@@ -135,308 +134,242 @@ class Footer extends Component {
 export default withRouter(Footer);
 
 const FooterInnerWrapper = styled.div`
-  width: ${constants.LIMIT_WIDTH}px;
   width: 100%;
   margin: 0 auto;
-  background-color: #f1f1f1;
+  padding: 60px 0;
+  background: #070304;
+
+  @media (max-width: ${constants.MOBILE_WIDTH}px) {
+    padding: 0;
+  }
 
   .contentsWrapper {
-    width: ${constants.LIMIT_WIDTH - 2}px;
+    width: calc(100% - 280px);
+    height: 257px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       width: 95%;
+      height: 100%;
       margin: 0 auto;
+      padding: 40px 0;
+      flex-direction: column;
     }
   }
 
-  .upperArea {
-    width: 100%;
-    height: ${constants.FOOTER_UPPER_HEIGHT}px;
-    border: 1px solid #f1f1f1;
-    background-color: #f1f1f1;
+  .leftArea {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      height: 306px;
-    }
-
-    .upperInnerArea {
-      width: ${constants.FOOTER_INNER_WIDTH}px;
-      margin-top: 56px;
-      margin-left: ${constants.FOOTER_INNER_LEFT_MARGIN}px;
-      display: flex;
-      justify-content: space-between;
-
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        display: none;
-      }    
-      
-      .leftItem {
-        width: 256px;
-        height: 28px;
-    
-        .ImgLogo {
-          width: 256px;
-          height: 28px;
-        }
-      }
-  
-      .styledLink {
-        color: black;
-        cursor: pointer;
-
-        &.logo {
-          cursor: default;
-        }
-      }
-  
-      .rightItem {
-        width: 885px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-  
-        .barMenu {
-          flex-grow: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 14px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.4px;
-          color: #1e1f22;
-          position: relative;
-        }
-  
-        .subBarMenu {
-          width: 100px;
-          position: absolute;
-          top: 300%;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-  
-          @media (max-width: ${constants.MOBILE_WIDTH}px) {
-            width: 100%;
-          }
-        }
-    
-        .styledLink {
-          font-family: ${constants.INTER_FONT};
-          text-decoration: none;
-  
-          &.sub {
-            font-family: ${constants.APPLE_FONT};
-            text-decoration: none;
-            margin-bottom: 16px;
-          }
-    
-          &:hover {
-            color: ${constants.POINT_COLOR};
-          }
-        }
-      }
-    }
-
-    .upperInnerAreaMobile {
       width: 100%;
       margin: 0 auto;
-      height: 306px;
-      display: none;
-      margin-left: 0px;
+      border-right: none;
+    }
 
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {
-        display: block;
+    .leftUpper {
+      .logoWrapper {
+        height: 24px;
+        margin-bottom: 11px;
+        
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          height: 12px;
+
+          img {
+            height: 12px;
+          }
+        }
       }
-      @media (min-width: ${constants.MOBILE_WIDTH}px) {
-        display: none;
-      }      
+      .companyInfo {
+        font-family: ${constants.INTER_FONT};
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 12px;
+          line-height: 15px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .leftLower {
+      font-family: ${constants.INTER_FONT};
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 36px;
       
-      .leftItem {
-        width: 123px;
-        height: 14px;
-        margin-top: 22px;
-
-        .ImgLogo {        
-          width: 123px;
-          height: 14px;
-        }
-      }
-  
-      .styledLink {
-        color: black;
-        cursor: pointer;
-      }
-  
-      .rightItem {
-        width: 100%;
-        display: flex;
-        flex-flow: wrap;
-        justify-content: space-between;
-        align-content: center;
-        margin-top: 18px;
-  
-        .barMenu {
-          width: 95px;
-          font-size: 13px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.37px;
-          color: #1e1f22;
-        }
-  
-        .subBarMenu {
-          font-size: 13px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.37px;
-          text-align: left;
-          color: #1e1f22;
-        }
-    
-        .styledLink {
-          font-family: ${constants.INTER_FONT};
-          text-decoration: none;
-          margin-bottom: 8px;
-  
-          &.sub {
-            font-family: ${constants.APPLE_FONT};
-            text-decoration: none;
-            margin-bottom: 8px;
-          }
-    
-          &:hover {
-            color: ${constants.POINT_COLOR};
-          }
-        }
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        font-size: 20px;
+        line-height: 24px;
       }
     }
   }
 
-  .contentsLowerWrapper {
-    width: 100%;
-    margin: 0 auto;
-    background-color: #1e1f22;
-  }
-
-  .lowerArea {
-    margin: 0 auto;
-    width: ${constants.LIMIT_WIDTH - 2}px;
-    height: ${constants.FOOTER_LOWER_HEIGHT}px;
-    background-color: #1e1f22;
-    border: 1px solid #1e1f22;
+  .rightArea {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 95%;
-      height: 126px;
-      margin: 0 auto;
+      width: 100%;
     }
 
-    .lowerTitle {
-      margin: 0 auto;
-      margin-top: 24px;
-      font-family: ${constants.APPLE_FONT};
-      font-size: 20px;
-      font-weight: 200;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: -0.57px;
-      text-align: center;
-      color: #ffffff;
+    .rightUpper {
+      margin-left: 100px;
+      height: 65px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {      
-        font-size: 13px;
-        font-weight: 500;
-        font-stretch: normal;
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        justify-content: space-between;
+        margin-left: 0;
+        height: 40px;
+        margin: 20px 0;
+      }
+
+      .iconWrapper {
+        margin-right: 20px;
+        cursor: pointer;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          margin-right: 0;
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+    .rightMiddle {
+      margin-left: 100px;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        margin-left: 0;
+      }
+
+      .newletter {
+        font-family: ${constants.NOTO_FONT};
         font-style: normal;
-        line-height: normal;
-        letter-spacing: -0.37px;
-        text-align: center;
-        color: #fff;
-      }
-    }
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 43px;
 
-    .lowerInfo {
-      margin: 0 auto;
-      margin-top: 10px; 
-      font-family: ${constants.APPLE_FONT};
-      font-size: 14px;
-      font-stretch: normal;
-      font-weight: 400;
-      line-height: 1.43;
-      letter-spacing: -0.4px;
-      text-align: center;
-      color: #ffffff;
-
-      span {
-        padding-left: 16px;
-        padding-right: 16px;
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          font-size: 20px;
+          line-height: 29px;
+        }
       }
 
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {      
-        display: none;
-      }   
-    }
-
-    .lowerInfoMobile {
-      display: none;
-
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {      
-        display: block;
-      }     
-      @media (min-width: ${constants.MOBILE_WIDTH}px) {      
-        display: none;
-      }
-      margin-top: 6px;    
-      margin-bottom: 16px;         
-      font-size: 11px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.09;
-      letter-spacing: -0.31px;
-      text-align: center;
-      color: #fff;
-      div {
-        margin-bottom: 4px;
-      }
-    }
-
-    .lowerRight {
-      margin: 0 auto;
-      margin-top: 4px; 
-      font-family: ${constants.APPLE_FONT};
-      font-size: 14px;
-      font-weight: 100;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: -0.4px;
-      text-align: center;
-      color: #ffffff;
-
-      @media (max-width: ${constants.MOBILE_WIDTH}px) {         
-        font-size: 10px;
-        font-weight: 200;
-        font-stretch: normal;
+      .newletterInfo {
+        font-family: ${constants.NOTO_FONT};
         font-style: normal;
-        line-height: normal;
-        letter-spacing: -0.29px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 29px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          display: none;
+        }
+      }
+
+      .newletterInfoMobile {
+        display: none;
+        font-family: ${constants.NOTO_FONT};
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          display: block;
+        }
+      }
+    }
+    .rightLower {
+      margin-left: 100px;
+      width: 540px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: ${constants.MOBILE_WIDTH}px) {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+
+      .inputText {
+        width: 380px;
+        background: #FFFFFF;
+        border-radius: 10px 0px 0px 10px;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: calc(100% - 90px);
+          border-radius: 5px 0px 0px 5px;
+        }
+
+        .input {
+          font-family: ${constants.NOTO_FONT};
+          height: 60px;
+          line-height: 60px;
+          outline: none;
+          border: none;
+          outline: none;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          color: #898989;
+          margin-left: 15px;
+          padding: 0px;
+
+          @media (max-width: ${constants.MOBILE_WIDTH}px) {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+
+      .inputButton {
+        width: 160px;
+        height: 60px;
+        background: #FF5000;
+        border-radius: 0px 10px 10px 0px;
+        font-family: ${constants.NOTO_FONT};
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 60px;
         text-align: center;
-        color: #fff;
+        color: #FFFFFF;
+        cursor: pointer;
+
+        @media (max-width: ${constants.MOBILE_WIDTH}px) {
+          width: 90px;
+          height: 40px;
+          border-radius: 0px 5px 5px 0px;
+          font-size: 16px;
+          line-height: 40px;
+        }
       }
     }
   }
-    
 `;
 
 

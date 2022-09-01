@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as articleActions from '../store/modules/article'
 import { bindActionCreators } from 'redux';
-import { Map, List } from 'immutable';
-import MainRND from '../components/MainRND';
+import MainRNDnew from '../components/MainRNDnew';
 
 
 class MainRNDContainer extends Component {
@@ -25,7 +24,8 @@ class MainRNDContainer extends Component {
   render() {
     return (
       <div>
-        <MainRND handleClickArticle={this.handleClickArticle}/>
+        {/* <MainRND handleClickArticle={this.handleClickArticle}/> */}
+        <MainRNDnew/>
       </div>
     );
   }

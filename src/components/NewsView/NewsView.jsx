@@ -9,9 +9,6 @@ import * as constants from '../../lib/constants';
 // import UpperImage Component for upper image area
 import UpperImage from '../common/UpperImage';
 
-// import news contents 
-import newsContents from '../../lib/mainNews';
-
 // import backto component
 import BackToList from '../common/BackToList';
 

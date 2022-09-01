@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 import oc from 'open-color';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/icons/Menu';
 
 // import constants from constants.js
 import * as constants from '../../../lib/constants';
@@ -102,34 +100,47 @@ class Header extends Component {
               <div className="centerItem">
                 <div className="leftItem">
                   <div className="styledLink" onClick={handleClickHome}>
-                    <img className='ImgLogo' src={surroLogo} width='123' alt='SurroMind Logo'/>
+                    <img className='ImgLogo' src={surroLogo} height='24' alt='SurroMind Logo'/>
                   </div>
                 </div>
-                <div className="barMenu" 
-                    onMouseOver={() => this.handleMouseOver("news")}
-                    onMouseOut={this.handleMouseOut}>
-                  <div className="styledLink" 
-                    onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
-                </div>
-                <div className="barMenu" 
-                    onMouseOver={() => this.handleMouseOver("company")}
-                    onMouseOut={this.handleMouseOut}>
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
-                </div>
-                <div className="barMenu" 
-                    onMouseOver={() => this.handleMouseOver("rnd")}
-                    onMouseOut={this.handleMouseOut}>
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
-                </div>
-                <div className="barMenu"
-                onMouseOver={() => this.handleMouseOver("careers")}
-                    onMouseOut={this.handleMouseOut}>
-                  <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
-                </div>
-                <div className="barMenu"
-                onMouseOver={() => this.handleMouseOver("contact")}
-                    onMouseOut={this.handleMouseOut}>
-                  <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+                <div className='barMenuWrapper'>
+                  <div className="barMenu" 
+                      // onMouseOver={() => this.handleMouseOver("news")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink" 
+                      onClick={() => this.handleMenuClick('/company/aboutus')}>About us</div> 
+                  </div>
+                  <div className="barMenu" 
+                      // onMouseOver={() => this.handleMouseOver("company")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink" onClick={() => this.handleMenuClick('/Platform')}>Platform</div> 
+                  </div>
+                  <div className="barMenu" 
+                      // onMouseOver={() => this.handleMouseOver("company")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Solutions</div> 
+                  </div>
+                  <div className="barMenu" 
+                      // onMouseOver={() => this.handleMouseOver("rnd")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
+                  </div>
+                  <div className="barMenu"
+                      // onMouseOver={() => this.handleMouseOver("careers")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
+                  </div>
+                  <div className="barMenu last"
+                      // onMouseOver={() => this.handleMouseOver("contact")}
+                      // onMouseOut={this.handleMouseOut}
+                  >
+                    <div className="styledLink contact" onClick={() => this.handleMenuClick('/contact')}>Contact us</div> 
+                  </div>
                 </div>
               </div>
               <div className="centerItemMobile">
@@ -179,7 +190,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderInnerWrapper = styled.div`
   width: 100%;
-  background-color: #1e1f22;
+  background-color: #070304;
 
   .upperHeaderInnerWrapper {
     width: ${constants.LIMIT_WIDTH}px;
@@ -191,7 +202,7 @@ const HeaderInnerWrapper = styled.div`
   }
 
   .itemWrapper {
-    width: ${constants.HEADER_WIDTH}px;
+    width: calc(${constants.LIMIT_WIDTH}px - 280px);
     height: ${constants.HEADER_HEIGHT}px;
     margin: 0 auto;      
     
@@ -208,11 +219,15 @@ const HeaderInnerWrapper = styled.div`
     align-items: center;
   
     .leftItem {
-      width: 123px;
-      height: 22px;
+      height: 24px;
       .ImgLogo {
-        padding-top: 4px;
       }
+    }
+
+    .barMenuWrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     .barMenu {
@@ -220,21 +235,25 @@ const HeaderInnerWrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-right: 90px;
+      &.last {
+        margin-right: 0px;
+      }
     }
 
     .styledLink {
       font-family: ${constants.INTER_FONT};
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 21px;
+      font-weight: 700;
       font-stretch: normal;
-      line-height: normal;
+      line-height: 25.41px;
       letter-spacing: -0.3px;
       text-decoration: none;
       
       color: #ffffff;
 
       &:hover {
-        color: #ff781e;
+        color: #FF5000;
       }
     }
 
@@ -282,7 +301,6 @@ const HeaderInnerWrapper = styled.div`
       }
     }
   }
-
 
   .styledLink {
     color: black;

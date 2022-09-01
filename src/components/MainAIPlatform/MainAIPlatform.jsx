@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import oc from 'open-color';
 
 // import constants from config.js
 import * as constants from '../../lib/constants';
@@ -10,20 +9,12 @@ import imgAiplatform from '../../images/img-surromind-aiplatform.png';
 import imgAiplatformGroup from '../../images/img-aiplatform_group.png';
 import imgAutolabeling from '../../images/img-autolabeling.png';
 
-import imgBg06 from '../../images/backgound-icon/img-bg-graphic-06.png';
-import imgBg07 from '../../images/backgound-icon/img-bg-graphic-07.png';
-import imgBg14 from '../../images/backgound-icon/img-bg-graphic-14.png';
 import { Fragment } from 'react';
 
 
 class MainAIPlatform extends Component {
-  state = {
-    numPages: null,
-    pageNumber: 1,
-  }
- 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -32,10 +23,6 @@ class MainAIPlatform extends Component {
       <Fragment>
         <Wrapper>
           <div className='contentsWrapper'>
-            <div className="backgroundIcon imgBg06"><img src={imgBg06} alt="imgBg06" /></div>
-            <div className="backgroundIcon imgBg07"><img src={imgBg07} alt="imgBg07" /></div>
-            <div className="backgroundIcon imgBg14"><img src={imgBg14} alt="imgBg14" /></div>
-            <div className="backgroundIcon rec"/>
             <div className='titleText'>SURROMIND<div className='upperCharacter'>TM</div>&nbsp;&nbsp;&nbsp;AI Studio</div>
             <div className='mainText'>
               코딩없는 개발환경을 제공하는 All-in-One 인공지능 플랫폼으로 인공지능 개발과<br/>
@@ -195,20 +182,16 @@ const Wrapper = styled.div`
   }
 
   .contentsWrapper {
-    width: ${constants.LIMIT_WIDTH - 2}px;
+    width: ${constants.INNER_WIDTH}px;
     height: ${constants.MAIN_AIPLATFORM_HEIGHT}px; 
     margin: 0 auto;
-    
-    border: 1px solid white;
-    background-color: white;
-    position: relative;
+    padding: 150px 0;
   }
 
   .titleText {
     width: 650px;
     height: 65px;
     margin: 0 auto;
-    margin-top: 56px;
     text-align: center;
     font-family: ${constants.INTER_FONT};      
     font-size: 54px;
@@ -427,12 +410,12 @@ const WrapperMobile = styled.div`
   .contentsWrapper {
     width: 95%;
     margin: 0 auto;
+    padding: 50px 0;
   }
 
   .titleText {
     margin: 0 auto;
     width: 250px;
-    margin-top: 32px;
     text-align: center;
     font-family: ${constants.INTER_FONT};        
     font-size: 22px;
@@ -442,8 +425,7 @@ const WrapperMobile = styled.div`
     line-height: normal;
     letter-spacing: -0.82px;
     color: #000;
-    position: relative;
-    
+
     .upperCharacter { 
       font-family: ${constants.INTER_FONT};
       font-size: 10px;
@@ -503,23 +485,6 @@ const WrapperMobile = styled.div`
   .detailWrapper {
     width: 100%;
     margin: 0 auto;
-
-    &.upper {
-    }
-
-    &.lower {
-      margin-bottom: 32px;
-    }
-  }
-
-  .detailTextWrapper {
-    &.upper {
-
-    }
-
-    &.lower {
-
-    }
   }
 
   .detailImageWrapper {

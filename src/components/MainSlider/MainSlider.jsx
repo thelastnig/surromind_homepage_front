@@ -8,12 +8,6 @@ import MediaQuery from 'react-responsive';
 // import constants from constants.js
 import * as constants from '../../lib/constants'
 
-// import slider images
-import mainSlide1 from '../../images/mainSlide1.jpg';
-import mainSlide2 from '../../images/mainSlide2.jpg';
-import mainSlideMobile1 from '../../images/mobile/mainSlideMobile1.png';
-import mainSlideMobile2 from '../../images/mobile/mainSlideMobile2.png';
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -172,6 +166,10 @@ const MainSliderWrapper = styled.div`
   width: ${constants.LIMIT_WIDTH}px;
   height: ${constants.MAIN_SLIDER_HEIGHT}px;
   margin: 0 auto;
+
+  .slick-dots {
+    top: calc(${constants.MAIN_SLIDER_HEIGHT}px - 60px);
+  }
     
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
     width: 100%;

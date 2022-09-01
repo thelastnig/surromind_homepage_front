@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainSliderContainer from '../containers/MainSliderContainer';
-import MainInteractiveContainer from '../containers/MainInteractiveContainer';
-import MainNewsContainer from '../containers/MainNewsContainer';
-import MainCompanyContainer from '../containers/MainCompanyContainer';
-import MainAIPlatformContainer from '../containers/MainAIPlatformContainer';
+import MainVideoContainer from '../containers/MainVideoContainer';
+import MainProductContainer from '../containers/MainProductContainer';
 import MainRNDContainer from '../containers/MainRNDContainer';
-import MainProjectsContainer from '../containers/MainProjectsContainer';
-import MainCareersContainer from '../containers/MainCareersContainer';
 import * as constants from '../lib/constants';
 
 
@@ -16,17 +12,10 @@ const MainPage = (props) => {
   return (
     <div>
       <MainSliderContainer {...props}/>
-      {/* <MainInteractiveContainer/> */}
-      <MainNewsContainer/>
-      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
-      <MainCompanyContainer/>
-      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
-      <MainAIPlatformContainer/>
-      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
+      <MainVideoContainer/>
+      <MainProductContainer/>
       <MainRNDContainer/>
-      {/* <MainProjectsContainer/> */}
-      <IntervalLineWrapper><IntervalLine/></IntervalLineWrapper>
-      {/* <MainCareersContainer/> */}
+
     </div>
   )
 }

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Map, List } from 'immutable';
-import Contact from '../../components/Contact';
+import ContactView from '../../components/ContactView';
 
 
 class ContactComponentContainer extends Component {
@@ -14,7 +12,7 @@ class ContactComponentContainer extends Component {
   render() {
     return (
       <div>
-        <Contact/>
+        <ContactView/>
       </div>
     );
   }

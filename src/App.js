@@ -190,15 +190,12 @@ const InnerWrapper = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
-
   width: 100%;
   height: ${constants.HEADER_HEIGHT}px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 3px 5px rgba(200, 200, 200, 0.7);
   
   @media (max-width: ${constants.MOBILE_WIDTH}px) {
     position: relative;

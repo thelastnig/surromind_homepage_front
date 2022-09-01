@@ -12,9 +12,6 @@ import UpperImage from '../common/UpperImage';
 // import Card Component 
 import CardNews from '../common/CardNews';
 
-// import careers content
-import newsContents from '../../lib/mainNews';
-
 // import default list image
 import defaultListImage from '../../images/default_thumb.jpg';
 

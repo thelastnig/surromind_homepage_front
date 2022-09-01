@@ -32,19 +32,19 @@ class Sidebar extends Component {
         <div className="centerItem">
           <div className="barMenu">
             <div className="styledLink" 
-              onClick={() => this.handleMenuClick('/surromindnews/list/1')}>Surromind News</div> 
+              onClick={() => this.handleMenuClick('/company/aboutus')}>About us</div> 
           </div>
           <div className="barMenu">
-            <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Who we are</div> 
+            <div className="styledLink" onClick={() => this.handleMenuClick('/Platform')}>Platform</div> 
           </div>
           <div className="barMenu">
-            <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&D</div> 
+            <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
           </div>
           <div className="barMenu">
             <div className="styledLink" onClick={() => this.handleMenuClick('/careers/list/1')}>Careers</div> 
           </div>
           <div className="barMenu">
-            <div className="styledLink" onClick={() => this.handleMenuClick('/contact')}>Contact</div> 
+            <div className="styledLink" onClick={() => this.handleMenuClick('/contact')}>Contact us</div> 
           </div>
         </div>
       </div>

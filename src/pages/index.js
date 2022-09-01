@@ -1,5 +1,6 @@
 export { default as MainPage } from './MainPage';
 export { default as NewsListPage } from './NewsListPage';
+export { default as CompanyInfoPage } from './CompanyInfoPage';
 export { default as NewsViewPage } from './NewsViewPage';
 export { default as ProjectListPage } from './ProjectListPage';
 export { default as ProjectViewPage } from './ProjectViewPage';
@@ -20,4 +21,5 @@ export { default as AdminNewsListPage } from './AdminNewsListPage';
 export { default as AdminNewsViewPage } from './AdminNewsViewPage';
 export { default as AdminBannerPage } from './AdminBannerPage';
 export { default as AIStudioEventPage } from './AIStudioEventPage';
+export { default as PlatformPage } from './PlatformPage';
 export { default as NotFoundPage } from './NotFoundPage';
