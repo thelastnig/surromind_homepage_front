@@ -25,7 +25,7 @@ class MainVideo extends Component {
         <div className='innerWrapper'>
           <div className="videoWrapper">
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=6VwO4SXKxi4&t=78s'
+              url='https://www.youtube.com/watch?v=6VwO4SXKxi4'
               width={1300}
               height={700}
               controls={true}
@@ -34,7 +34,7 @@ class MainVideo extends Component {
           </div>
           <div className="videoWrapperMobile">
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=6VwO4SXKxi4&t=78s'
+              url='https://www.youtube.com/watch?v=6VwO4SXKxi4'
               width="100%"
               controls={true}
               onStart={this.clickButton}

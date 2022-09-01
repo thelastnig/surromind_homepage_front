@@ -48,7 +48,7 @@ class Footer extends Component {
     }
 
     alert('등록이 완료되었습니다. 감사합니다.');
-    
+
     this.setState({ 
       email: '' 
     });
@@ -249,8 +249,8 @@ const FooterInnerWrapper = styled.div`
         @media (max-width: ${constants.MOBILE_WIDTH}px) {
           margin-right: 0;
           img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
           }
         }
       }

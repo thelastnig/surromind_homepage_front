@@ -41,14 +41,14 @@ class MainProduct extends Component {
                   <img src={productMainStudio} width='330px' alt='productMainStudio'/>
                 </div>
               </div>
-              <div className='item middle' onClick={() => this.handleClick('visioninspection')}>
+              <div className='item middle'>
                 <div className='itemText'>SURROVISION™ Inspection</div>
                 <div className='itemSubText'>인공지능 머신 비전 솔루션</div>
                 <div className='itemImage'>
                   <img src={productMainInspection} width='330px' alt='productMainInspection'/>
                 </div>
               </div>
-              <div className='item' onClick={() => this.handleClick('phm')}>
+              <div className='item'>
                 <div className='itemText'>SURROMIND™ PHM​</div>
                 <div className='itemSubText'>인공지능 예지보전 솔루션​</div>
                 <div className='itemImage'>

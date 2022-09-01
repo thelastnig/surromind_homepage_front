@@ -54,7 +54,6 @@ const CardWrapper = styled.div`
   .cardInnerWrapper {
     width: ${constants.CARD_WIDTH}px;
     height: ${constants.CARD_HEIGHT}px;
-    border: 1px solid ${oc.gray[4]};
   
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       margin-bottom: 50px;
