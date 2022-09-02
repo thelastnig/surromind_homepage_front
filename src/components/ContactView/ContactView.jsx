@@ -393,7 +393,7 @@ const Wrapper = styled.div`
     position: relative;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 95%;
+      width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
       height: 100%;
       margin: 0 auto;
       padding-top: 40px;

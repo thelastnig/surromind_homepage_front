@@ -267,17 +267,16 @@ const HeaderInnerWrapper = styled.div`
     height: 100%;
     display: none;
     
-
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: block;
     }
     
     @media (min-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;;
+      display: none;
     }
 
     .centerItemMobileWrapper {
-      width: 95%;
+      width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
       height: ${constants.HEADER_HEIGHT}px;
       margin: 0 auto;
       display: flex;

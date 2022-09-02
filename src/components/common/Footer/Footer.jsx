@@ -153,7 +153,7 @@ const FooterInnerWrapper = styled.div`
     color: #FFFFFF;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 95%;
+      width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
       height: 100%;
       margin: 0 auto;
       padding: 40px 0;
@@ -239,7 +239,7 @@ const FooterInnerWrapper = styled.div`
         justify-content: space-between;
         margin-left: 0;
         height: 40px;
-        margin: 20px 0;
+        margin: 30px 0;
       }
 
       .iconWrapper {

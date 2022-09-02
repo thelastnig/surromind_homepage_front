@@ -6,6 +6,7 @@ export const HEADER_WIDTH = '980';
 export const HEADER_HEIGHT = '79';
 export const VIEW_PAGE_MIN_HEIGHT = '500';
 export const ROOT_PAGE_MIN_HEIGHT = '1000';
+export const MOBILE_HORIZONTAL_MARGIN = '40';
 
 export const MAIN_SLIDER_HEIGHT = '478';
 export const MAIN_INTERACTIVE_HEIGHT = '700';

@@ -23,7 +23,7 @@ class MainAIPlatform extends Component {
       <Fragment>
         <Wrapper>
           <div className='contentsWrapper'>
-            <div className='titleText'>SURROMIND<div className='upperCharacter'>TM</div>&nbsp;&nbsp;&nbsp;AI Studio</div>
+            <div className='titleText'>SURROMIND™ AI Studio</div>
             <div className='mainText'>
               코딩없는 개발환경을 제공하는 All-in-One 인공지능 플랫폼으로 인공지능 개발과<br/>
               사업모델에 적용할 수 있습니다. 
@@ -97,7 +97,7 @@ class MainAIPlatform extends Component {
 
         <WrapperMobile>
           <div className='contentsWrapper'>
-            <div className='titleText'>SURROMIND<div className='upperCharacter'>TM</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI Studio</div>
+            <div className='titleText'>SURROMIND™ AI Studio</div>
             <div className='mainText'>
               코딩없는 개발환경을 제공하는 All-in-One 인공지능 플랫폼으로 인공지능 개발과<br/>
               사업모델에 적용할 수 있습니다. 
@@ -201,17 +201,6 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: -2.02px;
     color: #000000;
-
-    position: relative;
-    
-    .upperCharacter { 
-      font-family: ${constants.INTER_FONT};
-      font-size: 20px;
-      font-weight: 700;
-      position: absolute;
-      top: 0;
-      left: 350px;
-    }
   }
 
   .mainText {
@@ -393,7 +382,6 @@ const Wrapper = styled.div`
 `;
 
 
-
 const WrapperMobile = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -408,7 +396,7 @@ const WrapperMobile = styled.div`
   }
 
   .contentsWrapper {
-    width: 95%;
+    width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
     margin: 0 auto;
     padding: 50px 0;
   }
@@ -425,15 +413,6 @@ const WrapperMobile = styled.div`
     line-height: normal;
     letter-spacing: -0.82px;
     color: #000;
-
-    .upperCharacter { 
-      font-family: ${constants.INTER_FONT};
-      font-size: 10px;
-      font-weight: 700;
-      position: absolute;
-      top: 0;
-      left: 135px;
-    }
   }
 
   .mainText {

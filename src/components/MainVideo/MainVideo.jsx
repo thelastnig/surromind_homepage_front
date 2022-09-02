@@ -33,12 +33,16 @@ class MainVideo extends Component {
             />
           </div>
           <div className="videoWrapperMobile">
-            <ReactPlayer 
-              url='https://www.youtube.com/watch?v=6VwO4SXKxi4'
-              width="100%"
-              controls={true}
-              onStart={this.clickButton}
-            />
+            <div className="playerWrapper">
+              <ReactPlayer 
+                url='https://www.youtube.com/watch?v=6VwO4SXKxi4'
+                width="100%"                  
+                height="100%"
+                className="reactPlayer"
+                controls={true}
+                onStart={this.clickButton}
+              />
+            </div>
           </div>
         </div>
       </Wrapper>
@@ -75,11 +79,22 @@ const Wrapper = styled.div`
   }
 
   .videoWrapperMobile {
-    width: 100%;
+    width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
     margin: 0 auto;
     margin-top: 34px;
     margin-bottom: 40px;
     display: none;
+
+    .playerWrapper {
+      position: relative;
+      padding-top: 56.25%; 
+    }
+    
+    .reactPlayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: block;

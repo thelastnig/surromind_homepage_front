@@ -103,12 +103,16 @@ class CompanyInfo extends Component {
               />
             </div>
             <div className="videoWrapperMobile">
-              <ReactPlayer 
-                url='https://www.youtube.com/watch?v=YTlQ2ZzLR04'
-                width="100%"
-                controls={true}
-                onStart={this.clickButton}
-              />
+              <div className="playerWrapper">
+                <ReactPlayer 
+                  url='https://www.youtube.com/watch?v=YTlQ2ZzLR04'
+                  width='100%'
+                  height="100%"
+                  className="reactPlayer"
+                  controls={true}
+                  onStart={this.clickButton}
+                />
+              </div>
             </div>
             <div className='textWrapper'>
               <div className='titleText'>Introduction</div>
@@ -514,7 +518,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 95%;
+      width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
       height: 100%;
       margin: 0 auto;
       border: none;
@@ -532,10 +536,20 @@ const Wrapper = styled.div`
   }
 
   .videoWrapperMobile {
-    width: 100%;
-    margin: 0 auto;
-    margin: 40px 0;
+    width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
+    margin: 40px auto; 
     display: none;
+
+    .playerWrapper {
+      position: relative;
+      padding-top: 56.25%; 
+    }
+    
+    .reactPlayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
       display: block;
@@ -986,9 +1000,6 @@ const Wrapper = styled.div`
       vertical-align: middle;
       margin: 0 auto;
     }
-    
   }
-
- 
 `;
 

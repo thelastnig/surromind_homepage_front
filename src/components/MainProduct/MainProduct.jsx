@@ -76,7 +76,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 95%;
+      width: calc(100% - ${constants.MOBILE_HORIZONTAL_MARGIN}px);
       height: 100%;
       margin: 0 auto;
       border: none;
