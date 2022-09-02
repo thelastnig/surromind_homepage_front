@@ -19,6 +19,9 @@ import emailjs from 'emailjs-com';
 // GA settings
 import ReactGA from 'react-ga';
 
+// import Naver map
+// import { NaverMap, RenderAfterNavermapsLoaded } from 'react-naver-maps';
+
 const typeKorName = {
   checkedVoucher: '바우처 지원사업',
   checkedML: '머신러닝/딥러닝',
@@ -41,6 +44,20 @@ class Contact extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    const { naver } = window;
+    if (naver) {
+      const location = new naver.maps.LatLng(37.4812221, 126.9502626);
+
+      const mapOptions = {
+        center: location,
+        zoom: 17,
+      };
+      const map = new naver.maps.Map('naverMap', mapOptions);
+      new naver.maps.Marker({
+        map,
+        position: location,
+      });
+    };
   }
 
   handleChange = (event) => {
@@ -161,7 +178,7 @@ class Contact extends Component {
 
   render() {
     const { company, name, email, phone, content, type } = this.state;
-    
+   
     return (
     <>
     <HeaderImageWrapper>
@@ -310,7 +327,7 @@ class Contact extends Component {
         </div>
 
         <div className='mapWrapper'>
-          <img src={mapImage} alt='mapImage' />
+          <div id='naverMap' className='mapInnerWrapper' />
         </div>
       </div>
     </Wrapper>
@@ -616,10 +633,12 @@ const Wrapper = styled.div`
 
   .mapWrapper {
     width: 100%;
+    height: 700px;
     margin: 110px 0;
 
-    img {
+    .mapInnerWrapper {
       width: 100%;
+      height: 100%;
     }
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
