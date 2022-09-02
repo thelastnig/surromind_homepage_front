@@ -642,7 +642,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      height: 180px;
+      height: 270px;
       margin: 40px 0;
     }
   }
