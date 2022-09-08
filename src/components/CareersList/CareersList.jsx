@@ -79,7 +79,7 @@ class CareersList extends Component {
           {/* <div className="hiddenRecruitItem"><img src={recruit_web} alt='recruit_web' /></div>     */}
           {/* <div className="hiddenRecruitItem"><img src={recruit_account} alt='recruit_account' /></div>            */}
           {/* <div className="hiddenRecruitItem"><img src={recruit_admin} alt='recruit_admin' /></div>           */}
-          <div className="hiddenRecruitItem"><img src={recruit_finance} alt='recruit_finance' /></div>       
+          {/* <div className="hiddenRecruitItem"><img src={recruit_finance} alt='recruit_finance' /></div>        */}
           <div className="hiddenRecruitItem"><img src={recruit_meta} alt='recruit_meta' /></div>        
           <div className="pamphlet hidden"><a href={smartFairPamphlet}></a></div>
           <div className="siteArea">
