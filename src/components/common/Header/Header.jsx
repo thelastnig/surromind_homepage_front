@@ -9,10 +9,6 @@ import * as constants from '../../../lib/constants';
 // import images
 import surroLogo from '../../../images/surromind_logo_new.png';
 
-import rndContents from '../../../lib/rnd';
-import projectContents from '../../../lib/project';
-import ProjectList from '../../ProjectList';
-
 import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
@@ -51,46 +47,22 @@ class Header extends Component {
       toggleSidebar
     } = this.props;
 
-    let MenuName = "";
-    let SubUrl = "";
-    let subMenuName = "";
-    if (menu === 'news') {
-      MenuName = "News";
-      SubUrl = "/surromindnews/list/1";
-      subMenuName = "Surromind News"
-    } else if (menu === 'company') {
-      MenuName = "Who we are";
-      SubUrl = "";
-      subMenuName = "Who we are";
-    } else if (menu === 'rnd') {
-      MenuName = "R&D";
-      SubUrl = "/rnd/list/1";
-    } else if (menu === 'project') {
-      MenuName = "Project";
-      SubUrl = "/project/list/1";
-    } else if (menu === 'careers') {
-      MenuName = "Careers";
-      SubUrl = "/careers/list/1";
-      subMenuName = "Careers";
-    } else if (menu === 'contact') {
-      MenuName = "Contact";
-      SubUrl = "/contact";
-      subMenuName = "Contact";
+    let subMenuInfo = [];
+    if (menu === 'solution') {
+      subMenuInfo = [
+        {
+          name: 'SURROVISION™ Inspection',
+          url: '/solution/inspection'
+        },
+        {
+          name: 'SURROMIND™ PHM​',
+          url: '/solution/phm'
+        },
+      ]
     } 
 
-    const subMeunWrapper = <div className="centerLeftText" onClick={() => this.handleMenuClick(SubUrl)}>{MenuName}</div>
-    const subMenu = <div className="centerRightText" onClick={() => this.handleMenuClick(SubUrl)}>{subMenuName}</div>
-
-    const rndLists = rndContents.map((item, index) => {
-      return (
-        <div className="centerRightText" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
-      )
-    })
-
-    const projectLists = projectContents.map((item, index) => {
-      return (
-        <div className="centerRightText kor" key={index} onClick={() => this.handleMenuClick(item.url)}>{item.titleS}</div>
-      )
+    const subMeunWrapper = subMenuInfo.map((subMenu, index) => {
+      return <div className="subMenu" key={index} onClick={() => this.handleMenuClick(subMenu.url)}>{subMenu.name}</div>
     })
     return (
       <HeaderWrapper>
@@ -118,13 +90,13 @@ class Header extends Component {
                     <div className="styledLink" onClick={() => this.handleMenuClick('/Platform')}>Platform</div> 
                   </div>
                   <div className="barMenu" 
-                      // onMouseOver={() => this.handleMouseOver("company")}
-                      // onMouseOut={this.handleMouseOut}
+                      onMouseOver={() => this.handleMouseOver("solution")}
+                      onMouseOut={this.handleMouseOut}
                   >
-                    <div className="styledLink" onClick={() => this.handleMenuClick('/')}>Solutions</div> 
+                    <div className="styledLink">Solutions</div> 
                   </div>
                   <div className="barMenu" 
-                      // onMouseOver={() => this.handleMouseOver("rnd")}
+                      // onMouseOver={() => this.handleMouseOver("solution")}
                       // onMouseOut={this.handleMouseOut}
                   >
                     <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
@@ -163,16 +135,7 @@ class Header extends Component {
                               onMouseOut={this.handleMouseOut}>
           <div className="lowerHeaderInnerWrapper">
             <div className="subItemWrapper">
-              {/* <div className="leftItem"></div> */}
-              <div className={"centerItem " + menu}>
-                <div className="centerLeftItem">
-                  {subMeunWrapper}
-                </div>
-                <div className="centerRightItem">
-                  {menu === 'rnd' ? rndLists: (menu === 'project' ? projectLists : subMenu)}
-                </div>
-              </div>
-              <div className="rightItem"></div>
+                {subMeunWrapper}
             </div>
           </div>
         </SubHeadInnerWrapper>
@@ -354,17 +317,15 @@ const HeaderInnerWrapper = styled.div`
 
 const SubHeadInnerWrapper = styled.div`
   display: none;
-  width: 100%;
-
-  background: rgba(247, 247, 247, 1);
+  width: ${constants.LIMIT_WIDTH}px;
+  margin: 0 auto;
 
   .lowerHeaderInnerWrapper {
-    width: ${constants.LIMIT_WIDTH}px;
-    margin: 0 auto;
-
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      width: 100%;
-    } 
+    width: 250px;
+    height: 100px;
+    background: white;
+    margin-left: 1185px;
+    box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.03);
   }
 
   ${props => props.isSubSectionVisible && `
@@ -376,80 +337,28 @@ const SubHeadInnerWrapper = styled.div`
   `}
 
   .subItemWrapper {
-    width: 2000px;
-    height: ${constants.HEADER_HEIGHT * 2}px;
-    margin: 0 auto;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    @media (max-width: ${constants.MOBILE_WIDTH}px) {
-      display: none;
-    };
-  }
-
-  .centerItem {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-
-    &.news {
-      margin-left: 452px;
-    }
-
-    &.company {
-      margin-left: 788px;
-    }
-
-    &.rnd {
-      margin-left: 942px;
-    }
-
-    &.careers {
-      margin-left: 1144px;
-    }
-
-    &.contact {
-      margin-left: 1346px;
-    }
   }
 
-  .centerLeftItem {
-    width: 20%;
+  .subMenu {
+    margin-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    
+    font-family: ${constants.INTER_FONT};
+    font-size: 14px;
+    font-stretch: normal;
+    text-decoration: none;
+    
+    color: #070304;
 
-    .centerLeftText {
-      font-size: 20px;
-      font-weight: 500;
-      color: ${constants.POINT_COLOR};
-      padding: 0px 15px;
-      text-align: right;
-      border-right: 2px solid ${constants.POINT_COLOR};
-      cursor: pointer;
-    }
-  }
-
-  .centerRightItem {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    .centerRightText {
-      font-size: 13px;;
-      color: ${constants.POINT_COLOR};
-      font-weight: 500;
-      text-align: center;
-      margin-left: 30px;
-      cursor: pointer;
-      padding-bottom: 2px;
-      font-family: ${constants.APPLE_FONT};
-
-      &:hover {
-        border-bottom: 1px solid ${constants.POINT_COLOR};
-      }
+    &:hover {
+      color: #FF5000;
     }
   }
 

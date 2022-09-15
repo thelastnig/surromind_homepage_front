@@ -22,4 +22,6 @@ export { default as AdminNewsViewPage } from './AdminNewsViewPage';
 export { default as AdminBannerPage } from './AdminBannerPage';
 export { default as AIStudioEventPage } from './AIStudioEventPage';
 export { default as PlatformPage } from './PlatformPage';
+export { default as InspectionPage } from './InspectionPage';
+export { default as PHMPage } from './PHMPage';
 export { default as NotFoundPage } from './NotFoundPage';

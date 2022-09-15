@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Router, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { MainPage, CompanyInfoPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, PlatformPage,
+import { MainPage, CompanyInfoPage, NewsListPage, NewsViewPage, ProjectListPage, ProjectViewPage, RNDListPage, RNDViewPage, PlatformPage, InspectionPage, PHMPage,
   CareersListPage, CareersViewPage, ContactPage, VoucherPage, AIStudioEventPage, Voucher2022Page, DataVoucher2022Page, SmartTechKorea2022Page, NextRise2022Page,
   AdminPage, AdminNewsPage, AdminNewsListPage, AdminNewsViewPage, AdminBannerPage, AdminLoginPage, NotFoundPage } from '../pages';
 import styled from 'styled-components';
@@ -49,6 +49,8 @@ const Root = (props) => {
               <Route exact path="/" render={() => <MainPage {...props} history={browserHistory}/>}/>
               <Route exact path="/company/aboutus" component={CompanyInfoPage} history={browserHistory}/>
               <Route exact path="/platform" component={PlatformPage} history={browserHistory}/>
+              <Route exact path="/solution/inspection" component={InspectionPage} history={browserHistory}/>
+              <Route exact path="/solution/phm" component={PHMPage} history={browserHistory}/>
               <Route exact path="/project/list/:page" component={ProjectListPage} history={browserHistory}/>
               <Route exact path="/project/content/:projectID" component={ProjectViewPage} history={browserHistory}/>
               <Route exact path="/rnd/list/:page" component={RNDListPage} history={browserHistory}/>
@@ -61,8 +63,8 @@ const Root = (props) => {
               <Route exact path="/exhibition/2022_02" component={SmartTechKorea2022Page} history={browserHistory}/>
               <Route exact path="/exhibition/2022_03" component={NextRise2022Page} history={browserHistory}/>
               <Route exact path="/admin" component={AdminLoginPage} history={browserHistory}/>
-              <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/>
-              <Route exact path="/event01" component={AIStudioEventPage} />
+              {/* <Route exact path="/aistudioevent" component={MainPage} history={browserHistory}/> */}
+              {/* <Route exact path="/event01" component={AIStudioEventPage} /> */}
               <Route path="/contact" component={ContactPage} history={browserHistory}/>
               {
               isLogin

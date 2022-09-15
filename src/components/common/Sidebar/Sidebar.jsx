@@ -38,6 +38,15 @@ class Sidebar extends Component {
             <div className="styledLink" onClick={() => this.handleMenuClick('/Platform')}>Platform</div> 
           </div>
           <div className="barMenu">
+            <div className="styledLink">Solutions</div>
+            <div className="subBarMenu">
+              <div className="styledLink sub" onClick={() => this.handleMenuClick('/solution/inspection')}>SURROVISION™ Inspection</div> 
+            </div>
+            <div className="subBarMenu">
+              <div className="styledLink sub" onClick={() => this.handleMenuClick('/solution/phm')}>SURROMIND™ PHM​</div> 
+            </div>
+          </div>
+          <div className="barMenu">
             <div className="styledLink" onClick={() => this.handleMenuClick('/rnd/list/1')}>R&#38;D</div> 
           </div>
           <div className="barMenu">
@@ -98,6 +107,9 @@ const SidebarInnerWrapper = styled.div`
       margin-bottom: 16px;
     }
 
+    .subBarMenu {
+    }
+
     .styledLink {
       font-family: ${constants.INTER_FONT};
       font-size: 22px;
@@ -110,15 +122,16 @@ const SidebarInnerWrapper = styled.div`
         font-weight: 500;
       }
 
+      &.sub {
+        font-size: 16px;
+        margin-top: 15px;
+        margin-left: 15px;
+
+      }
+
       &:hover {
         color: ${constants.POINT_COLOR};
       }
     }
   }
-
-  .styledLink {
-    color: black;
-    cursor: pointer;
-  }
-
 `;
