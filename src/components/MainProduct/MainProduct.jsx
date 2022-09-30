@@ -34,21 +34,21 @@ class MainProduct extends Component {
           <div className="contentsWrapper">
             <div className="titleText">PRODUCT</div>
             <div className="itemWrapper">
-              <div className='item'>
+              <div className='item' onClick={() => this.handleClick('/platform')}>
                 <div className='itemText'>SURROMIND™ AI Studio</div>
                 <div className='itemSubText'>손쉬운 인공지능 개발/운영 플랫폼</div>
                 <div className='itemImage'>
                   <img src={productMainStudio} width='330px' alt='productMainStudio'/>
                 </div>
               </div>
-              <div className='item middle'>
+              <div className='item middle' onClick={() => this.handleClick('/solution/inspection')}>
                 <div className='itemText'>SURROVISION™ Inspection</div>
                 <div className='itemSubText'>인공지능 머신 비전 솔루션</div>
                 <div className='itemImage'>
                   <img src={productMainInspection} width='330px' alt='productMainInspection'/>
                 </div>
               </div>
-              <div className='item'>
+              <div className='item' onClick={() => this.handleClick('/solution/phm')}>
                 <div className='itemText'>SURROMIND™ PHM​</div>
                 <div className='itemSubText'>인공지능 예지보전 솔루션​</div>
                 <div className='itemImage'>
@@ -123,6 +123,7 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
 
       @media (max-width: ${constants.MOBILE_WIDTH}px) {
         width: 100%;

@@ -87,7 +87,7 @@ class Header extends Component {
                       // onMouseOver={() => this.handleMouseOver("company")}
                       // onMouseOut={this.handleMouseOut}
                   >
-                    <div className="styledLink" onClick={() => this.handleMenuClick('/Platform')}>Platform</div> 
+                    <div className="styledLink" onClick={() => this.handleMenuClick('/platform')}>Platform</div> 
                   </div>
                   <div className="barMenu" 
                       onMouseOver={() => this.handleMouseOver("solution")}

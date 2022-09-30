@@ -43,7 +43,7 @@ class MainRNDnew extends Component {
             <div className="itemWrapper">
               <div className='item vqa'>
                 <div className='itemText'>영상/언어 복합지능</div>
-                <div className='itemSubText'>손쉬운 인공지능 개발/운영 플랫폼</div>
+                <div className='itemSubText'>인공지능으로 영상과 언어 종합 분석</div>
               </div>
               <div className='item auto middle'>
                 <div className='itemText'>로봇 실내 자율 주행</div>
@@ -51,7 +51,7 @@ class MainRNDnew extends Component {
               </div>
               <div className='item human'>
                 <div className='itemText'>휴먼 로봇 인터랙션​</div>
-                <div className='itemSubText'>인공지능으로 영상과 언어 종합 분석​</div>
+                <div className='itemSubText'>HRI, 서비스 로봇 핵심 기술​</div>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ class MainRNDnew extends Component {
                 </div>
                 <div className='itemTextWrapper'>
                   <div className='itemTextMobile'>영상/언어 복합지능</div>
-                  <div className='itemSubTextMobile'>손쉬운 인공지능 개발/운영 플랫폼</div>
+                  <div className='itemSubTextMobile'>인공지능으로 영상과 언어 종합 분석</div>
                 </div>
               </div>
               <div className='itemMobile middle'>
@@ -82,7 +82,7 @@ class MainRNDnew extends Component {
                 </div>
                 <div className='itemTextWrapper'>
                   <div className='itemTextMobile'>휴먼 로봇 인터랙션​</div>
-                  <div className='itemSubTextMobile'>인공지능으로 영상과 언어 종합 분석​</div>
+                  <div className='itemSubTextMobile'>HRI, 서비스 로봇 핵심 기술​</div>
                 </div>
               </div>
             </div>
