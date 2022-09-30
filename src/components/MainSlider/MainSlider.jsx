@@ -117,30 +117,30 @@ class MainSlider extends Component {
     let slides = [];
     slides = banners.map((banner, index) => {
       let bannerUrl = '/';
-      if (index === 0) {
+      if (index == 0) {
         bannerUrl = '/platform';
-      } else if (index === 1) {
+      } else if (index == 1) {
         bannerUrl = '/solution/inspection';
-      } else if (index === 2) {
+      } else if (index == 2) {
         bannerUrl = '/solution/phm';
       }
       return (
 
-        // index == 0
-        // ?          
-        // <div className='eachSlide' key={index}>
-        //   <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
-        //     <img src={banner.mobile} className='mobile'/>
-        //     {/* <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_03')}/> */}
-        //   </MediaQuery>
-        //   <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
-        //     <img src={banner.desktop} className="desktop" useMap="#button"/>
-        //     {/* <map name="button">
-        //       <area className="areaMap" shape='rect' coords='1634,351,1843,400' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_03')}></area>
-        //     </map> */}
-        //   </MediaQuery>
-        // </div>
-        // :
+        index == 0
+        ?          
+        <div className='eachSlide' key={index} onClick={() => this.handleButtonClick(bannerUrl)}>
+          <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
+            <img src={banner.mobile} className='mobile'/>
+            {/* <img src={banner.mobile} className='mobile' onClick={() => this.handleButtonClick('/exhibition/2022_03')}/> */}
+          </MediaQuery>
+          <MediaQuery minWidth={parseInt(constants.MOBILE_WIDTH) + 1}>
+            <img src={banner.desktop} className="desktop" useMap="#button"/>
+            {/* <map name="button">
+              <area className="areaMap" shape='rect' coords='1634,351,1843,400' alt='pamphletButton' onClick={() => this.handleButtonClick('/exhibition/2022_03')}></area>
+            </map> */}
+          </MediaQuery>
+        </div>
+        :
         <div className='eachSlide' key={index} onClick={() => this.handleButtonClick(bannerUrl)}>
           <MediaQuery maxWidth={parseInt(constants.MOBILE_WIDTH)}>
             <img src={banner.mobile} className='mobile'/>
